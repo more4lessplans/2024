@@ -407,26 +407,41 @@ var countupInit = function countupInit() {
 |  Navbar
 -----------------------------------------------*/
 
-var navbarInit = function navbarInit() {
+var navbarInit = function() {
   var navbar = document.querySelector('[data-navbar-soft-on-scroll]');
   if (navbar) {
     var windowHeight = window.innerHeight;
-    var handleAlpha = function handleAlpha() {
+    var handleAlpha = function() {
       var scrollTop = window.scrollY;
       var alpha = scrollTop / windowHeight * 2;
       alpha >= 1 && (alpha = 1);
-      navbar.style.backgroundColor = "rgba(49, 60, 89, ".concat(alpha, ")");
+      navbar.style.backgroundColor = "rgba(49, 60, 89, " + alpha + ")";
     };
     handleAlpha();
-    document.addEventListener('scroll', function () {
-      return handleAlpha();
+    document.addEventListener('scroll', function() {
+      handleAlpha();
     });
   }
+
+  // Handle closing navbar when main menu items are clicked
   var navbarNav = document.querySelector('[data-navbar-nav]');
-  navbarNav.addEventListener('click', function (event) {
-    if (event.target.closest('li')) {
-      var navbarToggler = document.querySelector('[data-bs-toggle]');
-      var navbarItemContainer = document.querySelector('[data-navbar-collapse]');
+  navbarNav.addEventListener('click', function(event) {
+    var clickedElement = event.target;
+
+    // Check if the clicked element is within a main menu item (li.nav-item)
+    var isMainMenuItem = clickedElement.closest('.nav-item');
+
+    // Check if the clicked element is a dropdown toggle or dropdown menu item
+    var isDropdownToggle = clickedElement.closest('.dropdown-toggle');
+    var isDropdownMenu = clickedElement.closest('.dropdown-menu');
+
+    // Check if the navbar collapse container is currently shown
+    var navbarItemContainer = document.querySelector('.navbar-collapse');
+    var isNavbarOpen = navbarItemContainer.classList.contains('show');
+
+    // Close the navbar only if a main menu item is clicked and the navbar is currently open
+    if (isMainMenuItem && isNavbarOpen && !isDropdownToggle && !isDropdownMenu) {
+      var navbarToggler = document.querySelector('.navbar-toggler');
       navbarToggler.setAttribute('aria-expanded', false);
       navbarItemContainer.classList.remove('show');
       navbarToggler.classList.add('collapsed');
@@ -434,8 +449,9 @@ var navbarInit = function navbarInit() {
   });
 };
 
-
-
+document.addEventListener('DOMContentLoaded', function() {
+  navbarInit();
+});
 
 
 

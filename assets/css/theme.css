@@ -378,7 +378,7 @@
   --brainwaveio-dropdown-link-hover-color-global: #464646;
   --brainwaveio-dropdown-link-hover-bg-global: #f9fafd;
   --brainwaveio-popover-header-bg-global: #f9fafd;
-  --brainwaveio-top-nav-height: 4rem;
+  --brainwaveio-top-nav-height: 60rem;
   --brainwaveio-toast-bg-global: rgba(255, 255, 255, 0.85);
   --brainwaveio-toast-header-bg-global: rgba(255, 255, 255, 0.85);
   --brainwaveio-list-group-bg-global: var(--brainwaveio-emphasis-bg);
@@ -489,6 +489,11 @@
 /*-----------------------------------------------
 |   Bootstrap Styles
 -----------------------------------------------*/
+
+
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
 *,
 *::before,
 *::after {
@@ -4645,6 +4650,48 @@ textarea.form-control-lg {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+
+
+
+/* Adjustments for navbar and dropdown */
+.navbar {
+  background-color: #35465d; /* Adjust background color as needed */
+}
+
+.navbar-toggler {
+  border-color: transparent; /* Remove border color */
+}
+
+.nav-link {
+  color: #ffffff; /* Text color for links */
+  padding: 0.5rem 1rem; /* Adjust padding as needed */
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #ffffff; /* Text color on hover or focus */
+}
+
+.dropdown-menu {
+  background-color: #35465d; /* Background color of dropdown */
+  border: none; /* Remove borders */
+}
+
+.dropdown-item {
+  color: #ffffff; /* Text color for dropdown items */
+  padding: 0.5rem 1rem; /* Adjust padding as needed */
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #2a3a4f; /* Background color on hover or focus */
+  color: #ffffff; /* Text color on hover or focus */
+}
+
+
+
+
 
 .nav {
   --brainwaveio-nav-link-padding-x: 1rem;
