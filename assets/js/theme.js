@@ -434,36 +434,7 @@ var navbarInit = function navbarInit() {
   });
 };
 
-/*-----------------------------------------------
-|  Navbar
------------------------------------------------*/
-var navbarInit = function navbarInit() {
-  var navbar = document.querySelector('[data-navbar-blue]');
-  if (navbar) {
-    var windowHeight = window.innerHeight;
-    var handleAlpha = function handleAlpha() {
-      var scrollTop = window.scrollY;
-      var alpha = scrollTop / windowHeight * 1;
-      alpha >= 0 && (alpha = 1);
-      navbar.style.backgroundColor = "rgba(49, 60, 89, ".concat(alpha, ")");
-    };
-    handleAlpha();
-    document.addEventListener('scroll', function () {
-      return handleAlpha();
-    });
-  }
-  navbar.style.position = "fixed"; // Set navbar position to fixed
-  var navbarNav = document.querySelector('[data-navbar-nav]');
-  navbarNav.addEventListener('click', function (event) {
-    if (event.target.closest('li')) {
-      var navbarToggler = document.querySelector('[data-bs-toggle]');
-      var navbarItemContainer = document.querySelector('[data-navbar-collapse]');
-      navbarToggler.setAttribute('aria-expanded', false);
-      navbarItemContainer.classList.remove('show');
-      navbarToggler.classList.add('collapsed');
-    }
-  });
-};
+
 
 
 
