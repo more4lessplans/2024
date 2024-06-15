@@ -403,8 +403,30 @@ var countupInit = function countupInit() {
   }
 };
 
+
+
+
+
+
+
+
 /*-----------------------------------------------
-|  Navbar
+|  Fixed Navbar
+-----------------------------------------------*/
+
+
+// Example JavaScript to check if any script is modifying the navbar background color
+var navbar = document.getElementById('navbar');
+var computedStyles = window.getComputedStyle(navbar);
+
+console.log(computedStyles.backgroundColor); // Check the computed background color
+
+// If it shows #35465d, then the CSS is applying correctly
+// If not, investigate further for other scripts or CSS rules overriding it
+
+
+/*-----------------------------------------------
+|  Responsive Navbar
 -----------------------------------------------*/
 
 var navbarInit = function() {
