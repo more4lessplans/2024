@@ -445,6 +445,44 @@ var navbarInit = function() {
     });
   }
 
+
+  var navbarInit = function() {
+    var navbar = document.querySelector('[data-navbar-soft-on-scroll]');
+    if (navbar) {
+      var windowHeight = window.innerHeight;
+      var handleAlpha = function() {
+        var scrollTop = window.scrollY;
+        var alpha = scrollTop / windowHeight * 2;
+        alpha >= 1 && (alpha = 1);
+    
+        // Update navbar background color dynamically
+        navbar.style.backgroundColor = "rgba(49, 60, 89, " + alpha + ")";
+    
+        // Calculate text color dynamically based on alpha
+        var itemColor = alpha > 0.5 ? "#ffffff" : "#313C59"; // Change to #ffffff when alpha is high enough
+    
+        // Update dropdown item text color and background color dynamically
+        var dropdownItems = document.querySelectorAll('.navbar .dropdown-item');
+        dropdownItems.forEach(function(item) {
+          item.style.color = itemColor;
+          item.style.backgroundColor = alpha > 0.5 ? "#313C59" : "transparent"; // Set background color to #313C59 when alpha is high enough
+        });
+      };
+    
+      // Initial call to set styles based on current scroll position
+      handleAlpha();
+    
+      // Event listener for scroll to update styles dynamically
+      document.addEventListener('scroll', function() {
+        handleAlpha();
+      });
+    }
+  };
+  
+  // Initialize navbar behavior
+  navbarInit();
+
+
   // Handle closing navbar when main menu items are clicked
   var navbarNav = document.querySelector('[data-navbar-nav]');
   navbarNav.addEventListener('click', function(event) {
