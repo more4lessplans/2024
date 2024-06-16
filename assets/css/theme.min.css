@@ -59,7 +59,12 @@
 }
 
 
-
+/* Remove box highlighting on dropdown toggle focus and active */
+.navbar .dropdown-toggle:focus,
+.navbar .dropdown-toggle:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
 
 
 
