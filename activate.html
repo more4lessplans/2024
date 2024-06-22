@@ -30,8 +30,8 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
   <style>
-    /* Custom CSS */
-    .navbar {
+ /* Custom CSS */
+ .navbar {
       background-color: black !important;
     }
 
@@ -51,7 +51,7 @@
 
     /* Responsive Title Size */
     h2.fs-lg-3 {
-      font-size: 2rem; /* Default size for larger screens */
+      font-size: 3rem; /* Default size for larger screens */
     }
 
     @media (max-width: 576px) {
@@ -60,7 +60,7 @@
       }
 
       h2.fs-lg-3 {
-        font-size: 1.5rem; /* Smaller font size for mobile view */
+        font-size: 4rem; /* 2X larger font size for mobile view */
       }
     }
   </style>
@@ -134,11 +134,51 @@
             </div>
           </div>
           <div class="col-12 col-lg-6 col-xl-5 order-lg-2">
-            <img class="img-fluid" src="assets/img/Hero/Collaborator.webp" alt="" />
+            <img class="img-fluid" src="assets/img/Hero/active.png" alt="" />
           </div>
         </div>
       </section>
 
+      <style>
+        @media (max-width: 970px) {
+          .mobile-reorder-image {
+            order: 2 !important;
+          }
+          .mobile-reorder-title {
+            order: 1 !important;
+          }
+        }
+      </style>
+      
+      <section class="container mb-8 mb-lg-13 mx-auto text-center">
+        <div class="row align-items-center">
+          <div class="col-12 col-lg-6 col-xl-5 order-1 order-lg-1 mobile-reorder-image">
+            <img class="img-fluid" src="assets/img/Hero/sim.png" alt="" />
+          </div>
+          <div class="col-12 col-lg-6 col-xl-7 order-2 order-lg-2 mobile-reorder-title">
+            <div class="row justify-content-center justify-content-lg-start">
+              <div class="col-sm-10 col-md-8 col-lg-11">
+                <br><br>
+                <h2 class="fs-lg-3 fw-bold">Activate Your SIM Card</h2>
+                <br>
+                <p>Just so you know, our system isn't fully automated yet, so activation usually takes just a few business hours, often even faster!</p>
+                <br>
+                <div class="d-grid" style="width: 70%; margin: 0 auto;">
+                  <button class="btn btn-lg btn-primary lh-xl mb-1" onclick="window.location.href='javascript:void(0)'"
+                    data-cb-type="checkout" data-cb-plan-id="platinum">Activate</button>
+                  <br>
+                </div>
+              </div>
+              <div class="col-12">
+                <!-- Additional content if needed -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+      
       <!-- Footer -->
       <footer class="pt-7 pt-lg-8">
         <div class="container">

@@ -60,7 +60,7 @@
                 <li class="nav-item"><a class="nav-link lh-xl" href="#pricing">Pricing</a></li>
                 <li class="nav-item"><a class="nav-link lh-xl" href="#contact">Contact</a></li>
                 <li class="nav-item"><a class="nav-link lh-xl" href="/mobility">Mobility</a></li>
-                <li class="nav-item"><a class="nav-link lh-xl" href="/faq">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link lh-xl" href="#question">FAQ</a></li>
               </ul>
             </div>
           </div>
@@ -168,7 +168,7 @@
                 <div class="col-12">
                   <div class="position-relative z-1 text-center mb-8 mb-lg-9 video-player-paused" data-video-player-container="data-video-player-container"><video class="w-100 h-100 rounded-4" src="assets/video/Tech_video.mp4" poster="assets/img/Hero/experiences.webp" type="video/mp4" data-video-player="data-video-player"></video>
                     <div class="overlay position-absolute top-0 bottom-0 start-0 end-0 rounded-4 bg-1100 object-cover" data-overlay="data-overlay"> </div><button class="btn play-button position-absolute justify-content-center align-items-center bg-white rounded-circle cursor-pointer" data-play-button="data-play-button"> <img class="play-icon w-25" src="assets/img/illustrations/play-solid.svg" alt="" data-play-icon="data-play-icon" /><img class="pause-icon w-25" src="assets/img/illustrations/pause-solid.svg" alt="" data-pause-icon="data-pause-icon" /></button>
-                    <div class="position-absolute dots d-none d-sm-block"><img class="img-fluid w-100" src="assets/img/illustrations/Dots.webp" alt="" /></div>
+                    
                   </div>
                 </div>
                 <div class="col-md-8 col-lg-7">
@@ -247,7 +247,7 @@
               </div>
             </div>
           </section>
-          <section class="bg-1100">
+          <section class="bg-1100"id="question">
             <div class="container">
               <div class="row py-8 py-md-10 py-lg-11">
                 <div class="col-lg-6">
@@ -318,23 +318,133 @@
                 <div class="col-md-8 col-lg-8">
                   <div class="row justify-content-center">
                     <div class="col-12 col-lg-10">
-                      <h2 class="fs-4 fs-lg-3 fw-bold text-center mb-2 lh-sm">Stay Connected</h2>
-                      <p class="fs-8 mb-5 mb-lg-6 text-center lh-lg fw-normal"> Subscribe to our monthly newsletter to keep up with industry developments.</p>
+                      <h2 class="fs-4 fs-lg-3 fw-bold text-center mb-2 lh-sm">Wireless Service Eligibility</h2>
+                      <p class="fs-8 mb-5 mb-lg-6 text-center lh-lg fw-normal"> Check The Availability in Your Area</p>
                     </div>
                     <div class="col-10 col-lg-7">
-                      <form method="POST" onsubmit="return false;">
-                        <div class="mb-2 w-100"><input class="form-control email-input" id="email" type="email" placeholder="" required="required" /></div>
-                        <div class="d-grid"><button class="btn btn-lg btn-primary lh-xl mb-x1" type="submit"> Subscribe </button></div>
-                      </form>
+                  
+                      
+
+
+
+
+
+
+                      <style>
+                        /* CSS for spacing and centering */
+                        .form-container {
+                            max-width: 400px; /* Adjust max-width as per your design */
+                            margin: 0 auto; /* Center the form horizontally */
+                            text-align: center; /* Center text inside the container */
+                            padding: 20px; /* Add padding for spacing */
+                        }
+                    
+                        .form-container form {
+                            margin-bottom: 20px; /* Add space below the form */
+                        }
+                    
+                        .result-container {
+                            display: none; /* Initially hide the result container */
+                            margin-top: 10px; /* Add margin on top of the result text */
+                        }
+                    
+                        .result {
+                            font-weight: bold; /* Make the result text bold */
+                            color: #0000; /* Adjust link color */
+                            font-size: 2rem; /* Adjust the font size as needed */
+                        }
+                    
+                        .more-info {
+                            margin-top: 10px; /* Add spacing above the link */
+                            display: none; /* Initially hide the more info link */
+                        }
+                    
+                        .more-info a {
+                            color: #313c597b; /* Adjust link color */
+                            font-style: italic;
+                            text-decoration: none; /* Remove underline */
+                            cursor: pointer;
+                        }
+                    </style>
+                    
+                    <div class="form-container">
+                        <form id="address-form">
+                            <input class="form-control email-input mb-2" type="text" id="address" name="address" placeholder="Enter Address" required>
+                            <div class="d-grid">
+                                <button class="btn btn-lg btn-primary lh-xl" type="submit">Check Coverage</button>
+                            </div>
+                        </form>
+                        <div class="result-container" id="result-container">
+                            <div class="result" id="result"></div>
+                            <div class="more-info" id="more-info">
+                                <a href="/coveragetool">Get a Speed Estimate</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNt4XeQ5roadq0L-IpadA6s9e4CPm9FwI&libraries=places"></script>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const input = document.getElementById('address');
+                            const autocomplete = new google.maps.places.Autocomplete(input);
+                    
+                            document.getElementById('address-form').addEventListener('submit', function(event) {
+                                event.preventDefault();
+                                const address = input.value;
+                                checkAddressCoverage(address);
+                            });
+                        });
+                    
+                        function checkAddressCoverage(address) {
+                            const geocoder = new google.maps.Geocoder();
+                            geocoder.geocode({ 'address': address }, function(results, status) {
+                                if (status === 'OK') {
+                                    const result = results[0];
+                                    const country = result.address_components.find(component => component.types.includes('country')).short_name;
+                                    const resultText = country === 'CA' ? 'Service Available' : 'Service Not Available';
+                                    
+                                    // Display the result
+                                    const resultContainer = document.getElementById('result-container');
+                                    const resultElement = document.getElementById('result');
+                                    resultElement.innerText = resultText;
+                                    resultContainer.style.display = 'block';
+                    
+                                    // Show more info link only if service is available
+                                    const moreInfoContainer = document.getElementById('more-info');
+                                    if (country === 'CA') {
+                                        moreInfoContainer.style.display = 'block';
+                                    } else {
+                                        moreInfoContainer.style.display = 'none';
+                                    }
+                                } else {
+                                    const resultElement = document.getElementById('result');
+                                    resultElement.innerText = 'Geocode was not successful for the following reason: ' + status;
+                                    const resultContainer = document.getElementById('result-container');
+                                    resultContainer.style.display = 'block';
+                                    
+                                    // Hide more info link on error
+                                    const moreInfoContainer = document.getElementById('more-info');
+                                    moreInfoContainer.style.display = 'none';
+                                }
+                            });
+                        }
+                    </script>
+
+
+
+
+
+
+
                     </div>
                     <div class="col-10 col-lg-7">
-                      <p class="text-center lh-lg mb-0">We’ll never share your details with third parties. </p>
+                  
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="position-absolute bottom-0 end-0 z-n1 d-none d-lg-block"><img src="assets/img/illustrations/Green_dots.svg" alt="" /></div>
+          
             <div class="position-relative bottom-0 start-0 z-1"><img class="img-fluid w-100" src="assets/img/illustrations/Wave_3.svg" alt="" /></div>
           </section>
         </div>
