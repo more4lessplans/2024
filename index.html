@@ -86,7 +86,7 @@
             </div>
           </section>
          
-
+<br><br>
 
 
           <section class="container mb-8 mb-lg-11">
@@ -100,7 +100,11 @@
                   <div class="col-12 col-lg-4 d-flex flex-row flex-lg-column justify-content-center gap-2 gap-sm-x1 gap-md-4 gap-lg-0">
                     <div class="timeline-step-1 w-25 w-lg-100 mb-4 mb-lg-5 mb-xl-6">
                       <div class="timeline-item d-flex justify-content-center">
-                        <div class="timeline-icon bg-primary rounded-circle d-flex justify-content-center align-items-center"><span class="fs-6 fs-lg-5 fs-xl-4 text-white"> 1</span></div>
+                        <a href="/select-hardware">
+                          <div class="timeline-icon bg-primary rounded-circle d-flex justify-content-center align-items-center">
+                              <span class="fs-6 fs-lg-5 fs-xl-4 text-white">1</span>
+                          </div>
+                      </a>
                       </div>
                     </div>
                     <div class="py-1 py-lg-0 px-lg-5 w-75 w-sm-50 w-lg-100 timeline-content">
@@ -111,7 +115,11 @@
                   <div class="col-12 col-lg-4 d-flex flex-row flex-lg-column justify-content-center gap-2 gap-sm-x1 gap-md-4 gap-lg-0">
                     <div class="timeline-step-2 w-25 w-lg-100 mb-4 mb-lg-5 mb-xl-6">
                       <div class="timeline-item d-flex justify-content-center">
-                        <div class="timeline-icon bg-primary rounded-circle d-flex justify-content-center align-items-center"><span class="fs-6 fs-lg-5 fs-xl-4 text-white"> 2</span></div>
+                        <a href="/select-hardware">
+                          <div class="timeline-icon bg-primary rounded-circle d-flex justify-content-center align-items-center">
+                              <span class="fs-6 fs-lg-5 fs-xl-4 text-white">2</span>
+                          </div>
+                      </a>
                       </div>
                     </div>
                     <div class="py-1 py-lg-0 px-lg-5 w-75 w-sm-50 w-lg-100 timeline-content">
@@ -122,7 +130,11 @@
                   <div class="col-12 col-lg-4 d-flex flex-row flex-lg-column justify-content-center gap-2 gap-sm-x1 gap-md-4 gap-lg-0">
                     <div class="timeline-step-3 position-relative z-1 overflow-hidden w-25 w-lg-100 mb-4 mb-lg-5 mb-xl-6">
                       <div class="timeline-item d-flex justify-content-center">
-                        <div class="timeline-icon bg-primary rounded-circle d-flex justify-content-center align-items-center"><span class="fs-6 fs-lg-5 fs-xl-4 text-white"> 3</span></div>
+                        <a href="/select-hardware">
+                          <div class="timeline-icon bg-primary rounded-circle d-flex justify-content-center align-items-center">
+                              <span class="fs-6 fs-lg-5 fs-xl-4 text-white">3</span>
+                          </div>
+                      </a>
                       </div>
                     </div>
                     <div class="py-1 py-lg-0 px-lg-5 w-75 w-sm-50 w-lg-100 timeline-content">
@@ -146,8 +158,8 @@
       <div class="row justify-content-left justify-content-lg-start">
         <div class="col-sm-10 col-md-8 col-lg-11">
 			
-			<br><br><br><br><br><br><br><br><br>
-       <h2 class="fs-lg-3 fw-bold" style="text-align: left; margin-left: 0;">Committed to Keeping Canada Connected.</h2><br>
+			<br><br><hr><br><br>
+      <h3 class="fs-4 fs-lg-3 fw-bold text-left mb-2 mb-lg-x1"> Committed to Keeping Canada Connected.</span></h3>
           <p class="fs-8 mb-4 mb-lg-5 lh-lg text-left text-lg-start fw-normal">With our reliable internet solutions and exceptional customer service, we ensure that Canadians stay connected wherever they are.</p>
         </div>
         <div class="col-12">
@@ -321,6 +333,13 @@
               </div>
             </div>
           </section>
+
+
+
+    <!-- ===============================================--><!--    Coverage Checker--><!-- ===============================================-->
+
+
+
           <section class="bg-300 position-relative z-0" id="contact">
             <div class="container py-8 py-lg-9">
               <div class="row justify-content-center">
@@ -333,9 +352,6 @@
                     <div class="col-10 col-lg-7">
                   
                       
-
-
-
 
 
 
@@ -359,8 +375,8 @@
                     
                         .result {
                             font-weight: bold; /* Make the result text bold */
-                            color: #000000; /* Adjust link color */
-                            font-size: 2rem; /* Adjust the font size as needed */
+                            color: #313C59; /* Adjust link color */
+                            font-size: 1.5rem; /* Adjust the font size as needed */
                         }
                     
                         .more-info {
@@ -374,6 +390,21 @@
                             text-decoration: none; /* Remove underline */
                             cursor: pointer;
                         }
+                    
+                        .checkmark {
+                            color: green;
+                            margin-right: 10px; /* Space between the icon and the text */
+                        }
+                    
+                        .crossmark {
+                            color: red;
+                            margin-right: 10px; /* Space between the icon and the text */
+                        }
+                    
+                        .errormark {
+                            color: red;
+                            margin-right: 10px; /* Space between the icon and the text */
+                        }
                     </style>
                     
                     <div class="form-container">
@@ -386,7 +417,7 @@
                         <div class="result-container" id="result-container">
                             <div class="result" id="result"></div>
                             <div class="more-info" id="more-info">
-                                <a href="/speedestimate">Get a Speed Estimate</a>
+                                <a href="/speedestimate">↪ Get a Speed Estimate</a>
                             </div>
                         </div>
                     </div>
@@ -407,39 +438,35 @@
                         function checkAddressCoverage(address) {
                             const geocoder = new google.maps.Geocoder();
                             geocoder.geocode({ 'address': address }, function(results, status) {
+                                const resultContainer = document.getElementById('result-container');
+                                const resultElement = document.getElementById('result');
+                                const moreInfoContainer = document.getElementById('more-info');
+                    
                                 if (status === 'OK') {
                                     const result = results[0];
                                     const country = result.address_components.find(component => component.types.includes('country')).short_name;
-                                    const resultText = country === 'CA' ? 'Service Available' : 'Service Not Available';
-                                    
+                                    const resultText = country === 'CA' ? '<span class="checkmark">&#10004;</span> Service Available' : '<span class="crossmark">&#10006;</span> Service Not Available';
+                    
                                     // Display the result
-                                    const resultContainer = document.getElementById('result-container');
-                                    const resultElement = document.getElementById('result');
-                                    resultElement.innerText = resultText;
+                                    resultElement.innerHTML = resultText;
                                     resultContainer.style.display = 'block';
                     
                                     // Show more info link only if service is available
-                                    const moreInfoContainer = document.getElementById('more-info');
                                     if (country === 'CA') {
                                         moreInfoContainer.style.display = 'block';
                                     } else {
                                         moreInfoContainer.style.display = 'none';
                                     }
                                 } else {
-                                    const resultElement = document.getElementById('result');
-                                    resultElement.innerText = 'Geocode was not successful for the following reason: ' + status;
-                                    const resultContainer = document.getElementById('result-container');
+                                    resultElement.innerHTML = '<span class="errormark">&#9888;</span> Invalid Address';
                                     resultContainer.style.display = 'block';
                                     
                                     // Hide more info link on error
-                                    const moreInfoContainer = document.getElementById('more-info');
                                     moreInfoContainer.style.display = 'none';
                                 }
                             });
                         }
                     </script>
-
-
 
 
 
@@ -457,6 +484,11 @@
             <div class="position-relative bottom-0 start-0 z-1"><img class="img-fluid w-100" src="assets/img/illustrations/Wave_3.svg" alt="" /></div>
           </section>
         </div>
+
+
+    <!-- ===============================================--><!--    Footer--><!-- ===============================================-->
+
+
         <footer class="pt-7 pt-lg-8">
           <div class="container">
             <div class="row gy-4 g-md-3 border-bottom pb-8 pb-lg-9 justify-content-center">

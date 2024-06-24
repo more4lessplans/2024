@@ -42,129 +42,254 @@
         
    
       
-     
+    
         <style>
-          .navbar, .navbar-nav .nav-link, .dropdown-menu, .dropdown-item, .nav-item {
-              background-color: black !important;
+          .navbar,
+          .navbar-nav .nav-link,
+          .dropdown-menu,
+          .dropdown-item,
+          .nav-item {
+            background-color: #313C59 !important;
           }
-  
-          .nav-link, .nav-item {
-              color: rgba(255, 255, 255, 0.7) !important; /* Initial text is slightly transparent */
-              transition: color 0.3s ease; /* Smooth transition for color change */
-          }
-  
-          .nav-link:hover, .nav-item:hover {
-              color: white !important; /* Fully opaque on hover */
-          }
-  
       
-      </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-md fixed-top" id="navbar" data-navbar-soft-on-scroll="data-navbar-soft-on-scroll">
-      <div class="container-fluid px-0">
-          <a href="/" class="navbar-brand"><img src="assets/img/logos/logo.png" style="width: 80px; height: 35px;" alt="logo" /></a>
-          <button class="navbar-toggler border-0 pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-md-end" id="navbar-content" data-navbar-collapse="data-navbar-collapse">
-              <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0" data-navbar-nav="data-navbar-nav">
-                  <li class="nav-item dropdown">
-                      <a class="nav-link lh-xl dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Existing Customers</a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="javascript:void(0)" data-cb-type="portal"><strong>Account Login</strong></a></li>
-                          <li><a class="dropdown-item" href="/contact"><strong>Technical Support</strong></a></li>
-                          <li><a class="dropdown-item" href="/tutorials"><strong>Tutorials</strong></a></li>
-                      </ul>
-                  </li>
-                 
-                  <li class="nav-item"><a class="nav-link lh-xl" href="/contact">Contact</a></li>
-                  <li class="nav-item"><a class="nav-link lh-xl" href="/mobility">Mobility</a></li>
-                  <li class="nav-item"><a class="nav-link lh-xl" href="/question">FAQ</a></li>
-              </ul>
-          </div>
-      </div>
-  </nav>
-
-        <div data-bs-target="#navbar" data-bs-spy="scroll" tabindex="0"></div>
-      </div>
-    </main>
-
-
-
-    <style>
-      .pricing-card {
-          width: 260px; /* Adjust width as needed */
-          white-space: nowrap; /* Prevent line breaks */
-      }
-      .pricing-card .pricing-info {
-          white-space: nowrap; /* Prevent line breaks */
-      }
-      @media (min-width: 992px) {
-          .pricing-card {
-              width: 290px; /* Increase width for larger screens */
+          .nav-link,
+          .nav-item {
+            color: rgba(255, 255, 255, 0.7) !important;
+            transition: color 0.3s ease;
           }
-      }
-  </style>
+      
+          .nav-link:hover,
+          .nav-item:hover {
+            color: white !important;
+          }
+      
+          .pricing-card {
+            width: 260px;
+            white-space: nowrap;
+          }
+      
+          .pricing-card .pricing-info {
+            white-space: nowrap;
+          }
+      
+          @media (min-width: 992px) {
+            .pricing-card {
+              width: 290px;
+            }
+          }
+        </style>
+      </head>
+      
+      <body>
+      
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-md fixed-top" id="navbar">
+          <div class="container-fluid px-0">
+            <a href="/" class="navbar-brand"><img src="assets/img/logos/logo.png" style="width: 80px; height: 35px;" alt="logo" /></a>
+            <button class="navbar-toggler border-0 pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-md-end" id="navbar-content">
+              <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0">
+                <li class="nav-item dropdown">
+                  <a class="nav-link lh-xl dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Existing Customers</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="javascript:void(0)" data-cb-type="portal"><strong>Account Login</strong></a></li>
+                    <li><a class="dropdown-item" href="/contact"><strong>Technical Support</strong></a></li>
+                   
+                  </ul>
+                </li>
+               
+                <li class="nav-item"><a class="nav-link lh-xl" href="/contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link lh-xl" href="/mobility">Mobility</a></li>
+                <li class="nav-item"><a class="nav-link lh-xl" href="/question">FAQ</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      
 
-        
-    <section class="container mb-8 mb-lg-11">
-      <br><br><br><br><br><br><br>
-      <h1 class="fs-4 fs-lg-3 fw-bold text-center mb-2 mb-lg-x1">Select Your Hardware</h1>
-      <p class="fs-8 mb-7 mb-lg-8 text-center lh-lg">Customize Your Speed: Find the Perfect Match of Hardware and Price for Your Needs</p>
-      <div class="row justify-content-center">
+
+
+        <style>
+          /* Custom CSS for Pricing Cards */
+          .pricing-card {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px; /* Adjust as needed */
+          }
+      
+          .pricing-card img {
+            max-width: 100%;
+            height: auto;
+          }
+      
+          .pricing-card p,
+          .pricing-card h2,
+          .pricing-card ul {
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+          }
+      
+          @media (min-width: 992px) {
+            .pricing-card {
+              width: 100%; /* Cards are full width on medium screens */
+            }
+          }
+      
           
-          <div class="col-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
-              <div class="p-x1 text-center bg-white border shadow-sm rounded-2 pricing-card d-flex flex-column align-items-center w-100">
-                  <div class="d-flex justify-content-center">
+        </style>
+      </head>
+      <body>
+        <!-- Main Content -->
+        <main class="main" id="top">
+          <div class="content">
+            <section class="container mb-8 mb-lg-11" id="pricing">
+              <br><br><br><br><br><br><br>
+              <h1 class="fs-4 fs-lg-3 fw-bold text-center mb-2 mb-lg-1">Select Your Hardware</h1>
+              <p class="fs-8 mb-7 mb-lg-8 text-center lh-lg">Customize Your Speed: Find the Perfect Match of Hardware and Price for Your Needs</p>
+              <div class="row justify-content-center">
+                <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+                  <div class="p-x1 text-center bg-white border shadow-sm rounded-2 pricing-card d-flex flex-column align-items-center">
+                    <div class="mb-3">
+                      <p style="color: #565656; margin: 0;">Ultimate Mobile Connectivity</p>
+                    </div>
+                   
+                    <div class="d-flex justify-content-center">
                       <img src="assets/img/products/mr1100.png" alt="MR1100" width="225" height="225" class="mb-3">
-                  </div>
-                  <p class="fs-10 text-uppercase mb-3 fw-bold text-primary ls-2">MR100</p>
-                  <h2 class="mb-3"><span class="fs-6 fs-md-7 fw-bold">$</span><span class="fs-2 fs-md-1 fw-bold">199</span><span class="fs-9 lh-xl font-sans-serif pricing-info">/ one-time</span></h2>
-                  <ul class="list-unstyled fs-8 lh-xl fw-light text-1100 ls-1 flex-grow-1">
+                    </div>
+                    <p class="fs-10 text-uppercase mb-3 fw-bold ls-2" style="color: #D73C59;">MR1100</p>
+                    <h2 class="mb-3"><span class="fs-6 fs-md-7 fw-bold">$</span><span class="fs-2 fs-md-1 fw-bold">99</span><span class="fs-9 lh-xl font-sans-serif pricing-info"></span></h2>
+                    <ul class="list-unstyled fs-8 lh-xl fw-light text-1100 ls-1 flex-grow-1">
                       <li class="py-x1 px-1 border-top">50-100 Mbps↓ <br> 5-10 Mbps↑</li>
-                  </ul>
-                  <a href="javascript:void(0)" data-cb-type="checkout" data-cb-plan-id="wireless-home-internet+mr1100" data-cb-plan-quantity="1">
+                    </ul>
+                    <a href="javascript:void(0)" data-cb-type="checkout" data-cb-plan-id="wireless-home-internet+mr1100" data-cb-plan-quantity="1">
                       <button class="btn btn-primary btn-lg lh-xl mt-auto">Purchase</button>
-                  </a>
-              </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
-              <div class="p-x1 text-center bg-white border shadow-sm rounded-2 pricing-card d-flex flex-column align-items-center w-100">
-                  <div class="d-flex justify-content-center">
+                    </a>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+                  <div class="p-x1 text-center bg-white border shadow-sm rounded-2 pricing-card d-flex flex-column align-items-center">
+                    <div class="mb-3">
+                      <p style="color: #565656; margin: 0;">Reliable Connection for Everyday Use</p>
+                    </div>
+                   
+                    <div class="d-flex justify-content-center">
                       <img src="assets/img/products/LBR20.png" alt="LBR1100" width="225" height="225" class="mb-3">
-                  </div>
-                  <p class="fs-10 text-uppercase mb-3 fw-bold text-primary ls-2">LBR20</p>
-                  <h2 class="mb-3"><span class="fs-6 fs-md-7 fw-bold">$</span><span class="fs-2 fs-md-1 fw-bold">299</span><span class="fs-9 lh-xl font-sans-serif pricing-info">/ one-time</span></h2>
-                  <ul class="list-unstyled fs-8 lh-xl fw-light text-1100 ls-1 flex-grow-1">
+                    </div>
+                    <p class="fs-10 text-uppercase mb-3 fw-bold ls-2" style="color: #D73C59;">LB2R0</p>
+                    <h2 class="mb-3"><span class="fs-6 fs-md-7 fw-bold">$</span><span class="fs-2 fs-md-1 fw-bold">299</span><span class="fs-9 lh-xl font-sans-serif pricing-info"></span></h2>
+                    <ul class="list-unstyled fs-8 lh-xl fw-light text-1100 ls-1 flex-grow-1">
                       <li class="py-x1 px-1 border-top">75-150 Mbps↓ <br> 5-15 Mbps↑</li>
-                  </ul>
-                  <a href="javascript:void(0)" data-cb-type="checkout" data-cb-plan-id="wireless-home-internet+lbr20" data-cb-plan-quantity="1">
+                    </ul>
+                    <a href="javascript:void(0)" data-cb-type="checkout" data-cb-plan-id="wireless-home-internet+lbr20" data-cb-plan-quantity="1">
                       <button class="btn btn-primary btn-lg lh-xl mt-auto">Purchase</button>
-                  </a>
-              </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-3 mb-4 d-flex justify-content-center">
-              <div class="p-x1 text-center bg-white border shadow-sm rounded-2 pricing-card d-flex flex-column align-items-center w-100">
-                  <div class="d-flex justify-content-center">
-                      <img src="assets/img/products/NBR70.png" alt="NBR70" width="225" height="225" class="mb-3">
+                    </a>
                   </div>
-                  <p class="fs-10 text-uppercase mb-3 fw-bold text-primary ls-2">NBR70</p>
-                  <h2 class="mb-3"><span class="fs-6 fs-md-7 fw-bold">$</span><span class="fs-2 fs-md-1 fw-bold">399</span><span class="fs-9 lh-xl font-sans-serif pricing-info">/ one-time</span></h2>
-                  <ul class="list-unstyled fs-8 lh-xl fw-light text-1100 ls-1 flex-grow-1">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+                  <div class="p-x1 text-center bg-white border shadow-sm rounded-2 pricing-card d-flex flex-column align-items-center">
+                    <div class="mb-3">
+                      <p style="color: #565656; margin: 0;">Ultra Fast Network for Large Homes</p>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                      <img src="assets/img/products/NBR70.png" alt="NBR70" width="225" height="225" class="mb-3">
+                    </div>
+                    <p class="fs-10 text-uppercase mb-3 fw-bold ls-2" style="color: #D73C59;">NBR70</p>
+                    <h2 class="mb-3">
+                      <span class="fs-6 fs-md-7 fw-bold">$</span>
+                      <span class="fs-2 fs-md-1 fw-bold">399</span>
+                      <span class="fs-9 lh-xl font-sans-serif pricing-info"></span>
+                    </h2>
+                    <ul class="list-unstyled fs-8 lh-xl fw-light text-1100 ls-1 flex-grow-1">
                       <li class="py-x1 px-1 border-top">100-500 Mbps↓ <br> 5-50 Mbps↑</li>
-                  </ul>
-                  <a href="javascript:void(0)" data-cb-type="checkout" data-cb-plan-id="wireless-home-internet+nbr70" data-cb-plan-quantity="1">
+                    </ul>
+                    <a href="javascript:void(0)" data-cb-type="checkout" data-cb-plan-id="wireless-home-internet+nbr70" data-cb-plan-quantity="1">
                       <button class="btn btn-primary btn-lg lh-xl mt-auto">Purchase</button>
-                  </a>
+                    </a>
+                  </div>
+                </div>
               </div>
-          </div>
-      </div>
-  </section>
+            </section>
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="container">
+              <div class="row">
+                <div class="col-12">
+                  <h3 class="fs-4 fs-lg-3 fw-bold text-left mb-2 mb-lg-x1">Choosing the Right Hardware</h3>
+                  <p class="fs-8 mb-4 mb-lg-5 lh-lg text-left text-lg-start fw-normal">In today's interconnected world, having a reliable experience can make all the difference in staying connected wherever you go. We offer several impressive options, each catering to different needs and preferences. Let’s take a closer look at the options, to help you decide which one suits you best.</p>
+                </div>
+                <div class="col-12">
+                  <div class="mb-x1 mb-lg-3">
+                    <h5 class="fs-8 fw-bold lh-lg mb-1"> MR1100: Mobility at an Affordable Price</h5>
+                    <p class="b-0 lh-xl">The MR1100 is a standout for its affordability and robust mobility features. It supports LTE connections and is designed to deliver fast internet speeds on the go. With its sleek, portable design, the MR1100 is perfect for travelers or anyone who needs reliable internet outside of traditional Wi-Fi networks.</p>
+                    <p class="b-0 lh-xl">**Pro-Tip:** Many users opt to pair the MR1100 with their existing home router to extend their internet connection throughout their entire household, making it a versatile choice for both mobility and home use.</p>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="mb-x1 mb-lg-3">
+                    <h5 class="fs-8 fw-bold lh-lg mb-1"> LBR20: Tried and True Reliability</h5>
+                    <p class="b-0 lh-xl">Priced mid-range, the LBR20 is known for its reliability and performance. It provides more than enough speed and capability for most users' needs, making it an excellent choice for homes or small offices. The LBR20 supports LTE connections and is designed to handle multiple devices simultaneously without compromising on speed.</p>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="mb-x1 mb-lg-3">
+                    <h5 class="fs-8 fw-bold lh-lg mb-1"> NBR70: Harnessing the Power of 5G</h5>
+                    <p class="b-0 lh-xl">At the top end, the NBR70 stands out with its advanced 5G capabilities. Designed to take advantage of the latest in mobile network technology, the NBR70 promises blazing-fast speeds and low latency, making it ideal for heavy-duty applications such as 4K video streaming, virtual reality, or online gaming.</p>
+                    <p class="b-0 lh-xl">While it comes at a higher price point, the NBR70 is future-proofed to support upcoming advancements in mobile connectivity, ensuring that you stay ahead of the curve in terms of internet speed and reliability.</p>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="mb-x1 mb-lg-3">
+                    <h5 class="fs-8 fw-bold lh-lg mb-1">Making the Choice: What Hardware is Right for You?</h5>
+                    <p class="b-0 lh-xl">When deciding on your hardware, consider your specific needs for speed, reliability, and future-proofing. Whether you opt for the affordability and mobility of the MR1100, the tried and true reliability of the LBR20, or the advanced 5G capabilities of the NBR70, there is a solution that meets your requirements. Make sure to assess your usage patterns and budget to select the router that best fits your lifestyle and internet demands.</p>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="mb-x1 mb-lg-3">
+                    <h5 class="fs-8 fw-bold lh-lg mb-1">Conclusion</h5>
+                    <p class="b-0 lh-xl">With any of these  devices, you can rest assured that you’re investing in quality, performance, and connectivity that keeps you seamlessly connected, whether you’re at home, at work, or on the move.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
 
   
   <footer class="pt-7 pt-lg-8">
