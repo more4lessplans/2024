@@ -108,11 +108,17 @@
                 
                   /* Initial button styles */
                   #check-coverage-btn {
-                    background-color: #C4D5C4 !important; /* Initial button color (dark blue-gray) */
-                    border-color: #C4D5C4 !important; /* Matching border color */
-                    color: white;
+  background-color: #C4D5C4 !important; /* Initial button color (light green) */
+  border-color: #C4D5C4 !important; /* Matching border color */
+  color: white;
                   }
                 
+                  /* Change button color after click */
+.btn-clicked {
+  background-color: #313C59 !important; /* New button color after click */
+  border-color: #313C59 !important; /* Matching border color */
+}
+
                   /* Eligible button styles */
                   .btn-get-started {
                     background-color: #313C59 !important; /* Eligible button color (light green) */
@@ -171,69 +177,82 @@
                 
                 <!-- JavaScript for Address Coverage Check and Emphasis Animation -->
                 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNt4XeQ5roadq0L-IpadA6s9e4CPm9FwI&libraries=places"></script>
-                <script>
-                  document.addEventListener('DOMContentLoaded', function() {
-                    const input = document.getElementById('address');
-                    const autocomplete = new google.maps.places.Autocomplete(input);
-                
-                    document.getElementById('address-form').addEventListener('submit', function(event) {
-                      event.preventDefault();
-                      const address = input.value;
-                      checkAddressCoverage(address);
-                    });
-                  });
-                
-                  function checkAddressCoverage(address) {
-                    const geocoder = new google.maps.Geocoder();
-                    geocoder.geocode({ 'address': address }, function(results, status) {
-                      const moreInfoContainer = document.getElementById('more-info');
-                      const buttonContainer = document.getElementById('button-container');
-                
-                      if (status === 'OK' && results.length > 0) {
-                        const result = results[0];
-                        const country = result.address_components.find(component => component.types.includes('country')).short_name;
-                
-                        // If service is available in Canada, show the eligible button and link
-                        if (country === 'CA') {
-                          showEligibleState(buttonContainer, moreInfoContainer);
-                        } else {
-                          showUnavailableState(buttonContainer, moreInfoContainer); // Show Service Not Available if not in Canada
-                        }
-                      } else {
-                        showUnavailableState(buttonContainer, moreInfoContainer); // Show Service Not Available if invalid address
-                      }
-                    });
-                  }
-                
-                  function showEligibleState(buttonContainer, moreInfoContainer) {
-                    // Restore the Check Coverage button and show the speed estimate text under it
-                    buttonContainer.innerHTML = `
-                      <button class="btn btn-lg btn-primary lh-xl btn-get-started emphasize" type="submit" id="check-coverage-btn" onclick="window.location.href='#pricing'">Eligible! - Order Now</button>
-                      <a href="speedestimate.html" class="speed-estimate-link">Get a Speed Estimate &rarr;</a>
-                    `;
-                  }
-                
-                  function showUnavailableState(buttonContainer, moreInfoContainer) {
-                    // Replace the button with "Service Not Available" text and try again option
-                    buttonContainer.innerHTML = `
-                      <div class="service-unavailable-text">Service Not Available</div>
-                      <div class="try-again" onclick="resetForm()">
-                        <span class="refresh-icon">↻</span> Try Another Address
-                      </div>
-                    `;
-                
-                    // Hide the Speed Estimate link
-                    moreInfoContainer.style.display = 'none';
-                  }
-                
-                  function resetForm() {
-                    // Restore the original Check Coverage button
-                    const buttonContainer = document.getElementById('button-container');
-                    buttonContainer.innerHTML = `
-                      <button class="btn btn-lg btn-primary lh-xl" type="submit" id="check-coverage-btn">Check Coverage</button>
-                    `;
-                  }
-                </script>
+              <!-- Include confetti script -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const input = document.getElementById('address');
+  const checkCoverageBtn = document.getElementById('check-coverage-btn');
+  const autocomplete = new google.maps.places.Autocomplete(input);
+
+  checkCoverageBtn.addEventListener('click', function() {
+    // Change button color when clicked
+    this.classList.add('btn-clicked');
+  });
+
+  document.getElementById('address-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const address = input.value;
+    checkAddressCoverage(address);
+  });
+});
+
+function checkAddressCoverage(address) {
+  const geocoder = new google.maps.Geocoder();
+  geocoder.geocode({ 'address': address }, function(results, status) {
+    const moreInfoContainer = document.getElementById('more-info');
+    const buttonContainer = document.getElementById('button-container');
+
+    if (status === 'OK' && results.length > 0) {
+      const result = results[0];
+      const country = result.address_components.find(component => component.types.includes('country')).short_name;
+
+      if (country === 'CA') {
+        showEligibleState(buttonContainer, moreInfoContainer);
+        launchConfetti();  // Trigger confetti when service is available
+      } else {
+        showUnavailableState(buttonContainer, moreInfoContainer);
+      }
+    } else {
+      showUnavailableState(buttonContainer, moreInfoContainer);
+    }
+  });
+}
+
+function showEligibleState(buttonContainer, moreInfoContainer) {
+  buttonContainer.innerHTML = `
+    <button class="btn btn-lg btn-primary lh-xl btn-get-started emphasize" type="submit" id="check-coverage-btn" onclick="window.location.href='#pricing'">Service Available! - Order Now ↓ </button>
+    <a href="speedestimate.html" class="speed-estimate-link">Get a Speed Estimate &rarr;</a>
+  `;
+}
+
+function showUnavailableState(buttonContainer, moreInfoContainer) {
+  buttonContainer.innerHTML = `
+    <div class="service-unavailable-text">Service Not Available</div>
+    <div class="try-again" onclick="resetForm()">
+      <span class="refresh-icon">↻</span> Try Another Address
+    </div>
+  `;
+  moreInfoContainer.style.display = 'none';
+}
+
+function resetForm() {
+  const buttonContainer = document.getElementById('button-container');
+  buttonContainer.innerHTML = `
+    <button class="btn btn-lg btn-primary lh-xl" type="submit" id="check-coverage-btn">Check Coverage</button>
+  `;
+}
+
+// Confetti function
+function launchConfetti() {
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6 }
+  });
+}
+</script>
       
     </div>
   
@@ -269,7 +288,7 @@
                     <div class="py-1 py-lg-0 px-lg-5 w-75 w-sm-50 w-lg-100 timeline-content">
                       <h6 class="fs-8 fw-bold text-lg-center lh-lg mb-2">
                         <a href="#pricing" class="text-decoration-none">
-                          Order A Hardware Kit &rarr;
+                          Order A Hardware Kit ↓
                         </a>
                       </h6>
                       <p class="text-lg-center lh-xl mb-0">Choose the device that best fits your needs. We have three options!</p>
@@ -420,7 +439,7 @@
                 
                   
                   <div class="button-container d-flex justify-content-center align-items-center">
-                    <a class="btn btn-primary btn-lg lh-xl mb-3" href="select-hardware.html" style="background-color: #C4D5C4;">
+                    <a class="btn btn-primary btn-lg lh-xl mb-3" href="/select-hardware#blog" style="background-color: #C4D5C4;">
                       Compare Routers &rarr;
                     </a>
                   </div>
