@@ -43,21 +43,22 @@
    
       
      
-          
         <style>
           .navbar, .navbar-nav .nav-link, .dropdown-menu, .dropdown-item, .nav-item {
-              background-color: #313C59 !important; /* Blue background color for the navbar */
+              background-color: black !important;
           }
-        
+  
           .nav-link, .nav-item {
-              color: rgba(255, 255, 255, 0.7) !important; /* Light text color for initial state */
-              transition: color 0.3s ease; /* Smooth transition for hover effects */
+              color: rgba(255, 255, 255, 0.7) !important; /* Initial text is slightly transparent */
+              transition: color 0.3s ease; /* Smooth transition for color change */
           }
-        
+  
           .nav-link:hover, .nav-item:hover {
-              color: #E9ECEF !important; /* Light blue text color on hover */
+              color: white !important; /* Fully opaque on hover */
           }
-        </style>
+  
+      
+      </style>
   </head>
   <body>
     <nav class="navbar navbar-expand-md fixed-top" id="navbar" data-navbar-soft-on-scroll="data-navbar-soft-on-scroll">
@@ -84,9 +85,6 @@
           </div>
       </div>
   </nav>
-      
-        
-
 
 
         <div data-bs-target="#navbar" data-bs-spy="scroll" tabindex="0"></div>
@@ -94,9 +92,12 @@
     </main>
   
   
-
     <style>
       /* Custom CSS for centering the title and adding space above */
+      body, html {
+        margin: 0;
+        padding: 0;
+      }
       .center-title {
         text-align: center;
         margin-top: 160px; /* Adjust the top margin as needed */
@@ -107,77 +108,91 @@
           margin-top: 120px; /* Adjust margin for smaller screens */
         }
       }
+  
+      /* Ensure full-width content */
+      .full-width-section {
+        
+        padding: 80px 0; /* Example padding */
+      }
+      .full-width-content {
+        max-width: 100%;
+        padding: 0 20px; /* Example padding */
+        margin: 0 auto;
+      }
     </style>
   </head>
   <body>
     <header>
       <!-- Your navbar code goes here -->
     </header>
-  
-    <section class="container mb-8 mb-lg-13">
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <h1 class="fs-lg-3 fw-bold center-title"></h1> <br>
-
-          <h1>911 Information</h1><br>
-  
-          <h4>Introduction</h4>
-          <p>This 911 Information and Emergency Calling Policy ("Policy") outlines the terms and conditions under which More4Less Plans ("we", "us", or "our") provides 911 emergency calling services to our customers. This Policy is designed to comply with the regulations set forth by the Canadian Radio-television and Telecommunications Commission (CRTC) and to inform you about the limitations and responsibilities associated with using our phone services for emergency calling.</p>
-  
-          <h4>1. 911 Emergency Calling</h4>
-          <h4>1.1. Traditional 911 vs. VoIP 911</h4>
-          <p>If you are using a traditional landline phone service provided by us, your 911 calls will be routed to the appropriate Public Safety Answering Point (PSAP). If you are using a VoIP (Voice over Internet Protocol) service, your 911 calls may be routed differently, and there may be limitations compared to traditional 911 service.</p>
-  
-          <h4>1.2. Location Information</h4>
-          <p>When you place a 911 call using our services, you must provide accurate location information. Failure to provide the correct address and location information may result in delays or the inability of emergency responders to locate you.</p>
-  
-          <h4>2. Limitations of Liability</h4>
-          <h4>2.1. Service Interruptions</h4>
-          <p>911 services provided through our phone plans may not function during service outages or when your internet connection is down. We are not liable for any failure or delay in providing 911 service due to power outages, network failures, or other technical issues beyond our control.</p>
-  
-          <h4>2.2. Non-Traditional 911 Limitations</h4>
-          <p>VoIP services rely on your internet connection and electrical power. In the event of an outage, you may not be able to access 911 services. It is your responsibility to maintain an alternate means of contacting emergency services, such as a traditional landline or a mobile phone.</p>
-  
-          <h4>2.3. Accuracy of Information</h4>
-          <p>We are not responsible for any inaccuracies in the information you provide to us, including your address and location details. It is your responsibility to ensure that your account information is accurate and up-to-date.</p>
-  
-          <h4>3. Customer Responsibilities</h4>
-          <h4>3.1. Update Location Information</h4>
-          <p>You must promptly update your location information with us if you move or change your address. This ensures that your 911 calls are routed to the appropriate emergency response center.</p>
-  
-          <h4>3.2. Alternative Access</h4>
-          <p>We strongly recommend that you maintain an alternative means of accessing 911 services, such as a mobile phone, in case of service interruptions or technical issues with our services.</p>
-  
-          <h4>4. Compliance with CRTC Regulations</h4>
-          <h4>4.1. Regulatory Compliance</h4>
-          <p>We comply with all CRTC regulations regarding the provision of 911 services. This includes informing customers of the limitations associated with VoIP 911 services and the importance of maintaining accurate location information.</p>
-  
-          <h4>5. Disclaimer of Warranties and Limitation of Liability</h4>
-          <h4>5.1. No Warranties</h4>
-          <p>We provide our services, including 911 emergency calling, on an "as is" and "as available" basis. We make no warranties, express or implied, regarding the availability, reliability, or performance of 911 services.</p>
-  
-          <h4>5.2. Limitation of Liability</h4>
-          <p>To the fullest extent permitted by law, we disclaim any and all liability for any damages or losses arising from the use or inability to use our 911 services, including but not limited to direct, indirect, incidental, punitive, and consequential damages.</p>
-  
-          <h4>6. Contact Information</h4>
-          <p>If you have any questions or need to update your location information, please contact our customer support team: support@more4lessplans.ca</p>
-          <div class="contact-info">
-             
+    <section class="bg-300" id="affiliate">
+      <div class="container py-8 py-lg-10">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-7">
+            <br>
+            <h3 class="fs-3 fs-lg-4 fw-bold text-center mb-2 mb-lg-1 lh-sm">Become An Affiliate Seller</h3>
+            <p class="fs-8 mb-7 mb-lg-8 text-center lh-lg fw-normal">
+              Sell Our Service - Earn Cash
+            </p>
+            <p class="fs-8 mb-7 mb-lg-8 text-center lh-lg fw-normal">
+              <strong>How Does It Work?</strong><br><br>
+              Visitors click on your customized affiliate link or use your unique promo code when signing up. The visitor's IP is logged, and a cookie is stored in their browser for tracking purposes. If the referred user signs up for our service, it will be registered as a sale for you. The order does not need to be placed during the same browser session as cookies and IPs are stored indefinitely.<br><br>
+              As long as your referred user doesn't cancel, you will earn a 15% monthly commission every month!<br><br>
+              There are no costs to join our Affiliate Program. We pay commissions for sales you refer. There is no limit on how much you can earn!
+            </p>
+            <div class="text-center">
+              <button class="btn btn-primary px-5 py-2" onclick="window.location.href='https://more4lessplans.firstpromoter.com'">
+                Sign Up Now
+              </button>
+            </div>
           </div>
-  
-          <h4>7. Acceptance of Policy</h4>
-          <p>By using our services, you acknowledge that you have read, understood, and agree to this 911 Information and Emergency Calling Policy. You also agree to hold us harmless from any claims or damages resulting from your use of our 911 services.</p>
-  
-          <h4>8. Amendments</h4>
-          <h4>8.1. Policy Changes</h4>
-          <p>We reserve the right to amend this Policy at any time. Any changes will be posted on our website, and it is your responsibility to review this Policy regularly for any updates.</p>
-  
-          <p>This Policy is effective as of June 19, 2024.</p>
         </div>
       </div>
     </section>
 
-    
+
+   
+    <footer class="pt-7 pt-lg-8">
+      <div class="container">
+        <div class="row gy-4 g-md-3 border-bottom pb-8 pb-lg-9 justify-content-center">
+          <div class="col-6 col-md-3">
+            <p class="mb-2 lh-lg ls-1">Company</p>
+            <ul class="list-unstyled text-1100">
+              <li class="mb-1"> <a class="ls-1 lh-xl" href="/about">About</a></li>
+              <li class="mb-1"> <a class="ls-1 lh-xl" href="/contact"> Contact</a></li>
+          
+            </ul>
+          </div>
+          <div class="col-6 col-md-3">
+            <p class="mb-2 lh-lg">Product</p>
+            <ul class="list-unstyled text-1100">
+             
+              <li class="mb-1"> <a class="ls-1 lh-xl" href="#pricing"> Pricing</a></li>
+               <li class="mb-1"><a class="ls-1 lh-xl" href="/support"> Technical Support</a></li>
+      <li class="mb-1"><a class="ls-1 lh-xl" href="/activate"> Activate</a></li>
+      
+      
+            </ul>
+          </div>
+          <div class="col-6 col-md-3">
+            <p class="mb-2 lh-lg"> Legal</p>
+            <ul class="list-unstyled text-1100">
+              <li class="mb-1"> <a class="ls-1 lh-xl" href="/privacypolicy">Privacy</a></li>
+              <li class="mb-1"> <a class="ls-1 lh-xl" href="/terms"> Terms & Conditions</a></li>
+              <li class="mb-1"> <a class="ls-1 lh-xl" href="/terms#pricing"> Return Policy</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-3 d-md-flex flex-column align-items-md-end pe-md-0">
+            
+          </div>
+        </div>
+        <div class="row gy-2 py-3 justify-content-center justify-content-md-between">
+          <div class="col-auto ps-0">
+            <p class="text-center text-md-start lh-xl text-1100"> © 2024 Copyright, All Right Reserved </a></p>
+          </div>
+          
+      </div>
+    </footer>
 
 
     <!-- Bootstrap Bundle with Popper.js -->
