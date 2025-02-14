@@ -21119,6 +21119,37 @@ h5, .h5, h6, .h6 {
   max-width: 21.875rem;
 }
 
+
+
+.shopify-buy__cart-wrapper {
+  background-color: #000000 !important; /* Black background */
+  color: #ffffff !important; /* White text */
+}
+
+.shopify-buy__btn {
+  background-color: #000000 !important; /* Black button */
+  color: #ffffff !important; /* White text */
+  border-radius: 9px !important; /* Rounded corners */
+}
+
+.shopify-buy__btn:hover {
+  background-color: #444444 !important; /* Dark grey on hover */
+}
+
+.shopify-buy__btn:focus {
+  background-color: #222222 !important; /* Darker grey on focus */
+}
+
+.shopify-buy__cart-header, 
+.shopify-buy__cart-line-item,
+.shopify-buy__cart-subtotal,
+.shopify-buy__cart-footer {
+  color: #ffffff !important; /* Ensure all text inside the cart is white */
+}
+
+
+
+
 .check-icon {
   height: 1.875rem;
   width: 1.875rem;
@@ -21232,4 +21263,8 @@ footer .icons {
   -webkit-transition: color 0.2s ease-in-out;
   -o-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
+}
+
+.shopify-checkout-sidebar-tab {
+  background-color: #C4D5C4 !important;
 }
