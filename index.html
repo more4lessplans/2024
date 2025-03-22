@@ -106,7 +106,7 @@
                   <h1 class="fs-1 fs-lg-1 text-white fw-bold mb-2 mb-lg-x1 lh-base mt-3 mt-lg-0">High-Speed Wireless Internet Solutions</h1>
                   <p class="fs-8 text-white mb-3 mb-lg-4 lh-lg">Blazing fast, unlimited internet with no slowdowns for just $110/month and a one-time hardware fee.</p>
 
-         <!-- Coverage Checker Form -->
+      <!-- Coverage Checker Form -->
 <form id="address-form" class="text-center text-lg-start">
   <div class="position-relative mb-3">
     <input class="form-control" type="text" id="address" name="address" placeholder="Search for Your Address" required>
@@ -123,7 +123,7 @@
     <!-- Success State Elements (Initially Hidden) -->
     <div class="more-info" id="more-info" style="display: none; margin-top: 10px; text-align: center;">
       <span class="success-checkmark" style="display: none; width: 64px; height: 64px; background-color: #FFFFFF; border-radius: 50%; text-align: center; line-height: 64px; font-size: 36px; color: black; margin: 0 auto 12px;">✓</span>
-      <a href="#pricing" class="btn btn-link proceed-to-order" style="display: none; font-size: 20px; font-weight: bold; color: #D73C59; text-decoration: none;">Proceed to Order →</a>
+      <a href="#pricing" class="btn btn-link proceed-to-order" style="display: none; font-size: 20px; font-weight: bold; color: #FFFFFF; text-decoration: none;">Proceed to Order ↓</a>
     </div>
   </div>
 </form>
@@ -138,127 +138,117 @@
                 </div>
               </div>
 
+            
+            
+            
+            
               <!-- CSS for Mobile-Friendly Form Styling -->
               <style>
 
-                /* Updated styles for the success state */
+.form-container {
+  max-width: 400px;
+}
+
+@media (min-width: 992px) {
+  #address-form, .result-container {
+    max-width: 400px;
+  }
+}
+
+/* Input field styling */
+#address-form .form-control {
+  border-radius: 12px;
+  border: 1px solid #e3e3e3;
+  padding: 12px 36px 12px 16px; /* Extra right padding for icon */
+  font-size: 16px;
+  color: #222831;
+  background-color: #ffffff;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  min-height: 45px;
+}
+
+#address-form .form-control::placeholder {
+  color: #565656;
+  opacity: 0.7;
+}
+
+#address-form .form-control:focus {
+  border-color: #D73C59;
+  box-shadow: 0 0 0 3px rgba(215, 60, 89, 0.2);
+  outline: none;
+}
+
+/* Button styles */
+#check-coverage-btn {
+  background-color: #C4D5C4;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222831;
+  transition: background-color 0.3s ease;
+}
+
+/* Keep button consistent when it changes to Speed Estimate */
+.speed-estimate-btn {
+  background-color: #C4D5C4;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222831;
+}
+
+/* Animation for emphasis */
+@keyframes pulse {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.success-checkmark.success-animation {
+  animation: pulse 0.8s ease-in-out 1;
+}
+
+.proceed-to-order.success-animation {
+  animation: pulse 0.8s ease-in-out 1;
+}
+
+/* Proceed to Order link */
 .proceed-to-order {
-  color: #D73C59; /* Red accent to stand out */
-  font-size: 20px; /* Larger for prominence */
+  color: #FFFFFF; /* White text */
+  font-size: 20px;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .proceed-to-order:hover {
-  color: #313C59; /* Dark blue on hover */
+  color: #C4D5C4; /* Light green on hover */
   text-decoration: underline;
 }
 
-.speed-estimate-btn {
-  background-color: #313C59;
+/* Service Not Available text */
+.service-unavailable-text {
   color: white;
-  border-radius: 12px;
-  padding: 12px 24px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Try Another Address link */
+.try-again {
+  color: white;
   font-size: 16px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  cursor: pointer;
+  text-decoration: underline;
 }
 
-.speed-estimate-btn:hover {
-  background-color: #D73C59; /* Red accent on hover */
-  color: white;
+.refresh-icon {
+  margin-right: 5px;
 }
-
-                .form-container {
-                  max-width: 400px;
-                
-                }
-
-                @media (min-width: 992px) {
-                  #address-form, .result-container {
-                    max-width: 400px;
-                  }
-                }
-
-                /* Input field styling */
-                #address-form .form-control {
-                  border-radius: 12px;
-                  border: 1px solid #e3e3e3;
-                  padding: 12px 36px 12px 16px; /* Extra right padding for icon */
-                  font-size: 16px;
-                  color: #222831;
-                  background-color: #ffffff;
-                  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-                  min-height: 45px;
-                }
-
-                #address-form .form-control::placeholder {
-                  color: #565656;
-                  opacity: 0.7;
-                }
-
-                #address-form .form-control:focus {
-                  border-color: #D73C59;
-                  box-shadow: 0 0 0 3px rgba(215, 60, 89, 0.2);
-                  outline: none;
-                }
-
-                /* Button styles */
-                #check-coverage-btn {
-                  background-color: #C4D5C4;
-                  border: none;
-                  border-radius: 12px;
-                  padding: 12px 24px;
-                  font-size: 16px;
-                  font-weight: 500;
-                  color: #222831;
-                  transition: background-color 0.3s ease;
-                }
-
-                .btn-clicked {
-                  background-color: #313C59;
-                  color: white;
-                }
-
-                .btn-get-started {
-                  background-color: #313C59;
-                  color: white;
-                  animation: pulse 0.8s ease-in-out 1;
-                }
-
-                @keyframes pulse {
-                  0% { transform: scale(1); }
-                  50% { transform: scale(1.05); }
-                  100% { transform: scale(1); }
-                }
-
-                /* Speed Estimate link */
-                .speed-estimate-link {
-                  color: white;
-                  font-weight: bold;
-                  font-size: 16px;
-                }
-
-                /* Service Not Available text */
-                .service-unavailable-text {
-                  color: white;
-                  font-weight: bold;
-                  font-size: 18px;
-                }
-
-                /* Try Another Address link */
-                .try-again {
-                  color: white;
-                  font-size: 16px;
-                  margin-top: 10px;
-                  cursor: pointer;
-                  text-decoration: underline;
-                }
-
-                .refresh-icon {
-                  margin-right: 5px;
-                }
               </style>
 
               <!-- JavaScript for Address Coverage Check -->
@@ -310,7 +300,9 @@
                   `;
                   moreInfoContainer.style.display = 'block';
                   successCheckmark.style.display = 'block';
+                  successCheckmark.classList.add('success-animation'); // Add animation class
                   proceedLink.style.display = 'block';
+                  proceedLink.classList.add('success-animation'); // Add animation class
                   resultContainer.classList.remove('success');
                 }
               
@@ -323,7 +315,9 @@
                   `;
                   moreInfoContainer.style.display = 'none';
                   successCheckmark.style.display = 'none';
+                  successCheckmark.classList.remove('success-animation'); // Remove animation class
                   proceedLink.style.display = 'none';
+                  proceedLink.classList.remove('success-animation'); // Remove animation class
                   resultContainer.classList.remove('success');
                 }
               
@@ -340,7 +334,9 @@
                   resultContainer.classList.remove('success');
                   moreInfoContainer.style.display = 'none';
                   successCheckmark.style.display = 'none';
+                  successCheckmark.classList.remove('success-animation');
                   proceedLink.style.display = 'none';
+                  proceedLink.classList.remove('success-animation');
                 }
               
                 function redirectToSpeedEstimate(address) {
