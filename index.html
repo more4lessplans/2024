@@ -484,7 +484,7 @@
               </div>
               <div class="modal-body text-center">
                 <ul class="list-unstyled">
-                  <li><a class="nav-link lh-xl fw-bold existing-customer-link" href="#" data-cb-type="portal">Account Login</a></li>
+                  <li><a class="nav-link lh-xl fw-bold existing-customer-link" href="javascript:void(0)" data-cb-type="portal">Account Login</a></li>
                   <li><a class="nav-link lh-xl fw-bold existing-customer-link" href="/tutorials">Tutorials</a></li>
                   <li><a class="nav-link lh-xl fw-bold existing-customer-link" href="/support">Technical Support</a></li>
                 </ul>
@@ -866,280 +866,264 @@
       </footer>
     </main>
 
-    <!-- JavaScripts -->
-    <!-- Add jQuery before Popper.js and Bootstrap.js -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNt4XeQ5roadq0L-IpadA6s9e4CPm9FwI&libraries=places"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
-    <script src="vendors/is/is.min.js"></script>
-    <script src="vendors/countup/countUp.umd.js"></script>
-    <script src="vendors/swiper/swiper-bundle.min.js"></script>
-    <script src="vendors/lodash/lodash.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="assets/js/theme.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const input = document.getElementById('address');
-        const checkCoverageBtn = document.getElementById('check-coverage-btn');
-        const autocomplete = new google.maps.places.Autocomplete(input);
-        document.getElementById("currentYear").textContent = new Date().getFullYear();
+   <!-- JavaScripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNt4XeQ5roadq0L-IpadA6s9e4CPm9FwI&libraries=places"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
+<script src="vendors/is/is.min.js"></script>
+<script src="vendors/countup/countUp.umd.js"></script>
+<script src="vendors/swiper/swiper-bundle.min.js"></script>
+<script src="vendors/lodash/lodash.min.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+<script src="assets/js/theme.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const input = document.getElementById('address');
+    const checkCoverageBtn = document.getElementById('check-coverage-btn');
+    const autocomplete = new google.maps.places.Autocomplete(input);
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-        // Handle coverage check button click
-        checkCoverageBtn.addEventListener('click', function() {
-          this.classList.add('btn-clicked');
-        });
+    // Handle coverage check button click
+    checkCoverageBtn.addEventListener('click', function() {
+      this.classList.add('btn-clicked');
+    });
 
-        // Handle address form submission
-        document.getElementById('address-form').addEventListener('submit', function(event) {
+    // Handle address form submission
+    document.getElementById('address-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const address = input.value;
+      checkAddressCoverage(address);
+    });
+
+    // Prevent buy button clicks from propagating
+    const buyButtons = document.querySelectorAll('.button-container');
+    buyButtons.forEach(button => {
+      button.addEventListener('click', function(event) {
+        event.stopPropagation();
+      });
+    });
+
+    // Custom Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+    mobileMenuToggle.addEventListener('click', function() {
+      mobileMenu.classList.add('open');
+    });
+
+    mobileMenuClose.addEventListener('click', function() {
+      mobileMenu.classList.remove('open');
+    });
+
+    // Close mobile menu when clicking outside
+    mobileMenu.addEventListener('click', function(event) {
+      if (event.target === mobileMenu) {
+        mobileMenu.classList.remove('open');
+      }
+    });
+
+    // Handle Desktop Navigation Links (Smooth Scrolling for In-Page Links)
+    const desktopNavLinks = document.querySelectorAll('.desktop-nav-link');
+    desktopNavLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        const href = this.getAttribute('href');
+        const scrollTarget = this.getAttribute('data-scroll-target');
+
+        if (scrollTarget) {
           event.preventDefault();
-          const address = input.value;
-          checkAddressCoverage(address);
-        });
-
-        // Prevent buy button clicks from propagating
-        const buyButtons = document.querySelectorAll('.button-container');
-        buyButtons.forEach(button => {
-          button.addEventListener('click', function(event) {
-            event.stopPropagation();
-          });
-        });
-
-        // Custom Mobile Menu Toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuClose = document.getElementById('mobileMenuClose');
-
-        mobileMenuToggle.addEventListener('click', function() {
-          mobileMenu.classList.add('open');
-        });
-
-        mobileMenuClose.addEventListener('click', function() {
-          mobileMenu.classList.remove('open');
-        });
-
-        // Close mobile menu when clicking outside
-        mobileMenu.addEventListener('click', function(event) {
-          if (event.target === mobileMenu) {
-            mobileMenu.classList.remove('open');
+          const targetElement = document.getElementById(scrollTarget);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
           }
-        });
+        }
+        // If no scroll target, the link will navigate to the page (e.g., /contact, /mobility)
+      });
+    });
 
-        // Handle Desktop Navigation Links (Smooth Scrolling for In-Page Links)
-        const desktopNavLinks = document.querySelectorAll('.desktop-nav-link');
-        desktopNavLinks.forEach(link => {
-          link.addEventListener('click', function(event) {
-            const href = this.getAttribute('href');
-            const scrollTarget = this.getAttribute('data-scroll-target');
+    // Handle Mobile Menu Links
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        const href = this.getAttribute('href');
+        const scrollTarget = this.getAttribute('data-scroll-target');
 
-            if (scrollTarget) {
-              event.preventDefault();
-              const targetElement = document.getElementById(scrollTarget);
-              if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-              }
-            }
-            // If no scroll target, the link will navigate to the page (e.g., /contact, /mobility)
-          });
-        });
+        // Close the mobile menu
+        mobileMenu.classList.remove('open');
 
-        // Handle Mobile Menu Links
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-        mobileNavLinks.forEach(link => {
-          link.addEventListener('click', function(event) {
-            const href = this.getAttribute('href');
-            const scrollTarget = this.getAttribute('data-scroll-target');
-
-            // Close the mobile menu
-            mobileMenu.classList.remove('open');
-
-            // Handle navigation
-            setTimeout(() => {
-              if (scrollTarget) {
-                // In-page link (e.g., #pricing, #question)
-                event.preventDefault();
-                const targetElement = document.getElementById(scrollTarget);
-                if (targetElement) {
-                  targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-              } else {
-                // External page link (e.g., /contact, /mobility)
-                window.location.href = href;
-              }
-            }, 300); // Small delay to allow menu close animation
-          });
-        });
-
-        // Close mobile menu when Existing Customers link is clicked (since it opens a Bootstrap modal)
-        const existingCustomerMobileLink = document.querySelector('.nav-link-existing-mobile');
-        existingCustomerMobileLink.addEventListener('click', function() {
-          mobileMenu.classList.remove('open');
-        });
-
-        // Handle Existing Customers Modal Links
-        const existingCustomerLinks = document.querySelectorAll('.existing-customer-link');
-        existingCustomerLinks.forEach(link => {
-          link.addEventListener('click', function(event) {
+        // Handle navigation
+        setTimeout(() => {
+          if (scrollTarget) {
+            // In-page link (e.g., #pricing, #question)
             event.preventDefault();
-            const href = this.getAttribute('href');
-            const cbType = this.getAttribute('data-cb-type');
+            const targetElement = document.getElementById(scrollTarget);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          } else {
+            // External page link (e.g., /contact, /mobility)
+            window.location.href = href;
+          }
+        }, 300); // Small delay to allow menu close animation
+      });
+    });
 
-            // Close the existing customers modal
-            $('#existingCustomersModal').modal('hide');
+    // Close mobile menu when Existing Customers link is clicked (since it opens a Bootstrap modal)
+    const existingCustomerMobileLink = document.querySelector('.nav-link-existing-mobile');
+    existingCustomerMobileLink.addEventListener('click', function() {
+      mobileMenu.classList.remove('open');
+    });
 
-            // Handle navigation after modal is hidden
-            $('#existingCustomersModal').on('hidden.bs.modal', function() {
-              if (cbType === 'portal') {
-                // Handle Chargebee portal integration
-                if (typeof Chargebee !== 'undefined') {
-                  const cbInstance = Chargebee.getInstance();
-                  cbInstance.openCheckout({
-                    hostedPage: function() {
-                      return new Promise((resolve) => {
-                        resolve({ url: 'https://your-chargebee-portal-url' }); // Replace with actual Chargebee portal URL
-                      });
-                    },
-                    success: function(hostedPageId) {
-                      console.log('Chargebee portal opened successfully:', hostedPageId);
-                    },
-                    close: function() {
-                      console.log('Chargebee portal closed');
-                    }
+    // Handle Existing Customers Modal Links
+    const existingCustomerLinks = document.querySelectorAll('.existing-customer-link');
+    existingCustomerLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const href = this.getAttribute('href');
+        const cbType = this.getAttribute('data-cb-type');
+
+        // Close the existing customers modal
+        $('#existingCustomersModal').modal('hide');
+
+        // Handle navigation after modal is hidden
+        $('#existingCustomersModal').on('hidden.bs.modal', function() {
+          if (cbType === 'portal') {
+            // Handle Chargebee portal integration
+            if (typeof Chargebee !== 'undefined') {
+              const cbInstance = Chargebee.init({
+                site: 'more4lessplans', // Ensure this matches your Chargebee site name
+                publishableKey: 'your-publishable-key' // Replace with your Chargebee publishable key
+              });
+
+              // Simulate fetching a portal session (this should be a server-side call in production)
+              const portalSession = {
+                id: 'portal-session-id', // Placeholder
+                access_url: 'https://more4lessplans.chargebeeportal.com/portal', // Replace with actual portal URL
+                token: 'portal-session-token' // Placeholder
+              };
+
+              // Open the Chargebee portal
+              cbInstance.openPortal({
+                portalSession: function() {
+                  return new Promise((resolve) => {
+                    resolve(portalSession);
                   });
-                } else {
-                  console.error('Chargebee library not loaded');
+                },
+                success: function() {
+                  console.log('Chargebee portal opened successfully');
+                },
+                close: function() {
+                  console.log('Chargebee portal closed');
+                },
+                error: function(err) {
+                  console.error('Error opening Chargebee portal:', err);
                   // Fallback: Redirect to a login page
                   window.location.href = '/login';
                 }
-              } else {
-                // Navigate to the page (e.g., /tutorials, /support)
-                window.location.href = href;
-              }
-            });
-          });
-        });
-
-        // Fallback for FAQ Accordion (if Bootstrap collapse fails)
-        const accordionButtons = document.querySelectorAll('.accordion-button');
-        accordionButtons.forEach(button => {
-          button.addEventListener('click', function() {
-            const targetId = this.getAttribute('data-target');
-            const target = document.querySelector(targetId);
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-
-            // Toggle aria-expanded
-            this.setAttribute('aria-expanded', !isExpanded);
-
-            // Toggle the collapse state manually if Bootstrap fails
-            if (target.classList.contains('show')) {
-              target.classList.remove('show');
-            } else {
-              // Close other open accordion items
-              document.querySelectorAll('.accordion-collapse.show').forEach(item => {
-                if (item !== target) {
-                  item.classList.remove('show');
-                  const relatedButton = document.querySelector(`[data-target="#${item.id}"]`);
-                  if (relatedButton) {
-                    relatedButton.setAttribute('aria-expanded', 'false');
-                  }
-                }
               });
-              target.classList.add('show');
-            }
-          });
-        });
-      });
-
-      function checkAddressCoverage(address) {
-        const geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ 'address': address }, function(results, status) {
-          const moreInfoContainer = document.getElementById('more-info');
-          const buttonContainer = document.getElementById('button-container');
-          const resultContainer = document.getElementById('result-container');
-          const successCheckmark = moreInfoContainer.querySelector('.success-checkmark');
-          const availabilityText = moreInfoContainer.querySelector('.availability-text');
-          const proceedLink = moreInfoContainer.querySelector('.proceed-to-order');
-          const divider = moreInfoContainer.querySelector('.divider');
-          const speedEstimateLink = moreInfoContainer.querySelector('.speed-estimate-link');
-
-          if (status === 'OK' && results.length > 0) {
-            const result = results[0];
-            const country = result.address_components.find(component => component.types.includes('country')).short_name;
-
-            if (country === 'CA') {
-              showEligibleState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink, address);
             } else {
-              showUnavailableState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink);
+              console.error('Chargebee library not loaded');
+              // Fallback: Redirect to a login page
+              window.location.href = '/login';
             }
           } else {
-            showUnavailableState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink);
+            // Navigate to the page (e.g., /tutorials, /support)
+            window.location.href = href;
           }
         });
-      }
+      });
+    });
+  });
 
-      function showEligibleState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink, address) {
-        buttonContainer.innerHTML = '';
-        moreInfoContainer.style.display = 'block';
-        successCheckmark.style.display = 'block';
-        successCheckmark.classList.add('success-animation');
-        availabilityText.style.display = 'block';
-        availabilityText.classList.add('success-animation');
-        proceedLink.style.display = 'block';
-        proceedLink.classList.add('success-animation');
-        divider.style.display = 'block';
-        speedEstimateLink.style.display = 'block';
-        speedEstimateLink.setAttribute('onclick', `redirectToSpeedEstimate('${encodeURIComponent(address)}')`);
-        resultContainer.classList.remove('success');
-      }
+  function checkAddressCoverage(address) {
+    const geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'address': address }, function(results, status) {
+      const moreInfoContainer = document.getElementById('more-info');
+      const buttonContainer = document.getElementById('button-container');
+      const resultContainer = document.getElementById('result-container');
+      const successCheckmark = moreInfoContainer.querySelector('.success-checkmark');
+      const availabilityText = moreInfoContainer.querySelector('.availability-text');
+      const proceedLink = moreInfoContainer.querySelector('.proceed-to-order');
+      const divider = moreInfoContainer.querySelector('.divider');
+      const speedEstimateLink = moreInfoContainer.querySelector('.speed-estimate-link');
 
-      function showUnavailableState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink) {
-        buttonContainer.innerHTML = `
-          <div class="service-unavailable-text">Service Not Available</div>
-          <div class="try-again" onclick="resetForm()">
-            <span class="refresh-icon">↻</span> Try Another Address
-          </div>
-        `;
-        moreInfoContainer.style.display = 'none';
-        successCheckmark.style.display = 'none';
-        successCheckmark.classList.remove('success-animation');
-        availabilityText.style.display = 'none';
-        availabilityText.classList.remove('success-animation');
-        proceedLink.style.display = 'none';
-        proceedLink.classList.remove('success-animation');
-        divider.style.display = 'none';
-        speedEstimateLink.style.display = 'none';
-        resultContainer.classList.remove('success');
-      }
+      if (status === 'OK' && results.length > 0) {
+        const result = results[0];
+        const country = result.address_components.find(component => component.types.includes('country')).short_name;
 
-      function resetForm() {
-        const buttonContainer = document.getElementById('button-container');
-        const resultContainer = document.getElementById('result-container');
-        const moreInfoContainer = document.getElementById('more-info');
-        const successCheckmark = moreInfoContainer.querySelector('.success-checkmark');
-        const availabilityText = moreInfoContainer.querySelector('.availability-text');
-        const proceedLink = moreInfoContainer.querySelector('.proceed-to-order');
-        const divider = moreInfoContainer.querySelector('.divider');
-        const speedEstimateLink = moreInfoContainer.querySelector('.speed-estimate-link');
-        
-        buttonContainer.innerHTML = `
-          <button class="btn btn-primary lh-xl" type="submit" id="check-coverage-btn">Check Availability</button>
-        `;
-        resultContainer.classList.remove('success');
-        moreInfoContainer.style.display = 'none';
-        successCheckmark.style.display = 'none';
-        successCheckmark.classList.remove('success-animation');
-        availabilityText.style.display = 'none';
-        availabilityText.classList.remove('success-animation');
-        proceedLink.style.display = 'none';
-        proceedLink.classList.remove('success-animation');
-        divider.style.display = 'none';
-        speedEstimateLink.style.display = 'none';
+        if (country === 'CA') {
+          showEligibleState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink, address);
+        } else {
+          showUnavailableState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink);
+        }
+      } else {
+        showUnavailableState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink);
       }
+    });
+  }
 
-      function redirectToSpeedEstimate(address) {
-        window.location.href = `/speedestimate.html?address=${address}`;
-      }
-    </script>
-  </body>
-</html>
+  function showEligibleState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink, address) {
+    buttonContainer.innerHTML = '';
+    moreInfoContainer.style.display = 'block';
+    successCheckmark.style.display = 'block';
+    successCheckmark.classList.add('success-animation');
+    availabilityText.style.display = 'block';
+    availabilityText.classList.add('success-animation');
+    proceedLink.style.display = 'block';
+    proceedLink.classList.add('success-animation');
+    divider.style.display = 'block';
+    speedEstimateLink.style.display = 'block';
+    speedEstimateLink.setAttribute('onclick', `redirectToSpeedEstimate('${encodeURIComponent(address)}')`);
+    resultContainer.classList.remove('success');
+  }
+
+  function showUnavailableState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink) {
+    buttonContainer.innerHTML = `
+      <div class="service-unavailable-text">Service Not Available</div>
+      <div class="try-again" onclick="resetForm()">
+        <span class="refresh-icon">↻</span> Try Another Address
+      </div>
+    `;
+    moreInfoContainer.style.display = 'none';
+    successCheckmark.style.display = 'none';
+    successCheckmark.classList.remove('success-animation');
+    availabilityText.style.display = 'none';
+    availabilityText.classList.remove('success-animation');
+    proceedLink.style.display = 'none';
+    proceedLink.classList.remove('success-animation');
+    divider.style.display = 'none';
+    speedEstimateLink.style.display = 'none';
+    resultContainer.classList.remove('success');
+  }
+
+  function resetForm() {
+    const buttonContainer = document.getElementById('button-container');
+    const resultContainer = document.getElementById('result-container');
+    const moreInfoContainer = document.getElementById('more-info');
+    const successCheckmark = moreInfoContainer.querySelector('.success-checkmark');
+    const availabilityText = moreInfoContainer.querySelector('.availability-text');
+    const proceedLink = moreInfoContainer.querySelector('.proceed-to-order');
+    const divider = moreInfoContainer.querySelector('.divider');
+    const speedEstimateLink = moreInfoContainer.querySelector('.speed-estimate-link');
+    
+    buttonContainer.innerHTML = `
+      <button class="btn btn-primary lh-xl" type="submit" id="check-coverage-btn">Check Availability</button>
+    `;
+    resultContainer.classList.remove('success');
+    moreInfoContainer.style.display = 'none';
+    successCheckmark.style.display = 'none';
+    successCheckmark.classList.remove('success-animation');
+    availabilityText.style.display = 'none';
+    availabilityText.classList.remove('success-animation');
+    proceedLink.style.display = 'none';
+    proceedLink.classList.remove('success-animation');
+    divider.style.display = 'none';
+    speedEstimateLink.style.display = 'none';
+  }
+
+  function redirectToSpeedEstimate(address) {
+    window.location.href = `/speedestimate.html?address=${address}`;
+  }
+</script>
