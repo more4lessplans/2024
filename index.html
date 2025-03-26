@@ -209,9 +209,117 @@
         color: #D73C59;
       }
 
-      /* Modal Styles for Mobile Menu and Existing Customers */
+      /* Custom Mobile Menu Styles */
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent backdrop */
+        z-index: 1050;
+        display: none; /* Hidden by default */
+        justify-content: center;
+        align-items: center;
+      }
+      .mobile-menu.open {
+        display: flex; /* Show when open class is added */
+      }
+      .mobile-menu-content {
+        background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        width: 90%;
+        max-width: 350px;
+        padding: 1.5rem;
+        position: relative;
+      }
+      .mobile-menu-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 0 0 1rem 0;
+      }
+      .mobile-menu-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #2E2F33;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        text-align: center;
+        border-radius: 8px;
+        position: relative;
+      }
+      .mobile-menu-title::after {
+        content: "";
+        display: block;
+        width: 50%;
+        height: 1px;
+        background-color: #e3e3e3;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .mobile-menu-close {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+        cursor: pointer;
+      }
+      .mobile-menu-close:hover {
+        opacity: 1;
+      }
+      .mobile-menu-body {
+        padding: 1rem 0;
+        text-align: center;
+      }
+      .mobile-menu-body ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .mobile-menu-body .nav-link {
+        color: #2E2F33;
+        font-size: 1.1rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        padding: 0.5rem 0;
+        transition: all 0.3s ease;
+        display: block;
+      }
+      .mobile-menu-body .nav-link:hover {
+        color: #D73C59;
+        background-color: rgba(215, 60, 89, 0.1);
+        transform: scale(1.02);
+        border-radius: 5px;
+      }
+      .mobile-menu-body ul li {
+        margin-bottom: 0;
+        border-bottom: 1px solid #e3e3e3;
+      }
+      .mobile-menu-body ul li:last-child {
+        border-bottom: none;
+      }
+      .nav-link-existing-mobile::after {
+        content: " →";
+        color: #2E2F33;
+        font-size: 0.9rem;
+        margin-left: 4px;
+      }
+      .nav-link-existing-mobile:hover::after {
+        color: #D73C59;
+      }
+
+      /* Existing Customers Modal Styles (Using Bootstrap) */
       .modal-content {
-        background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); /* Subtle gradient for premium feel */
+        background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
         border-radius: 15px;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
         border: none;
@@ -225,60 +333,26 @@
         padding: 0 0 1rem 0;
       }
       .modal-title {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         font-weight: 600;
-        color: #222831;
-        margin: 0;
+        color: #2E2F33;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        text-align: center;
+        border-radius: 8px;
+        position: relative;
       }
-      /* Style the Menu Title - Minimal and Distinct */
-#mobileMenuModalLabel {
-  font-size: 1.5rem; /* Slightly larger than before for more prominence */
-  font-weight: 600; /* Slightly bolder than links (500) for distinction */
-  color: #2E2F33;
-  padding: 0.5rem 1rem;
-  width: 100%;
-  text-align: center;
-  border-radius: 8px;
-  position: relative; /* For positioning the horizontal line */
-}
-
-/* Add Subtle Horizontal Line Below Menu Title */
-#mobileMenuModalLabel::after {
-  content: "";
-  display: block;
-  width: 50%; /* Spans 50% of the modal width */
-  height: 1px;
-  background-color: #e3e3e3; /* Very subtle light grey line */
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%); /* Center the line */
-}
-
-/* Style the Existing Customers Title - Minimal and Distinct */
-#existingCustomersModalLabel {
-  font-size: 1.5rem; /* Slightly larger than before for more prominence */
-  font-weight: 600; /* Slightly bolder than links (500) for distinction */
-  color: #2E2F33;
-  padding: 0.5rem 1rem;
-  width: 100%;
-  text-align: center;
-  border-radius: 8px;
-  position: relative; /* For positioning the horizontal line */
-}
-
-/* Add Subtle Horizontal Line Below Existing Customers Title */
-#existingCustomersModalLabel::after {
-  content: "";
-  display: block;
-  width: 50%; /* Spans 50% of the modal width */
-  height: 1px;
-  background-color: #e3e3e3; /* Very subtle light grey line */
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%); /* Center the line */
-}
+      .modal-title::after {
+        content: "";
+        display: block;
+        width: 50%;
+        height: 1px;
+        background-color: #e3e3e3;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
       .btn-close {
         position: absolute;
         right: 1rem;
@@ -294,54 +368,35 @@
       }
       .modal-body {
         padding: 1rem 0;
+        text-align: center;
       }
       .modal-body ul {
         margin: 0;
         padding: 0;
+        list-style: none;
       }
       .modal-body .nav-link {
         color: #2E2F33;
         font-size: 1.1rem;
         font-weight: 500;
-        letter-spacing: 0.5px; /* Slight letter spacing for elegance */
+        letter-spacing: 0.5px;
         padding: 0.5rem 0;
         transition: all 0.3s ease;
-        display: block; /* Ensure the link takes full width for hover effect */
+        display: block;
       }
-      /* Premium Hover Effect for Links */
       .modal-body .nav-link:hover {
         color: #D73C59;
-        background-color: rgba(215, 60, 89, 0.1); /* Subtle background on hover */
-        transform: scale(1.02); /* Slight scale effect */
+        background-color: rgba(215, 60, 89, 0.1);
+        transform: scale(1.02);
         border-radius: 5px;
       }
-      /* Reduce Spacing and Add Horizontal Line Between Links in Mobile Menu */
-      #mobileMenuModal .modal-body ul li {
+      .modal-body ul li {
         margin-bottom: 0;
         border-bottom: 1px solid #e3e3e3;
       }
-      #mobileMenuModal .modal-body ul li:last-child {
+      .modal-body ul li:last-child {
         border-bottom: none;
       }
-      /* Add Arrow to Existing Customers Link in Mobile Menu */
-      .nav-link-existing-mobile::after {
-        content: " →";
-        color: #2E2F33;
-        font-size: 0.9rem;
-        margin-left: 4px;
-      }
-      .nav-link-existing-mobile:hover::after {
-        color: #D73C59;
-      }
-      /* Reduce Spacing and Add Horizontal Line Between Links in Existing Customers Modal */
-      #existingCustomersModal .modal-body ul li {
-        margin-bottom: 0;
-        border-bottom: 1px solid #e3e3e3;
-      }
-      #existingCustomersModal .modal-body ul li:last-child {
-        border-bottom: none;
-      }
-      /* Ensure modal is centered and has a max-width for better aesthetics */
       .modal-dialog {
         max-width: 350px;
       }
@@ -352,24 +407,22 @@
         }
       }
 
-      /* Check Availability Button Styling (White Border with Subtle Hover Animation) */
-#check-coverage-btn {
-  font-weight: 400;
-  color: #ffffff; /* White text */
-  background-color: transparent; /* No background initially */
-  border: 2px solid #ffffff; /* White border */
-  border-radius: 8px;
-  padding: 0.75rem 1.5rem;
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
-}
-
-/* Subtle Hover Animation */
-#check-coverage-btn:hover {
-  color: #2E2F33; /* Dark text on hover for contrast */
-  background-color: #ffffff; /* White background on hover */
-  border-color: #ffffff; /* Keep white border */
-  transform: scale(1.05); /* Subtle scale-up effect */
-}
+      /* Check Availability Button Styling */
+      #check-coverage-btn {
+        font-weight: 400;
+        color: #ffffff;
+        background-color: transparent;
+        border: 2px solid #ffffff;
+        border-radius: 8px;
+        padding: 0.75rem 1.5rem;
+        transition: all 0.3s ease;
+      }
+      #check-coverage-btn:hover {
+        color: #2E2F33;
+        background-color: #ffffff;
+        border-color: #ffffff;
+        transform: scale(1.05);
+      }
     </style>
   </head>
 
@@ -380,68 +433,67 @@
           <div class="container-fluid px-0">
             <a href="/" class="navbar-brand"><img src="assets/img/logos/logo.png" style="width: 80px; height: 36;" alt="logo" /></a>
             <!-- Mobile Menu Toggle Button -->
-            <button class="navbar-toggler border-0 pe-0 d-md-none" type="button" data-bs-toggle="modal" data-bs-target="#mobileMenuModal" aria-controls="mobileMenuModal" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0 pe-0 d-md-none" type="button" id="mobileMenuToggle" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <!-- Desktop Menu -->
             <div class="collapse navbar-collapse justify-content-md-end d-none d-md-flex" id="navbar-content" data-navbar-collapse="data-navbar-collapse">
               <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0" data-navbar-nav="data-navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link lh-xl nav-link-existing" href="#" role="button" data-bs-toggle="modal" data-bs-target="#existingCustomersModal">Existing Customers</a>
+                  <a class="nav-link lh-xl nav-link-existing" href="#" role="button" data-toggle="modal" data-target="#existingCustomersModal">Existing Customers</a>
                 </li>
-                <li class="nav-item"><a class="nav-link lh-xl" href="#pricing">Pricing</a></li>
-                <li class="nav-item"><a class="nav-link lh-xl" href="/contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link lh-xl" href="/mobility">Mobility</a></li>
-                <li class="nav-item"><a class="nav-link lh-xl" href="/question">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="#pricing" data-scroll-target="pricing">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="/contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="/mobility">Mobility</a></li>
+                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="#question" data-scroll-target="question">FAQ</a></li>
               </ul>
             </div>
           </div>
         </nav>
 
-       <!-- Mobile Menu Modal -->
-<div class="modal fade" id="mobileMenuModal" tabindex="-1" aria-labelledby="mobileMenuModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header border-0">
-        <h5 class="modal-title" id="mobileMenuModalLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center">
-        <ul class="list-unstyled">
-          <li>
-            <a class="nav-link lh-xl fw-bold nav-link-existing-mobile" href="#" data-bs-toggle="modal" data-bs-target="#existingCustomersModal" data-bs-dismiss="modal">Existing Customers</a>
-          </li>
-          <li>
-            <a class="nav-link lh-xl fw-bold" id="mobile-pricing-link" href="#pricing">Pricing</a> <!-- Added ID -->
-          </li>
-          <li><a class="nav-link lh-xl fw-bold" href="/contact" data-bs-dismiss="modal">Contact</a></li>
-          <li><a class="nav-link lh-xl fw-bold" href="/mobility" data-bs-dismiss="modal">Mobility</a></li>
-          <li><a class="nav-link lh-xl fw-bold" href="/question" data-bs-dismiss="modal">FAQ</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-        <!-- Existing Customers Modal (for both Desktop and Mobile) -->
-        <div class="modal fade" id="existingCustomersModal" tabindex="-1" aria-labelledby="existingCustomersModalLabel" aria-hidden="true">
+        <!-- Custom Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+          <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+              <h5 class="mobile-menu-title">Menu</h5>
+              <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">×</button>
+            </div>
+            <div class="mobile-menu-body">
+              <ul class="list-unstyled">
+                <li>
+                  <a class="nav-link lh-xl fw-bold nav-link-existing-mobile" href="#" data-toggle="modal" data-target="#existingCustomersModal">Existing Customers</a>
+                </li>
+                <li>
+                  <a class="nav-link lh-xl fw-bold mobile-nav-link" href="#pricing" data-scroll-target="pricing">Pricing</a>
+                </li>
+                <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="/contact">Contact</a></li>
+                <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="/mobility">Mobility</a></li>
+                <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="#question" data-scroll-target="question">FAQ</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Existing Customers Modal (Using Bootstrap) -->
+        <div class="modal fade" id="existingCustomersModal" tabindex="-1" role="dialog" aria-labelledby="existingCustomersModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header border-0">
                 <h5 class="modal-title" id="existingCustomersModalLabel">Existing Customers</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body text-center">
                 <ul class="list-unstyled">
-                  <li><a class="nav-link lh-xl fw-bold" href="javascript:void(0)" data-cb-type="portal" data-bs-dismiss="modal">Account Login</a></li>
-                  <li><a class="nav-link lh-xl fw-bold" href="/tutorials" data-bs-dismiss="modal">Tutorials</a></li>
-                  <li><a class="nav-link lh-xl fw-bold" href="/support" data-bs-dismiss="modal">Technical Support</a></li>
+                  <li><a class="nav-link lh-xl fw-bold existing-customer-link" href="#" data-cb-type="portal">Account Login</a></li>
+                  <li><a class="nav-link lh-xl fw-bold existing-customer-link" href="/tutorials">Tutorials</a></li>
+                  <li><a class="nav-link lh-xl fw-bold existing-customer-link" href="/support">Technical Support</a></li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
-        <div data-bs-target="#navbar" data-bs-spy="scroll" tabindex="0">
+        <div data-target="#navbar" data-spy="scroll" tabindex="0">
           <section class="hero-section overflow-hidden position-top z-0 mb-4 mb-lg-0" id="home">
             <div class="hero-background">
               <div class="container">
@@ -733,49 +785,49 @@
               <div class="accordion mt-lg-4 ps-3 pe-x1 bg-white" id="accordion">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading1">
-                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Can I Use My Own Equipment?</button>
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Can I Use My Own Equipment?</button>
                   </h2>
-                  <div class="accordion-collapse collapse show" id="collapse1" data-bs-parent="#accordion">
+                  <div class="accordion-collapse collapse show" id="collapse1" data-parent="#accordion">
                     <div class="accordion-body lh-xl pt-0 pb-x1">You need to purchase equipment from us to use the service. However, if you prefer, you can connect your own dedicated router in bridge mode to our equipment.</div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading2">
-                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">What Speeds Will I Get?</button>
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">What Speeds Will I Get?</button>
                   </h2>
-                  <div class="accordion-collapse collapse" id="collapse2" data-bs-parent="#accordion">
+                  <div class="accordion-collapse collapse" id="collapse2" data-parent="#accordion">
                     <div class="accordion-body lh-xl pt-0 pb-x1">If your cell phone has a strong signal in your area, you can generally expect good wireless internet coverage as well. You can request a speed estimate from us <a href="speedestimate">here</a>.</div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading3">
-                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Can I Take My Router To The USA?</button>
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Can I Take My Router To The USA?</button>
                   </h2>
-                  <div class="accordion-collapse collapse" id="collapse3" data-bs-parent="#accordion">
+                  <div class="accordion-collapse collapse" id="collapse3" data-parent="#accordion">
                     <div class="accordion-body lh-xl pt-0 pb-x1">Yes, our service works in Canada, the USA, and Mexico!</div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading4">
-                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">Is It Actually Unlimited Wi-Fi?</button>
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">Is It Actually Unlimited Wi-Fi?</button>
                   </h2>
-                  <div class="accordion-collapse collapse" id="collapse4" data-bs-parent="#accordion">
+                  <div class="accordion-collapse collapse" id="collapse4" data-parent="#accordion">
                     <div class="accordion-body lh-xl pt-0 pb-x1">Yes, our internet is truly unlimited! There are no slowdowns or data caps. Enjoy fast, unrestricted browsing at all times.</div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading5">
-                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">Is This Satellite Internet?</button>
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">Is This Satellite Internet?</button>
                   </h2>
-                  <div class="accordion-collapse collapse" id="collapse5" data-bs-parent="#accordion">
+                  <div class="accordion-collapse collapse" id="collapse5" data-parent="#accordion">
                     <div class="accordion-body lh-xl pt-0 pb-x1">No, we utilize LTE and 5G which offers lower latency, better coverage, and more stable connections compared to satellite internet.</div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading6">
-                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">Do I Need To Schedule An Installation?</button>
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">Do I Need To Schedule An Installation?</button>
                   </h2>
-                  <div class="accordion-collapse collapse" id="collapse6" data-bs-parent="#accordion">
+                  <div class="accordion-collapse collapse" id="collapse6" data-parent="#accordion">
                     <div class="accordion-body lh-xl pt-0 pb-x1">No! Our Wireless Internet service is plug and play and fully portable.</div>
                   </div>
                 </div>
@@ -815,53 +867,190 @@
     </main>
 
     <!-- JavaScripts -->
+    <!-- Add jQuery before Popper.js and Bootstrap.js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNt4XeQ5roadq0L-IpadA6s9e4CPm9FwI&libraries=places"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
+    <script src="vendors/is/is.min.js"></script>
+    <script src="vendors/countup/countUp.umd.js"></script>
+    <script src="vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="vendors/lodash/lodash.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="assets/js/theme.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const input = document.getElementById('address');
         const checkCoverageBtn = document.getElementById('check-coverage-btn');
         const autocomplete = new google.maps.places.Autocomplete(input);
         document.getElementById("currentYear").textContent = new Date().getFullYear();
-    
+
+        // Handle coverage check button click
         checkCoverageBtn.addEventListener('click', function() {
           this.classList.add('btn-clicked');
         });
-    
+
+        // Handle address form submission
         document.getElementById('address-form').addEventListener('submit', function(event) {
           event.preventDefault();
           const address = input.value;
           checkAddressCoverage(address);
         });
-    
+
+        // Prevent buy button clicks from propagating
         const buyButtons = document.querySelectorAll('.button-container');
         buyButtons.forEach(button => {
           button.addEventListener('click', function(event) {
             event.stopPropagation();
           });
         });
-    
-        // Add event listener for the Pricing link in the mobile menu
-        const pricingLink = document.getElementById('mobile-pricing-link');
-        if (pricingLink) {
-          pricingLink.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default anchor behavior
-    
-            // Close the mobile menu modal
-            const mobileMenuModal = document.getElementById('mobileMenuModal');
-            const modalInstance = bootstrap.Modal.getInstance(mobileMenuModal);
-            modalInstance.hide();
-    
-            // Scroll to the Pricing section after the modal is hidden
-            mobileMenuModal.addEventListener('hidden.bs.modal', function() {
-              const pricingSection = document.getElementById('pricing');
-              if (pricingSection) {
-                pricingSection.scrollIntoView({ behavior: 'smooth' });
+
+        // Custom Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+        mobileMenuToggle.addEventListener('click', function() {
+          mobileMenu.classList.add('open');
+        });
+
+        mobileMenuClose.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+        });
+
+        // Close mobile menu when clicking outside
+        mobileMenu.addEventListener('click', function(event) {
+          if (event.target === mobileMenu) {
+            mobileMenu.classList.remove('open');
+          }
+        });
+
+        // Handle Desktop Navigation Links (Smooth Scrolling for In-Page Links)
+        const desktopNavLinks = document.querySelectorAll('.desktop-nav-link');
+        desktopNavLinks.forEach(link => {
+          link.addEventListener('click', function(event) {
+            const href = this.getAttribute('href');
+            const scrollTarget = this.getAttribute('data-scroll-target');
+
+            if (scrollTarget) {
+              event.preventDefault();
+              const targetElement = document.getElementById(scrollTarget);
+              if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
               }
-            }, { once: true }); // Ensure the event listener runs only once
+            }
+            // If no scroll target, the link will navigate to the page (e.g., /contact, /mobility)
           });
-        }
+        });
+
+        // Handle Mobile Menu Links
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+          link.addEventListener('click', function(event) {
+            const href = this.getAttribute('href');
+            const scrollTarget = this.getAttribute('data-scroll-target');
+
+            // Close the mobile menu
+            mobileMenu.classList.remove('open');
+
+            // Handle navigation
+            setTimeout(() => {
+              if (scrollTarget) {
+                // In-page link (e.g., #pricing, #question)
+                event.preventDefault();
+                const targetElement = document.getElementById(scrollTarget);
+                if (targetElement) {
+                  targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+              } else {
+                // External page link (e.g., /contact, /mobility)
+                window.location.href = href;
+              }
+            }, 300); // Small delay to allow menu close animation
+          });
+        });
+
+        // Close mobile menu when Existing Customers link is clicked (since it opens a Bootstrap modal)
+        const existingCustomerMobileLink = document.querySelector('.nav-link-existing-mobile');
+        existingCustomerMobileLink.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+        });
+
+        // Handle Existing Customers Modal Links
+        const existingCustomerLinks = document.querySelectorAll('.existing-customer-link');
+        existingCustomerLinks.forEach(link => {
+          link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const href = this.getAttribute('href');
+            const cbType = this.getAttribute('data-cb-type');
+
+            // Close the existing customers modal
+            $('#existingCustomersModal').modal('hide');
+
+            // Handle navigation after modal is hidden
+            $('#existingCustomersModal').on('hidden.bs.modal', function() {
+              if (cbType === 'portal') {
+                // Handle Chargebee portal integration
+                if (typeof Chargebee !== 'undefined') {
+                  const cbInstance = Chargebee.getInstance();
+                  cbInstance.openCheckout({
+                    hostedPage: function() {
+                      return new Promise((resolve) => {
+                        resolve({ url: 'https://your-chargebee-portal-url' }); // Replace with actual Chargebee portal URL
+                      });
+                    },
+                    success: function(hostedPageId) {
+                      console.log('Chargebee portal opened successfully:', hostedPageId);
+                    },
+                    close: function() {
+                      console.log('Chargebee portal closed');
+                    }
+                  });
+                } else {
+                  console.error('Chargebee library not loaded');
+                  // Fallback: Redirect to a login page
+                  window.location.href = '/login';
+                }
+              } else {
+                // Navigate to the page (e.g., /tutorials, /support)
+                window.location.href = href;
+              }
+            });
+          });
+        });
+
+        // Fallback for FAQ Accordion (if Bootstrap collapse fails)
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+        accordionButtons.forEach(button => {
+          button.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const target = document.querySelector(targetId);
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+            // Toggle aria-expanded
+            this.setAttribute('aria-expanded', !isExpanded);
+
+            // Toggle the collapse state manually if Bootstrap fails
+            if (target.classList.contains('show')) {
+              target.classList.remove('show');
+            } else {
+              // Close other open accordion items
+              document.querySelectorAll('.accordion-collapse.show').forEach(item => {
+                if (item !== target) {
+                  item.classList.remove('show');
+                  const relatedButton = document.querySelector(`[data-target="#${item.id}"]`);
+                  if (relatedButton) {
+                    relatedButton.setAttribute('aria-expanded', 'false');
+                  }
+                }
+              });
+              target.classList.add('show');
+            }
+          });
+        });
       });
-    
+
       function checkAddressCoverage(address) {
         const geocoder = new google.maps.Geocoder();
         geocoder.geocode({ 'address': address }, function(results, status) {
@@ -873,11 +1062,11 @@
           const proceedLink = moreInfoContainer.querySelector('.proceed-to-order');
           const divider = moreInfoContainer.querySelector('.divider');
           const speedEstimateLink = moreInfoContainer.querySelector('.speed-estimate-link');
-    
+
           if (status === 'OK' && results.length > 0) {
             const result = results[0];
             const country = result.address_components.find(component => component.types.includes('country')).short_name;
-    
+
             if (country === 'CA') {
               showEligibleState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink, address);
             } else {
@@ -888,7 +1077,7 @@
           }
         });
       }
-    
+
       function showEligibleState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink, address) {
         buttonContainer.innerHTML = '';
         moreInfoContainer.style.display = 'block';
@@ -903,7 +1092,7 @@
         speedEstimateLink.setAttribute('onclick', `redirectToSpeedEstimate('${encodeURIComponent(address)}')`);
         resultContainer.classList.remove('success');
       }
-    
+
       function showUnavailableState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink) {
         buttonContainer.innerHTML = `
           <div class="service-unavailable-text">Service Not Available</div>
@@ -922,7 +1111,7 @@
         speedEstimateLink.style.display = 'none';
         resultContainer.classList.remove('success');
       }
-    
+
       function resetForm() {
         const buttonContainer = document.getElementById('button-container');
         const resultContainer = document.getElementById('result-container');
@@ -947,22 +1136,10 @@
         divider.style.display = 'none';
         speedEstimateLink.style.display = 'none';
       }
-    
+
       function redirectToSpeedEstimate(address) {
         window.location.href = `/speedestimate.html?address=${address}`;
       }
     </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
-    <script src="vendors/popper/popper.min.js"></script>
-    <script src="vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="vendors/is/is.min.js"></script>
-    <script src="vendors/countup/countUp.umd.js"></script>
-    <script src="vendors/swiper/swiper-bundle.min.js"></script>
-    <script src="vendors/lodash/lodash.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="assets/js/theme.js"></script>
   </body>
 </html>
