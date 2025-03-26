@@ -23,7 +23,9 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
   <link href="assets/css/theme.min.css" rel="stylesheet" id="style-default">
   <link href="assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
   <link href="assets/css/user.min.css" rel="stylesheet" id="user-style-default">
@@ -36,12 +38,12 @@
     }
     .content-section h1 {
       font-size: 2.5rem;
-      color: #313C59;
+      color: #2E2F33; /* Updated from #313C59 to match other pages */
       margin-bottom: 1.5rem;
     }
     .content-section h2 {
       font-size: 1.5rem;
-      color: #313C59;
+      color: #2E2F33; /* Updated from #313C59 to match other pages */
       margin-top: 2rem;
       margin-bottom: 1rem;
     }
@@ -57,34 +59,288 @@
     .content-section ul li {
       margin-bottom: 0.5rem;
     }
+    /* Add padding below the fixed navbar to prevent content overlap */
+    body {
+      padding-top: 70px; /* Adjust based on navbar height */
+    }
+
+    /* Updated Nav Bar Styles (Solid Color) */
+    .navbar-solid {
+      background: #2E2F33;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-solid .nav-link {
+      color: #ffffff !important;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .navbar-solid .nav-link:hover {
+      color: #D73C59 !important;
+    }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* Add Arrow to Existing Customers Link in Desktop Nav */
+    .nav-link-existing::after {
+      content: " →";
+      color: #ffffff;
+      font-size: 0.9rem;
+      margin-left: 2px;
+    }
+    .nav-link-existing:hover::after {
+      color: #D73C59;
+    }
+
+    /* Modal Styles for Mobile Menu and Existing Customers */
+    .modal-content {
+      background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); /* Subtle gradient for premium feel */
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      border: none;
+      padding: 1.5rem;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 0 0 1rem 0;
+    }
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #222831;
+      margin: 0;
+    }
+    /* Style the Menu Title - Minimal and Distinct */
+    #mobileMenuModalLabel {
+      font-size: 1.5rem; /* Slightly larger for prominence */
+      font-weight: 600; /* Slightly bolder than links (500) for distinction */
+      color: #2E2F33;
+      padding: 0.5rem 1rem;
+      width: 100%;
+      text-align: center;
+      border-radius: 8px;
+      position: relative; /* For positioning the horizontal line */
+    }
+    /* Add Subtle Horizontal Line Below Menu Title */
+    #mobileMenuModalLabel::after {
+      content: "";
+      display: block;
+      width: 50%; /* Spans 50% of the modal width */
+      height: 1px;
+      background-color: #e3e3e3; /* Very subtle light grey line */
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%); /* Center the line */
+    }
+    /* Style the Existing Customers Title - Minimal and Distinct */
+    #existingCustomersModalLabel {
+      font-size: 1.5rem; /* Slightly larger for prominence */
+      font-weight: 600; /* Slightly bolder than links (500) for distinction */
+      color: #2E2F33;
+      padding: 0.5rem 1rem;
+      width: 100%;
+      text-align: center;
+      border-radius: 8px;
+      position: relative; /* For positioning the horizontal line */
+    }
+    /* Add Subtle Horizontal Line Below Existing Customers Title */
+    #existingCustomersModalLabel::after {
+      content: "";
+      display: block;
+      width: 50%; /* Spans 50% of the modal width */
+      height: 1px;
+      background-color: #e3e3e3; /* Very subtle light grey line */
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%); /* Center the line */
+    }
+    .btn-close {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+    .btn-close:hover {
+      opacity: 1;
+    }
+    .modal-body {
+      padding: 1rem 0;
+    }
+    .modal-body ul {
+      margin: 0;
+      padding: 0;
+    }
+    .modal-body .nav-link {
+      color: #2E2F33;
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.5px; /* Slight letter spacing for elegance */
+      padding: 0.5rem 0;
+      transition: all 0.3s ease;
+      display: block; /* Ensure the link takes full width for hover effect */
+    }
+    /* Premium Hover Effect for Links */
+    .modal-body .nav-link:hover {
+      color: #D73C59;
+      background-color: rgba(215, 60, 89, 0.1); /* Subtle background on hover */
+      transform: scale(1.02); /* Slight scale effect */
+      border-radius: 5px;
+    }
+    /* Reduce Spacing and Add Horizontal Line Between Links in Mobile Menu */
+    #mobileMenuModal .modal-body ul li {
+      margin-bottom: 0;
+      border-bottom: 1px solid #e3e3e3;
+    }
+    #mobileMenuModal .modal-body ul li:last-child {
+      border-bottom: none;
+    }
+    /* Add Arrow to Existing Customers Link in Mobile Menu */
+    .nav-link-existing-mobile::after {
+      content: " →";
+      color: #2E2F33;
+      font-size: 0.9rem;
+      margin-left: 4px;
+    }
+    .nav-link-existing-mobile:hover::after {
+      color: #D73C59;
+    }
+    /* Reduce Spacing and Add Horizontal Line Between Links in Existing Customers Modal */
+    #existingCustomersModal .modal-body ul li {
+      margin-bottom: 0;
+      border-bottom: 1px solid #e3e3e3;
+    }
+    #existingCustomersModal .modal-body ul li:last-child {
+      border-bottom: none;
+    }
+    /* Ensure modal is centered and has a max-width for better aesthetics */
+    .modal-dialog {
+      max-width: 350px;
+    }
+    @media (max-width: 576px) {
+      .modal-dialog {
+        max-width: 90%;
+        margin: 1.75rem auto;
+      }
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem 0;
+      background: #ffffff;
+      text-align: center;
+    }
+    .footer-links {
+      margin-bottom: 1.5rem;
+    }
+    .footer-links a {
+      color: #A1A8B3; /* Lighter gray for minimal look */
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      padding: 0 1rem;
+      position: relative;
+    }
+    .footer-links a:hover {
+      color: #565656; /* Slightly darker gray on hover */
+    }
+    .footer-links a:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 50%;
+      background: #D1D5DB;
+    }
+    .footer-divider {
+      width: 50%;
+      margin: 0 auto 1.5rem auto;
+      border: 0;
+      border-top: 1px solid #E5E7EB; /* Very light gray for seamless blend */
+    }
+    .footer-copyright {
+      color: #9CA3AF; /* Subtle, readable gray */
+      font-size: 1rem;
+      margin: 0;
+    }
   </style>
 </head>
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-md fixed-top" id="navbar" style="background-color: #313C59;">
+  <nav class="navbar navbar-expand-md fixed-top navbar-solid" id="navbar">
     <div class="container-fluid px-0">
       <a href="/" class="navbar-brand"><img src="assets/img/logos/logo.png" style="width: 80px; height: 35px;" alt="logo" /></a>
-      <button class="navbar-toggler border-0 pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- Mobile Menu Toggle Button -->
+      <button class="navbar-toggler border-0 pe-0 d-md-none" type="button" data-bs-toggle="modal" data-bs-target="#mobileMenuModal" aria-controls="mobileMenuModal" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-md-end" id="navbar-content">
-        <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link lh-xl dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Existing Customers</a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="javascript:void(0)" data-cb-type="portal"><strong>Account Login</strong></a></li>
-              <li><a class="dropdown-item" href="/contact"><strong>Technical Support</strong></a></li>
-            </ul>
+      <!-- Desktop Menu -->
+      <div class="collapse navbar-collapse justify-content-md-end d-none d-md-flex" id="navbar-content" data-navbar-collapse="data-navbar-collapse">
+        <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0" data-navbar-nav="data-navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link lh-xl nav-link-existing" href="#" role="button" data-bs-toggle="modal" data-bs-target="#existingCustomersModal">Existing Customers</a>
           </li>
+          <li class="nav-item"><a class="nav-link lh-xl" href="/contact">Contact</a></li>
           <li class="nav-item"><a class="nav-link lh-xl" href="/mobility">Mobility</a></li>
           <li class="nav-item"><a class="nav-link lh-xl" href="/question">FAQ</a></li>
         </ul>
       </div>
     </div>
   </nav>
-<br><br><br><br>
-  <!-- Privacy Policy Content -->
+
+  <!-- Mobile Menu Modal -->
+  <div class="modal fade" id="mobileMenuModal" tabindex="-1" aria-labelledby="mobileMenuModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="mobileMenuModalLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <ul class="list-unstyled">
+            <li>
+              <a class="nav-link lh-xl fw-bold nav-link-existing-mobile" href="#" data-bs-toggle="modal" data-bs-target="#existingCustomersModal" data-bs-dismiss="modal">Existing Customers</a>
+            </li>
+            <li><a class="nav-link lh-xl fw-bold" href="/contact" data-bs-dismiss="modal">Contact</a></li>
+            <li><a class="nav-link lh-xl fw-bold" href="/mobility" data-bs-dismiss="modal">Mobility</a></li>
+            <li><a class="nav-link lh-xl fw-bold" href="/question" data-bs-dismiss="modal">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Existing Customers Modal (for both Desktop and Mobile) -->
+  <div class="modal fade" id="existingCustomersModal" tabindex="-1" aria-labelledby="existingCustomersModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="existingCustomersModalLabel">Existing Customers</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <ul class="list-unstyled">
+            <li><a class="nav-link lh-xl fw-bold account-login-link" href="#" data-cb-type="portal" data-bs-dismiss="modal">Account Login</a></li>
+            <li><a class="nav-link lh-xl fw-bold" href="/tutorials" data-bs-dismiss="modal">Tutorials</a></li>
+            <li><a class="nav-link lh-xl fw-bold" href="/support" data-bs-dismiss="modal">Technical Support</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Content (Unchanged as per request) -->
   <section class="content-section">
     <div class="container">
       <h1>Privacy Policy</h1>
@@ -219,33 +475,62 @@
       <p>If you have questions about this Privacy Policy or our privacy practices, please contact us at:</p>
       <p>
         <strong>The More4Less Team</strong><br>
-       
         Email: privacy@more4lessplans.com<br>
-      
       </p>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="pt-7 pt-lg-8">
-    <div class="container">
-      <div class="row gy-2 py-3 justify-content-center">
-        <div class="col-auto ps-0 text-center">
-          <p class="lh-xl text-1100">
-            <hr class="my-4">
-            © <span id="currentYear"></span> Copyright, All Rights Reserved | <a href="/privacy-policy.html">Privacy Policy</a>
-          </p>
-        </div>
-      </div>
+  <footer>
+    <div class="footer-links">
+      <a href="/terms">Service Terms</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy-policy">Privacy Policy</a>
     </div>
+    <hr class="footer-divider">
+    <p class="footer-copyright">© <span id="currentYear"></span> Copyright, All Rights Reserved</p>
   </footer>
 
   <!-- JavaScripts -->
   <script>
-    document.getElementById("currentYear").textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set the current year in the footer
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+      // Initialize Chargebee
+      if (typeof Chargebee !== 'undefined') {
+        Chargebee.init({
+          site: "more4lessplans", // Your Chargebee site name
+          // Add your Chargebee publishable key if required (optional for some setups)
+          // publishableKey: "your-publishable-key"
+        });
+
+        // Add event listener for Account Login links
+        const accountLoginLinks = document.querySelectorAll('.account-login-link');
+        accountLoginLinks.forEach(link => {
+          link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default anchor behavior
+
+            // Open Chargebee customer portal
+            Chargebee.getInstance().openPortal({
+              // Optional: Add callbacks for portal events
+              onLoad: function() {
+                console.log("Chargebee portal loaded");
+              },
+              onClose: function() {
+                console.log("Chargebee portal closed");
+              }
+            });
+          });
+        });
+      } else {
+        console.error("Chargebee script not loaded. Please ensure the Chargebee script is included.");
+      }
+    });
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
   <script src="vendors/popper/popper.min.js"></script>
   <script src="vendors/bootstrap/bootstrap.min.js"></script>
   <script src="vendors/is/is.min.js"></script>

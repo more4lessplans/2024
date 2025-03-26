@@ -1,327 +1,580 @@
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en-US" dir="ltr">
 
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=0.85">
-    <title>More4Less</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
-    <link rel="manifest" href="assets/img/favicons/manifest.json">
-    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
-    <meta name="theme-color" content="#ffffff">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;family=Rubik:ital,wght@0,300..900;1,300..900family=Rubik:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet">
-    <link href="assets/css/theme.min.css" rel="stylesheet" id="style-default">
-    <link href="assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
-    <link href="assets/css/user.min.css" rel="stylesheet" id="user-style-default">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <body>
+  <!-- SEO Title -->
+  <title>More4Less | Tutorials</title>
 
+  <!-- SEO Keywords -->
+  <meta name="keywords" content="wireless internet tutorials, update APN Netgear Orbi, manual network selection Orbi, More4Less tutorials, Netgear Orbi setup, LTE router setup, 5G router setup, Canada internet tutorials, rural internet setup, internet for RVers, mobile internet setup, wireless internet Canada, more4less wireless, internet troubleshooting, router configuration">
 
+  <!-- SEO Description -->
+  <meta name="description" content="Learn how to set up and troubleshoot your More4Less wireless internet with our tutorials. Step-by-step guides for updating the APN and manual network selection on your Netgear Orbi router.">
 
-    <style>
-      .navbar,
-      .navbar-nav .nav-link,
-      .dropdown-menu,
-      .dropdown-item,
-      .nav-item {
-        background-color: #313C59 !important;
-      }
-  
-      .nav-link,
-      .nav-item {
-        color: rgba(255, 255, 255, 0.7) !important;
-        transition: color 0.3s ease;
-      }
-  
-      .nav-link:hover,
-      .nav-item:hover {
-        color: white !important;
-      }
-  
-      .pricing-card {
-        width: 260px;
-        white-space: nowrap;
-      }
-  
-      .pricing-card .pricing-info {
-        white-space: nowrap;
-      }
-  
-      @media (min-width: 992px) {
-        .pricing-card {
-          width: 290px;
-        }
-      }
-    </style>
-  </head>
-  
-  <body>
-  
+  <!-- Open Graph Meta Tags for Social Sharing -->
+  <meta property="og:title" content="More4Less | Wireless Internet Tutorials">
+  <meta property="og:description" content="Step-by-step tutorials for setting up your More4Less wireless internet. Learn how to update the APN and perform manual network selection on your Netgear Orbi router.">
+  <meta property="og:image" content="https://more4lessplans.ca/main.jpg">
+  <meta property="og:url" content="https://more4lessplans.ca/tutorials">
+  <meta property="og:type" content="website">
 
-     <!-- Navbar -->
-     <nav class="navbar navbar-expand-md fixed-top" id="navbar">
-      <div class="container-fluid px-0">
-        <a href="/" class="navbar-brand"><img src="assets/img/logos/logo.png" style="width: 80px; height: 35px;" alt="logo" /></a>
-        <button class="navbar-toggler border-0 pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-md-end" id="navbar-content">
-          <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0">
-            <li class="nav-item dropdown">
-              <a class="nav-link lh-xl dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Existing Customers</a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="javascript:void(0)" data-cb-type="portal"><strong>Account Login</strong></a></li>
-                <li><a class="dropdown-item" href="/contact"><strong>Technical Support</strong></a></li>
-               
-              </ul>
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="More4Less | Wireless Internet Tutorials">
+  <meta name="twitter:description" content="Step-by-step tutorials for setting up your More4Less wireless internet. Learn how to update the APN and perform manual network selection on your Netgear Orbi router.">
+  <meta name="twitter:image" content="https://more4lessplans.ca/main.jpg">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+  <link rel="manifest" href="assets/img/favicons/manifest.json">
+  <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom Styles and Fonts -->
+  <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <link href="assets/css/theme.min.css" rel="stylesheet" id="style-default">
+  <link href="assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
+  <link href="assets/css/user.min.css" rel="stylesheet" id="user-style-default">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-nCir1SeOabMFeNiu0p+Ox6gJo43v3K9sBZG+/IiYlL8TJ8BOAq0mGYCz5xg6PDe2jNwl9CTscC2vGQVQcR2qLg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Custom CSS -->
+  <style>
+    /* Add padding below the fixed navbar to prevent content overlap */
+    body {
+      padding-top: 70px; /* Adjust based on navbar height */
+    }
+
+    /* Updated Nav Bar Styles (Solid Color) */
+    .navbar-solid {
+      background: #2E2F33;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-solid .nav-link {
+      color: #ffffff !important;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .navbar-solid .nav-link:hover {
+      color: #D73C59 !important;
+    }
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* Add Arrow to Existing Customers Link in Desktop Nav */
+    .nav-link-existing::after {
+      content: " →";
+      color: #ffffff;
+      font-size: 0.9rem;
+      margin-left: 2px;
+    }
+    .nav-link-existing:hover::after {
+      color: #D73C59;
+    }
+
+    /* Modal Styles for Mobile Menu and Existing Customers */
+    .modal-content {
+      background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); /* Subtle gradient for premium feel */
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      border: none;
+      padding: 1.5rem;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding: 0 0 1rem 0;
+    }
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #222831;
+      margin: 0;
+    }
+    /* Style the Menu Title - Minimal and Distinct */
+    #mobileMenuModalLabel {
+      font-size: 1.5rem; /* Slightly larger for prominence */
+      font-weight: 600; /* Slightly bolder than links (500) for distinction */
+      color: #2E2F33;
+      padding: 0.5rem 1rem;
+      width: 100%;
+      text-align: center;
+      border-radius: 8px;
+      position: relative; /* For positioning the horizontal line */
+    }
+    /* Add Subtle Horizontal Line Below Menu Title */
+    #mobileMenuModalLabel::after {
+      content: "";
+      display: block;
+      width: 50%; /* Spans 50% of the modal width */
+      height: 1px;
+      background-color: #e3e3e3; /* Very subtle light grey line */
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%); /* Center the line */
+    }
+    /* Style the Existing Customers Title - Minimal and Distinct */
+    #existingCustomersModalLabel {
+      font-size: 1.5rem; /* Slightly larger for prominence */
+      font-weight: 600; /* Slightly bolder than links (500) for distinction */
+      color: #2E2F33;
+      padding: 0.5rem 1rem;
+      width: 100%;
+      text-align: center;
+      border-radius: 8px;
+      position: relative; /* For positioning the horizontal line */
+    }
+    /* Add Subtle Horizontal Line Below Existing Customers Title */
+    #existingCustomersModalLabel::after {
+      content: "";
+      display: block;
+      width: 50%; /* Spans 50% of the modal width */
+      height: 1px;
+      background-color: #e3e3e3; /* Very subtle light grey line */
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%); /* Center the line */
+    }
+    .btn-close {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+    .btn-close:hover {
+      opacity: 1;
+    }
+    .modal-body {
+      padding: 1rem 0;
+    }
+    .modal-body ul {
+      margin: 0;
+      padding: 0;
+    }
+    .modal-body .nav-link {
+      color: #2E2F33;
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.5px; /* Slight letter spacing for elegance */
+      padding: 0.5rem 0;
+      transition: all 0.3s ease;
+      display: block; /* Ensure the link takes full width for hover effect */
+    }
+    /* Premium Hover Effect for Links */
+    .modal-body .nav-link:hover {
+      color: #D73C59;
+      background-color: rgba(215, 60, 89, 0.1); /* Subtle background on hover */
+      transform: scale(1.02); /* Slight scale effect */
+      border-radius: 5px;
+    }
+    /* Reduce Spacing and Add Horizontal Line Between Links in Mobile Menu */
+    #mobileMenuModal .modal-body ul li {
+      margin-bottom: 0;
+      border-bottom: 1px solid #e3e3e3;
+    }
+    #mobileMenuModal .modal-body ul li:last-child {
+      border-bottom: none;
+    }
+    /* Add Arrow to Existing Customers Link in Mobile Menu */
+    .nav-link-existing-mobile::after {
+      content: " →";
+      color: #2E2F33;
+      font-size: 0.9rem;
+      margin-left: 4px;
+    }
+    .nav-link-existing-mobile:hover::after {
+      color: #D73C59;
+    }
+    /* Reduce Spacing and Add Horizontal Line Between Links in Existing Customers Modal */
+    #existingCustomersModal .modal-body ul li {
+      margin-bottom: 0;
+      border-bottom: 1px solid #e3e3e3;
+    }
+    #existingCustomersModal .modal-body ul li:last-child {
+      border-bottom: none;
+    }
+    /* Ensure modal is centered and has a max-width for better aesthetics */
+    .modal-dialog {
+      max-width: 350px;
+    }
+    @media (max-width: 576px) {
+      .modal-dialog {
+        max-width: 90%;
+        margin: 1.75rem auto;
+      }
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem 0;
+      background: #ffffff;
+      text-align: center;
+    }
+    .footer-links {
+      margin-bottom: 1.5rem;
+    }
+    .footer-links a {
+      color: #A1A8B3; /* Lighter gray for minimal look */
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      padding: 0 1rem;
+      position: relative;
+    }
+    .footer-links a:hover {
+      color: #565656; /* Slightly darker gray on hover */
+    }
+    .footer-links a:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 50%;
+      background: #D1D5DB;
+    }
+    .footer-divider {
+      width: 50%;
+      margin: 0 auto 1.5rem auto;
+      border: 0;
+      border-top: 1px solid #E5E7EB; /* Very light gray for seamless blend */
+    }
+    .footer-copyright {
+      color: #9CA3AF; /* Subtle, readable gray */
+      font-size: 1rem;
+      margin: 0;
+    }
+
+/* Remove padding-top from body since we're only adjusting the header spacing */
+body {
+  padding-top: 30; /* Changed from 70px to 0 */
+}
+
+/* Tutorials Section Styles */
+.header {
+  text-align: center;
+  padding: 20px;
+  background-color: #2E2F33;
+  color: white;
+  margin-top: 0; /* Changed from 20px to 0 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+    .header h2 {
+      margin: 0;
+      font-size: 28px;
+      color: #ffffff;
+    }
+    .tutorial-list {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+    .tutorial-list li {
+      margin: 10px 0;
+    }
+    .arrow {
+      cursor: pointer;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+    .arrow:hover {
+      color: #D73C59; /* Matches hover color used in other pages */
+    }
+    section {
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      background: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    h2 {
+      color: #2E2F33; /* Updated to match the new grey color used in other pages */
+      text-align: center;
+    }
+    ol {
+      padding-left: 20px;
+    }
+    ol li {
+      margin-bottom: 10px;
+      color: #555; /* Matches paragraph color used in other pages */
+    }
+    video {
+      display: block;
+      margin: 20px auto;
+      max-width: 90%;
+      max-height: 500px;
+      height: auto;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+    }
+    /* Remove unused pricing-card styles */
+    .pricing-card, .pricing-card .pricing-info {
+      display: none; /* These styles are not used in this page */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md fixed-top navbar-solid" id="navbar">
+    <div class="container-fluid px-0">
+      <a href="/" class="navbar-brand"><img src="assets/img/logos/logo.png" style="width: 80px; height: 35px;" alt="logo" /></a>
+      <!-- Mobile Menu Toggle Button -->
+      <button class="navbar-toggler border-0 pe-0 d-md-none" type="button" data-bs-toggle="modal" data-bs-target="#mobileMenuModal" aria-controls="mobileMenuModal" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Desktop Menu -->
+      <div class="collapse navbar-collapse justify-content-md-end d-none d-md-flex" id="navbar-content" data-navbar-collapse="data-navbar-collapse">
+        <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0" data-navbar-nav="data-navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link lh-xl nav-link-existing" href="#" role="button" data-bs-toggle="modal" data-bs-target="#existingCustomersModal">Existing Customers</a>
+          </li>
+          <li class="nav-item"><a class="nav-link lh-xl" href="/contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link lh-xl" href="/mobility">Mobility</a></li>
+          <li class="nav-item"><a class="nav-link lh-xl" href="/question">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu Modal -->
+  <div class="modal fade" id="mobileMenuModal" tabindex="-1" aria-labelledby="mobileMenuModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="mobileMenuModalLabel">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <ul class="list-unstyled">
+            <li>
+              <a class="nav-link lh-xl fw-bold nav-link-existing-mobile" href="#" data-bs-toggle="modal" data-bs-target="#existingCustomersModal" data-bs-dismiss="modal">Existing Customers</a>
             </li>
-           
-            <li class="nav-item"><a class="nav-link lh-xl" href="/contact">Contact</a></li>
-            <li class="nav-item"><a class="nav-link lh-xl" href="/mobility">Mobility</a></li>
-            <li class="nav-item"><a class="nav-link lh-xl" href="/question">FAQ</a></li>
+            <li><a class="nav-link lh-xl fw-bold" href="/contact" data-bs-dismiss="modal">Contact</a></li>
+            <li><a class="nav-link lh-xl fw-bold" href="/mobility" data-bs-dismiss="modal">Mobility</a></li>
+            <li><a class="nav-link lh-xl fw-bold" href="/question" data-bs-dismiss="modal">FAQ</a></li>
           </ul>
         </div>
       </div>
-    </nav>
-  
+    </div>
+  </div>
 
-    <div data-bs-target="#navbar" data-bs-spy="scroll" tabindex="0"></div>
-
-    <style>
-      /* Custom CSS for centering the title and adding space above */
-      body, html {
-        margin: 0;
-        padding: 0;
-      }
-
-      .center-title {
-        text-align: center;
-        margin-top: 100px; /* Adjust the top margin as needed */
-      }
-
-      @media (max-width: 991.98px) {
-        .center-title {
-          margin-top: 80px; /* Adjust margin for smaller screens */
-        }
-      }
-
-      .full-width-section {
-        padding: 40px 0;
-      }
-
-      .full-width-content {
-        max-width: 100%;
-        padding: 0 20px;
-        margin: 0 auto;
-      }
-
-      .header {
-        text-align: center;
-        padding: 20px;
-        background-color: #313C59;
-        color: white;
-        margin-top: 20px;
-    
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .header h2 {
-        margin: 0;
-        font-size: 28px;
-      }
-
-      .tutorial-list {
-        list-style: none;
-        padding: 0;
-        text-align: center;
-      }
-
-      .tutorial-list li {
-        margin: 10px 0;
-      }
-
-      .arrow {
-        cursor: pointer;
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-      }
-
-      section {
-        padding: 20px;
-        margin: 20px auto;
-        max-width: 800px;
-        background: white;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-      }
-
-      h2 {
-        color: #000;
-        text-align: center;
-      }
-
-      ol {
-        padding-left: 20px;
-      }
-
-      ol li {
-        margin-bottom: 10px;
-      }
-
-      video {
-        display: block;
-        margin: 20px auto;
-        max-width: 90%;
-        max-height: 500px;
-        height: auto;
-        border: 1px solid #dee2e6;
-        border-radius: 8px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <header>
-
-      <br> <br> <br> 
-      <div class="header">
-        <h2 style="color: white;">Available Tutorials</h2>
-        <ul class="tutorial-list">
-          <li><a href="#update-apn" class="arrow">Updating the APN &#x2193;</a></li>
-          <li><a href="#manual-network" class="arrow">Manual Network Selection &#x2193;</a></li>
-        </ul>
+  <!-- Existing Customers Modal (for both Desktop and Mobile) -->
+  <div class="modal fade" id="existingCustomersModal" tabindex="-1" aria-labelledby="existingCustomersModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="existingCustomersModalLabel">Existing Customers</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <ul class="list-unstyled">
+            <li><a class="nav-link lh-xl fw-bold account-login-link" href="#" data-cb-type="portal" data-bs-dismiss="modal">Account Login</a></li>
+            <li><a class="nav-link lh-xl fw-bold" href="/tutorials" data-bs-dismiss="modal">Tutorials</a></li>
+            <li><a class="nav-link lh-xl fw-bold" href="/support" data-bs-dismiss="modal">Technical Support</a></li>
+          </ul>
+        </div>
       </div>
-    </header>
-<section id="update-apn">
-  <h2>Updating the APN</h2> <br>
-  <ol>
-      <li>
-          <strong>Download the NETGEAR Orbi App:</strong> If you haven't already, download and install the NETGEAR Orbi app from the App Store (iOS) or Google Play Store (Android).
-      </li>
-      <li>
-          <strong>Open the App:</strong> Launch the NETGEAR Orbi app on your smartphone or tablet.
-      </li>
-      <li>
-          <strong>Log in with NETGEAR Account:</strong> Log in with your NETGEAR account credentials or create an account if you don't have one. This account is used to manage your NETGEAR devices and access cloud services.
-      </li>
-      <li>
-          <strong>Connect to Your Router:</strong> Make sure your device is connected to the Orbi network.
-      </li>
-      <li>
-          <strong>Router Admin Login:</strong> When prompted, log in to the router's admin interface. The default username is <code>admin</code> and the default password is <code>more4less</code> (or <code>More4LessPlans</code> if the former does not work).
-      </li>
-      <li>
-          <strong>Go to Router Settings:</strong> Tap on the menu icon (three horizontal lines) or the settings icon on the main screen to access the router settings.
-      </li>
-      <li>
-          <strong>Access Mobile Settings:</strong> Navigate to <strong>Settings</strong> &gt; <strong>Advanced</strong> &gt; <strong>Mobile</strong> &gt; <strong>APN</strong>.
-      </li>
-      <li>
-          <strong>Add a New APN:</strong> Tap on <strong>Add</strong> to create a new APN profile.
-      </li>
-      <li>
-          <strong>Enter APN Details:</strong> In the APN field, type the required APN (reach out to our support for this) and leave all other fields blank.
-      </li>
-      <li>
-          <strong>Save the Settings:</strong> Tap on <strong>Save</strong> or <strong>Apply</strong> to save the new APN settings.
-      </li>
-      <li>
-          <strong>Restart the Router:</strong> Reboot your Netgear Orbi router to apply the new settings.
-      </li>
-      <li>
-          <strong>Verify Connection:</strong> After rebooting, check your internet connection to ensure it is working properly.
-      </li>
-  </ol>
-  <video controls>
-      <source src="tutorial-videos/APN - Orbi.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-  </video>
-</section>
-<br><br>
-<section id="manual-network">
-  <h2>Manual Network Selection</h2><br>
-  <ol>
-      <li>
-          <strong>Download the NETGEAR Orbi App:</strong> If you haven't already, download and install the NETGEAR Orbi app from the App Store (iOS) or Google Play Store (Android).
-      </li>
-      <li>
-          <strong>Open the App:</strong> Launch the NETGEAR Orbi app on your smartphone or tablet.
-      </li>
-      <li>
-          <strong>Log in with NETGEAR Account:</strong> Log in with your NETGEAR account credentials or create an account if you don't have one. This account is used to manage your NETGEAR devices and access cloud services.
-      </li>
-      <li>
-          <strong>Connect to Your Router:</strong> Make sure your device is connected to the Orbi network.
-      </li>
-      <li>
-          <strong>Router Admin Login:</strong> When prompted, log in to the router's admin interface. The default username is <code>admin</code> and the default password is <code>more4less</code> (or <code>More4LessPlans</code> if the former does not work).
-      </li>
-      <li>
-          <strong>Go to Router Settings:</strong> Tap on the menu icon (three horizontal lines) or the settings icon on the main screen to access the router settings.
-      </li>
-      <li>
-          <strong>Access Mobile Settings:</strong> Navigate to <strong>Settings</strong> &gt; <strong>Advanced</strong> &gt; <strong>Mobile</strong>.
-      </li>
-      <li>
-          <strong>Select Manual Network Selection:</strong> Within the Mobile settings, find and tap on the option for <strong>Network Selection</strong>.
-      </li>
-      <li>
-          <strong>Choose Manual:</strong> Change the network selection mode from <strong>Auto</strong> to <strong>Manual</strong>.
-      </li>
-      <li>
-          <strong>Select Your Preferred Network:</strong> A list of available networks will appear. Select your preferred network from the list (e.g., Rogers, Bell, or Telus).
-      </li>
-      <li>
-          <strong>Save the Settings:</strong> Tap on <strong>Save</strong> or <strong>Apply</strong> to save your network selection.
-      </li>
-      <li>
-          <strong>Restart the Router:</strong> Reboot your Netgear Orbi router to apply the new network settings.
-      </li>
-      <li>
-          <strong>Verify Connection:</strong> After rebooting, check your internet connection to ensure it is working properly with your selected network.
-      </li>
-  </ol>
-  <video controls>
-      <source src="tutorial-videos/MNS - Orbi.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-  </video>
-</section>
+    </div>
+  </div>
 
+  <!-- Main Content -->
+  <main class="main" id="top">
+    <div class="content">
+      <header>
+        <div class="header">
+          <h2>Available Tutorials</h2>
+          <ul class="tutorial-list">
+            <li><a href="#update-apn" class="arrow">Updating the APN ↓</a></li>
+            <li><a href="#manual-network" class="arrow">Manual Network Selection ↓</a></li>
+          </ul>
+        </div>
+      </header>
+
+      <section id="update-apn">
+        <h2>Updating the APN</h2>
+        <br>
+        <ol>
+          <li>
+            <strong>Download the NETGEAR Orbi App:</strong> If you haven't already, download and install the NETGEAR Orbi app from the App Store (iOS) or Google Play Store (Android).
+          </li>
+          <li>
+            <strong>Open the App:</strong> Launch the NETGEAR Orbi app on your smartphone or tablet.
+          </li>
+          <li>
+            <strong>Log in with NETGEAR Account:</strong> Log in with your NETGEAR account credentials or create an account if you don't have one. This account is used to manage your NETGEAR devices and access cloud services.
+          </li>
+          <li>
+            <strong>Connect to Your Router:</strong> Make sure your device is connected to the Orbi network.
+          </li>
+          <li>
+            <strong>Router Admin Login:</strong> When prompted, log in to the router's admin interface. The default username is <code>admin</code> and the default password is <code>more4less</code> (or <code>More4LessPlans</code> if the former does not work).
+          </li>
+          <li>
+            <strong>Go to Router Settings:</strong> Tap on the menu icon (three horizontal lines) or the settings icon on the main screen to access the router settings.
+          </li>
+          <li>
+            <strong>Access Mobile Settings:</strong> Navigate to <strong>Settings</strong> > <strong>Advanced</strong> > <strong>Mobile</strong> > <strong>APN</strong>.
+          </li>
+          <li>
+            <strong>Add a New APN:</strong> Tap on <strong>Add</strong> to create a new APN profile.
+          </li>
+          <li>
+            <strong>Enter APN Details:</strong> In the APN field, type the required APN (reach out to our support for this) and leave all other fields blank.
+          </li>
+          <li>
+            <strong>Save the Settings:</strong> Tap on <strong>Save</strong> or <strong>Apply</strong> to save the new APN settings.
+          </li>
+          <li>
+            <strong>Restart the Router:</strong> Reboot your Netgear Orbi router to apply the new settings.
+          </li>
+          <li>
+            <strong>Verify Connection:</strong> After rebooting, check your internet connection to ensure it is working properly.
+          </li>
+        </ol>
+        <video controls>
+          <source src="tutorial-videos/APN - Orbi.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+
+      <section id="manual-network">
+        <h2>Manual Network Selection</h2>
+        <br>
+        <ol>
+          <li>
+            <strong>Download the NETGEAR Orbi App:</strong> If you haven't already, download and install the NETGEAR Orbi app from the App Store (iOS) or Google Play Store (Android).
+          </li>
+          <li>
+            <strong>Open the App:</strong> Launch the NETGEAR Orbi app on your smartphone or tablet.
+          </li>
+          <li>
+            <strong>Log in with NETGEAR Account:</strong> Log in with your NETGEAR account credentials or create an account if you don't have one. This account is used to manage your NETGEAR devices and access cloud services.
+          </li>
+          <li>
+            <strong>Connect to Your Router:</strong> Make sure your device is connected to the Orbi network.
+          </li>
+          <li>
+            <strong>Router Admin Login:</strong> When prompted, log in to the router's admin interface. The default username is <code>admin</code> and the default password is <code>more4less</code> (or <code>More4LessPlans</code> if the former does not work).
+          </li>
+          <li>
+            <strong>Go to Router Settings:</strong> Tap on the menu icon (three horizontal lines) or the settings icon on the main screen to access the router settings.
+          </li>
+          <li>
+            <strong>Access Mobile Settings:</strong> Navigate to <strong>Settings</strong> > <strong>Advanced</strong> > <strong>Mobile</strong>.
+          </li>
+          <li>
+            <strong>Select Manual Network Selection:</strong> Within the Mobile settings, find and tap on the option for <strong>Network Selection</strong>.
+          </li>
+          <li>
+            <strong>Choose Manual:</strong> Change the network selection mode from <strong>Auto</strong> to <strong>Manual</strong>.
+          </li>
+          <li>
+            <strong>Select Your Preferred Network:</strong> A list of available networks will appear. Select your preferred network from the list (e.g., Rogers, Bell, or Telus).
+          </li>
+          <li>
+            <strong>Save the Settings:</strong> Tap on <strong>Save</strong> or <strong>Apply</strong> to save your network selection.
+          </li>
+          <li>
+            <strong>Restart the Router:</strong> Reboot your Netgear Orbi router to apply the new network settings.
+          </li>
+          <li>
+            <strong>Verify Connection:</strong> After rebooting, check your internet connection to ensure it is working properly with your selected network.
+          </li>
+        </ol>
+        <video controls>
+          <source src="tutorial-videos/MNS - Orbi.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="/terms">Service Terms</a>
+      <a href="/contact">Contact</a>
+      <a href="/privacy-policy">Privacy Policy</a>
+    </div>
+    <hr class="footer-divider">
+    <p class="footer-copyright">© <span id="currentYear"></span> Copyright, All Rights Reserved</p>
+  </footer>
+
+  <!-- JavaScripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set the current year in the footer
+      document.getElementById("currentYear").textContent = new Date().getFullYear();
+
+      // Initialize Chargebee
+      if (typeof Chargebee !== 'undefined') {
+        Chargebee.init({
+          site: "more4lessplans", // Your Chargebee site name
+          // Add your Chargebee publishable key if required (optional for some setups)
+          // publishableKey: "your-publishable-key"
+        });
+
+        // Add event listener for Account Login links
+        const accountLoginLinks = document.querySelectorAll('.account-login-link');
+        accountLoginLinks.forEach(link => {
+          link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default anchor behavior
+
+            // Open Chargebee customer portal
+            Chargebee.getInstance().openPortal({
+              // Optional: Add callbacks for portal events
+              onLoad: function() {
+                console.log("Chargebee portal loaded");
+              },
+              onClose: function() {
+                console.log("Chargebee portal closed");
+              }
+            });
+          });
+        });
+      } else {
+        console.error("Chargebee script not loaded. Please ensure the Chargebee script is included.");
+      }
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
+  <script src="vendors/popper/popper.min.js"></script>
+  <script src="vendors/bootstrap/bootstrap.min.js"></script>
+  <script src="vendors/is/is.min.js"></script>
+  <script src="vendors/countup/countUp.umd.js"></script>
+  <script src="vendors/swiper/swiper-bundle.min.js"></script>
+  <script src="vendors/lodash/lodash.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <script src="assets/js/theme.js"></script>
 </body>
-</html>
-
-
-    <!-- Bootstrap Bundle with Popper.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-
-    <!-- ===============================================--><!--    JavaScripts--><!-- ===============================================-->
-
-
-    <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans" ></script>
-    <script src="vendors/popper/popper.min.js"></script>
-    <script src="vendors/bootstrap/bootstrap.min.js"></script>
-    <script src="vendors/is/is.min.js"></script>
-    <script src="vendors/countup/countUp.umd.js"></script>
-    <script src="vendors/swiper/swiper-bundle.min.js"></script>
-    <script src="vendors/lodash/lodash.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="assets/js/theme.js"></script>
-
-
-  </body>
 
 </html>
