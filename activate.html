@@ -173,74 +173,85 @@
     </div>
   </main>
 
-  <!-- Footer Container -->
-  <div id="footer-container"></div>
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
 
-  <!-- JavaScript -->
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM fully loaded'); // Debug: Confirm DOMContentLoaded fires
-
-    // Load navbar
-    fetch('/navbar.html')
-      .then(response => {
-        if (!response.ok) throw new Error('Failed to load navbar.html: ' + response.status);
-        return response.text();
-      })
-      .then(data => {
-        console.log('Navbar fetched successfully');
-        document.getElementById('navbar-container').innerHTML = data;
-        const navbarScript = document.createElement('script');
-        navbarScript.src = '/navbar.js';
-        navbarScript.onload = function() {
-          console.log('navbar.js loaded');
-          initializeNavbar();
-        };
-        document.body.appendChild(navbarScript);
-      })
-      .catch(error => {
-        console.error('Error loading navbar:', error);
-      });
-
-    // Load footer
-    fetch('/footer.html')
-      .then(response => {
-        if (!response.ok) throw new Error('Failed to load footer.html: ' + response.status);
-        return response.text();
-      })
-      .then(data => {
-        console.log('Footer fetched successfully');
-        document.getElementById('footer-container').innerHTML = data;
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-      })
-      .catch(error => {
-        console.error('Error loading footer:', error);
-      });
-
-    // Page-specific functionality
-    const tabs = document.querySelectorAll('.activation-tab');
-    const contents = document.querySelectorAll('.tab-content');
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
-        tab.classList.add('active');
-        const tabId = tab.getAttribute('data-tab');
-        document.getElementById(`${tabId}-content`).classList.add('active');
+    <!-- JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM fully loaded'); // Debug: Confirm DOMContentLoaded fires
+  
+      // Load navbar
+      fetch('/navbar.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load navbar.html: ' + response.status);
+          return response.text();
+        })
+        .then(data => {
+          console.log('Navbar fetched successfully');
+          document.getElementById('navbar-container').innerHTML = data;
+          const navbarScript = document.createElement('script');
+          navbarScript.src = '/navbar.js';
+          navbarScript.onload = function() {
+            console.log('navbar.js loaded');
+            initializeNavbar();
+          };
+          document.body.appendChild(navbarScript);
+        })
+        .catch(error => {
+          console.error('Error loading navbar:', error);
+        });
+  
+      // Load footer
+      fetch('/footer.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load footer.html: ' + response.status);
+          return response.text();
+        })
+        .then(data => {
+          console.log('Footer fetched successfully');
+          document.getElementById('footer-container').innerHTML = data;
+          // Option 1: Load footer.js dynamically (uncomment if using footer.js)
+          /*
+          const footerScript = document.createElement('script');
+          footerScript.src = '/footer.js';
+          footerScript.onload = function() {
+            console.log('footer.js loaded');
+            initializeFooter();
+          };
+          document.body.appendChild(footerScript);
+          */
+          // Option 2: Handle footer logic inline (simpler for just the year)
+          document.getElementById('currentYear').textContent = new Date().getFullYear();
+        })
+        .catch(error => {
+          console.error('Error loading footer:', error);
+        });
+  
+      // Page-specific functionality
+      const tabs = document.querySelectorAll('.activation-tab');
+      const contents = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          contents.forEach(c => c.classList.remove('active'));
+          tab.classList.add('active');
+          const tabId = tab.getAttribute('data-tab');
+          document.getElementById(`${tabId}-content`).classList.add('active');
+        });
       });
     });
-  });
-  </script>
-
-  <!-- External Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="vendors/is/is.min.js"></script>
-  <script src="vendors/countup/countUp.umd.js"></script>
-  <script src="vendors/swiper/swiper-bundle.min.js"></script>
-  <script src="vendors/lodash/lodash.min.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-  <script src="assets/js/theme.js"></script>
-</body>
-</html>
+    </script>
+  
+    <!-- External Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="vendors/is/is.min.js"></script>
+    <script src="vendors/countup/countUp.umd.js"></script>
+    <script src="vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="vendors/lodash/lodash.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="assets/js/theme.js"></script>
+  </body>
+  </html>
