@@ -32,7 +32,8 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="/navbar.css">
+  <link rel="stylesheet" href="/navbar.css"> <!-- Navbar styles -->
+  <link rel="stylesheet" href="/footer.css"> <!-- Footer styles -->
   <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,8 +43,14 @@
   <link href="assets/css/user.min.css" rel="stylesheet" id="user-style-default">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
-  <!-- Custom CSS (only page-specific styles) -->
+  <!-- Page-Specific CSS -->
   <style>
+    body {
+      padding-top: 70px; /* Adjust for fixed navbar */
+    }
+    @media (max-width: 576px) {
+      body { padding-top: 60px; }
+    }
     .text-danger { color: #2E2F33 !important; }
     .text-muted { color: #565656 !important; }
     .btn-primary {
@@ -95,6 +102,7 @@
       position: relative;
       display: inline-block;
       padding-bottom: 10px;
+      color: #2E2F33;
     }
     .section-title h3::after {
       content: '';
@@ -112,7 +120,6 @@
       #activation-section { padding-top: 120px; }
       .section-title { padding-top: 20px; }
     }
-    /* Subtle text below activation card */
     .reactivate-text {
       font-size: 0.9rem;
       color: #9CA3AF;
@@ -142,7 +149,7 @@
         <div class="container">
           <div class="row justify-content-center text-center mb-5 section-title">
             <div class="col-md-8 col-lg-7">
-              <h3 class="fs-4 fs-lg-3 fw-bold mb-2 lh-sm" style="color: #2E2F33;">Activate Your Service</h3>
+              <h3 class="fs-4 fs-lg-3 fw-bold mb-2 lh-sm">Activate Your Service</h3>
               <p class="fs-8 lh-lg text-muted">Select your service type to begin the activation process.</p>
             </div>
           </div>
@@ -164,7 +171,6 @@
                   <button class="btn btn-primary" onclick="window.location.href='/activate-sim'">Activate</button>
                 </div>
               </div>
-              <!-- Subtle re-activation text -->
               <p class="reactivate-text">Returning Customer? <a href="/reactivate-service.html">Re-Activate Your Service →</a></p>
             </div>
           </div>
@@ -173,14 +179,12 @@
     </div>
   </main>
 
-    <!-- Footer Container -->
-    <div id="footer-container"></div>
+  <!-- Footer Container -->
+  <div id="footer-container"></div>
 
-    <!-- JavaScript -->
-    <script>
+  <!-- JavaScript -->
+  <script>
     document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOM fully loaded'); // Debug: Confirm DOMContentLoaded fires
-  
       // Load navbar
       fetch('/navbar.html')
         .then(response => {
@@ -188,20 +192,16 @@
           return response.text();
         })
         .then(data => {
-          console.log('Navbar fetched successfully');
           document.getElementById('navbar-container').innerHTML = data;
           const navbarScript = document.createElement('script');
           navbarScript.src = '/navbar.js';
           navbarScript.onload = function() {
-            console.log('navbar.js loaded');
-            initializeNavbar();
+            initializeNavbar(); // Assumes this function exists in navbar.js
           };
           document.body.appendChild(navbarScript);
         })
-        .catch(error => {
-          console.error('Error loading navbar:', error);
-        });
-  
+        .catch(error => console.error('Error loading navbar:', error));
+
       // Load footer
       fetch('/footer.html')
         .then(response => {
@@ -209,26 +209,12 @@
           return response.text();
         })
         .then(data => {
-          console.log('Footer fetched successfully');
           document.getElementById('footer-container').innerHTML = data;
-          // Option 1: Load footer.js dynamically (uncomment if using footer.js)
-          /*
-          const footerScript = document.createElement('script');
-          footerScript.src = '/footer.js';
-          footerScript.onload = function() {
-            console.log('footer.js loaded');
-            initializeFooter();
-          };
-          document.body.appendChild(footerScript);
-          */
-          // Option 2: Handle footer logic inline (simpler for just the year)
           document.getElementById('currentYear').textContent = new Date().getFullYear();
         })
-        .catch(error => {
-          console.error('Error loading footer:', error);
-        });
-  
-      // Page-specific functionality
+        .catch(error => console.error('Error loading footer:', error));
+
+      // Tab switching functionality
       const tabs = document.querySelectorAll('.activation-tab');
       const contents = document.querySelectorAll('.tab-content');
       tabs.forEach(tab => {
@@ -241,17 +227,17 @@
         });
       });
     });
-    </script>
-  
-    <!-- External Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="vendors/is/is.min.js"></script>
-    <script src="vendors/countup/countUp.umd.js"></script>
-    <script src="vendors/swiper/swiper-bundle.min.js"></script>
-    <script src="vendors/lodash/lodash.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="assets/js/theme.js"></script>
-  </body>
-  </html>
+  </script>
+
+  <!-- External Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="vendors/is/is.min.js"></script>
+  <script src="vendors/countup/countUp.umd.js"></script>
+  <script src="vendors/swiper/swiper-bundle.min.js"></script>
+  <script src="vendors/lodash/lodash.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <script src="assets/js/theme.js"></script>
+</body>
+</html>
