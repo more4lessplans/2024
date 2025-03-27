@@ -41,6 +41,8 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Stylesheets -->
+  <link rel="stylesheet" href="/navbar.css"> <!-- Navbar styles -->
+  <link rel="stylesheet" href="/footer.css"> <!-- Footer styles (to be created) -->
   <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,239 +52,29 @@
   <link href="assets/css/user.min.css" rel="stylesheet" id="user-style-default">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
-  <!-- Custom CSS -->
+  <!-- Page-Specific CSS -->
   <style>
-    /* Add padding below the fixed navbar to prevent content overlap */
+    /* Body padding for fixed navbar */
     body {
       padding-top: 70px; /* Adjust based on navbar height */
     }
 
-    /* Updated Nav Bar Styles (Solid Color) */
-    .navbar-solid {
-      background: #2E2F33;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    .navbar-solid .nav-link {
-      color: #ffffff !important;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    .navbar-solid .nav-link:hover {
-      color: #D73C59 !important;
-    }
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-
-    /* Add Arrow to Existing Customers Link in Desktop Nav */
-    .nav-link-existing::after {
-      content: " →";
-      color: #ffffff;
-      font-size: 0.9rem;
-      margin-left: 2px;
-    }
-    .nav-link-existing:hover::after {
-      color: #D73C59;
-    }
-
-    /* Modal Styles for Mobile Menu and Existing Customers */
-    .modal-content {
-      background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); /* Subtle gradient for premium feel */
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-      border: none;
-      padding: 1.5rem;
-    }
-    .modal-header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      padding: 0 0 1rem 0;
-    }
-    .modal-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #222831;
-      margin: 0;
-    }
-    /* Style the Menu Title - Minimal and Distinct */
-    #mobileMenuModalLabel {
-      font-size: 1.5rem; /* Slightly larger for prominence */
-      font-weight: 600; /* Slightly bolder than links (500) for distinction */
-      color: #2E2F33;
-      padding: 0.5rem 1rem;
-      width: 100%;
-      text-align: center;
-      border-radius: 8px;
-      position: relative; /* For positioning the horizontal line */
-    }
-    /* Add Subtle Horizontal Line Below Menu Title */
-    #mobileMenuModalLabel::after {
-      content: "";
-      display: block;
-      width: 50%; /* Spans 50% of the modal width */
-      height: 1px;
-      background-color: #e3e3e3; /* Very subtle light grey line */
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%); /* Center the line */
-    }
-    /* Style the Existing Customers Title - Minimal and Distinct */
-    #existingCustomersModalLabel {
-      font-size: 1.5rem; /* Slightly larger for prominence */
-      font-weight: 600; /* Slightly bolder than links (500) for distinction */
-      color: #2E2F33;
-      padding: 0.5rem 1rem;
-      width: 100%;
-      text-align: center;
-      border-radius: 8px;
-      position: relative; /* For positioning the horizontal line */
-    }
-    /* Add Subtle Horizontal Line Below Existing Customers Title */
-    #existingCustomersModalLabel::after {
-      content: "";
-      display: block;
-      width: 50%; /* Spans 50% of the modal width */
-      height: 1px;
-      background-color: #e3e3e3; /* Very subtle light grey line */
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%); /* Center the line */
-    }
-    .btn-close {
-      position: absolute;
-      right: 1rem;
-      top: 1rem;
-      background: none;
-      border: none;
-      font-size: 1.2rem;
-      opacity: 0.7;
-      transition: opacity 0.3s ease;
-    }
-    .btn-close:hover {
-      opacity: 1;
-    }
-    .modal-body {
-      padding: 1rem 0;
-    }
-    .modal-body ul {
-      margin: 0;
-      padding: 0;
-    }
-    .modal-body .nav-link {
-      color: #2E2F33;
-      font-size: 1.1rem;
-      font-weight: 500;
-      letter-spacing: 0.5px; /* Slight letter spacing for elegance */
-      padding: 0.5rem 0;
-      transition: all 0.3s ease;
-      display: block; /* Ensure the link takes full width for hover effect */
-    }
-    /* Premium Hover Effect for Links */
-    .modal-body .nav-link:hover {
-      color: #D73C59;
-      background-color: rgba(215, 60, 89, 0.1); /* Subtle background on hover */
-      transform: scale(1.02); /* Slight scale effect */
-      border-radius: 5px;
-    }
-    /* Reduce Spacing and Add Horizontal Line Between Links in Mobile Menu */
-    #mobileMenuModal .modal-body ul li {
-      margin-bottom: 0;
-      border-bottom: 1px solid #e3e3e3;
-    }
-    #mobileMenuModal .modal-body ul li:last-child {
-      border-bottom: none;
-    }
-    /* Add Arrow to Existing Customers Link in Mobile Menu */
-    .nav-link-existing-mobile::after {
-      content: " →";
-      color: #2E2F33;
-      font-size: 0.9rem;
-      margin-left: 4px;
-    }
-    .nav-link-existing-mobile:hover::after {
-      color: #D73C59;
-    }
-    /* Reduce Spacing and Add Horizontal Line Between Links in Existing Customers Modal */
-    #existingCustomersModal .modal-body ul li {
-      margin-bottom: 0;
-      border-bottom: 1px solid #e3e3e3;
-    }
-    #existingCustomersModal .modal-body ul li:last-child {
-      border-bottom: none;
-    }
-    /* Ensure modal is centered and has a max-width for better aesthetics */
-    .modal-dialog {
-      max-width: 350px;
-    }
-    @media (max-width: 576px) {
-      .modal-dialog {
-        max-width: 90%;
-        margin: 1.75rem auto;
-      }
-    }
-
-    /* Footer */
-    footer {
-      padding: 3rem 0;
-      background: #ffffff;
-      text-align: center;
-    }
-    .footer-links {
-      margin-bottom: 1.5rem;
-    }
-    .footer-links a {
-      color: #A1A8B3; /* Lighter gray for minimal look */
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      padding: 0 1rem;
-      position: relative;
-    }
-    .footer-links a:hover {
-      color: #565656; /* Slightly darker gray on hover */
-    }
-    .footer-links a:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 1px;
-      height: 50%;
-      background: #D1D5DB;
-    }
-    .footer-divider {
-      width: 50%;
-      margin: 0 auto 1.5rem auto;
-      border: 0;
-      border-top: 1px solid #E5E7EB; /* Very light gray for seamless blend */
-    }
-    .footer-copyright {
-      color: #9CA3AF; /* Subtle, readable gray */
-      font-size: 1rem;
-      margin: 0;
-    }
-
     /* Pricing Section Styles */
     .pricing-card {
-      background-color: #f9f9f9; /* Subtle off-white for cards */
+      background-color: #f9f9f9;
       height: 570px;
       padding: 0.5rem;
       transition: transform 0.3s ease;
       box-sizing: border-box;
     }
     .pricing-card-link {
-      text-decoration: none; /* Remove underline */
-      color: inherit; /* Inherit text color */
-      display: block; /* Fill the column */
-      width: 100%; /* Ensure link fills parent */
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      width: 100%;
     }
     .pricing-card-link:hover .pricing-card {
-      transform: translateY(-10px); /* Hover lift effect on card */
+      transform: translateY(-10px);
     }
     .category {
       color: #D73C59;
@@ -320,40 +112,38 @@
       justify-content: center;
       align-items: flex-end;
     }
-    /* Mobile Adjustments */
     @media (max-width: 767px) {
       .pricing-col {
-        padding-left: 0; /* Remove Bootstrap column padding */
-        padding-right: 0; /* Remove Bootstrap column padding */
+        padding-left: 0;
+        padding-right: 0;
         margin-left: 0;
         margin-right: 0;
       }
       .pricing-card-link {
-        width: 100%; /* Ensure link fills column */
+        width: 100%;
       }
       .pricing-card {
-        width: 90%; /* 90% of screen width */
-        max-width: none; /* No max-width restriction */
-        min-width: 0; /* Allow shrinking if needed */
-        margin: 0 auto; /* Center within column */
+        width: 90%;
+        max-width: none;
+        min-width: 0;
+        margin: 0 auto;
       }
     }
-    /* Desktop Adjustments */
     @media (min-width: 992px) {
       .pricing-card {
-        min-width: 310px; /* Minimum width of 400px */
-        max-width: 500px; /* Maximum width of 500px */
+        min-width: 310px;
+        max-width: 500px;
       }
       .pricing-col {
         display: flex;
-        justify-content: center; /* Center cards within columns */
+        justify-content: center;
       }
     }
 
     /* Lease Agreement and Benefits Section Styles */
     .checkmark {
       display: inline-block;
-      width: 12px; /* Size of the checkmark */
+      width: 12px;
       height: 12px;
       position: relative;
     }
@@ -368,7 +158,6 @@
       top: 1px;
       left: 3px;
     }
-    /* Ensure consistent padding */
     .lease-section {
       padding-left: 40px;
       padding-right: 40px;
@@ -377,15 +166,14 @@
     .coverage-dropdown,
     .shipping-dropdown,
     .benefits-section {
-      padding-left: 0; /* Reset any inherited padding */
+      padding-left: 0;
       padding-right: 0;
-      margin-left: 0; /* Ensure no extra margin */
+      margin-left: 0;
       margin-right: 0;
     }
-    /* Mobile Adjustments */
     @media (max-width: 767px) {
       .lease-section {
-        padding-left: 40px !important; /* Matches card spacing */
+        padding-left: 40px !important;
         padding-right: 40px !important;
       }
       .lease-dropdown,
@@ -402,68 +190,8 @@
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-md fixed-top navbar-solid" id="navbar">
-    <div class="container-fluid px-0">
-      <a href="/" class="navbar-brand"><img src="assets/img/logos/logo.png" style="width: 80px; height: 35px;" alt="logo" /></a>
-      <!-- Mobile Menu Toggle Button -->
-      <button class="navbar-toggler border-0 pe-0 d-md-none" type="button" data-bs-toggle="modal" data-bs-target="#mobileMenuModal" aria-controls="mobileMenuModal" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Desktop Menu -->
-      <div class="collapse navbar-collapse justify-content-md-end d-none d-md-flex" id="navbar-content" data-navbar-collapse="data-navbar-collapse">
-        <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0" data-navbar-nav="data-navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link lh-xl nav-link-existing" href="#" role="button" data-bs-toggle="modal" data-bs-target="#existingCustomersModal">Existing Customers</a>
-          </li>
-          <li class="nav-item"><a class="nav-link lh-xl" href="/contact">Contact</a></li>
-          <li class="nav-item"><a class="nav-link lh-xl" href="/mobility">Mobility</a></li>
-          <li class="nav-item"><a class="nav-link lh-xl" href="/question">FAQ</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Mobile Menu Modal -->
-  <div class="modal fade" id="mobileMenuModal" tabindex="-1" aria-labelledby="mobileMenuModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <h5 class="modal-title" id="mobileMenuModalLabel">Menu</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-          <ul class="list-unstyled">
-            <li>
-              <a class="nav-link lh-xl fw-bold nav-link-existing-mobile" href="#" data-bs-toggle="modal" data-bs-target="#existingCustomersModal" data-bs-dismiss="modal">Existing Customers</a>
-            </li>
-            <li><a class="nav-link lh-xl fw-bold" href="/contact" data-bs-dismiss="modal">Contact</a></li>
-            <li><a class="nav-link lh-xl fw-bold" href="/mobility" data-bs-dismiss="modal">Mobility</a></li>
-            <li><a class="nav-link lh-xl fw-bold" href="/question" data-bs-dismiss="modal">FAQ</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Existing Customers Modal (for both Desktop and Mobile) -->
-  <div class="modal fade" id="existingCustomersModal" tabindex="-1" aria-labelledby="existingCustomersModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <h5 class="modal-title" id="existingCustomersModalLabel">Existing Customers</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-          <ul class="list-unstyled">
-            <li><a class="nav-link lh-xl fw-bold account-login-link" href="#" data-cb-type="portal" data-bs-dismiss="modal">Account Login</a></li>
-            <li><a class="nav-link lh-xl fw-bold" href="/tutorials" data-bs-dismiss="modal">Tutorials</a></li>
-            <li><a class="nav-link lh-xl fw-bold" href="/support" data-bs-dismiss="modal">Technical Support</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Navbar Container -->
+  <div id="navbar-container"></div>
 
   <!-- Main Content -->
   <main class="main" id="top">
@@ -515,163 +243,160 @@
               </a>
             </div>
             
-          <!-- LBR20 Card -->
-          <div class="col-12 col-md-6 col-lg-4 pricing-col">
-            <a href="https://www.netgear.com/home/mobile-wifi/routers/lbr20/" class="pricing-card-link" target="_blank">
-              <div class="pricing-card text-center border shadow-sm rounded-2 p-3 d-flex flex-column align-items-center">
-                <div class="mb-3">
-                  <p class="category text-danger fw-bold fs-6">Home Use</p>
-                  <br>
-                  <p class="description text-muted">Reliable Connection for Your Home</p>
+            <!-- LBR20 Card -->
+            <div class="col-12 col-md-6 col-lg-4 pricing-col">
+              <a href="https://www.netgear.com/home/mobile-wifi/routers/lbr20/" class="pricing-card-link" target="_blank">
+                <div class="pricing-card text-center border shadow-sm rounded-2 p-3 d-flex flex-column align-items-center">
+                  <div class="mb-3">
+                    <p class="category text-danger fw-bold fs-6">Home Use</p>
+                    <br>
+                    <p class="description text-muted">Reliable Connection for Your Home</p>
+                  </div>
+                  <img src="assets/img/products/LBR20.png" alt="LBR20" class="mb-3" width="225" height="225">
+                  <p class="model text-danger text-uppercase fw-bold fs-10 mb-3">LBR20</p>
+                  <ul class="list-unstyled fs-8 fw-light text-muted mb-3 tight-spacing">
+                    <li class="py-1 px-1 border-top">Home Devices, Plug-and-Play Ready</li>
+                    <li class="py-1 px-1">Easy Setup, Instant Connection</li>
+                  </ul>
+                  <a class="btn btn-primary btn-lg lh-xl mt-3" 
+                     href="javascript:void(0)" 
+                     data-cb-type="checkout" 
+                     data-cb-plan-id="ontario-internet-leased-orbi" 
+                     style="background-color: #2E2F33; font-size: 0.9rem;">
+                    Sign Up →
+                  </a>
                 </div>
-                <img src="assets/img/products/LBR20.png" alt="LBR20" class="mb-3" width="225" height="225">
-                <p class="model text-danger text-uppercase fw-bold fs-10 mb-3">LBR20</p>
-                <ul class="list-unstyled fs-8 fw-light text-muted mb-3 tight-spacing">
-                  <li class="py-1 px-1 border-top">Home Devices, Plug-and-Play Ready</li>
-                  <li class="py-1 px-1">Easy Setup, Instant Connection</li>
-                </ul>
-                <a class="btn btn-primary btn-lg lh-xl mt-3" 
-                   href="javascript:void(0)" 
-                   data-cb-type="checkout" 
-                   data-cb-plan-id="ontario-internet-leased-orbi" 
-                   style="background-color: #2E2F33; font-size: 0.9rem;">
-                  Sign Up →
-                </a>
+              </a>
+            </div>
+          </div>
+
+          <!-- Lease Agreement Dropdown -->
+          <div class="row mt-5">
+            <div class="col-12 px-3 lease-section">
+              <div class="lease-dropdown">
+                <div class="lease-question fs-8 fw-bold lh-lg mb-0 py-2" 
+                     onclick="const answer = this.nextElementSibling; const arrow = this.querySelector('.arrow'); answer.style.display = answer.style.display === 'block' ? 'none' : 'block'; arrow.style.transform = answer.style.display === 'block' ? 'rotate(90deg)' : 'rotate(0deg)';"
+                     style="color: #222831; display: block; cursor: pointer; border-top: 1px solid #e3e3e3; border-bottom: none;">
+                  Lease Agreement Details <span class="arrow" style="margin-left: 5px; transition: transform 0.3s ease; display: inline-block; vertical-align: middle; font-size: 0.7rem;">→</span>
+                </div>
+                <div class="lease-answer lh-xl py-2 text-muted" 
+                     style="display: none; border-bottom: none;">
+                  Offers are subject to change without notice. Taxes are additional. You may cancel your Wireless Internet service at any time and return the equipment with no further obligation. If you cancel the service, the equipment must be returned within 30 days to avoid a $250 charge. If you cancel within the first 30 days, we will refund the monthly service fee, and no further commitment will be required.
+                </div>
               </div>
-            </a>
+              <hr style="margin: 0; border: 0; border-top: 1px solid #e3e3e3;">
+
+              <!-- Coverage and Speed Checks Dropdown -->
+              <div class="coverage-dropdown">
+                <div class="coverage-question fs-8 fw-bold lh-lg mb-0 py-2" 
+                     onclick="const answer = this.nextElementSibling; const arrow = this.querySelector('.arrow'); answer.style.display = answer.style.display === 'block' ? 'none' : 'block'; arrow.style.transform = answer.style.display === 'block' ? 'rotate(90deg)' : 'rotate(0deg)';"
+                     style="color: #222831; display: block; cursor: pointer; border-bottom: none;">
+                  Coverage and Speed <span class="arrow" style="margin-left: 5px; transition: transform 0.3s ease; display: inline-block; vertical-align: middle; font-size: 0.7rem;">→</span>
+                </div>
+                <div class="coverage-answer lh-xl py-2 text-muted" 
+                     style="display: none; border-bottom: none;">
+                  We use major Canadian carriers - so a strong cellular signal on your mobile phone suggests you’ll enjoy reliable wireless internet coverage too. Request a speed estimate <a href="speedestimate">here</a>, and take advantage of our 30-day money-back guarantee to try it risk-free.
+                </div>
+              </div>
+              <hr style="margin: 0; border: 0; border-top: 1px solid #e3e3e3;">
+
+              <!-- Shipping Details Dropdown -->
+              <div class="shipping-dropdown">
+                <div class="shipping-question fs-8 fw-bold lh-lg mb-0 py-2" 
+                     onclick="const answer = this.nextElementSibling; const arrow = this.querySelector('.arrow'); answer.style.display = answer.style.display === 'block' ? 'none' : 'block'; arrow.style.transform = answer.style.display === 'block' ? 'rotate(90deg)' : 'rotate(0deg)';"
+                     style="color: #222831; display: block; cursor: pointer; border-bottom: 1px solid #e3e3e3;">
+                  Shipping Details <span class="arrow" style="margin-left: 5px; transition: transform 0.3s ease; display: inline-block; vertical-align: middle; font-size: 0.7rem;">→</span>
+                </div>
+                <div class="shipping-answer lh-xl py-2 text-muted" 
+                     style="display: none; border-bottom: 1px solid #e3e3e3;">
+                  Your equipment will ship out 1-2 business days after you order. You’ll be provided with a tracking number. Your internet subscription begins the day you receive the device.
+                </div>
+              </div>
+
+              <!-- Benefits Section -->
+              <div class="benefits-section mt-4">
+                <div class="benefits-title fs-8 fw-bold lh-lg mb-0 py-2" 
+                     style="color: #222831; display: block;">
+                  Risk Free - Try For 30 Days
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 0; color: #222831;">
+                  <li style="padding: 5px 0; display: flex; align-items: center;">
+                    <span class="checkmark" style="margin-right: 8px;"></span> Quick and Simple Plug-and-Play Setup
+                  </li>
+                  <li style="padding: 5px 0; display: flex; align-items: center;">
+                    <span class="checkmark" style="margin-right: 8px;"></span> No Long-Term Commitment
+                  </li>
+                  <li style="padding: 5px 0; display: flex; align-items: center;">
+                    <span class="checkmark" style="margin-right: 8px;"></span> No Credit Check Required
+                  </li>
+                  <li style="padding: 5px 0; display: flex; align-items: center;">
+                    <span class="checkmark" style="margin-right: 8px;"></span> Unlimited Internet - No Caps
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-
-      <!-- Lease Agreement Dropdown -->
-      <div class="row mt-5">
-        <div class="col-12 px-3 lease-section" style="padding-left: 40px; padding-right: 40px;">
-          <div class="lease-dropdown">
-            <div class="lease-question fs-8 fw-bold lh-lg mb-0 py-2" 
-                 onclick="const answer = this.nextElementSibling; const arrow = this.querySelector('.arrow'); answer.style.display = answer.style.display === 'block' ? 'none' : 'block'; arrow.style.transform = answer.style.display === 'block' ? 'rotate(90deg)' : 'rotate(0deg)';"
-                 style="color: #222831; display: block; cursor: pointer; border-top: 1px solid #e3e3e3; border-bottom: none;">
-              Lease Agreement Details <span class="arrow" style="margin-left: 5px; transition: transform 0.3s ease; display: inline-block; vertical-align: middle; font-size: 0.7rem;">→</span>
-            </div>
-            <div class="lease-answer lh-xl py-2 text-muted" 
-                 style="display: none; border-bottom: none;">
-              Offers are subject to change without notice. Taxes are additional. You may cancel your Wireless Internet service at any time and return the equipment with no further obligation. If you cancel the service, the equipment must be returned within 30 days to avoid a $250 charge. If you cancel within the first 30 days, we will refund the monthly service fee, and no further commitment will be required.
-            </div>
-          </div>
-          <hr style="margin: 0; border: 0; border-top: 1px solid #e3e3e3;">
-
-          <!-- Coverage and Speed Checks Dropdown -->
-          <div class="coverage-dropdown">
-            <div class="coverage-question fs-8 fw-bold lh-lg mb-0 py-2" 
-                 onclick="const answer = this.nextElementSibling; const arrow = this.querySelector('.arrow'); answer.style.display = answer.style.display === 'block' ? 'none' : 'block'; arrow.style.transform = answer.style.display === 'block' ? 'rotate(90deg)' : 'rotate(0deg)';"
-                 style="color: #222831; display: block; cursor: pointer; border-bottom: none;">
-              Coverage and Speed <span class="arrow" style="margin-left: 5px; transition: transform 0.3s ease; display: inline-block; vertical-align: middle; font-size: 0.7rem;">→</span>
-            </div>
-            <div class="coverage-answer lh-xl py-2 text-muted" 
-                 style="display: none; border-bottom: none;">
-              We use major Canadian carriers - so a strong cellular signal on your mobile phone suggests you’ll enjoy reliable wireless internet coverage too. Request a speed estimate <a href="speedestimate">here</a>, and take advantage of our 30-day money-back guarantee to try it risk-free.
-            </div>
-          </div>
-          <hr style="margin: 0; border: 0; border-top: 1px solid #e3e3e3;">
-
-          <!-- Shipping Details Dropdown -->
-          <div class="shipping-dropdown">
-            <div class="shipping-question fs-8 fw-bold lh-lg mb-0 py-2" 
-                 onclick="const answer = this.nextElementSibling; const arrow = this.querySelector('.arrow'); answer.style.display = answer.style.display === 'block' ? 'none' : 'block'; arrow.style.transform = answer.style.display === 'block' ? 'rotate(90deg)' : 'rotate(0deg)';"
-                 style="color: #222831; display: block; cursor: pointer; border-bottom: 1px solid #e3e3e3;">
-              Shipping Details <span class="arrow" style="margin-left: 5px; transition: transform 0.3s ease; display: inline-block; vertical-align: middle; font-size: 0.7rem;">→</span>
-            </div>
-            <div class="shipping-answer lh-xl py-2 text-muted" 
-                 style="display: none; border-bottom: 1px solid #e3e3e3;">
-              Your equipment will ship out 1-2 business days after you order. You’ll be provided with a tracking number. Your internet subscription begins the day you receive the device.
-            </div>
-          </div>
-
-          <!-- New Benefits Section -->
-          <div class="benefits-section mt-4">
-            <div class="benefits-title fs-8 fw-bold lh-lg mb-0 py-2" 
-                 style="color: #222831; display: block;">
-              Risk Free - Try For 30 Days
-            </div>
-            <ul style="list-style: none; padding: 0; margin: 0; color: #222831;">
-              <li style="padding: 5px 0; display: flex; align-items: center;">
-                <span class="checkmark" style="margin-right: 8px;"></span> Quick and Simple Plug-and-Play Setup
-              </li>
-              <li style="padding: 5px 0; display: flex; align-items: center;">
-                <span class="checkmark" style="margin-right: 8px;"></span> No Long-Term Commitment
-              </li>
-              <li style="padding: 5px 0; display: flex; align-items: center;">
-                <span class="checkmark" style="margin-right: 8px;"></span> No Credit Check Required
-              </li>
-              <li style="padding: 5px 0; display: flex; align-items: center;">
-                <span class="checkmark" style="margin-right: 8px;"></span> Unlimited Internet - No Caps
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-links">
-      <a href="/terms">Service Terms</a>
-      <a href="/contact">Contact</a>
-      <a href="/privacy-policy">Privacy Policy</a>
-    </div>
-    <hr class="footer-divider">
-    <p class="footer-copyright">© <span id="currentYear"></span> Copyright, All Rights Reserved</p>
-  </footer>
+  <!-- Footer Container -->
+  <div id="footer-container"></div>
 
   <!-- JavaScripts -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Set the current year in the footer
-      document.getElementById("currentYear").textContent = new Date().getFullYear();
+      console.log('DOM fully loaded');
 
-      // Prevent button click propagation for pricing cards
+      // Load navbar
+      fetch('/navbar.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load navbar.html: ' + response.status);
+          return response.text();
+        })
+        .then(data => {
+          console.log('Navbar fetched successfully');
+          document.getElementById('navbar-container').innerHTML = data;
+          const navbarScript = document.createElement('script');
+          navbarScript.src = '/navbar.js';
+          navbarScript.onload = function() {
+            console.log('navbar.js loaded');
+            initializeNavbar();
+          };
+          document.body.appendChild(navbarScript);
+        })
+        .catch(error => {
+          console.error('Error loading navbar:', error);
+        });
+
+      // Load footer
+      fetch('/footer.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load footer.html: ' + response.status);
+          return response.text();
+        })
+        .then(data => {
+          console.log('Footer fetched successfully');
+          document.getElementById('footer-container').innerHTML = data;
+          document.getElementById('currentYear').textContent = new Date().getFullYear();
+        })
+        .catch(error => {
+          console.error('Error loading footer:', error);
+        });
+
+      // Page-specific functionality
       const buyButtons = document.querySelectorAll('.pricing-card a[data-cb-type="checkout"]');
       buyButtons.forEach(button => {
         button.addEventListener('click', function(event) {
           event.stopPropagation(); // Prevent card redirect on "Sign Up" click
         });
       });
-
-      // Initialize Chargebee
-      if (typeof Chargebee !== 'undefined') {
-        Chargebee.init({
-          site: "more4lessplans", // Your Chargebee site name
-          // Add your Chargebee publishable key if required (optional for some setups)
-          // publishableKey: "your-publishable-key"
-        });
-
-        // Add event listener for Account Login links
-        const accountLoginLinks = document.querySelectorAll('.account-login-link');
-        accountLoginLinks.forEach(link => {
-          link.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default anchor behavior
-
-            // Open Chargebee customer portal
-            Chargebee.getInstance().openPortal({
-              // Optional: Add callbacks for portal events
-              onLoad: function() {
-                console.log("Chargebee portal loaded");
-              },
-              onClose: function() {
-                console.log("Chargebee portal closed");
-              }
-            });
-          });
-        });
-      } else {
-        console.error("Chargebee script not loaded. Please ensure the Chargebee script is included.");
-      }
     });
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
-  <script src="vendors/popper/popper.min.js"></script>
-  <script src="vendors/bootstrap/bootstrap.min.js"></script>
   <script src="vendors/is/is.min.js"></script>
   <script src="vendors/countup/countUp.umd.js"></script>
   <script src="vendors/swiper/swiper-bundle.min.js"></script>
