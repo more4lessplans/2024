@@ -49,7 +49,9 @@
   <!-- Bootstrap CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom Styles and Fonts -->
+  <!-- External Stylesheets -->
+  <link rel="stylesheet" href="/navbar.css"> <!-- Navbar styles -->
+  <link rel="stylesheet" href="/footer.css"> <!-- Footer styles -->
   <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,16 +62,21 @@
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-nCir1SeOabMFeNiu0p+Ox6gJo43v3K9sBZG+/IiYlL8TJ8BOAq0mGYCz5xg6PDe2jNwl9CTscC2vGQVQcR2qLg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Custom CSS -->
+  <!-- Page-Specific CSS -->
   <style>
-  
-
-    /* Order Confirmation Section Styles */
+    main {
+      padding-top: 100px; /* Ensures sufficient spacing between navbar and title */
+    }
+    @media (max-width: 576px) {
+      main {
+        padding-top: 90px; /* Adjusted for mobile */
+      }
+    }
     #order-confirmation {
       background-color: #ffffff;
     }
     #order-confirmation .container {
-      min-height: calc(100vh - 70px); /* Adjust for navbar height */
+      min-height: 100vh; /* Simplified from calc, spacing handled by padding-top */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -82,32 +89,32 @@
       width: 60px;
       height: 60px;
       margin: 0 auto 20px;
-      fill: #2E2F33; /* Updated to match the new grey color used in other pages */
+      fill: #2E2F33;
     }
     #order-confirmation h3 {
-      font-size: 1.5rem; /* Matches fs-5 */
-      font-weight: 600; /* Matches fw-semibold */
-      margin-bottom: 0.5rem; /* Matches mb-2 */
-      color: #2E2F33; /* Updated to match the new grey color used in other pages */
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #2E2F33;
       line-height: 1.3;
     }
     #order-confirmation p {
       line-height: 1.5;
-      color: #555; /* Retained for consistency with other pages */
+      color: #555;
     }
   </style>
 </head>
 
 <body>
-   <!-- Navbar Container -->
-   <div id="navbar-container"></div>
+  <!-- Navbar Container -->
+  <div id="navbar-container"></div>
 
   <!-- Main Content -->
   <main class="main" id="top">
     <div class="content">
       <!-- Order Confirmation Section -->
       <section id="order-confirmation">
-        <div class="container py-8 py-lg-10 d-flex flex-column align-items-center justify-content-center text-center">
+        <div class="container py-8 py-lg-10 d-flex flex-direction-column align-items-center justify-content-center text-center">
           <div>
             <div>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -128,8 +135,6 @@
   <!-- JavaScripts -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOM fully loaded');
-
       // Load navbar
       fetch('/navbar.html')
         .then(response => {
@@ -137,19 +142,15 @@
           return response.text();
         })
         .then(data => {
-          console.log('Navbar fetched successfully');
           document.getElementById('navbar-container').innerHTML = data;
           const navbarScript = document.createElement('script');
           navbarScript.src = '/navbar.js';
           navbarScript.onload = function() {
-            console.log('navbar.js loaded');
-            initializeNavbar();
+            initializeNavbar(); // Assumes this function exists in navbar.js
           };
           document.body.appendChild(navbarScript);
         })
-        .catch(error => {
-          console.error('Error loading navbar:', error);
-        });
+        .catch(error => console.error('Error loading navbar:', error));
 
       // Load footer
       fetch('/footer.html')
@@ -158,13 +159,10 @@
           return response.text();
         })
         .then(data => {
-          console.log('Footer fetched successfully');
           document.getElementById('footer-container').innerHTML = data;
           document.getElementById('currentYear').textContent = new Date().getFullYear();
         })
-        .catch(error => {
-          console.error('Error loading footer:', error);
-        });
+        .catch(error => console.error('Error loading footer:', error));
     });
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=0.85">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO Title -->
   <title>Confirmation | Order Success</title>
@@ -15,7 +15,7 @@
   <!-- SEO Description -->
   <meta name="description" content="More4Less Wireless Internet provides affordable, high-speed LTE and 5G internet across Canada, catering to rural homes, RVers, campers, and travelers. Enjoy reliable wireless internet anywhere in Canada with flexible, no-contract plans.">
 
-  <!-- Open Graph Meta Tags -->
+  <!-- Open Graph Meta Tags for Social Sharing -->
   <meta property="og:title" content="More4Less Wireless Internet | High-Speed LTE & 5G Internet Across Canada">
   <meta property="og:description" content="Get affordable high-speed LTE and 5G internet for rural homes, RVers, campers, and travelers with More4Less. Canada-wide coverage, no contracts, and reliable service anywhere in Canada.">
   <meta property="og:image" content="https://more4lessplans.ca/main.jpg">
@@ -37,11 +37,11 @@
   <meta name="msapplication-TileImage" content="/img/favi/mstile-150x150.png">
   <meta name="theme-color" content="#ffffff">
 
-  <!-- Google Tag Manager -->
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10988139493"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'AW-10988139493');
   </script>
@@ -49,7 +49,9 @@
   <!-- Bootstrap CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Stylesheets -->
+  <!-- External Stylesheets -->
+  <link rel="stylesheet" href="/navbar.css"> <!-- Navbar styles -->
+  <link rel="stylesheet" href="/footer.css"> <!-- Footer styles -->
   <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,61 +60,64 @@
   <link href="assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
   <link href="assets/css/user.min.css" rel="stylesheet" id="user-style-default">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-nCir1SeOabMFeNiu0p+Ox6gJo43v3K9sBZG+/IiYlL8TJ8BOAq0mGYCz5xg6PDe2jNwl9CTscC2vGQVQcR2qLg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+  <!-- Page-Specific CSS -->
   <style>
-   
-
-    /* Main Content Styles */
-    body {
-      padding-top: 0;
+    main {
+      padding-top: 100px; /* Ensures sufficient spacing between navbar and title */
+    }
+    @media (max-width: 576px) {
+      main {
+        padding-top: 90px; /* Adjusted for mobile */
+      }
     }
     #order-confirmation {
       background-color: #ffffff;
     }
     #order-confirmation .container {
-      min-height: 100vh;
+      min-height: 100vh; /* Simplified from calc, spacing handled by padding-top */
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 2rem 1rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
     }
     #order-confirmation svg {
       width: 60px;
       height: 60px;
       margin: 0 auto 20px;
+      fill: #2E2F33;
     }
     #order-confirmation h3 {
-      color: #2E2F33;
       font-size: 1.5rem;
       font-weight: 600;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
+      color: #2E2F33;
       line-height: 1.3;
     }
     #order-confirmation p {
-      color: #555;
       line-height: 1.5;
-      font-size: 1rem;
+      color: #555;
     }
-
-    
   </style>
 </head>
 
 <body>
-   <!-- Navbar Container -->
-   <div id="navbar-container"></div>
+  <!-- Navbar Container -->
+  <div id="navbar-container"></div>
 
   <!-- Main Content -->
   <main class="main" id="top">
     <div class="content">
+      <!-- Order Confirmation Section -->
       <section id="order-confirmation">
-        <div class="container py-8 py-lg-10 d-flex flex-column align-items-center justify-content-center text-center">
+        <div class="container py-8 py-lg-10 d-flex flex-direction-column align-items-center justify-content-center text-center">
           <div>
             <div>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#2E2F33">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M12 0C5.371 0 0 5.371 0 12s5.371 12 12 12 12-5.371 12-12S18.629 0 12 0zm-1.203 17.69l-4.902-4.902 1.414-1.414 3.488 3.488 6.588-6.588 1.414 1.414-8.002 8.002z" />
               </svg>
             </div>
@@ -130,8 +135,6 @@
   <!-- JavaScripts -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOM fully loaded');
-
       // Load navbar
       fetch('/navbar.html')
         .then(response => {
@@ -139,19 +142,15 @@
           return response.text();
         })
         .then(data => {
-          console.log('Navbar fetched successfully');
           document.getElementById('navbar-container').innerHTML = data;
           const navbarScript = document.createElement('script');
           navbarScript.src = '/navbar.js';
           navbarScript.onload = function() {
-            console.log('navbar.js loaded');
-            initializeNavbar();
+            initializeNavbar(); // Assumes this function exists in navbar.js
           };
           document.body.appendChild(navbarScript);
         })
-        .catch(error => {
-          console.error('Error loading navbar:', error);
-        });
+        .catch(error => console.error('Error loading navbar:', error));
 
       // Load footer
       fetch('/footer.html')
@@ -160,13 +159,10 @@
           return response.text();
         })
         .then(data => {
-          console.log('Footer fetched successfully');
           document.getElementById('footer-container').innerHTML = data;
           document.getElementById('currentYear').textContent = new Date().getFullYear();
         })
-        .catch(error => {
-          console.error('Error loading footer:', error);
-        });
+        .catch(error => console.error('Error loading footer:', error));
     });
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
