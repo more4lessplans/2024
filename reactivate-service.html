@@ -55,9 +55,9 @@
 
   <!-- Page-Specific CSS -->
   <style>
-    /* Body padding for fixed navbar */
-    body {
-      padding-top: 70px; /* Adjust based on navbar height */
+    /* Main content spacing for fixed navbar */
+    main {
+      padding-top: 100px; /* Increased from 70px for more spacing between navbar and title */
     }
     .content {
       background-color: #ffffff;
@@ -103,8 +103,8 @@
       background-color: #b32f47 !important;
     }
     @media (max-width: 576px) {
-      body {
-        padding-top: 60px;
+      main {
+        padding-top: 90px; /* Increased from 60px for more spacing on mobile */
       }
     }
   </style>
@@ -120,7 +120,7 @@
       <section class="container mb-8 mb-lg-11" id="top">
         <h1 class="fs-4 fs-lg-3 fw-bold text-center mb-2 mb-lg-1">Reactivate Your Service</h1>
         <p class="fs-8 mb-7 mb-lg-8 text-center lh-lg">
-          Get back online – order your replacement SIM card here
+          To get back online you'll need a new SIM card – order your replacement SIM card here:
         </p>
         
         <div class="container mt-5">
@@ -146,8 +146,6 @@
   <!-- JavaScripts -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOM fully loaded');
-
       // Load navbar
       fetch('/navbar.html')
         .then(response => {
@@ -155,19 +153,15 @@
           return response.text();
         })
         .then(data => {
-          console.log('Navbar fetched successfully');
           document.getElementById('navbar-container').innerHTML = data;
           const navbarScript = document.createElement('script');
           navbarScript.src = '/navbar.js';
           navbarScript.onload = function() {
-            console.log('navbar.js loaded');
             initializeNavbar();
           };
           document.body.appendChild(navbarScript);
         })
-        .catch(error => {
-          console.error('Error loading navbar:', error);
-        });
+        .catch(error => console.error('Error loading navbar:', error));
 
       // Load footer
       fetch('/footer.html')
@@ -176,13 +170,10 @@
           return response.text();
         })
         .then(data => {
-          console.log('Footer fetched successfully');
           document.getElementById('footer-container').innerHTML = data;
           document.getElementById('currentYear').textContent = new Date().getFullYear();
         })
-        .catch(error => {
-          console.error('Error loading footer:', error);
-        });
+        .catch(error => console.error('Error loading footer:', error));
 
       // Shopify Buy Button Initialization
       (function () {
