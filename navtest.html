@@ -209,29 +209,14 @@
         console.log('Navbar fetched successfully'); // Debug: Confirm fetch success
         document.getElementById('navbar-container').innerHTML = data;
 
-        // Initialize navigation after navbar is loaded
-        const navLinks = document.querySelectorAll('.nav-link');
-        console.log('Found', navLinks.length, 'nav links'); // Debug: Confirm links found
-        navLinks.forEach(link => {
-          link.addEventListener('click', function(event) {
-            const href = this.getAttribute('href');
-            const isModalTrigger = this.getAttribute('data-toggle') === 'modal';
-            console.log('Clicked link:', href, 'Modal trigger:', isModalTrigger); // Debug: Log clicks
-
-            if (!isModalTrigger && href && href !== '#') {
-              event.preventDefault();
-              const mobileMenuModal = document.getElementById('mobileMenuModal');
-              if (mobileMenuModal) {
-                console.log('Closing mobile menu modal'); // Debug: Confirm modal close attempt
-                $('#mobileMenuModal').modal('hide'); // Use jQuery for Bootstrap 4 compatibility
-              }
-              setTimeout(() => {
-                console.log('Navigating to:', href); // Debug: Confirm navigation
-                window.location.href = href;
-              }, 300);
-            }
-          });
-        });
+        // Load navbar.js dynamically and initialize
+        const script = document.createElement('script');
+        script.src = '/navbar.js';
+        script.onload = function() {
+          console.log('navbar.js loaded'); // Debug: Confirm script load
+          initializeNavbar(); // Call the function from navbar.js
+        };
+        document.body.appendChild(script);
       })
       .catch(error => {
         console.error('Error loading navbar:', error); // Debug: Log fetch errors
@@ -254,7 +239,7 @@
   </script>
 
   <!-- External Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- Added jQuery for Bootstrap 4 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>

@@ -1,73 +1,80 @@
 // navbar.js
 document.addEventListener('DOMContentLoaded', function() {
-  // Handle all navigation links (desktop and mobile)
-  const navLinks = document.querySelectorAll('.nav-link');
-  navLinks.forEach(link => {
-    link.addEventListener('click', function(event) {
-      const href = this.getAttribute('href');
-      const isModalTrigger = this.getAttribute('data-bs-toggle') === 'modal';
-
-      if (!isModalTrigger && href && href !== '#') {
-        event.preventDefault();
-        const mobileMenuModal = document.getElementById('mobileMenuModal');
-        const existingCustomersModal = document.getElementById('existingCustomersModal');
-        if (mobileMenuModal) {
-          const mobileModalInstance = bootstrap.Modal.getInstance(mobileMenuModal);
-          if (mobileModalInstance) mobileModalInstance.hide();
-        }
-        if (existingCustomersModal) {
-          const existingModalInstance = bootstrap.Modal.getInstance(existingCustomersModal);
-          if (existingModalInstance) existingModalInstance.hide();
-        }
-        setTimeout(() => {
-          window.location.href = href;
-        }, 300);
-      }
-    });
+    // This is just a placeholder; actual fetch happens in each page
+    // We'll rely on each page to call this logic after loading navbar.html
   });
-
-  // Handle Existing Customers modal links
-  const existingCustomerLinks = document.querySelectorAll('#existingCustomersModal .nav-link');
-  existingCustomerLinks.forEach(link => {
-    link.addEventListener('click', function(event) {
-      event.preventDefault();
-      const href = this.getAttribute('href');
-      const cbType = this.getAttribute('data-cb-type');
-
-      const modal = document.getElementById('existingCustomersModal');
-      const modalInstance = bootstrap.Modal.getInstance(modal);
-      modalInstance.hide();
-
-      modal.addEventListener('hidden.bs.modal', function() {
-        if (cbType === 'portal') {
-          if (typeof Chargebee !== 'undefined') {
-            const cbInstance = Chargebee.init({
-              site: 'more4lessplans',
-              publishableKey: 'your-publishable-key' // Replace with your actual key
-            });
-            const portalSession = {
-              id: 'portal-session-id',
-              access_url: 'https://more4lessplans.chargebeeportal.com/portal',
-              token: 'portal-session-token'
-            };
-            cbInstance.openPortal({
-              portalSession: function() {
-                return new Promise(resolve => resolve(portalSession));
-              },
-              success: function() { console.log('Portal opened'); },
-              close: function() { console.log('Portal closed'); },
-              error: function(err) {
-                console.error('Error:', err);
-                window.location.href = '/login';
-              }
-            });
-          } else {
-            window.location.href = '/login';
+  
+  function initializeNavbar() {
+    console.log('Initializing navbar'); // Debug: Confirm function runs
+  
+    const navLinks = document.querySelectorAll('.nav-link');
+    console.log('Found', navLinks.length, 'nav links'); // Debug: Confirm links found
+  
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        const href = this.getAttribute('href');
+        const isModalTrigger = this.getAttribute('data-toggle') === 'modal';
+        const cbType = this.getAttribute('data-cb-type');
+        console.log('Clicked link:', href, 'Modal trigger:', isModalTrigger, 'Chargebee type:', cbType); // Debug: Log clicks
+  
+        if (!isModalTrigger && href && href !== '#') {
+          event.preventDefault();
+          const mobileMenuModal = document.getElementById('mobileMenuModal');
+          if (mobileMenuModal) {
+            console.log('Closing mobile menu modal'); // Debug: Confirm modal close
+            $('#mobileMenuModal').modal('hide');
           }
-        } else if (href && href !== 'javascript:void(0)') {
-          window.location.href = href;
+          setTimeout(() => {
+            console.log('Navigating to:', href); // Debug: Confirm navigation
+            window.location.href = href;
+          }, 300);
+        } else if (cbType === 'portal') {
+          event.preventDefault();
+          const existingCustomersModal = $('#existingCustomersModal');
+          existingCustomersModal.modal('hide');
+  
+          // Handle navigation or Chargebee portal after modal is hidden
+          existingCustomersModal.on('hidden.bs.modal', function() {
+            if (cbType === 'portal') {
+              console.log('Modal hidden, opening Chargebee portal'); // Debug: Confirm trigger
+              if (typeof Chargebee !== 'undefined') {
+                const cbInstance = Chargebee.init({
+                  site: 'more4lessplans', // Ensure this matches your Chargebee site name
+                  publishableKey: 'your-publishable-key' // Replace with your Chargebee publishable key
+                });
+  
+                // Simulate fetching a portal session (replace with server-side call in production)
+                const portalSession = {
+                  id: 'portal-session-id', // Placeholder
+                  access_url: 'https://more4lessplans.chargebeeportal.com/portal', // Replace with actual portal URL
+                  token: 'portal-session-token' // Placeholder
+                };
+  
+                // Open the Chargebee portal
+                cbInstance.openPortal({
+                  portalSession: function() {
+                    return new Promise((resolve) => {
+                      resolve(portalSession);
+                    });
+                  },
+                  success: function() {
+                    console.log('Chargebee portal opened successfully');
+                  },
+                  close: function() {
+                    console.log('Chargebee portal closed');
+                  },
+                  error: function(err) {
+                    console.error('Error opening Chargebee portal:', err);
+                    window.location.href = '/login'; // Fallback
+                  }
+                });
+              } else {
+                console.error('Chargebee library not loaded');
+                window.location.href = '/login'; // Fallback
+              }
+            }
+          });
         }
-      }, { once: true });
+      });
     });
-  });
-});
+  }
