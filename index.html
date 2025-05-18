@@ -40,8 +40,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Stylesheets -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#2E2F33">
     <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +60,7 @@
 
     <!-- Updated CSS including footer styles -->
     <style>
-      /* Existing Styles (unchanged) */
+      /* Existing Styles (kept but not shown for brevity) */
       .pricing-card {
         background-color: #f9f9f9;
         height: 570px;
@@ -80,7 +78,7 @@
         transform: translateY(-10px);
       }
       .category {
-        color: #D73C59 !important; /* Ensure the chosen red is applied */
+        color: #D73C59;
         margin: 0;
         font-weight: bold;
         font-size: 1.2em;
@@ -90,7 +88,7 @@
         margin: 0;
       }
       .model {
-        color: #D73C59 !important; /* Ensure the chosen red is applied */
+        color: #D73C59;
         letter-spacing: 2px;
       }
       .text-muted {
@@ -146,7 +144,7 @@
         }
       }
 
-      /* Updated Footer Styles (unchanged) */
+      /* Updated Footer Styles */
       footer {
         padding: 2rem 0;
         background-color: #ffffff;
@@ -156,11 +154,11 @@
         color: #565656;
         font-size: 1rem;
         font-weight: 400;
-        margin: 1rem 0 0 0;
+        margin: 0 0 1rem 0;
       }
       .footer-divider {
         width: 50px;
-        margin: 1rem auto;
+        margin: 0 auto 1rem auto;
         border: 0;
         border-top: 1px solid #e3e3e3;
       }
@@ -182,312 +180,38 @@
         font-size: 0.9rem;
         margin: 0 0.25rem;
       }
-
-      /* Nav Bar Styles (Updated for Transparency and Fade-In) */
-      .navbar-solid {
-        background: transparent; /* Initially transparent */
-        transition: background-color 0.5s ease; /* Smooth transition for background color */
-      }
-      .navbar-solid.scrolled {
-        background: #2E2F33; /* Grey background when scrolled */
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      }
-      .navbar-solid .nav-link {
-        color: #ffffff !important; /* Ensure nav links are white for visibility */
-        font-weight: 500;
-        transition: color 0.3s ease;
-      }
-      .navbar-solid .nav-link:hover {
-        color: #D73C59 !important;
-      }
-      .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-      }
-
-      /* Add Arrow to Existing Customers Link in Desktop Nav */
-      .nav-link-existing::after {
-        content: " →";
-        color: #ffffff;
-        font-size: 0.9rem;
-        margin-left: 2px;
-      }
-      .nav-link-existing:hover::after {
-        color: #D73C59;
-      }
-
-      /* Custom Mobile Menu Styles */
-      .mobile-menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Semi-transparent backdrop */
-        z-index: 1050;
-        display: none; /* Hidden by default */
-        justify-content: center;
-        align-items: center;
-      }
-      .mobile-menu.open {
-        display: flex; /* Show when open class is added */
-      }
-      .mobile-menu-content {
-        background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-        width: 90%;
-        max-width: 350px;
-        padding: 1.5rem;
-        position: relative;
-      }
-      .mobile-menu-header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        padding: 0 0 1rem 0;
-      }
-      .mobile-menu-title {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: #2E2F33;
-        padding: 0.5rem 1rem;
-        width: 100%;
-        text-align: center;
-        border-radius: 8px;
-        position: relative;
-      }
-      .mobile-menu-title::after {
-        content: "";
-        display: block;
-        width: 50%;
-        height: 1px;
-        background-color: #e3e3e3;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .mobile-menu-body {
-        padding: 1rem 0;
-        text-align: center;
-      }
-      .mobile-menu-body ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-      .mobile-menu-body .nav-link {
-        color: #2E2F33;
-        font-size: 1.1rem;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        padding: 0.5rem 0;
-        transition: all 0.3s ease;
-        display: block;
-      }
-      .mobile-menu-body .nav-link:hover {
-        color: #D73C59;
-        background-color: rgba(215, 60, 89, 0.1);
-        transform: scale(1.02);
-        border-radius: 5px;
-      }
-      .mobile-menu-body ul li {
-        margin-bottom: 0;
-        border-bottom: 1px solid #e3e3e3;
-      }
-      .mobile-menu-body ul li:last-child {
-        border-bottom: none;
-      }
-      .nav-link-existing-mobile::after {
-        content: " →";
-        color: #2E2F33;
-        font-size: 0.9rem;
-        margin-left: 4px;
-      }
-      .nav-link-existing-mobile:hover::after {
-        color: #D73C59;
-      }
-
-      /* Existing Customers Modal Styles (unchanged) */
-      .modal-content {
-        background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-        border: none;
-        padding: 1.5rem;
-      }
-      .modal-header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        padding: 0 0 1rem 0;
-      }
-      .modal-title {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: #2E2F33;
-        padding: 0.5rem 1rem;
-        width: 100%;
-        text-align: center;
-        border-radius: 8px;
-        position: relative;
-      }
-      .modal-title::after {
-        content: "";
-        display: block;
-        width: 50%;
-        height: 1px;
-        background-color: #e3e3e3;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .btn-close {
-        position: absolute;
-        right: 1rem;
-        top: 1rem;
-        background: none;
-        border: none;
-        font-size: 1.2rem;
-        opacity: 0.7;
-        transition: opacity 0.3s ease;
-      }
-      .btn-close:hover {
-        opacity: 1;
-      }
-      .modal-body {
-        padding: 1rem 0;
-        text-align: center;
-      }
-      .modal-body ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-      .modal-body .nav-link {
-        color: #2E2F33;
-        font-size: 1.1rem;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        padding: 0.5rem 0;
-        transition: all 0.3s ease;
-        display: block;
-      }
-      .modal-body .nav-link:hover {
-        color: #D73C59;
-        background-color: rgba(215, 60, 89, 0.1);
-        transform: scale(1.02);
-        border-radius: 5px;
-      }
-      .modal-body ul li {
-        margin-bottom: 0;
-        border-bottom: 1px solid #e3e3e3;
-      }
-      .modal-body ul li:last-child {
-        border-bottom: none;
-      }
-      .modal-dialog {
-        max-width: 350px;
-      }
-      @media (max-width: 576px) {
-        .modal-dialog {
-          max-width: 90%;
-          margin: 1.75rem auto;
-        }
-      }
-
-      /* Check Availability Button Styling (unchanged) */
-      #check-coverage-btn {
-        font-weight: 400;
-        color: #ffffff;
-        background-color: transparent;
-        border: 2px solid #ffffff;
-        border-radius: 8px;
-        padding: 0.75rem 1.5rem;
-        transition: all 0.3s ease;
-      }
-      #check-coverage-btn:hover {
-        color: #2E2F33;
-        background-color: #ffffff;
-        border-color: #ffffff;
-        transform: scale(1.05);
-      }
-
-
-      
     </style>
   </head>
 
   <body>
     <main class="main" id="top">
       <div class="content">
-        <nav class="navbar navbar-expand-md fixed-top navbar-solid" id="navbar">
+        <nav class="navbar navbar-expand-md fixed-top" id="navbar" data-navbar-soft-on-scroll="data-navbar-soft-on-scroll">
           <div class="container-fluid px-0">
             <a href="/" class="navbar-brand"><img src="assets/img/logos/logo.png" style="width: 80px; height: 36;" alt="logo" /></a>
-            <!-- Mobile Menu Toggle Button -->
-            <button class="navbar-toggler border-0 pe-0 d-md-none" type="button" id="mobileMenuToggle" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0 pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- Desktop Menu -->
-            <div class="collapse navbar-collapse justify-content-md-end d-none d-md-flex" id="navbar-content" data-navbar-collapse="data-navbar-collapse">
+            <div class="collapse navbar-collapse justify-content-md-end" id="navbar-content" data-navbar-collapse="data-navbar-collapse">
               <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0" data-navbar-nav="data-navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link lh-xl nav-link-existing" href="#" role="button" data-toggle="modal" data-target="#existingCustomersModal">Existing Customers</a>
+                <li class="nav-item dropdown">
+                  <a class="nav-link lh-xl dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Existing Customers</a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="javascript:void(0)" data-cb-type="portal"><strong>Account Login</strong></a></li>
+                    <li><a class="dropdown-item" href="/tutorials"><strong>Tutorials</strong></a></li>
+                    <li><a class="dropdown-item" href="/support"><strong>Technical Support</strong></a></li>
+                  </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="#pricing" data-scroll-target="pricing">Pricing</a></li>
-                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="/contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="/mobility">Mobility</a></li>
-                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="#question" data-scroll-target="question">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link lh-xl" href="#pricing">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link lh-xl" href="/contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link lh-xl" href="/mobility">Mobility</a></li>
+                <li class="nav-item"><a class="nav-link lh-xl" href="/question">FAQ</a></li>
               </ul>
             </div>
           </div>
         </nav>
 
-        <!-- Custom Mobile Menu -->
-        <div class="mobile-menu" id="mobileMenu">
-          <div class="mobile-menu-content">
-            <div class="mobile-menu-header">
-              <h5 class="mobile-menu-title">Menu</h5>
-            </div>
-            <div class="mobile-menu-body">
-              <ul class="list-unstyled">
-                <li>
-                  <a class="nav-link lh-xl fw-bold nav-link-existing-mobile" href="#" data-toggle="modal" data-target="#existingCustomersModal">Existing Customers</a>
-                </li>
-                <li>
-                  <a class="nav-link lh-xl fw-bold mobile-nav-link" href="#pricing" data-scroll-target="pricing">Pricing</a>
-                </li>
-                <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="/contact">Contact</a></li>
-                <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="/mobility">Mobility</a></li>
-                <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="#question" data-scroll-target="question">FAQ</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Existing Customers Modal (Using Bootstrap) -->
-        <div class="modal fade" id="existingCustomersModal" tabindex="-1" role="dialog" aria-labelledby="existingCustomersModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header border-0">
-                <h5 class="modal-title" id="existingCustomersModalLabel">Existing Customers</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body text-center">
-                <ul class="list-unstyled">
-                  <li><a class="nav-link lh-xl fw-bold existing-customer-link" href="javascript:void(0)" data-cb-type="portal">Account Login</a></li>
-                  <li><a class="nav-link lh-xl fw-bold existing-customer-link" href="/tutorials">Tutorials</a></li>
-                  <li><a class="nav-link lh-xl fw-bold existing-customer-link" href="/support">Technical Support</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div data-target="#navbar" data-spy="scroll" tabindex="0">
+        <div data-bs-target="#navbar" data-bs-spy="scroll" tabindex="0">
           <section class="hero-section overflow-hidden position-top z-0 mb-4 mb-lg-0" id="home">
             <div class="hero-background">
               <div class="container">
@@ -529,33 +253,32 @@
           </section>
         </div>
       </div>
-
-      <!-- Pricing Section -->
-      <section id="pricing" style="background-color: #ffffff;">
-        <div class="container py-8 py-lg-10">
-          <div class="row justify-content-center text-center py-5" style="background: linear-gradient(to right, #FFFFFF, #FFFFFF); border-radius: 10px;">
-            <div class="col-md-8 col-lg-7">
-              <h1 class="pricing-title fs-2 fs-lg-1 fw-bold mb-3 lh-sm" style="color: #222831;">Your Hardware Your Choice</h1>
-              <p class="pricing-subtitle fw-medium mb-2 lh-sm text-secondary" style="max-width: 600px; margin-left: auto; margin-right: auto; text-align: center; font-size: 1.35rem;">One-Time Hardware Purchase</p>
-              <hr style="width: 50%; max-width: 200px; border: 0.5px solid #e3e3e3; margin: 8px auto; padding: 0;">
-              <p class="pricing-subtitle fw-medium mb-2 lh-sm text-secondary" style="max-width: 600px; margin-left: auto; margin-right: auto; text-align: center; font-size: 1.35rem;">Unlimited High-Speed Internet for <span class="price-highlight">$110/mo.</span></p>
-            </div>
-          </div>
-          <div class="row justify-content-center g-4">
+<!-- Pricing Section -->
+<section id="pricing" style="background-color: #ffffff;">
+  <div class="container py-8 py-lg-10">
+    <div class="row justify-content-center text-center py-6">
+      <div class="col-md-8 col-lg-7">
+        <h1 class="pricing-title fs-2 fs-lg-1 fw-bold mb-4 lh-sm" style="color: #1f2a44; font-size: 2.25rem;">Internet Delivered to You</h1>
+        <p class="pricing-subtitle fw-medium mb-3 lh-sm text-secondary" style="max-width: 600px; margin-left: auto; margin-right: auto; text-align: center; font-size: 1.25rem; color: #4b5563;">Everything You Need - One-Time Purchase</p>
+        <p class="pricing-subtitle fw-medium mb-3 lh-sm text-secondary" style="max-width: 600px; margin-left: auto; margin-right: auto; text-align: center; font-size: 1.25rem; color: #4b5563;">Unlimited High-Speed Internet for <span style="font-weight: 700;">$110/mo.</span></p>
+        <p class="text-muted mt-4" style="font-size: 0.95rem; color: #6b7280;">No contracts, no hidden fees. Shipped to your door!</p>
+      </div>
+    </div>
+    <div class="row justify-content-center g-4">
             <!-- MR1100 Card -->
             <div class="col-12 col-md-6 col-lg-4 pricing-col">
               <a href="m1" class="pricing-card-link">
                 <div class="pricing-card text-center border shadow-sm rounded-2 p-3 d-flex flex-column align-items-center">
                   <div class="mb-3">
-                    <p class="category fw-bold fs-6">On-the-Go</p>
+                    <p class="category text-danger fw-bold fs-6">On-the-Go</p>
                     <br>
                     <p class="description text-muted">Ultimate Mobile Connectivity</p>
                   </div>
                   <img src="assets/img/products/mr1100.png" alt="MR1100" class="mb-3" width="225" height="225">
-                  <p class="model text-uppercase fw-bold fs-10 mb-3">MR1100</p>
+                  <p class="model text-danger text-uppercase fw-bold fs-10 mb-3">Nighthawk M1</p>
                   <h2 class="mb-3"><span class="fs-6 fw-bold">$</span><span class="fs-2 fw-bold">149</span></h2>
                   <ul class="list-unstyled fs-8 fw-light text-muted mb-3 tight-spacing">
-                    <li class="py-1 px-1 border-top">Pocket-Sized, Plug-and-Play Ease</li>
+                    <li class="py-1 px-1 border-top">Pocket-Sized LTE Hotspot </li>
                     <li class="py-1 px-1">Road-Ready with Simple Setup</li>
                   </ul>
                   <div id="product-component-1742510942591" class="mt-auto button-container"></div>
@@ -586,7 +309,7 @@
                               "product": {
                                 "contents": { "img": false, "title": false, "price": false },
                                 "buttonDestination": "checkout",
-                                "text": { "button": "Sign Up →" },
+                                "text": { "button": "Order Now →" },
                                 "styles": {
                                   "button": {
                                     "border": "2px solid #2E2F33",
@@ -615,15 +338,15 @@
               <a href="orbi" class="pricing-card-link">
                 <div class="pricing-card text-center border shadow-sm rounded-2 p-3 d-flex flex-column align-items-center">
                   <div class="mb-3">
-                    <p class="category fw-bold fs-6">Home Use</p>
+                    <p class="category text-danger fw-bold fs-6">Home Use</p>
                     <br>
                     <p class="description text-muted">Reliable Connection for Your Home</p>
                   </div>
                   <img src="assets/img/products/LBR20.png" alt="LBR20" class="mb-3" width="225" height="225">
-                  <p class="model text-uppercase fw-bold fs-10 mb-3">LBR20</p>
+                  <p class="model text-danger text-uppercase fw-bold fs-10 mb-3">Orbi</p>
                   <h2 class="mb-3"><span class="fs-6 fw-bold">$</span><span class="fs-2 fw-bold">249</span></h2>
                   <ul class="list-unstyled fs-8 fw-light text-muted mb-3 tight-spacing">
-                    <li class="py-1 px-1 border-top">Home Devices, Plug-and-Play Ready</li>
+                    <li class="py-1 px-1 border-top">4G LTE WiFi Router</li>
                     <li class="py-1 px-1">Easy Setup, Instant Connection</li>
                   </ul>
                   <div id="product-component-1726059423351" class="mt-auto button-container"></div>
@@ -654,7 +377,7 @@
                               "product": {
                                 "contents": { "img": false, "title": false, "price": false },
                                 "buttonDestination": "checkout",
-                                "text": { "button": "Sign Up →" },
+                                "text": { "button": "Order Now →" },
                                 "styles": {
                                   "button": {
                                     "border": "2px solid #2E2F33",
@@ -683,16 +406,16 @@
               <a href="m6" class="pricing-card-link">
                 <div class="pricing-card text-center border shadow-sm rounded-2 p-3 d-flex flex-column align-items-center">
                   <div class="mb-3">
-                    <p class="category fw-bold fs-6">On-the-Go</p>
+                    <p class="category text-danger fw-bold fs-6">On-the-Go</p>
                     <br>
                     <p class="description text-muted">High-Performance Mobile Hotspot</p>
                   </div>
-                  <img src="assets/img/products/MR6500.png" alt="MR6500" class="mb-3" width="225" height="225">
-                  <p class="model text-uppercase fw-bold fs-10 mb-3">MR6500</p>
+                  <img src="assets/img/products/mr6110.png" alt="MR6110" class="mb-3" width="225" height="225">
+                  <p class="model text-danger text-uppercase fw-bold fs-10 mb-3">Nighthawk M6</p>
                   <h2 class="mb-3"><span class="fs-6 fw-bold">$</span><span class="fs-2 fw-bold">349</span></h2>
                   <ul class="list-unstyled fs-8 fw-light text-muted mb-3 tight-spacing">
-                    <li class="py-1 px-1 border-top">Compact 5G, Plug-and-Play Ease</li>
-                    <li class="py-1 px-1">Travel-Friendly, Simple Setup</li>
+                    <li class="py-1 px-1 border-top">Pocket-Sized 5G Hotspot </li>
+                    <li class="py-1 px-1">Travel-Friendly with Simple Setup</li>
                   </ul>
                   <div id="product-component-1736017271841" class="mt-auto button-container"></div>
                   <script type="text/javascript">
@@ -722,7 +445,7 @@
                               "product": {
                                 "contents": { "img": false, "title": false, "price": false },
                                 "buttonDestination": "checkout",
-                                "text": { "button": "Sign Up →" },
+                                "text": { "button": "Order Now →" },
                                 "styles": {
                                   "button": {
                                     "border": "2px solid #2E2F33",
@@ -779,49 +502,49 @@
               <div class="accordion mt-lg-4 ps-3 pe-x1 bg-white" id="accordion">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading1">
-                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Can I Use My Own Equipment?</button>
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Can I Use My Own Equipment?</button>
                   </h2>
-                  <div class="accordion-collapse collapse show" id="collapse1" data-parent="#accordion">
+                  <div class="accordion-collapse collapse show" id="collapse1" data-bs-parent="#accordion">
                     <div class="accordion-body lh-xl pt-0 pb-x1">You need to purchase equipment from us to use the service. However, if you prefer, you can connect your own dedicated router in bridge mode to our equipment.</div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading2">
-                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">What Speeds Will I Get?</button>
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">What Speeds Will I Get?</button>
                   </h2>
-                  <div class="accordion-collapse collapse" id="collapse2" data-parent="#accordion">
+                  <div class="accordion-collapse collapse" id="collapse2" data-bs-parent="#accordion">
                     <div class="accordion-body lh-xl pt-0 pb-x1">If your cell phone has a strong signal in your area, you can generally expect good wireless internet coverage as well. You can request a speed estimate from us <a href="speedestimate">here</a>.</div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading3">
-                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Can I Take My Router To The USA?</button>
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Can I Take My Router To The USA?</button>
                   </h2>
-                  <div class="accordion-collapse collapse" id="collapse3" data-parent="#accordion">
+                  <div class="accordion-collapse collapse" id="collapse3" data-bs-parent="#accordion">
                     <div class="accordion-body lh-xl pt-0 pb-x1">Yes, our service works in Canada, the USA, and Mexico!</div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading4">
-                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">Is It Actually Unlimited Wi-Fi?</button>
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">Is It Actually Unlimited Wi-Fi?</button>
                   </h2>
-                  <div class="accordion-collapse collapse" id="collapse4" data-parent="#accordion">
+                  <div class="accordion-collapse collapse" id="collapse4" data-bs-parent="#accordion">
                     <div class="accordion-body lh-xl pt-0 pb-x1">Yes, our internet is truly unlimited! There are no slowdowns or data caps. Enjoy fast, unrestricted browsing at all times.</div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading5">
-                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">Is This Satellite Internet?</button>
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">Is This Satellite Internet?</button>
                   </h2>
-                  <div class="accordion-collapse collapse" id="collapse5" data-parent="#accordion">
+                  <div class="accordion-collapse collapse" id="collapse5" data-bs-parent="#accordion">
                     <div class="accordion-body lh-xl pt-0 pb-x1">No, we utilize LTE and 5G which offers lower latency, better coverage, and more stable connections compared to satellite internet.</div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="heading6">
-                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">Do I Need To Schedule An Installation?</button>
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">Do I Need To Schedule An Installation?</button>
                   </h2>
-                  <div class="accordion-collapse collapse" id="collapse6" data-parent="#accordion">
+                  <div class="accordion-collapse collapse" id="collapse6" data-bs-parent="#accordion">
                     <div class="accordion-body lh-xl pt-0 pb-x1">No! Our Wireless Internet service is plug and play and fully portable.</div>
                   </div>
                 </div>
@@ -851,27 +574,18 @@
 
       <!-- Updated Footer -->
       <footer>
+        <p class="footer-copyright">© <span id="currentYear"></span> Copyright, All Rights Reserved</p>
+        <hr class="footer-divider">
         <p class="footer-links">
           <a href="/privacy-policy">Privacy</a>
+         
           <a href="/terms">Terms</a>
         </p>
-        <hr class="footer-divider">
-        <p class="footer-copyright">© <span id="currentYear"></span> Copyright, All Rights Reserved</p>
       </footer>
     </main>
 
     <!-- JavaScripts -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNt4XeQ5roadq0L-IpadA6s9e4CPm9FwI&libraries=places"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
-    <script src="vendors/is/is.min.js"></script>
-    <script src="vendors/countup/countUp.umd.js"></script>
-    <script src="vendors/swiper/swiper-bundle.min.js"></script>
-    <script src="vendors/lodash/lodash.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="assets/js/theme.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         const input = document.getElementById('address');
@@ -879,160 +593,21 @@
         const autocomplete = new google.maps.places.Autocomplete(input);
         document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-        // Handle coverage check button click
         checkCoverageBtn.addEventListener('click', function() {
           this.classList.add('btn-clicked');
         });
 
-        // Handle address form submission
         document.getElementById('address-form').addEventListener('submit', function(event) {
           event.preventDefault();
           const address = input.value;
           checkAddressCoverage(address);
         });
 
-        // Prevent buy button clicks from propagating
         const buyButtons = document.querySelectorAll('.button-container');
         buyButtons.forEach(button => {
           button.addEventListener('click', function(event) {
             event.stopPropagation();
           });
-        });
-
-        // Custom Mobile Menu Toggle
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        mobileMenuToggle.addEventListener('click', function() {
-          mobileMenu.classList.toggle('open');
-        });
-
-        // Close mobile menu when clicking outside
-        mobileMenu.addEventListener('click', function(event) {
-          if (event.target === mobileMenu) {
-            mobileMenu.classList.remove('open');
-          }
-        });
-
-        // Handle Desktop Navigation Links (Smooth Scrolling for In-Page Links)
-        const desktopNavLinks = document.querySelectorAll('.desktop-nav-link');
-        desktopNavLinks.forEach(link => {
-          link.addEventListener('click', function(event) {
-            const href = this.getAttribute('href');
-            const scrollTarget = this.getAttribute('data-scroll-target');
-
-            if (scrollTarget) {
-              event.preventDefault();
-              const targetElement = document.getElementById(scrollTarget);
-              if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-              }
-            }
-            // If no scroll target, the link will navigate to the page (e.g., /contact, /mobility)
-          });
-        });
-
-        // Handle Mobile Menu Links
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-        mobileNavLinks.forEach(link => {
-          link.addEventListener('click', function(event) {
-            const href = this.getAttribute('href');
-            const scrollTarget = this.getAttribute('data-scroll-target');
-
-            // Close the mobile menu
-            mobileMenu.classList.remove('open');
-
-            // Handle navigation
-            setTimeout(() => {
-              if (scrollTarget) {
-                // In-page link (e.g., #pricing, #question)
-                event.preventDefault();
-                const targetElement = document.getElementById(scrollTarget);
-                if (targetElement) {
-                  targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-              } else {
-                // External page link (e.g., /contact, /mobility)
-                window.location.href = href;
-              }
-            }, 300); // Small delay to allow menu close animation
-          });
-        });
-
-        // Close mobile menu when Existing Customers link is clicked (since it opens a Bootstrap modal)
-        const existingCustomerMobileLink = document.querySelector('.nav-link-existing-mobile');
-        existingCustomerMobileLink.addEventListener('click', function() {
-          mobileMenu.classList.remove('open');
-        });
-
-        // Handle Existing Customers Modal Links
-        const existingCustomerLinks = document.querySelectorAll('.existing-customer-link');
-        existingCustomerLinks.forEach(link => {
-          link.addEventListener('click', function(event) {
-            event.preventDefault();
-            const href = this.getAttribute('href');
-            const cbType = this.getAttribute('data-cb-type');
-
-            // Close the existing customers modal
-            $('#existingCustomersModal').modal('hide');
-
-            // Handle navigation after modal is hidden
-            $('#existingCustomersModal').on('hidden.bs.modal', function() {
-              if (cbType === 'portal') {
-                // Handle Chargebee portal integration
-                if (typeof Chargebee !== 'undefined') {
-                  const cbInstance = Chargebee.init({
-                    site: 'more4lessplans', // Ensure this matches your Chargebee site name
-                    publishableKey: 'your-publishable-key' // Replace with your Chargebee publishable key
-                  });
-
-                  // Simulate fetching a portal session (this should be a server-side call in production)
-                  const portalSession = {
-                    id: 'portal-session-id', // Placeholder
-                    access_url: 'https://more4lessplans.chargebeeportal.com/portal', // Replace with actual portal URL
-                    token: 'portal-session-token' // Placeholder
-                  };
-
-                  // Open the Chargebee portal
-                  cbInstance.openPortal({
-                    portalSession: function() {
-                      return new Promise((resolve) => {
-                        resolve(portalSession);
-                      });
-                    },
-                    success: function() {
-                      console.log('Chargebee portal opened successfully');
-                    },
-                    close: function() {
-                      console.log('Chargebee portal closed');
-                    },
-                    error: function(err) {
-                      console.error('Error opening Chargebee portal:', err);
-                      // Fallback: Redirect to a login page
-                      window.location.href = '/login';
-                    }
-                  });
-                } else {
-                  console.error('Chargebee library not loaded');
-                  // Fallback: Redirect to a login page
-                  window.location.href = '/login';
-                }
-              } else {
-                // Navigate to the page (e.g., /tutorials, /support)
-                window.location.href = href;
-              }
-            });
-          });
-        });
-
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', function() {
-          if (window.scrollY > 50) { // Adjust the scroll threshold as needed
-            navbar.classList.add('scrolled');
-          } else {
-            navbar.classList.remove('scrolled');
-          }
         });
       });
 
@@ -1126,5 +701,17 @@
         window.location.href = `/speedestimate.html?address=${address}`;
       }
     </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
+    <script src="vendors/popper/popper.min.js"></script>
+    <script src="vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="vendors/is/is.min.js"></script>
+    <script src="vendors/countup/countUp.umd.js"></script>
+    <script src="vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="vendors/lodash/lodash.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="assets/js/theme.js"></script>
   </body>
 </html>
