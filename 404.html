@@ -1,25 +1,18 @@
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en-US" dir="ltr">
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- SEO Title -->
+  <!-- SEO and Meta Tags -->
   <title>More4Less - 404 Page Not Found</title>
-
-  <!-- SEO Description -->
   <meta name="description" content="The page you are looking for does not exist on More4Less. Please check the URL or return to the homepage for high-speed LTE and 5G internet plans across Canada.">
-
-  <!-- Open Graph Meta Tags for Social Sharing -->
   <meta property="og:title" content="More4Less - 404 Page Not Found">
   <meta property="og:description" content="The page you are looking for does not exist on More4Less. Please check the URL or return to the homepage for high-speed LTE and 5G internet plans across Canada.">
   <meta property="og:image" content="https://more4lessplans.ca/assets/img/packages/hero.jpeg">
   <meta property="og:url" content="https://more4lessplans.ca/404">
   <meta property="og:type" content="website">
-
-  <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="More4Less - 404 Page Not Found">
   <meta name="twitter:description" content="The page you are looking for does not exist on More4Less. Please check the URL or return to the homepage for high-speed LTE and 5G internet plans across Canada.">
@@ -38,6 +31,8 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Stylesheets -->
+  <link rel="stylesheet" href="/navbar.css">
+  <link rel="stylesheet" href="/footer.css">
   <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,183 +42,16 @@
   <link href="assets/css/user.min.css" rel="stylesheet" id="user-style-default">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
-  <!-- Custom CSS -->
+  <!-- Page-Specific CSS -->
   <style>
-    .text-danger {
-      color: #2E2F33 !important; /* Match other pages */
-    }
-    .text-muted {
-      color: #565656 !important;
-    }
-
-    /* Updated Nav Bar Styles (Solid Color) */
-    .navbar-solid {
-      background: #2E2F33;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    .navbar-solid .nav-link {
-      color: #ffffff !important;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    .navbar-solid .nav-link:hover {
-      color: #D73C59 !important;
-    }
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-
-    /* Add Arrow to Existing Customers Link in Desktop Nav */
-    .nav-link-existing::after {
-      content: " →";
-      color: #ffffff;
-      font-size: 0.9rem;
-      margin-left: 2px;
-    }
-    .nav-link-existing:hover::after {
-      color: #D73C59;
-    }
-
-    /* Modal Styles for Mobile Menu and Existing Customers */
-    .modal-content {
-      background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); /* Subtle gradient for premium feel */
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-      border: none;
-      padding: 1.5rem;
-    }
-    .modal-header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      padding: 0 0 1rem 0;
-    }
-    .modal-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: #222831;
-      margin: 0;
-    }
-    /* Style the Menu Title - Minimal and Distinct */
-    #mobileMenuModalLabel {
-      font-size: 1.5rem; /* Slightly larger for prominence */
-      font-weight: 600; /* Slightly bolder than links (500) for distinction */
-      color: #2E2F33;
-      padding: 0.5rem 1rem;
-      width: 100%;
-      text-align: center;
-      border-radius: 8px;
-      position: relative; /* For positioning the horizontal line */
-    }
-    /* Add Subtle Horizontal Line Below Menu Title */
-    #mobileMenuModalLabel::after {
-      content: "";
-      display: block;
-      width: 50%; /* Spans 50% of the modal width */
-      height: 1px;
-      background-color: #e3e3e3; /* Very subtle light grey line */
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%); /* Center the line */
-    }
-    /* Style the Existing Customers Title - Minimal and Distinct */
-    #existingCustomersModalLabel {
-      font-size: 1.5rem; /* Slightly larger for prominence */
-      font-weight: 600; /* Slightly bolder than links (500) for distinction */
-      color: #2E2F33;
-      padding: 0.5rem 1rem;
-      width: 100%;
-      text-align: center;
-      border-radius: 8px;
-      position: relative; /* For positioning the horizontal line */
-    }
-    /* Add Subtle Horizontal Line Below Existing Customers Title */
-    #existingCustomersModalLabel::after {
-      content: "";
-      display: block;
-      width: 50%; /* Spans 50% of the modal width */
-      height: 1px;
-      background-color: #e3e3e3; /* Very subtle light grey line */
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%); /* Center the line */
-    }
-    .btn-close {
-      position: absolute;
-      right: 1rem;
-      top: 1rem;
-      background: none;
-      border: none;
-      font-size: 1.2rem;
-      opacity: 0.7;
-      transition: opacity 0.3s ease;
-    }
-    .btn-close:hover {
-      opacity: 1;
-    }
-    .modal-body {
-      padding: 1rem 0;
-    }
-    .modal-body ul {
-      margin: 0;
-      padding: 0;
-    }
-    .modal-body .nav-link {
-      color: #2E2F33;
-      font-size: 1.1rem;
-      font-weight: 500;
-      letter-spacing: 0.5px; /* Slight letter spacing for elegance */
-      padding: 0.5rem 0;
-      transition: all 0.3s ease;
-      display: block; /* Ensure the link takes full width for hover effect */
-    }
-    /* Premium Hover Effect for Links */
-    .modal-body .nav-link:hover {
-      color: #D73C59;
-      background-color: rgba(215, 60, 89, 0.1); /* Subtle background on hover */
-      transform: scale(1.02); /* Slight scale effect */
-      border-radius: 5px;
-    }
-    /* Reduce Spacing and Add Horizontal Line Between Links in Mobile Menu */
-    #mobileMenuModal .modal-body ul li {
-      margin-bottom: 0;
-      border-bottom: 1px solid #e3e3e3;
-    }
-    #mobileMenuModal .modal-body ul li:last-child {
-      border-bottom: none;
-    }
-    /* Add Arrow to Existing Customers Link in Mobile Menu */
-    .nav-link-existing-mobile::after {
-      content: " →";
-      color: #2E2F33;
-      font-size: 0.9rem;
-      margin-left: 4px;
-    }
-    .nav-link-existing-mobile:hover::after {
-      color: #D73C59;
-    }
-    /* Reduce Spacing and Add Horizontal Line Between Links in Existing Customers Modal */
-    #existingCustomersModal .modal-body ul li {
-      margin-bottom: 0;
-      border-bottom: 1px solid #e3e3e3;
-    }
-    #existingCustomersModal .modal-body ul li:last-child {
-      border-bottom: none;
-    }
-    /* Ensure modal is centered and has a max-width for better aesthetics */
-    .modal-dialog {
-      max-width: 350px;
+    body {
+      padding-top: 70px;
     }
     @media (max-width: 576px) {
-      .modal-dialog {
-        max-width: 90%;
-        margin: 1.75rem auto;
-      }
+      body { padding-top: 60px; }
     }
-
+    .text-danger { color: #2E2F33 !important; }
+    .text-muted { color: #565656 !important; }
     .btn-primary {
       border: 2px solid #2E2F33;
       background-color: #2E2F33;
@@ -232,180 +60,116 @@
       border-radius: 9px;
       padding: 15px 45px;
       transition: all 0.3s ease;
+      text-transform: none;
     }
     .btn-primary:hover, .btn-primary:focus {
       background-color: transparent;
       color: #000;
       border: 2px solid #000;
     }
-    /* Ensure proper spacing on mobile */
-    @media (max-width: 991.98px) {
-      #not-found {
-        padding-top: 120px; /* Ensure enough space for navbar */
-      }
-      .section-title {
-        padding-top: 20px; /* Additional padding for the title on mobile */
-      }
-    }
-
-    /* Footer */
-    footer {
-      padding: 3rem 0;
-      background: #ffffff;
-      text-align: center;
-    }
-    .footer-links {
-      margin-bottom: 1.5rem;
-    }
-    .footer-links a {
-      color: #A1A8B3; /* Lighter gray for minimal look */
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: color 0.3s ease;
-      padding: 0 1rem;
+    .section-title h3 {
       position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+      color: #2E2F33;
     }
-    .footer-links a:hover {
-      color: #565656; /* Slightly darker gray on hover */
-    }
-    .footer-links a:not(:last-child)::after {
+    .section-title h3::after {
       content: '';
       position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 1px;
-      height: 50%;
-      background: #D1D5DB;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, #313C59, #2E2F33);
+      border-radius: 2px;
     }
-    .footer-divider {
-      width: 50%;
-      margin: 0 auto 1.5rem auto;
-      border: 0;
-      border-top: 1px solid #E5E7EB; /* Very light gray for seamless blend */
-    }
-    .footer-copyright {
-      color: #9CA3AF; /* Subtle, readable gray */
-      font-size: 1rem;
-      margin: 0;
+    .section-title p { font-family: 'Rubik', sans-serif; font-weight: 400; letter-spacing: 0.5px; }
+    @media (max-width: 991.98px) {
+      #not-found { padding-top: 120px; }
+      .section-title { padding-top: 20px; }
     }
   </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-md fixed-top navbar-solid" id="navbar">
-    <div class="container-fluid px-0">
-      <a href="/" class="navbar-brand"><img src="assets/img/logos/logo.png" style="width: 80px; height: 35px;" alt="logo" /></a>
-      <!-- Mobile Menu Toggle Button -->
-      <button class="navbar-toggler border-0 pe-0 d-md-none" type="button" data-bs-toggle="modal" data-bs-target="#mobileMenuModal" aria-controls="mobileMenuModal" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- Desktop Menu -->
-      <div class="collapse navbar-collapse justify-content-md-end d-none d-md-flex" id="navbar-content" data-navbar-collapse="data-navbar-collapse">
-        <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0" data-navbar-nav="data-navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link lh-xl nav-link-existing" href="#" role="button" data-bs-toggle="modal" data-bs-target="#existingCustomersModal">Existing Customers</a>
-          </li>
-          <li class="nav-item"><a class="nav-link lh-xl" href="/contact">Contact</a></li>
-          <li class="nav-item"><a class="nav-link lh-xl" href="/mobility">Mobility</a></li>
-          <li class="nav-item"><a class="nav-link lh-xl" href="/question">FAQ</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <div id="navbar-container"></div>
 
-  <!-- Mobile Menu Modal -->
-  <div class="modal fade" id="mobileMenuModal" tabindex="-1" aria-labelledby="mobileMenuModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <h5 class="modal-title" id="mobileMenuModalLabel">Menu</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <main class="main" id="top">
+    <div class="content">
+      <section class="bg-white py-8 py-lg-10" id="not-found">
+        <div class="container">
+          <div class="row justify-content-center text-center mb-5 section-title">
+            <div class="col-md-8 col-lg-7">
+              <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" fill="#2E2F33" class="bi bi-x-circle mb-4" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+              </svg>
+              <h3 class="fs-4 fs-lg-3 fw-bold mb-2 lh-sm">404 - Page Not Found</h3>
+              <p class="fs-8 lh-lg text-muted">The page you are looking for does not exist. Please check the URL or return to the homepage.</p>
+            </div>
+          </div>
         </div>
-        <div class="modal-body text-center">
-          <ul class="list-unstyled">
-            <li>
-              <a class="nav-link lh-xl fw-bold nav-link-existing-mobile" href="#" data-bs-toggle="modal" data-bs-target="#existingCustomersModal" data-bs-dismiss="modal">Existing Customers</a>
-            </li>
-            <li><a class="nav-link lh-xl fw-bold" href="/contact" data-bs-dismiss="modal">Contact</a></li>
-            <li><a class="nav-link lh-xl fw-bold" href="/mobility" data-bs-dismiss="modal">Mobility</a></li>
-            <li><a class="nav-link lh-xl fw-bold" href="/question" data-bs-dismiss="modal">FAQ</a></li>
-          </ul>
-        </div>
-      </div>
+      </section>
     </div>
-  </div>
+  </main>
 
-  <!-- Existing Customers Modal (for both Desktop and Mobile) -->
-  <div class="modal fade" id="existingCustomersModal" tabindex="-1" aria-labelledby="existingCustomersModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <h5 class="modal-title" id="existingCustomersModalLabel">Existing Customers</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-          <ul class="list-unstyled">
-            <li><a class="nav-link lh-xl fw-bold account-login-link" href="#" data-cb-type="portal" data-bs-dismiss="modal">Account Login</a></li>
-            <li><a class="nav-link lh-xl fw-bold" href="/tutorials" data-bs-dismiss="modal">Tutorials</a></li>
-            <li><a class="nav-link lh-xl fw-bold" href="/support" data-bs-dismiss="modal">Technical Support</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div id="footer-container"></div>
 
-  <!-- 404 Section -->
-  <section class="bg-white py-8 py-lg-10" id="not-found">
-    <div class="container">
-      <div class="row justify-content-center text-center mb-5 section-title">
-        <div class="col-md-8 col-lg-7">
-          <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" fill="#2E2F33" class="bi bi-x-circle mb-4" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-          </svg>
-          <h3 class="fs-4 fs-lg-3 fw-bold mb-2 lh-sm" style="color: #2E2F33;">404 - Page Not Found</h3>
-          <p class="fs-8 lh-lg text-muted">The page you are looking for does not exist. Please check the URL or return to the homepage.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-links">
-      <a href="/terms">Service Terms</a>
-      <a href="/contact">Contact</a>
-      <a href="/privacy-policy">Privacy Policy</a>
-    </div>
-    <hr class="footer-divider">
-    <p class="footer-copyright">© <span id="currentYear"></span> Copyright, All Rights Reserved</p>
-  </footer>
-
-  <!-- JavaScripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
+  <script src="vendors/is/is.min.js"></script>
+  <script src="vendors/countup/countUp.umd.js"></script>
+  <script src="vendors/swiper/swiper-bundle.min.js"></script>
+  <script src="vendors/lodash/lodash.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <script src="assets/js/theme.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Set the current year in the footer
-      document.getElementById("currentYear").textContent = new Date().getFullYear();
+      // Load navbar
+      fetch('/navbar.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load navbar.html: ' + response.status);
+          return response.text();
+        })
+        .then(data => {
+          document.getElementById('navbar-container').innerHTML = data;
+          const navbarScript = document.createElement('script');
+          navbarScript.src = '/navbar.js';
+          navbarScript.onload = function() {
+            initializeNavbar(); // Assumes this function exists in navbar.js
+          };
+          document.body.appendChild(navbarScript);
+        })
+        .catch(error => console.error('Error loading navbar:', error));
+
+      // Load footer
+      fetch('/footer.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load footer.html: ' + response.status);
+          return response.text();
+        })
+        .then(data => {
+          document.getElementById('footer-container').innerHTML = data;
+          document.getElementById('currentYear').textContent = new Date().getFullYear();
+        })
+        .catch(error => console.error('Error loading footer:', error));
 
       // Initialize Chargebee
       if (typeof Chargebee !== 'undefined') {
         Chargebee.init({
-          site: "more4lessplans", // Your Chargebee site name
-          // Add your Chargebee publishable key if required (optional for some setups)
-          // publishableKey: "your-publishable-key"
+          site: "more4lessplans",
+          publishableKey: 'live_9xoL0GUAJyfaZddNn5cdFhI4hrLAGhyIh' // Replace with actual Chargebee publishable key
         });
 
         // Add event listener for Account Login links
         const accountLoginLinks = document.querySelectorAll('.account-login-link');
         accountLoginLinks.forEach(link => {
           link.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default anchor behavior
-
-            // Open Chargebee customer portal
+            event.preventDefault();
             Chargebee.getInstance().openPortal({
-              // Optional: Add callbacks for portal events
               onLoad: function() {
                 console.log("Chargebee portal loaded");
               },
@@ -420,17 +184,5 @@
       }
     });
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
-  <script src="vendors/popper/popper.min.js"></script>
-  <script src="vendors/bootstrap/bootstrap.min.js"></script>
-  <script src="vendors/is/is.min.js"></script>
-  <script src="vendors/countup/countUp.umd.js"></script>
-  <script src="vendors/swiper/swiper-bundle.min.js"></script>
-  <script src="vendors/lodash/lodash.min.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-  <script src="assets/js/theme.js"></script>
 </body>
-
 </html>
