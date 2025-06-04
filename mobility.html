@@ -154,7 +154,7 @@
         color: #565656;
         font-size: 1rem;
         font-weight: 400;
-        margin: 1rem 0 0 0; /* Adjusted margin to appear below links */
+        margin: 1rem 0 0 0;
       }
       .footer-divider {
         width: 50px;
@@ -211,7 +211,7 @@
 
       /* Modal Styles for Mobile Menu and Existing Customers */
       .modal-content {
-        background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%); /* Subtle gradient for premium feel */
+        background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
         border-radius: 15px;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
         border: none;
@@ -230,66 +230,36 @@
         color: #222831;
         margin: 0;
       }
-      /* Style the Menu Title - Minimal and Distinct */
-#mobileMenuModalLabel {
-  font-size: 1.5rem; /* Slightly larger than before for more prominence */
-  font-weight: 600; /* Slightly bolder than links (500) for distinction */
-  color: #2E2F33;
-  padding: 0.5rem 1rem;
-  width: 100%;
-  text-align: center;
-  border-radius: 8px;
-  position: relative; /* For positioning the horizontal line */
-}
-
-/* Add Subtle Horizontal Line Below Menu Title */
-#mobileMenuModalLabel::after {
-  content: "";
-  display: block;
-  width: 50%; /* Spans 50% of the modal width */
-  height: 1px;
-  background-color: #e3e3e3; /* Very subtle light grey line */
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%); /* Center the line */
-}
-
-/* Style the Existing Customers Title - Minimal and Distinct */
-#existingCustomersModalLabel {
-  font-size: 1.5rem; /* Slightly larger than before for more prominence */
-  font-weight: 600; /* Slightly bolder than links (500) for distinction */
-  color: #2E2F33;
-  padding: 0.5rem 1rem;
-  width: 100%;
-  text-align: center;
-  border-radius: 8px;
-  position: relative; /* For positioning the horizontal line */
-}
-
-/* Add Subtle Horizontal Line Below Existing Customers Title */
-#existingCustomersModalLabel::after {
-  content: "";
-  display: block;
-  width: 50%; /* Spans 50% of the modal width */
-  height: 1px;
-  background-color: #e3e3e3; /* Very subtle light grey line */
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%); /* Center the line */
-}
-      .btn-close {
+      #mobileMenuModalLabel, #existingCustomersModalLabel {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #2E2F33;
+        padding: 0.5rem 1rem;
+        width: 100%;
+        text-align: center;
+        border-radius: 8px;
+        position: relative;
+      }
+      #mobileMenuModalLabel::after, #existingCustomersModalLabel::after {
+        content: "";
+        display: block;
+        width: 50%;
+        height: 1px;
+        background-color: #e3e3e3;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .close {
         position: absolute;
         right: 1rem;
         top: 1rem;
-        background: none;
-        border: none;
         font-size: 1.2rem;
         opacity: 0.7;
         transition: opacity 0.3s ease;
       }
-      .btn-close:hover {
+      .close:hover {
         opacity: 1;
       }
       .modal-body {
@@ -303,27 +273,24 @@
         color: #2E2F33;
         font-size: 1.1rem;
         font-weight: 500;
-        letter-spacing: 0.5px; /* Slight letter spacing for elegance */
+        letter-spacing: 0.5px;
         padding: 0.5rem 0;
         transition: all 0.3s ease;
-        display: block; /* Ensure the link takes full width for hover effect */
+        display: block;
       }
-      /* Premium Hover Effect for Links */
       .modal-body .nav-link:hover {
         color: #D73C59;
-        background-color: rgba(215, 60, 89, 0.1); /* Subtle background on hover */
-        transform: scale(1.02); /* Slight scale effect */
+        background-color: rgba(215, 60, 89, 0.1);
+        transform: scale(1.02);
         border-radius: 5px;
       }
-      /* Reduce Spacing and Add Horizontal Line Between Links in Mobile Menu */
-      #mobileMenuModal .modal-body ul li {
+      #mobileMenuModal .modal-body ul li, #existingCustomersModal .modal-body ul li {
         margin-bottom: 0;
         border-bottom: 1px solid #e3e3e3;
       }
-      #mobileMenuModal .modal-body ul li:last-child {
+      #mobileMenuModal .modal-body ul li:last-child, #existingCustomersModal .modal-body ul li:last-child {
         border-bottom: none;
       }
-      /* Add Arrow to Existing Customers Link in Mobile Menu */
       .nav-link-existing-mobile::after {
         content: " →";
         color: #2E2F33;
@@ -333,15 +300,6 @@
       .nav-link-existing-mobile:hover::after {
         color: #D73C59;
       }
-      /* Reduce Spacing and Add Horizontal Line Between Links in Existing Customers Modal */
-      #existingCustomersModal .modal-body ul li {
-        margin-bottom: 0;
-        border-bottom: 1px solid #e3e3e3;
-      }
-      #existingCustomersModal .modal-body ul li:last-child {
-        border-bottom: none;
-      }
-      /* Ensure modal is centered and has a max-width for better aesthetics */
       .modal-dialog {
         max-width: 350px;
       }
@@ -352,331 +310,291 @@
         }
       }
 
-      /* Check Availability Button Styling (White Border with Subtle Hover Animation) */
-#check-coverage-btn {
-  font-weight: 400;
-  color: #ffffff; /* White text */
-  background-color: transparent; /* No background initially */
-  border: 2px solid #ffffff; /* White border */
-  border-radius: 8px;
-  padding: 0.75rem 1.5rem;
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
-}
+      /* Check Availability Button Styling */
+      #check-coverage-btn {
+        font-weight: 400;
+        color: #ffffff;
+        background-color: transparent;
+        border: 2px solid #ffffff;
+        border-radius: 8px;
+        padding: 0.75rem 1.5rem;
+        transition: all 0.3s ease;
+      }
+      #check-coverage-btn:hover {
+        color: #2E2F33;
+        background-color: #ffffff;
+        border-color: #ffffff;
+        transform: scale(1.05);
+      }
 
-/* Subtle Hover Animation */
-#check-coverage-btn:hover {
-  color: #2E2F33; /* Dark text on hover for contrast */
-  background-color: #ffffff; /* White background on hover */
-  border-color: #ffffff; /* Keep white border */
-  transform: scale(1.05); /* Subtle scale-up effect */
-}
+      /* How To Get Started Section Styles */
+      .text-guide-section {
+        padding: 4rem 0;
+        background-color: #ffffff;
+      }
+      .text-guide-title {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: #2E2F33;
+        margin-bottom: 0.75rem;
+        line-height: 1.2;
+      }
+      @media (min-width: 992px) {
+        .text-guide-title {
+          font-size: 2.75rem;
+        }
+      }
+      .text-guide-subtitle {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #565656;
+        margin-bottom: 2.5rem;
+      }
+      @media (min-width: 992px) {
+        .text-guide-subtitle {
+          margin-bottom: 3rem;
+        }
+      }
+      .text-guide-list {
+        margin: 0;
+        padding: 0;
+        counter-reset: step-counter;
+      }
+      .text-guide-item {
+        position: relative;
+        padding-left: 3.5rem;
+        margin-bottom: 2rem !important;
+        text-align: left;
+      }
+      .text-guide-item::before {
+        counter-increment: step-counter;
+        content: counter(step-counter);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: #D73C59;
+        color: #ffffff;
+        font-size: 1.25rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .text-guide-item h6 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #2E2F33;
+        margin-bottom: 0.75rem;
+        line-height: 1.4;
+      }
+      .text-guide-item .step-number {
+        display: none;
+      }
+      .text-guide-item p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #565656;
+        margin-bottom: 0;
+      }
+      .text-guide-item p a {
+        color: #D73C59;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .text-guide-item p a:hover {
+        color: #2E2F33;
+        text-decoration: underline;
+      }
 
-/* Updated How To Get Started Section Styles */
-.text-guide-section {
-  padding: 4rem 0;
-  background-color: #ffffff; /* White background for a clean look */
-}
-
-.text-guide-title {
-  font-size: 2.25rem; /* Slightly larger for modern look */
-  font-weight: 700;
-  color: #2E2F33;
-  margin-bottom: 0.75rem;
-  line-height: 1.2;
-}
-
-@media (min-width: 992px) {
-  .text-guide-title {
-    font-size: 2.75rem;
-  }
-}
-
-.text-guide-subtitle {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #565656;
-  margin-bottom: 2.5rem;
-}
-
-@media (min-width: 992px) {
-  .text-guide-subtitle {
-    margin-bottom: 3rem;
-  }
-}
-
-.text-guide-list {
-  margin: 0;
-  padding: 0;
-  counter-reset: step-counter; /* For custom numbering */
-}
-
-.text-guide-item {
-  position: relative;
-  padding-left: 3.5rem; /* Space for the number badge */
-  margin-bottom: 2rem !important; /* Override mb-4 and mb-0 */
-  text-align: left;
-}
-
-.text-guide-item::before {
-  counter-increment: step-counter;
-  content: counter(step-counter);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 2.5rem;
-  height: 2.5rem;
-  background-color: #D73C59;
-  color: #ffffff;
-  font-size: 1.25rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.text-guide-item h6 {
-  font-size: 1.25rem; /* Larger for better readability */
-  font-weight: 600;
-  color: #2E2F33;
-  margin-bottom: 0.75rem;
-  line-height: 1.4;
-}
-
-.text-guide-item .step-number {
-  display: none; /* Hide the text "Step X:" since we're using a visual number badge */
-}
-
-.text-guide-item p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #565656;
-  margin-bottom: 0;
-}
-
-.text-guide-item p a {
-  color: #D73C59;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.text-guide-item p a:hover {
-  color: #2E2F33;
-  text-decoration: underline;
-}
-
-/* Updated Pricing Section Styles */
-#pricing {
-  padding: 4rem 0;
-  background-color: #f5f5f5; /* Slightly lighter background for contrast */
-}
-
-#pricing .pricing-title {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: #2E2F33;
-  margin-bottom: 0.75rem;
-  line-height: 1.2;
-}
-
-@media (min-width: 992px) {
-  #pricing .pricing-title {
-    font-size: 2.75rem;
-  }
-}
-
-#pricing .pricing-subtitle {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #565656;
-  margin-bottom: 3rem;
-}
-
-.pricing-card {
-  background-color: #ffffff; /* White background for cards */
-  border: 1px solid #e3e3e3;
-  border-radius: 12px;
-  padding: 2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: auto; /* Remove fixed height for better flexibility */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.pricing-card.recommended {
-  border: 2px solid #D73C59; /* Highlight recommended plan */
-  position: relative;
-}
-
-.pricing-card.recommended::before {
-  content: "Recommended";
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #D73C59;
-  color: #ffffff;
-  font-size: 0.875rem;
-  font-weight: 600;
-  padding: 0.25rem 1rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.pricing-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.pricing-card .plan-name {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #D73C59;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 1rem;
-}
-
-.pricing-card .price {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #2E2F33;
-  margin-bottom: 1.5rem;
-  line-height: 1;
-}
-
-.pricing-card .price .currency {
-  font-size: 1.5rem;
-  vertical-align: top;
-}
-
-.pricing-card .price .period {
-  font-size: 1rem;
-  font-weight: 400;
-  color: #565656;
-}
-
-.pricing-card ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 2rem;
-}
-
-.pricing-card ul li {
-  font-size: 1rem;
-  color: #565656;
-  padding: 0.75rem 0;
-  border-top: 1px solid #e3e3e3;
-  text-align: center;
-}
-
-.pricing-card ul li:first-child {
-  border-top: none;
-}
-
-.pricing-card .btn {
-  width: 100%;
-  padding: 0.75rem;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 8px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.pricing-card .btn-secondary {
-  background-color: #565656;
-  border-color: #565656;
-}
-
-.pricing-card .btn-secondary:hover {
-  background-color: #4a4a4a;
-  border-color: #4a4a4a;
-  transform: scale(1.05);
-}
-
-.pricing-card .btn-primary {
-  background-color: #D73C59;
-  border-color: #D73C59;
-}
-
-.pricing-card .btn-primary:hover {
-  background-color: #c12e4b;
-  border-color: #c12e4b;
-  transform: scale(1.05);
-}
-
-@media (max-width: 767px) {
-  #pricing .pricing-card {
-    width: 100%;
-    max-width: 350px;
-  }
-}
-
-@media (min-width: 992px) {
-  #pricing .pricing-card {
-    min-width: 300px;
-    max-width: 350px;
-  }
-}
+      /* Pricing Section Styles */
+      #pricing {
+        padding: 4rem 0;
+        background-color: #f5f5f5;
+      }
+      #pricing .pricing-title {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: #2E2F33;
+        margin-bottom: 0.75rem;
+        line-height: 1.2;
+      }
+      @media (min-width: 992px) {
+        #pricing .pricing-title {
+          font-size: 2.75rem;
+        }
+      }
+      #pricing .pricing-subtitle {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #565656;
+        margin-bottom: 3rem;
+      }
+      .pricing-card {
+        background-color: #ffffff;
+        border: 1px solid #e3e3e3;
+        border-radius: 12px;
+        padding: 2rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: auto;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+      .pricing-card.recommended {
+        border: 2px solid #D73C59;
+        position: relative;
+      }
+      .pricing-card.recommended::before {
+        content: "Recommended";
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #D73C59;
+        color: #ffffff;
+        font-size: 0.875rem;
+        font-weight: 600;
+        padding: 0.25rem 1rem;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .pricing-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+      .pricing-card .plan-name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #D73C59;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+      }
+      .pricing-card .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2E2F33;
+        margin-bottom: 1.5rem;
+        line-height: 1;
+      }
+      .pricing-card .price .currency {
+        font-size: 1.5rem;
+        vertical-align: top;
+      }
+      .pricing-card .price .period {
+        font-size: 1rem;
+        font-weight: 400;
+        color: #565656;
+      }
+      .pricing-card ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 2rem;
+      }
+      .pricing-card ul li {
+        font-size: 1rem;
+        color: #565656;
+        padding: 0.75rem 0;
+        border-top: 1px solid #e3e3e3;
+        text-align: center;
+      }
+      .pricing-card ul li:first-child {
+        border-top: none;
+      }
+      .pricing-card .btn {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      .pricing-card .btn-secondary {
+        background-color: #565656;
+        border-color: #565656;
+      }
+      .pricing-card .btn-secondary:hover {
+        background-color: #4a4a4a;
+        border-color: #4a4a4a;
+        transform: scale(1.05);
+      }
+      .pricing-card .btn-primary {
+        background-color: #D73C59;
+        border-color: #D73C59;
+      }
+      .pricing-card .btn-primary:hover {
+        background-color: #c12e4b;
+        border-color: #c12e4b;
+        transform: scale(1.05);
+      }
+      @media (max-width: 767px) {
+        #pricing .pricing-card {
+          width: 100%;
+          max-width: 350px;
+        }
+      }
+      @media (min-width: 992px) {
+        #pricing .pricing-card {
+          min-width: 300px;
+          max-width: 350px;
+        }
+      }
     </style>
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#navbar">
     <main class="main" id="top">
       <div class="content">
         <nav class="navbar navbar-expand-md fixed-top navbar-solid" id="navbar" data-navbar-soft-on-scroll="data-navbar-soft-on-scroll">
           <div class="container-fluid px-0">
             <a href="/" class="navbar-brand"><img src="assets/img/logos/logo.png" style="width: 80px; height: 36;" alt="logo" /></a>
-            <!-- Mobile Menu Toggle Button -->
-            <button class="navbar-toggler border-0 pe-0 d-md-none" type="button" data-bs-toggle="modal" data-bs-target="#mobileMenuModal" aria-controls="mobileMenuModal" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0 pe-0 d-md-none" type="button" data-toggle="modal" data-target="#mobileMenuModal" aria-controls="mobileMenuModal" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- Desktop Menu -->
-            <div class="collapse navbar-collapse justify-content-md-end d-none d-md-flex" id="navbar-content" data-navbar-collapse="data-navbar-collapse">
+            <div class="collapse navbar-collapse justify-content-md-end d-md-flex" id="navbar-content" data-navbar-collapse="data-navbar-collapse">
               <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0" data-navbar-nav="data-navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link lh-xl nav-link-existing" href="#" role="button" data-bs-toggle="modal" data-bs-target="#existingCustomersModal">Existing Customers</a>
+                  <a class="nav-link lh-xl nav-link-existing" href="#" data-toggle="modal" data-target="#existingCustomersModal">Existing Customers</a>
                 </li>
-                <li class="nav-item"><a class="nav-link lh-xl" href="#pricing">Pricing</a></li>
-                <li class="nav-item"><a class="nav-link lh-xl" href="/contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link lh-xl" href="/mobility">Mobility</a></li>
-                <li class="nav-item"><a class="nav-link lh-xl" href="/question">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="#pricing" data-scroll-target="pricing">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="/contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="/mobility">Mobility</a></li>
+                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="#question" data-scroll-target="question">FAQ</a></li>
               </ul>
             </div>
           </div>
         </nav>
 
-       <!-- Mobile Menu Modal -->
-<div class="modal fade" id="mobileMenuModal" tabindex="-1" aria-labelledby="mobileMenuModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header border-0">
-        <h5 class="modal-title" id="mobileMenuModalLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body text-center">
-        <ul class="list-unstyled">
-          <li>
-            <a class="nav-link lh-xl fw-bold nav-link-existing-mobile" href="#" data-bs-toggle="modal" data-bs-target="#existingCustomersModal" data-bs-dismiss="modal">Existing Customers</a>
-          </li>
-          <li>
-            <a class="nav-link lh-xl fw-bold" id="mobile-pricing-link" href="#pricing">Pricing</a> <!-- Added ID -->
-          </li>
-          <li><a class="nav-link lh-xl fw-bold" href="/contact" data-bs-dismiss="modal">Contact</a></li>
-          <li><a class="nav-link lh-xl fw-bold" href="/mobility" data-bs-dismiss="modal">Mobility</a></li>
-          <li><a class="nav-link lh-xl fw-bold" href="/question" data-bs-dismiss="modal">FAQ</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-        <!-- Existing Customers Modal (for both Desktop and Mobile) -->
-          <div class="modal fade" id="existingCustomersModal" tabindex="-1" role="dialog" aria-labelledby="existingCustomersModalLabel" aria-hidden="true">
+        <!-- Mobile Menu Modal -->
+        <div class="modal fade" id="mobileMenuModal" tabindex="-1" role="dialog" aria-labelledby="mobileMenuModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header border-0">
+                <h5 class="modal-title" id="mobileMenuModalLabel">Menu</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body text-center">
+                <ul class="list-unstyled">
+                  <li><a class="nav-link lh-xl fw-bold nav-link-existing-mobile" href="#" data-toggle="modal" data-target="#existingCustomersModal" data-dismiss="modal">Existing Customers</a></li>
+                  <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="#pricing" data-scroll-target="pricing">Pricing</a></li>
+                  <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="/contact">Contact</a></li>
+                  <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="/mobility">Mobility</a></li>
+                  <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="#question" data-scroll-target="question">FAQ</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Existing Customers Modal -->
+        <div class="modal fade" id="existingCustomersModal" tabindex="-1" role="dialog" aria-labelledby="existingCustomersModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="existingCustomersModalLabel">Existing Customers</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
               <div class="modal-body text-center">
                 <ul class="list-unstyled">
@@ -703,37 +621,36 @@
           </div>
         </section>
       </div>
-    </main>
 
-    <!-- How To Get Started Section -->
-    <section class="text-guide-section" id="get-started">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-lg-7 text-center">
-            <h3 class="text-guide-title mb-2">Get Started in 3 Easy Steps</h3>
-            <p class="text-guide-subtitle mb-7">Follow these simple steps to start enjoying your prepaid mobile service.</p>
-          </div>
-          <div class="col-12 col-lg-8">
-            <ol class="text-guide-list list-unstyled">
-              <li class="text-guide-item">
-                <h6 class="mb-2"><span class="step-number">Step 1:</span> Order Your SIM Card</h6>
-                <p>Your SIM card comes with an activation kit and easy-to-follow instructions.</p>
-              </li>
-              <li class="text-guide-item">
-                <h6 class="mb-2"><span class="step-number">Step 2:</span> Activate Your Plan</h6>
-                <p>Bring your own device (BYOD) and activate your service. </p>
-              </li>
-              <li class="text-guide-item">
-                <h6 class="mb-2"><span class="step-number">Step 3:</span> Start Using Your Service</h6>
-                <p>Enjoy unlimited talk, text, and data! You'll be auto-billed every 30 days.</p>
-              </li>
-            </ol>
+      <!-- How To Get Started Section -->
+      <section class="text-guide-section" id="get-started">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-7 text-center">
+              <h3 class="text-guide-title mb-2">Get Started in 3 Easy Steps</h3>
+              <p class="text-guide-subtitle mb-7">Follow these simple steps to start enjoying your prepaid mobile service.</p>
+            </div>
+            <div class="col-12 col-lg-8">
+              <ol class="text-guide-list list-unstyled">
+                <li class="text-guide-item">
+                  <h6 class="mb-2"><span class="step-number">Step 1:</span> Order Your SIM Card</h6>
+                  <p>Your SIM card comes with an activation kit and easy-to-follow instructions.</p>
+                </li>
+                <li class="text-guide-item">
+                  <h6 class="mb-2"><span class="step-number">Step 2:</span> Activate Your Plan</h6>
+                  <p>Bring your own device (BYOD) and activate your service. </p>
+                </li>
+                <li class="text-guide-item">
+                  <h6 class="mb-2"><span class="step-number">Step 3:</span> Start Using Your Service</h6>
+                  <p>Enjoy unlimited talk, text, and data! You'll be auto-billed every 30 days.</p>
+                </li>
+              </ol>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-
+  
     <section class="experience position-relative overflow-hidden" id="service">
       <div class="container">
         <div class="row justify-content-center">
@@ -785,51 +702,51 @@
       </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="bg-300" id="pricing">
-      <div class="container py-8 py-lg-10">
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-lg-7">
-            <h3 class="pricing-title text-center mb-2">Choose Your Plan</h3>
-            <p class="pricing-subtitle text-center mb-7">Flexible monthly subscriptions with no contracts.</p>
-          </div>
-          <div class="col-12">
-            <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-4">
-              <!-- Bronze Plan -->
-              <div class="pricing-card">
-                <p class="plan-name">Bronze</p>
-                <h2 class="price">
-                  <span class="currency">$</span>69<span class="period">/mo</span>
-                </h2>
-                <ul>
-                  <li>50GB High-Speed Data</li>
-                  <li>LTE Speeds</li>
-                  <li>No Overages</li>
-                  <li>USA Roaming Option</li>
-                </ul>
-                <a href="#start" class="btn btn-secondary btn-lg">Get Started</a>
-              </div>
-              <!-- Platinum Plan (Recommended) -->
-              <div class="pricing-card recommended">
-                <p class="plan-name">Platinum</p>
-                <h2 class="price">
-                  <span class="currency">$</span>99<span class="period">/mo</span>
-                </h2>
-                <ul>
-                  <li>Unlimited High-Speed Data</li>
-                  <li>5G Speeds</li>
-                  <li>No Overages</li>
-                  <li>USA Roaming Option</li>
-                </ul>
-                <a href="#start" class="btn btn-primary btn-lg">Get Started</a>
+      <!-- Pricing Section -->
+      <section class="bg-300" id="pricing">
+        <div class="container py-8 py-lg-10">
+          <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-7">
+              <h3 class="pricing-title text-center mb-2">Choose Your Plan</h3>
+              <p class="pricing-subtitle text-center mb-7">Flexible monthly subscriptions with no contracts.</p>
+            </div>
+            <div class="col-12">
+              <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-4">
+                <!-- Bronze Plan -->
+                <div class="pricing-card">
+                  <p class="plan-name">Bronze</p>
+                  <h2 class="price">
+                    <span class="currency">$</span>69<span class="period">/mo</span>
+                  </h2>
+                  <ul>
+                    <li>50GB High-Speed Data</li>
+                    <li>LTE Speeds</li>
+                    <li>No Overages</li>
+                    <li>USA Roaming Option</li>
+                  </ul>
+                  <a href="#start" class="btn btn-secondary btn-lg">Get Started</a>
+                </div>
+                <!-- Platinum Plan (Recommended) -->
+                <div class="pricing-card recommended">
+                  <p class="plan-name">Platinum</p>
+                  <h2 class="price">
+                    <span class="currency">$</span>99<span class="period">/mo</span>
+                  </h2>
+                  <ul>
+                    <li>Unlimited Data</li>
+                    <li>5G Speeds</li>
+                    <li>No Overages</li>
+                    <li>USA Roaming Option</li>
+                  </ul>
+                  <a href="#start" class="btn btn-primary btn-lg">Start Now</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="bg-1100" id="start">
+      <section class="bg-1100" id="start">
       <div class="container">
         <div style="text-align: center; padding: 4rem 0;">
           <h1 style="color: white;"><strong>Ready To Join?</strong></h1>
@@ -1243,184 +1160,113 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="bg-300 position-relative z-0" id="contact">
-      <div class="container py-8 py-lg-9">
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-lg-8">
-            <div class="row justify-content-center">
-              <div class="col-12 col-lg-10">
-                <p class="fs-8 text-center lh-lg fw-normal" style="margin-bottom: 10px;">Reliable internet, anywhere. Easy setup, fast speeds, and real support when you need it. Stay connected—at home, on the road, or off-grid.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="position-relative bottom-0 start-0 z-1">
-        <img class="img-fluid w-100" src="assets/img/illustrations/Wave_3.svg" alt="" />
-      </div>
-    </section>
+      <!-- Updated Footer -->
+      <footer>
+        <p class="footer-links">
+          <a href="/privacy-policy">Privacy</a>
+          <a href="/terms">Terms</a>
+        </p>
+        <hr class="footer-divider">
+        <p class="footer-copyright">© <span id="currentYear"></span> Copyright, All Rights Reserved</p>
+      </footer>
+    </main>
 
-    <!-- Updated Footer -->
-    <footer>
-      <p class="footer-links">
-        <a href="/privacy-policy">Privacy</a>
-        <a href="/terms">Terms</a>
-      </p>
-      <hr class="footer-divider">
-      <p class="footer-copyright">© <span id="currentYear"></span> Copyright, All Rights Reserved</p>
-    </footer>
-  </main>
+    <!-- JavaScripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNt4XeQ5roadq0L-IpadA6s9e4CPm9FwI&libraries=places"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Set current year in footer
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
 
-  <!-- JavaScripts -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNt4XeQ5roadq0L-IpadA6s9e4CPm9FwI&libraries=places"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const input = document.getElementById('address');
-      const checkCoverageBtn = document.getElementById('check-coverage-btn');
-      const autocomplete = new google.maps.places.Autocomplete(input);
-      document.getElementById("currentYear").textContent = new Date().getFullYear();
-
-      checkCoverageBtn.addEventListener('click', function() {
-        this.classList.add('btn-clicked');
-      });
-
-      document.getElementById('address-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const address = input.value;
-        checkAddressCoverage(address);
-      });
-
-      const buyButtons = document.querySelectorAll('.button-container');
-      buyButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-          event.stopPropagation();
-        });
-      });
-
-      // Add event listener for the Pricing link in the mobile menu
-      const pricingLink = document.getElementById('mobile-pricing-link');
-      if (pricingLink) {
-        pricingLink.addEventListener('click', function(event) {
-          event.preventDefault(); // Prevent default anchor behavior
-
-          // Close the mobile menu modal
-          const mobileMenuModal = document.getElementById('mobileMenuModal');
-          const modalInstance = bootstrap.Modal.getInstance(mobileMenuModal);
-          modalInstance.hide();
-
-          // Scroll to the Pricing section after the modal is hidden
-          mobileMenuModal.addEventListener('hidden.bs.modal', function() {
-            const pricingSection = document.getElementById('pricing');
-            if (pricingSection) {
-              pricingSection.scrollIntoView({ behavior: 'smooth' });
-            }
-          }, { once: true }); // Ensure the event listener runs only once
-        });
-      }
-    });
-
-    function checkAddressCoverage(address) {
-      const geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ 'address': address }, function(results, status) {
-        const moreInfoContainer = document.getElementById('more-info');
-        const buttonContainer = document.getElementById('button-container');
-        const resultContainer = document.getElementById('result-container');
-        const successCheckmark = moreInfoContainer.querySelector('.success-checkmark');
-        const availabilityText = moreInfoContainer.querySelector('.availability-text');
-        const proceedLink = moreInfoContainer.querySelector('.proceed-to-order');
-        const divider = moreInfoContainer.querySelector('.divider');
-        const speedEstimateLink = moreInfoContainer.querySelector('.speed-estimate-link');
-
-        if (status === 'OK' && results.length > 0) {
-          const result = results[0];
-          const country = result.address_components.find(component => component.types.includes('country')).short_name;
-
-          if (country === 'CA') {
-            showEligibleState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink, address);
-          } else {
-            showUnavailableState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink);
-          }
-        } else {
-          showUnavailableState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink);
+        // Initialize Chargebee safely
+        try {
+          Chargebee.init({
+            site: "more4lessplans",
+            publishableKey: "your-chargebee-publishable-key" // Replace with actual Chargebee key
+          });
+        } catch (e) {
+          console.warn('Chargebee initialization failed:', e);
         }
+
+        const navbar = document.getElementById('navbar');
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+          navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Handle Navigation Links
+        const navLinks = document.querySelectorAll('.desktop-nav-link, .mobile-nav-link');
+        navLinks.forEach(link => {
+          link.addEventListener('click', (event) => {
+            const scrollTarget = link.getAttribute('data-scroll-target');
+            if (scrollTarget) {
+              event.preventDefault();
+              const targetElement = document.getElementById(scrollTarget);
+              if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+                if (link.classList.contains('mobile-nav-link')) {
+                  $('#mobileMenuModal').modal('hide');
+                }
+              }
+            }
+          });
+        });
+
+        // Handle Existing Customers Modal Links
+        document.querySelectorAll('.existing-customer-link').forEach(link => {
+          link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const href = link.getAttribute('href');
+            const cbType = link.getAttribute('data-cb-type');
+
+            $('#existingCustomersModal').modal('hide');
+            $('#existingCustomersModal').on('hidden.bs.modal', function() {
+              if (cbType === 'portal') {
+                try {
+                  const cbInstance = Chargebee.getInstance();
+                  cbInstance.openPortal({
+                    portalSession: () => Promise.resolve({
+                      id: 'portal-session-id',
+                      access_url: 'https://more4lessplans.chargebeeportal.com/portal', // Replace with actual URL
+                      token: 'portal-session-token'
+                    }),
+                    success: () => console.log('Chargebee portal opened'),
+                    close: () => console.log('Chargebee portal closed'),
+                    error: (err) => {
+                      console.error('Error opening Chargebee portal:', err);
+                      window.location.href = '/login';
+                    }
+                  });
+                } catch (e) {
+                  console.error('Chargebee library not loaded or failed:', e);
+                  window.location.href = '/login';
+                }
+              } else {
+                window.location.href = href;
+              }
+            }, { once: true });
+          });
+        });
+
+        // Handle Mobile Existing Customers Link
+        document.querySelector('.nav-link-existing-mobile').addEventListener('click', () => {
+          $('#mobileMenuModal').modal('hide');
+        });
+
+        // Test Bootstrap initialization
+        console.log('Bootstrap Modal available:', typeof bootstrap.Modal !== 'undefined');
       });
-    }
-
-    function showEligibleState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink, address) {
-      buttonContainer.innerHTML = '';
-      moreInfoContainer.style.display = 'block';
-      successCheckmark.style.display = 'block';
-      successCheckmark.classList.add('success-animation');
-      availabilityText.style.display = 'block';
-      availabilityText.classList.add('success-animation');
-      proceedLink.style.display = 'block';
-      proceedLink.classList.add('success-animation');
-      divider.style.display = 'block';
-      speedEstimateLink.style.display = 'block';
-      speedEstimateLink.setAttribute('onclick', `redirectToSpeedEstimate('${encodeURIComponent(address)}')`);
-      resultContainer.classList.remove('success');
-    }
-
-    function showUnavailableState(buttonContainer, moreInfoContainer, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink) {
-      buttonContainer.innerHTML = `
-        <div class="service-unavailable-text">Service Not Available</div>
-        <div class="try-again" onclick="resetForm()">
-          <span class="refresh-icon">↻</span> Try Another Address
-        </div>
-      `;
-      moreInfoContainer.style.display = 'none';
-      successCheckmark.style.display = 'none';
-      successCheckmark.classList.remove('success-animation');
-      availabilityText.style.display = 'none';
-      availabilityText.classList.remove('success-animation');
-      proceedLink.style.display = 'none';
-      proceedLink.classList.remove('success-animation');
-      divider.style.display = 'none';
-      speedEstimateLink.style.display = 'none';
-      resultContainer.classList.remove('success');
-    }
-
-    function resetForm() {
-      const buttonContainer = document.getElementById('button-container');
-      const resultContainer = document.getElementById('result-container');
-      const moreInfoContainer = document.getElementById('more-info');
-      const successCheckmark = moreInfoContainer.querySelector('.success-checkmark');
-      const availabilityText = moreInfoContainer.querySelector('.availability-text');
-      const proceedLink = moreInfoContainer.querySelector('.proceed-to-order');
-      const divider = moreInfoContainer.querySelector('.divider');
-      const speedEstimateLink = moreInfoContainer.querySelector('.speed-estimate-link');
-      
-      buttonContainer.innerHTML = `
-        <button class="btn btn-primary lh-xl" type="submit" id="check-coverage-btn">Check Availability</button>
-      `;
-      resultContainer.classList.remove('success');
-      moreInfoContainer.style.display = 'none';
-      successCheckmark.style.display = 'none';
-      successCheckmark.classList.remove('success-animation');
-      availabilityText.style.display = 'none';
-      availabilityText.classList.remove('success-animation');
-      proceedLink.style.display = 'none';
-      proceedLink.classList.remove('success-animation');
-      divider.style.display = 'none';
-      speedEstimateLink.style.display = 'none';
-    }
-
-    function redirectToSpeedEstimate(address) {
-      window.location.href = `/speedestimate.html?address=${address}`;
-    }
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
-  <script src="vendors/popper/popper.min.js"></script>
-  <script src="vendors/bootstrap/bootstrap.min.js"></script>
-  <script src="vendors/is/is.min.js"></script>
-  <script src="vendors/countup/countUp.umd.js"></script>
-  <script src="vendors/swiper/swiper-bundle.min.js"></script>
-  <script src="vendors/lodash/lodash.min.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-  <script src="assets/js/theme.js"></script>
-</body>
+    </script>
+    <script src="vendors/is/is.min.js"></script>
+    <script src="vendors/countup/countUp.umd.js"></script>
+    <script src="vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="vendors/lodash/lodash.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="assets/js/theme.js"></script>
+  </body>
 </html>
