@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- SEO and Meta Tags (unchanged) -->
+  <!-- SEO and Meta Tags -->
   <title>Activate Your Service | More4Less Wireless Internet & SIM Plans</title>
   <meta name="keywords" content="activate router, activate SIM, More4Less activation, wireless internet activation, SIM card activation, high-speed internet setup, Canada internet activation, LTE 5G activation, mobile data plans, router setup">
   <meta name="description" content="Activate your More4Less router or SIM card quickly and easily. Get high-speed wireless internet or mobile data plans with straightforward setup. Start enjoying reliable connectivity today!">
@@ -19,7 +19,7 @@
   <meta name="twitter:description" content="Activate your More4Less router or SIM card quickly and easily. Get high-speed wireless internet or mobile data plans with straightforward setup. Start enjoying reliable connectivity today!">
   <meta name="twitter:image" content="https://more4lessplans.ca/main.jpg">
 
-  <!-- Favicons (unchanged) -->
+  <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
@@ -32,8 +32,8 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="/navbar.css"> <!-- Navbar styles -->
-  <link rel="stylesheet" href="/footer.css"> <!-- Footer styles -->
+  <link rel="stylesheet" href="/navbar.css">
+  <link rel="stylesheet" href="/footer.css">
   <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,7 +46,7 @@
   <!-- Page-Specific CSS -->
   <style>
     body {
-      padding-top: 70px; /* Adjust for fixed navbar */
+      padding-top: 70px;
     }
     @media (max-width: 576px) {
       body { padding-top: 60px; }
@@ -139,10 +139,8 @@
 </head>
 
 <body>
-  <!-- Navbar Container -->
   <div id="navbar-container"></div>
 
-  <!-- Main Content -->
   <main class="main" id="top">
     <div class="content">
       <section class="bg-white py-8 py-lg-10" id="activation-section">
@@ -163,7 +161,7 @@
                 <div class="tab-content active" id="router-content">
                   <img src="assets/img/Hero/active.png" alt="Router Activation" class="mb-3">
                   <p>Activate your Wireless Internet service for high-speed connectivity at home or on the go. Have your credit card and router details ready.</p>
-                  <button class="btn btn-primary" onclick="window.location.href='javascript:void(0)'" data-cb-type="checkout" data-cb-plan-id="home-internet">Activate</button>
+                  <button class="btn btn-primary activate-btn" data-cb-type="checkout" data-cb-plan-id="home-internet">Activate</button>
                 </div>
                 <div class="tab-content" id="sim-content">
                   <img src="assets/img/Hero/sim.png" alt="SIM Activation" class="mb-3">
@@ -179,10 +177,18 @@
     </div>
   </main>
 
-  <!-- Footer Container -->
   <div id="footer-container"></div>
 
-  <!-- JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
+  <script src="vendors/is/is.min.js"></script>
+  <script src="vendors/countup/countUp.umd.js"></script>
+  <script src="vendors/swiper/swiper-bundle.min.js"></script>
+  <script src="vendors/lodash/lodash.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <script src="assets/js/theme.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Load navbar
@@ -214,7 +220,7 @@
         })
         .catch(error => console.error('Error loading footer:', error));
 
-      // Tab switching functionality
+      // Tab switching
       const tabs = document.querySelectorAll('.activation-tab');
       const contents = document.querySelectorAll('.tab-content');
       tabs.forEach(tab => {
@@ -222,23 +228,46 @@
           tabs.forEach(t => t.classList.remove('active'));
           contents.forEach(c => c.classList.remove('active'));
           tab.classList.add('active');
-          const tabId = tab.getAttribute('data-tab');
-          document.getElementById(`${tabId}-content`).classList.add('active');
+          document.getElementById(`${tab.getAttribute('data-tab')}-content`).classList.add('active');
+        });
+      });
+
+      // Chargebee activation button
+      const activateBtn = document.querySelector('.activate-btn');
+      activateBtn.addEventListener('click', () => {
+        if (typeof Chargebee === 'undefined') {
+          console.error('Chargebee library not loaded');
+          window.location.href = '/error.html'; // Fallback URL
+          return;
+        }
+
+        const cbInstance = Chargebee.init({
+          site: 'more4lessplans',
+          publishableKey: 'live_9xoL0GUAJyfaZddNn5cdFhI4hrLAGhyIh' // Replace with actual Chargebee publishable key
+        });
+
+        // Simulate fetching a hosted checkout session (replace with actual server-side call)
+        const hostedPage = {
+          id: 'hosted-page-id',
+          url: 'https://more4lessplans.chargebee.com/hosted_pages/plans/home-internet' // Replace with actual hosted page URL
+        };
+
+        cbInstance.openCheckout({
+          hostedPage: () => Promise.resolve(hostedPage),
+          success: (hostedPageId) => {
+            console.log('Checkout successful:', hostedPageId);
+            window.location.href = '/activation-success.html'; // Redirect after successful checkout
+          },
+          close: () => {
+            console.log('Checkout closed');
+          },
+          error: (err) => {
+            console.error('Checkout error:', err);
+            window.location.href = '/error.html'; // Fallback URL
+          }
         });
       });
     });
   </script>
-
-  <!-- External Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-      <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
-  <script src="vendors/is/is.min.js"></script>
-  <script src="vendors/countup/countUp.umd.js"></script>
-  <script src="vendors/swiper/swiper-bundle.min.js"></script>
-  <script src="vendors/lodash/lodash.min.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-  <script src="assets/js/theme.js"></script>
 </body>
 </html>
