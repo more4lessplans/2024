@@ -4,29 +4,21 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- SEO Title -->
-  <title>More4Less | Tutorials</title>
-
-  <!-- SEO Keywords -->
+  <!-- SEO and Meta Tags -->
+  <title>Tutorials - More4Less Wireless Internet</title>
   <meta name="keywords" content="wireless internet tutorials, update APN Netgear Orbi, manual network selection Orbi, More4Less tutorials, Netgear Orbi setup, LTE router setup, 5G router setup, Canada internet tutorials, rural internet setup, internet for RVers, mobile internet setup, wireless internet Canada, more4less wireless, internet troubleshooting, router configuration">
-
-  <!-- SEO Description -->
-  <meta name="description" content="Learn how to set up and troubleshoot your More4Less wireless internet with our tutorials. Step-by-step guides for updating the APN and manual network selection on your Netgear Orbi router.">
-
-  <!-- Open Graph Meta Tags for Social Sharing -->
-  <meta property="og:title" content="More4Less | Wireless Internet Tutorials">
-  <meta property="og:description" content="Step-by-step tutorials for setting up your More4Less wireless internet. Learn how to update the APN and perform manual network selection on your Netgear Orbi router.">
-  <meta property="og:image" content="https://more4lessplans.ca/main.jpg">
-  <meta property="og:url" content="https://more4lessplans.ca/tutorials">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="More4Less | Wireless Internet Tutorials">
-  <meta name="twitter:description" content="Step-by-step tutorials for setting up your More4Less wireless internet. Learn how to update the APN and perform manual network selection on your Netgear Orbi router.">
-  <meta name="twitter:image" content="https://more4lessplans.ca/main.jpg">
+    <meta name="description" content="Explore More4Less Wireless Internet tutorials for easy setup and troubleshooting. Follow step-by-step guides to update the APN and perform manual network selection on your Netgear Orbi router.">
+    <meta property="og:title" content="Tutorials - More4Less Wireless Internet">
+    <meta property="og:description" content="Get started with More4Less wireless internet using our tutorials. Learn to update the APN and manually select networks on your Netgear Orbi router with clear, step-by-step instructions.">
+    <meta property="og:image" content="https://more4lessplans.ca/main.jpg">
+    <meta property="og:url" content="https://more4lessplans.ca/tutorials">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tutorials - More4Less Wireless Internet">
+    <meta name="twitter:description" content="Get started with More4Less wireless internet using our tutorials. Learn to update the APN and manually select networks on your Netgear Orbi router with clear, step-by-step instructions.">
+    <meta name="twitter:image" content="https://more4lessplans.ca/main.jpg">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
@@ -41,8 +33,8 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- External Stylesheets -->
-  <link rel="stylesheet" href="/navbar.css"> <!-- Navbar styles -->
-  <link rel="stylesheet" href="/footer.css"> <!-- Footer styles -->
+  <link rel="stylesheet" href="/navbar.css">
+  <link rel="stylesheet" href="/footer.css">
   <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,8 +47,8 @@
 
   <!-- Page-Specific CSS -->
   <style>
-    main {
-      padding-top: 60px; /* Ensures 60px spacing between navbar and content, as requested */
+    body {
+      padding-top: 70px;
     }
     .header {
       text-align: center;
@@ -121,10 +113,8 @@
 </head>
 
 <body>
-  <!-- Navbar Container -->
   <div id="navbar-container"></div>
 
-  <!-- Main Content -->
   <main class="main" id="top">
     <div class="content">
       <header>
@@ -186,10 +176,18 @@
     </div>
   </main>
 
-  <!-- Footer Container -->
   <div id="footer-container"></div>
 
-  <!-- JavaScripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
+  <script src="vendors/is/is.min.js"></script>
+  <script src="vendors/countup/countUp.umd.js"></script>
+  <script src="vendors/swiper/swiper-bundle.min.js"></script>
+  <script src="vendors/lodash/lodash.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <script src="assets/js/theme.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Load navbar
@@ -202,8 +200,16 @@
           document.getElementById('navbar-container').innerHTML = data;
           const navbarScript = document.createElement('script');
           navbarScript.src = '/navbar.js';
+          navbarScript.async = true;
           navbarScript.onload = function() {
-            initializeNavbar(); // Assumes this function exists in navbar.js
+            if (typeof initializeNavbar === 'function') {
+              initializeNavbar();
+            } else {
+              console.error('initializeNavbar function not found in navbar.js');
+            }
+          };
+          navbarScript.onerror = function() {
+            console.error('Failed to load navbar.js');
           };
           document.body.appendChild(navbarScript);
         })
@@ -217,39 +223,39 @@
         })
         .then(data => {
           document.getElementById('footer-container').innerHTML = data;
-          document.getElementById('currentYear').textContent = new Date().getFullYear();
+          const yearElement = document.getElementById('currentYear');
+          if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+          }
         })
         .catch(error => console.error('Error loading footer:', error));
 
       // Initialize Chargebee
       if (typeof Chargebee !== 'undefined') {
         Chargebee.init({
-          site: "more4lessplans"
+          site: "more4lessplans",
+          publishableKey: 'live_9xoL0GUAJyfaZddNn5cdFhI4hrLAGhyIh' // Replace with actual Chargebee publishable key
         });
+
         const accountLoginLinks = document.querySelectorAll('.account-login-link');
         accountLoginLinks.forEach(link => {
           link.addEventListener('click', function(event) {
             event.preventDefault();
-            Chargebee.getInstance().openPortal({
-              onLoad: function() { console.log("Chargebee portal loaded"); },
-              onClose: function() { console.log("Chargebee portal closed"); }
-            });
+            const chargebeeInstance = Chargebee.getInstance();
+            if (chargebeeInstance) {
+              chargebeeInstance.openPortal({
+                onLoad: function() { console.log("Chargebee portal loaded"); },
+                onClose: function() { console.log("Chargebee portal closed"); }
+              });
+            } else {
+              console.error('Chargebee instance not initialized');
+            }
           });
         });
       } else {
-        console.error("Chargebee script not loaded.");
+        console.error("Chargebee script not loaded. Please ensure the Chargebee script is included.");
       }
     });
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
-  <script src="vendors/is/is.min.js"></script>
-  <script src="vendors/countup/countUp.umd.js"></script>
-  <script src="vendors/swiper/swiper-bundle.min.js"></script>
-  <script src="vendors/lodash/lodash.min.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-  <script src="assets/js/theme.js"></script>
 </body>
-
 </html>

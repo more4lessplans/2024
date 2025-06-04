@@ -4,28 +4,20 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- SEO Title -->
-  <title>Confirmation | Lease Success</title>
-
-  <!-- SEO Keywords -->
-  <meta name="keywords" content="wireless internet, affordable internet, high-speed LTE, 5G internet, Canada-wide internet service, rural internet, internet for RVers, campers internet, LTE internet for travelers, mobile internet plans, home internet solutions, unlimited data, wireless internet Canada, more4less wireless, best wireless internet, internet for remote areas, internet without contracts, Canadian internet provider, fast internet in rural Canada, reliable internet for travelers">
-
-  <!-- SEO Description -->
-  <meta name="description" content="More4Less Wireless Internet provides affordable, high-speed LTE and 5G internet across Canada, catering to rural homes, RVers, campers, and travelers. Enjoy reliable wireless internet anywhere in Canada with flexible, no-contract plans.">
-
-  <!-- Open Graph Meta Tags for Social Sharing -->
-  <meta property="og:title" content="More4Less Wireless Internet | High-Speed LTE & 5G Internet Across Canada">
-  <meta property="og:description" content="Get affordable high-speed LTE and 5G internet for rural homes, RVers, campers, and travelers with More4Less. Canada-wide coverage, no contracts, and reliable service anywhere in Canada.">
+  <!-- SEO and Meta Tags -->
+  <title>Lease Order Confirmation - More4Less Wireless Internet</title>
+  <meta name="keywords" content="wireless internet lease, affordable internet order, high-speed LTE lease, 5G internet Canada, rural internet lease, mobile internet plans, More4Less wireless, internet without contracts, Canadian internet provider, internet order confirmation">
+  <meta name="description" content="Your More4Less Wireless Internet lease order is confirmed! We'll prepare and ship your high-speed LTE or 5G router within 1-2 business days. Stay tuned for tracking updates.">
+  <meta property="og:title" content="Lease Order Confirmation - More4Less Wireless Internet">
+  <meta property="og:description" content="Your lease order with More4Less is confirmed. Expect your high-speed LTE or 5G router to ship soon, bringing reliable internet to rural homes, RVers, or travelers across Canada.">
   <meta property="og:image" content="https://more4lessplans.ca/main.jpg">
-  <meta property="og:url" content="https://more4lessplans.ca">
+  <meta property="og:url" content="https://more4lessplans.ca/lease-confirmation">
   <meta property="og:type" content="website">
-
-  <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="More4Less Wireless Internet | Affordable LTE & 5G Internet in Canada">
-  <meta name="twitter:description" content="More4Less offers high-speed LTE and 5G wireless internet plans for homes, RVers, campers, and travelers across Canada. Reliable internet with no contracts and flexible options.">
+  <meta name="twitter:title" content="Lease Order Confirmation - More4Less Wireless Internet">
+  <meta name="twitter:description" content="Your lease order with More4Less is confirmed. Expect your high-speed LTE or 5G router to ship soon, bringing reliable internet to rural homes, RVers, or travelers across Canada.">
   <meta name="twitter:image" content="https://more4lessplans.ca/main.jpg">
 
   <!-- Favicons -->
@@ -50,8 +42,8 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- External Stylesheets -->
-  <link rel="stylesheet" href="/navbar.css"> <!-- Navbar styles -->
-  <link rel="stylesheet" href="/footer.css"> <!-- Footer styles -->
+  <link rel="stylesheet" href="/navbar.css">
+  <link rel="stylesheet" href="/footer.css">
   <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,19 +56,14 @@
 
   <!-- Page-Specific CSS -->
   <style>
-    main {
-      padding-top: 00px; /* Ensures sufficient spacing between navbar and content */
-    }
-    @media (max-width: 576px) {
-      main {
-        padding-top: 0px; /* Adjusted for mobile */
-      }
+    body {
+      padding-top: 70px;
     }
     #order-confirmation {
       background-color: #ffffff;
     }
     #order-confirmation .container {
-      min-height: calc(100vh - 70px); /* Adjust for navbar height */
+      min-height: calc(100vh - 70px);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -106,13 +93,10 @@
 </head>
 
 <body>
-  <!-- Navbar Container -->
   <div id="navbar-container"></div>
 
-  <!-- Main Content -->
   <main class="main" id="top">
     <div class="content">
-      <!-- Order Confirmation Section -->
       <section id="order-confirmation">
         <div class="container py-8 py-lg-10 d-flex flex-column align-items-center justify-content-center text-center">
           <div>
@@ -129,10 +113,18 @@
     </div>
   </main>
 
-  <!-- Footer Container -->
   <div id="footer-container"></div>
 
-  <!-- JavaScripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
+  <script src="vendors/is/is.min.js"></script>
+  <script src="vendors/countup/countUp.umd.js"></script>
+  <script src="vendors/swiper/swiper-bundle.min.js"></script>
+  <script src="vendors/lodash/lodash.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <script src="assets/js/theme.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Load navbar
@@ -145,8 +137,16 @@
           document.getElementById('navbar-container').innerHTML = data;
           const navbarScript = document.createElement('script');
           navbarScript.src = '/navbar.js';
+          navbarScript.async = true;
           navbarScript.onload = function() {
-            initializeNavbar(); // Assumes this function exists in navbar.js
+            if (typeof initializeNavbar === 'function') {
+              initializeNavbar();
+            } else {
+              console.error('initializeNavbar function not found in navbar.js');
+            }
+          };
+          navbarScript.onerror = function() {
+            console.error('Failed to load navbar.js');
           };
           document.body.appendChild(navbarScript);
         })
@@ -160,39 +160,39 @@
         })
         .then(data => {
           document.getElementById('footer-container').innerHTML = data;
-          document.getElementById('currentYear').textContent = new Date().getFullYear();
+          const yearElement = document.getElementById('currentYear');
+          if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+          }
         })
         .catch(error => console.error('Error loading footer:', error));
 
       // Initialize Chargebee
       if (typeof Chargebee !== 'undefined') {
         Chargebee.init({
-          site: "more4lessplans"
+          site: "more4lessplans",
+          publishableKey: 'live_9xoL0GUAJyfaZddNn5cdFhI4hrLAGhyIh' // Replace with actual Chargebee publishable key
         });
+
         const accountLoginLinks = document.querySelectorAll('.account-login-link');
         accountLoginLinks.forEach(link => {
           link.addEventListener('click', function(event) {
             event.preventDefault();
-            Chargebee.getInstance().openPortal({
-              onLoad: function() { console.log("Chargebee portal loaded"); },
-              onClose: function() { console.log("Chargebee portal closed"); }
-            });
+            const chargebeeInstance = Chargebee.getInstance();
+            if (chargebeeInstance) {
+              chargebeeInstance.openPortal({
+                onLoad: function() { console.log("Chargebee portal loaded"); },
+                onClose: function() { console.log("Chargebee portal closed"); }
+              });
+            } else {
+              console.error('Chargebee instance not initialized');
+            }
           });
         });
       } else {
-        console.error("Chargebee script not loaded.");
+        console.error("Chargebee script not loaded. Please ensure the Chargebee script is included.");
       }
     });
   </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
-  <script src="vendors/is/is.min.js"></script>
-  <script src="vendors/countup/countUp.umd.js"></script>
-  <script src="vendors/swiper/swiper-bundle.min.js"></script>
-  <script src="vendors/lodash/lodash.min.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-  <script src="assets/js/theme.js"></script>
 </body>
-
 </html>
