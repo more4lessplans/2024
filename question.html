@@ -33,129 +33,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <style>
-    /* Navbar Styles */
-    .navbar-solid {
-      background: #171C2D !important;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    .navbar-solid .nav-link {
-      color: rgba(255, 255, 255, 0.7) !important;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    .navbar-solid .nav-link:hover {
-      color: white !important;
-    }
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-    .nav-link-existing::after {
-      content: " →";
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.9rem;
-      margin-left: 2px;
-    }
-    .nav-link-existing:hover::after {
-      color: white;
-    }
-
-    /* Modal Styles */
-    .modal-content {
-      background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-      border: none;
-      padding: 1.5rem;
-    }
-    .modal-header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      padding: 0 0 1rem 0;
-    }
-    .modal-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #171C2D;
-      padding: 0.5rem 1rem;
-      width: 100%;
-      text-align: center;
-      border-radius: 8px;
-      position: relative;
-    }
-    .modal-title::after {
-      content: "";
-      display: block;
-      width: 50%;
-      height: 1px;
-      background-color: #e3e3e3;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .btn-close {
-      position: absolute;
-      right: 1rem;
-      top: 1rem;
-      background: none;
-      border: none;
-      font-size: 1.2rem;
-      opacity: 0.7;
-      transition: opacity 0.3s ease;
-    }
-    .btn-close:hover {
-      opacity: 1;
-    }
-    .modal-body {
-      padding: 1rem 0;
-    }
-    .modal-body ul {
-      margin: 0;
-      padding: 0;
-    }
-    .modal-body .nav-link {
-      color: #171C2D;
-      font-size: 1.1rem;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      padding: 0.5rem 0;
-      transition: all 0.3s ease;
-      display: block;
-    }
-    .modal-body .nav-link:hover {
-      color: #D73C59;
-      background-color: rgba(215, 60, 89, 0.1);
-      transform: scale(1.02);
-      border-radius: 5px;
-    }
-    .modal-body ul li {
-      margin-bottom: 0;
-      border-bottom: 1px solid #e3e3e3;
-    }
-    .modal-body ul li:last-child {
-      border-bottom: none;
-    }
-    .nav-link-existing-mobile::after {
-      content: " →";
-      color: #171C2D;
-      font-size: 0.9rem;
-      margin-left: 4px;
-    }
-    .nav-link-existing-mobile:hover::after {
-      color: #D73C59;
-    }
-    .modal-dialog {
-      max-width: 350px;
-    }
-    @media (max-width: 576px) {
-      .modal-dialog {
-        max-width: 90%;
-        margin: 1.75rem auto;
-      }
-    }
-
     /* Main Content Styles */
     body {
       padding-top: 0;
@@ -233,72 +110,8 @@
   </style>
 </head>
 
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-md fixed-top navbar-solid" id="navbar" data-navbar-soft-on-scroll="data-navbar-soft-on-scroll">
-    <div class="container-fluid px-0">
-      <a href="/" class="navbar-brand"><img src="assets/img/logos/logo.png" style="width: 80px; height: 35px;" alt="logo" /></a>
-      <button class="navbar-toggler border-0 pe-0 d-md-none" type="button" data-bs-toggle="modal" data-bs-target="#mobileMenuModal" aria-controls="mobileMenuModal" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-md-end d-none d-md-flex" id="navbar-content" data-navbar-collapse="data-navbar-collapse">
-        <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0" data-navbar-nav="data-navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link lh-xl nav-link-existing" href="#" role="button" data-bs-toggle="modal" data-bs-target="#existingCustomersModal">Existing Customers</a>
-          </li>
-      
-          <li class="nav-item"><a class="nav-link lh-xl" href="/contact">Contact</a></li>
-          <li class="nav-item"><a class="nav-link lh-xl" href="/mobility">Mobility</a></li>
-            <li><a class="nav-link lh-xl fw-bold" href="/index#pricing" data-bs-dismiss="modal">Order Internet</a></li>
-       
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Mobile Menu Modal -->
-  <div class="modal fade" id="mobileMenuModal" tabindex="-1" aria-labelledby="mobileMenuModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <h5 class="modal-title" id="mobileMenuModalLabel">Menu</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-          <ul class="list-unstyled">
-            <li>
-              <a class="nav-link lh-xl fw-bold nav-link-existing-mobile" href="#" data-bs-toggle="modal" data-bs-target="#existingCustomersModal" data-bs-dismiss="modal">Existing Customers</a>
-            </li>
-           
-            <li><a class="nav-link lh-xl fw-bold" href="/contact" data-bs-dismiss="modal">Contact</a></li>
-            <li><a class="nav-link lh-xl fw-bold" href="/mobility" data-bs-dismiss="modal">Mobility</a></li>
-             <li><a class="nav-link lh-xl fw-bold" href="/index#pricing" data-bs-dismiss="modal">Order Internet</a></li>
-          
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Existing Customers Modal -->
-  <div class="modal fade" id="existingCustomersModal" tabindex="-1" aria-labelledby="existingCustomersModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header border-0">
-          <h5 class="modal-title" id="existingCustomersModalLabel">Existing Customers</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-          <ul class="list-unstyled">
-            <li><a class="nav-link lh-xl fw-bold account-login-link" href="#" data-cb-type="portal" data-bs-dismiss="modal">Account Login</a></li>
-            <li><a class="nav-link lh-xl fw-bold" href="/contact" data-bs-dismiss="modal">Technical Support</a></li>
-            <li><a class="nav-link lh-xl fw-bold" href="/tutorials" data-bs-dismiss="modal">Tutorials</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <body>
+     <div id="navbar-container"></div>
   
     <section class="bg-1100"id="question">
       <div class="container">
@@ -479,23 +292,12 @@
 
 
 
-<!-- Footer -->
-<footer>
-    <div class="footer-links">
-      <a href="/terms">Service Terms</a>
-      <a href="/contact">Contact</a>
-      <a href="/privacypolicy">Privacy Policy</a>
-    </div>
-    <hr class="footer-divider">
-    <p class="footer-copyright">© <span id="currentYear"></span> Copyright, All Rights Reserved</p>
-  </footer>
+  <div id="footer-container"></div>
 
-  <!-- JavaScripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
-  <script src="vendors/popper/popper.min.js"></script>
-  <script src="vendors/bootstrap/bootstrap.min.js"></script>
   <script src="vendors/is/is.min.js"></script>
   <script src="vendors/countup/countUp.umd.js"></script>
   <script src="vendors/swiper/swiper-bundle.min.js"></script>
@@ -504,29 +306,78 @@
   <script src="assets/js/theme.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Set current year in footer
-      document.getElementById("currentYear").textContent = new Date().getFullYear();
+      console.log('DOM fully loaded');
+
+      // Load navbar
+      fetch('/navbar.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load navbar.html: ' + response.status);
+          return response.text();
+        })
+        .then(data => {
+          console.log('Navbar fetched successfully');
+          document.getElementById('navbar-container').innerHTML = data;
+          const navbarScript = document.createElement('script');
+          navbarScript.src = '/navbar.js';
+          navbarScript.onload = function() {
+            console.log('navbar.js loaded');
+            initializeNavbar();
+          };
+          document.body.appendChild(navbarScript);
+        })
+        .catch(error => {
+          console.error('Error loading navbar:', error);
+        });
+
+      // Load footer
+      fetch('/footer.html')
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load footer.html: ' + response.status);
+          return response.text();
+        })
+        .then(data => {
+          console.log('Footer fetched successfully');
+          document.getElementById('footer-container').innerHTML = data;
+          document.getElementById('currentYear').textContent = new Date().getFullYear();
+        })
+        .catch(error => {
+          console.error('Error loading footer:', error);
+        });
 
       // Initialize Chargebee
       if (typeof Chargebee !== 'undefined') {
         Chargebee.init({
-          site: "more4lessplans"
+          site: "more4lessplans",
+          publishableKey: 'live_9xoL0GUAJyfaZddNn5cdFhI4hrLAGhyIh' // Replace with actual Chargebee publishable key
         });
+
+        // Add event listener for Account Login links
         const accountLoginLinks = document.querySelectorAll('.account-login-link');
         accountLoginLinks.forEach(link => {
           link.addEventListener('click', function(event) {
             event.preventDefault();
             Chargebee.getInstance().openPortal({
-              onLoad: function() { console.log("Chargebee portal loaded"); },
-              onClose: function() { console.log("Chargebee portal closed"); }
+              onLoad: function() {
+                console.log("Chargebee portal loaded");
+              },
+              onClose: function() {
+                console.log("Chargebee portal closed");
+              }
             });
           });
         });
       } else {
-        console.error("Chargebee script not loaded.");
+        console.error("Chargebee script not loaded. Please ensure the Chargebee script is included.");
       }
+
+      // Page-specific functionality
+      const buyButtons = document.querySelectorAll('.pricing-card a[data-cb-type="checkout"]');
+      buyButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+          event.stopPropagation();
+        });
+      });
     });
   </script>
 </body>
-
 </html>
