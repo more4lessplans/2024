@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.85">
 
   <!-- Document Title -->
-  <title>More4Less | Wireless Internet</title>
+  <title>FAQ | Common Questions</title>
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
@@ -22,7 +22,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Stylesheets -->
-     <link rel="stylesheet" href="/navbar.css">
+  <link rel="stylesheet" href="/navbar.css">
   <link rel="stylesheet" href="/footer.css">
   <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,6 +59,68 @@
     }
     .nav-link-existing:hover::after {
       color: white;
+    }
+
+    /* Mobile Menu Styles */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1050;
+      justify-content: center;
+      align-items: center;
+    }
+    .mobile-menu.active {
+      display: flex;
+    }
+    .mobile-menu-content {
+      background: #ffffff;
+      width: 80%;
+      max-width: 350px;
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .mobile-menu-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #171C2D;
+    }
+    .mobile-menu-body ul li {
+      border-bottom: 1px solid #e3e3e3;
+    }
+    .mobile-menu-body ul li:last-child {
+      border-bottom: none;
+    }
+    .mobile-menu-body .nav-link {
+      color: #171C2D;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 0.5rem 0;
+      display: block;
+    }
+    .mobile-menu-body .nav-link:hover {
+      color: #D73C59;
+      background-color: rgba(215, 60, 89, 0.1);
+      border-radius: 5px;
+    }
+    .nav-link-existing-mobile::after {
+      content: " →";
+      color: #171C2D;
+      font-size: 0.9rem;
+      margin-left: 4px;
+    }
+    .nav-link-existing-mobile:hover::after {
+      color: #D73C59;
     }
 
     /* Modal Styles */
@@ -138,15 +200,6 @@
     }
     .modal-body ul li:last-child {
       border-bottom: none;
-    }
-    .nav-link-existing-mobile::after {
-      content: " →";
-      color: #171C2D;
-      font-size: 0.9rem;
-      margin-left: 4px;
-    }
-    .nav-link-existing-mobile:hover::after {
-      color: #D73C59;
     }
     .modal-dialog {
       max-width: 350px;
@@ -232,201 +285,283 @@
       font-size: 1rem;
       margin: 0;
     }
+
+    /* Accordion Styles */
+    .accordion-button:not(.collapsed) {
+      color: #171C2D;
+      background-color: #f8f9fa;
+    }
   </style>
 </head>
 
-  <body>
-     <div id="navbar-container"></div>
-  
- <section style="background-color: #2E2E33;" id="question">
-      <div class="container">
-        <div class="row py-8 py-md-10 py-lg-11">
-          <div class="col-lg-6">
-            <div class="row justify-content-center justify-content-lg-start">
-              <div class="col-md-8 col-lg-12 col-xl-11">
-                <h2 class="text-white fs-4 fs-lg-3 lh-sm mb-2 text-center text-lg-start fw-bold">Peace of Mind: Common Questions</h2>
-                <p class="fs-8 text-white text-opacity-65 mb-4 mb-md-6 mb-lg-7 lh-lg mb-6 mb-lg-7 text-center text-lg-start"> Reach out to us with any of your questions!</p>
-              </div>
-              <div class="col-lg-10">
-                <div class="d-flex gap-2 gap-lg-x1 mb-4 mb-lg-5">
-                  
-                 
+<body>
+  <main class="main" id="top">
+    <div class="content">
+      <!-- Inline Navbar as Fallback -->
+      <nav class="navbar navbar-expand-lg fixed-top navbar-solid" id="navbar-container">
+        <div class="container-fluid">
+          <a href="/" class="navbar-brand"><img src="assets/img/logos/logo.png" style="width: 80px; height: auto;" alt="logo"/></a>
+          <button class="navbar-toggler border-0 pe-0" type="button" id="mobileMenuToggle" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbar-content">
+            <ul class="navbar-nav gap-md-5 pt-x1 pb-1 pt-lg-0 pb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link lh-lg nav-link-existing fw-bold" href="#" data-toggle="modal" data-target="#existingCustomersModal">Existing Customers</a>
+              </li>
+              
+              <li class="nav-item"><a class="nav-link lh-lg fw-bold" href="/contact">Contact</a></li>
+              <li class="nav-item"><a class="nav-link lh-lg fw-bold" href="/mobility">Mobility</a></li>
+              <li class="nav-item"><a class="nav-link lh-lg fw-bold" href="/">Order Internet</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+          <div class="mobile-menu-header">
+            <h5 class="mobile-menu-title">Menu</h5>
+            <button type="button" class="close-mobile-menu" aria-label="Close">×</button>
+          </div>
+          <div class="mobile-menu-body">
+            <ul class="list-unstyled">
+              <li><a class="nav-link lh-2 fw-bold nav-link-existing-mobile" href="#" data-toggle="modal" data-target="#mobile-menu-modal">Existing Customers</a></li>
+           
+              <li><a class="nav-link lh-2 fw-bold mobile-nav-link" href="/contact">Contact</a></li>
+              <li><a class="nav-link lh-2 fw-bold mobile-nav-link" href="/mobility">Mobility</a></li>
+               <li class="nav-item"><a class="nav-link lh-lg fw-bold" href="/">Order Internet</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Existing Customers Modal (Desktop) -->
+      <div class="modal fade" id="existingCustomersModal" tabindex="-1" role="dialog" aria-labelledby="existingCustomersModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="existingCustomersModalLabel">Existing Customers</h5>
+              <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+              <ul class="list-unstyled">
+                <li><a class="nav-link lh-xl fw-bold" href="javascript:void(0)" data-cb-type="portal">Account Login</a></li>
+                <li><a class="nav-link lh-xl fw-bold" href="/tutorials">Tutorials</a></li>
+                <li><a class="nav-link lh-xl fw-bold" href="/support">Technical Support</a></li>
+                <li><a class="nav-link lh-xl fw-bold" href="/terms#returns">Return Equipment</a></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Existing Customers Modal (Mobile) -->
+      <div class="modal fade" id="mobile-menu-modal" tabindex="-1" role="dialog" aria-labelledby="mobileMenuModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="mobileMenuModalLabel">Existing Customers</h5>
+              <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+              <ul class="list-unstyled">
+                <li><a class="nav-link lh-xl fw-bold" href="javascript:void(0)" data-cb-type="portal">Account Login</a></li>
+                <li><a class="nav-link lh-xl fw-bold" href="/tutorials.html">Tutorials</a></li>
+                <li><a class="nav-link lh-xl fw-bold" href="/support.html">Technical Support</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="bg-1100" id="question">
+        <div class="container">
+          <div class="row py-8 py-md-10 py-lg-11">
+            <div class="col-lg-6">
+              <div class="row justify-content-center justify-content-lg-start">
+                <div class="col-md-8 col-lg-12 col-xl-11">
+                  <h2 class="text-white fs-4 fs-lg-3 lh-sm mb-2 text-center text-lg-start fw-bold">Peace of Mind: Common Questions</h2>
+                  <p class="fs-8 text-white text-opacity-65 mb-4 mb-md-6 mb-lg-7 lh-lg text-center text-lg-start">Reach out to us with any of your questions!</p>
                 </div>
-                <div class="d-flex gap-2 gap-lg-x1 mb-4 mb-lg-5">
-                  <div>
-                   <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
-  <div style="background-color: #D73D59; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;">
-    <span class="uil uil-check" style="font-size: 14px;"></span>
-  </div>
-  <h5 style="margin: 0; font-size: 1rem; font-weight: bold; line-height: 1.5; color: white;">24/7 Hour Support</h5>
-</div>
-                    <p class="lh-xl text-white text-opacity-70 mb-0">Get support from our efficient customer support team, 24/7, all year round.</p>
+                <div class="col-lg-10">
+                  <div class="d-flex gap-2 gap-lg-x1 mb-4 mb-lg-5">
+                    <div>
+                      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem;">
+                        <div style="background-color: #D73D59; color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;">
+                          <span class="uil uil-check" style="font-size: 14px;"></span>
+                        </div>
+                        <h5 style="margin: 0; font-size: 1rem; font-weight: bold; line-height: 1.5; color: white;">24/7 Hour Support</h5>
+                      </div>
+                      <p class="lh-xl text-white text-opacity-70 mb-0">Get support from our efficient customer support team, 24/7, all year round.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="accordion mt-lg-4 ps-3 pe-x1 bg-white" id="accordion">
+                <!-- Question 1 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading1">
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                      Can I Bring My Own Router?
+                    </button>
+                  </h2>
+                  <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-parent="#accordion">
+                    <div class="accordion-body lh-xl pt-0 pb-x1">
+                      Please note that our Wireless Internet service is distinct from our mobile phone plans. SIM cards designed for mobile phones are not suitable for use in routers. To access our Wireless Internet service, you must use devices that are exclusively available for purchase on this website.
+                    </div>
+                  </div>
+                </div>
+                <!-- Question 2 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading2">
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                      What Is Wireless Internet?
+                    </button>
+                  </h2>
+                  <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-parent="#accordion">
+                    <div class="accordion-body lh-xl pt-0 pb-x1">
+                      Experience the convenience of our Wireless Internet service, harnessing the robust 4G LTE or 5G network - depending on signal availability at your eligible location. It is delivered through a versatile cellular gateway device, offering the combined functionalities of a router and a modem. This device seamlessly converts the cellular signal into a Wi-Fi network, enabling all your home devices to connect effortlessly. Installation is a breeze, and you can do it yourself in just about 5 minutes.
+                    </div>
+                  </div>
+                </div>
+                <!-- Question 3 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading3">
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                      How Much Does More4Less Wireless Internet Cost?
+                    </button>
+                  </h2>
+                  <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-parent="#accordion">
+                    <div class="accordion-body lh-xl pt-0 pb-x1">
+                      The cost of More4Less Wireless Internet can be found on our Pricing page. We take pride in offering transparent pricing with no annual service contracts and no hidden fees. Additionally, our exceptional Customer Care Team is available to assist you throughout the day. For detailed pricing information, please visit this page.
+                    </div>
+                  </div>
+                </div>
+                <!-- Question 4 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading4">
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                      Does The Wireless Internet Need a Scheduled Installation?
+                    </button>
+                  </h2>
+                  <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-parent="#accordion">
+                    <div class="accordion-body lh-xl pt-0 pb-x1">
+                      No! The Wireless Internet service is plug-n-play and fully portable. You are not restricted to using it at one location. You can even connect a dedicated router to our modem using an ethernet cable.
+                    </div>
+                  </div>
+                </div>
+                <!-- Question 5 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading5">
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                      Is It Actually Unlimited Wi-Fi?
+                    </button>
+                  </h2>
+                  <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-parent="#accordion">
+                    <div class="accordion-body lh-xl pt-0 pb-x1">
+                      We don't have data limits. Period. There is no throttling or cap to the amount of Wi-Fi you use.
+                    </div>
+                  </div>
+                </div>
+                <!-- Question 6 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading6">
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                      Can I Cancel When Not Using The Service?
+                    </button>
+                  </h2>
+                  <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-parent="#accordion">
+                    <div class="accordion-body lh-xl pt-0 pb-x1">
+                      Yes! This is a common request. There is no fee to cancel. Cancellations can be made 24/7 using our self-serve portal! Depending on the length of time that your service was inactive, you may need to purchase a new SIM card to reactivate your router. To restore a service that you've previously canceled, please contact us.
+                    </div>
+                  </div>
+                </div>
+                <!-- Question 7 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading7">
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                      Can I Take My Router To The USA?
+                    </button>
+                  </h2>
+                  <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7" data-parent="#accordion">
+                    <div class="accordion-body lh-xl pt-0 pb-x1">
+                      We offer an addon that can be added upon activation to allow you to have access to the USA network.
+                    </div>
+                  </div>
+                </div>
+                <!-- Question 8 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading8">
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                      How Long Does It Take To Receive The Hardware After Placing An Order?
+                    </button>
+                  </h2>
+                  <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-parent="#accordion">
+                    <div class="accordion-body lh-xl pt-0 pb-x1">
+                      Please allow 1-2 days for order processing. Shipping itself takes only 2-6 days. Express shipping is available at checkout with 1-2 day delivery.
+                    </div>
+                  </div>
+                </div>
+                <!-- Question 10 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading10">
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                      Is There A Refund Policy?
+                    </button>
+                  </h2>
+                  <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10" data-parent="#accordion">
+                    <div class="accordion-body lh-xl pt-0 pb-x1">
+                      We offer a full 7-day money-back guarantee where you can return your equipment for a full refund!
+                    </div>
+                  </div>
+                </div>
+                <!-- Question 11 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading11">
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                      Are There Any Extras/Hidden Fees?
+                    </button>
+                  </h2>
+                  <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="heading11" data-parent="#accordion">
+                    <div class="accordion-body lh-xl pt-0 pb-x1">
+                      No contracts. You can cancel for the winter or anytime you wish with no cancellation fees.
+                    </div>
+                  </div>
+                </div>
+                <!-- Question 12 -->
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="heading12">
+                    <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
+                      Will My Price Increase Unexpectedly?
+                    </button>
+                  </h2>
+                  <div id="collapse12" class="accordion-collapse collapse" aria-labelledby="heading12" data-parent="#accordion">
+                    <div class="accordion-body lh-xl pt-0 pb-x1">
+                      Your price is locked in. No exploding bills. No hidden fees. The price you sign up will not increase for as long as you keep your service active!
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="accordion mt-lg-4 ps-3 pe-x1 bg-white" id="accordion">
-                <!-- Question 1 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading1">
-                        <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                            Can I Bring My Own Router?
-                        </button>
-                    </h2>
-                    <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordion">
-                        <div class="accordion-body lh-xl pt-0 pb-x1">
-                            Please note that our Wireless Internet service is distinct from our mobile phone plans. SIM cards designed for mobile phones are not suitable for use in routers. To access our Wireless Internet service, you must use devices that are exclusively available for purchase on this website.
-                        </div>
-                    </div>
-                </div>
-                <!-- Question 2 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading2">
-                        <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                            What Is Wireless Internet?
-                        </button>
-                    </h2>
-                    <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordion">
-                        <div class="accordion-body lh-xl pt-0 pb-x1">
-                            Experience the convenience of our Wireless Internet service, harnessing the robust 4G LTE or 5G network - depending on signal availability at your eligible location. It is delivered through a versatile cellular gateway device, offering the combined functionalities of a router and a modem. This device seamlessly converts the cellular signal into a Wi-Fi network, enabling all your home devices to connect effortlessly. Installation is a breeze, and you can do it yourself in just about 5 minutes.
-                        </div>
-                    </div>
-                </div>
-                <!-- Question 3 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading3">
-                        <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                            How Much Does More4Less Wireless Internet Cost?
-                        </button>
-                    </h2>
-                    <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordion">
-                        <div class="accordion-body lh-xl pt-0 pb-x1">
-                            The cost of More4Less Wireless Internet can be found on our Pricing page. We take pride in offering transparent pricing with no annual service contracts and no hidden fees. Additionally, our exceptional Customer Care Team is available to assist you throughout the day. For detailed pricing information, please visit this page.
-                        </div>
-                    </div>
-                </div>
-                <!-- Question 4 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading4">
-                        <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                            Does The Wireless Internet Need a Scheduled Installation?
-                        </button>
-                    </h2>
-                    <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordion">
-                        <div class="accordion-body lh-xl pt-0 pb-x1">
-                            No! The Wireless Internet service is plug-n-play and fully portable. You are not restricted to using it at one location. You can even connect a dedicated router to our modem using an ethernet cable.
-                        </div>
-                    </div>
-                </div>
-                <!-- Question 5 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading5">
-                        <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                            Is It Actually Unlimited Wi-Fi?
-                        </button>
-                    </h2>
-                    <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordion">
-                        <div class="accordion-body lh-xl pt-0 pb-x1">
-                            We don't have data limits. Period. There is no throttling or cap to the amount of Wi-Fi you use.
-                        </div>
-                    </div>
-                </div>
-                <!-- Question 6 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading6">
-                        <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
-                            Can I Cancel When Not Using The Service?
-                        </button>
-                    </h2>
-                    <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordion">
-                        <div class="accordion-body lh-xl pt-0 pb-x1">
-                            Yes! This is a common request. There is no fee to cancel. Cancellations can be made 24/7 using our self-serve portal! Depending on the length of time that your service was inactive, you may need to purchase a new SIM card to reactivate your router. To restore a service that you've previously canceled, please contact us.
-                        </div>
-                    </div>
-                </div>
-                <!-- Question 7 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading7">
-                        <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
-                            Can I Take My Router To The USA?
-                        </button>
-                    </h2>
-                    <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7" data-bs-parent="#accordion">
-                        <div class="accordion-body lh-xl pt-0 pb-x1">
-                            We offer an addon that can be added upon activation to allow you to have access to the USA network.
-                        </div>
-                    </div>
-                </div>
-                <!-- Question 8 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading8">
-                        <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
-                            How Long Does It Take To Receive The Hardware After Placing An Order?
-                        </button>
-                    </h2>
-                    <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#accordion">
-                        <div class="accordion-body lh-xl pt-0 pb-x1">
-                            Please allow 1-2 days for order processing. Shipping itself takes only 2-6 days. Express shipping is available at checkout with 1-2 day delivery.
-                        </div>
-                    </div>
-                </div>
-                  <!-- Question 10 -->
-                  <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading10">
-                        <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false" aria-controls="collapse10">
-                            Is There A Refund Policy?
-                        </button>
-                    </h2>
-                    <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10" data-bs-parent="#accordion">
-                        <div class="accordion-body lh-xl pt-0 pb-x1">
-                            We offer a full 7-day money-back guarantee where you can return your equipment for a full refund!
-                        </div>
-                    </div>
-                </div>
-                <!-- Question 11 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading11">
-                        <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse11" aria-expanded="false" aria-controls="collapse11">
-                            Are There Any Extras/Hidden Fees?
-                        </button>
-                    </h2>
-                    <div id="collapse11" class="accordion-collapse collapse" aria-labelledby="heading11" data-bs-parent="#accordion">
-                        <div class="accordion-body lh-xl pt-0 pb-x1">
-                            No contracts. You can cancel for the winter or anytime you wish with no cancellation fees.
-                        </div>
-                    </div>
-                </div>
-                <!-- Question 12 -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading12">
-                        <button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse12" aria-expanded="false" aria-controls="collapse12">
-                            Will My Price Increase Unexpectedly?
-                        </button>
-                    </h2>
-                    <div id="collapse12" class="accordion-collapse collapse" aria-labelledby="heading12" data-bs-parent="#accordion">
-                        <div class="accordion-body lh-xl pt-0 pb-x1">
-                            Your price is locked in. No exploding bills. No hidden fees. The price you sign up will not increase for as long as you keep your service active!
-                        </div>
-                    </div>
-                </div>
-               
+        </div>
+      </section>
 
+      <!-- Footer -->
+      <div id="footer-container"></div>
+    </div>
+  </main>
 
-
-    </section>
-
-
-
-<!-- Footer -->
-  <div id="footer-container"></div>
   <!-- JavaScripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
-  <script src="vendors/popper/popper.min.js"></script>
-  <script src="vendors/bootstrap/bootstrap.min.js"></script>
   <script src="vendors/is/is.min.js"></script>
   <script src="vendors/countup/countUp.umd.js"></script>
   <script src="vendors/swiper/swiper-bundle.min.js"></script>
@@ -434,16 +569,52 @@
   <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
   <script src="assets/js/theme.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Set current year in footer
-      document.getElementById("currentYear").textContent = new Date().getFullYear();
+    function initializeNavbar() {
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const closeMobileMenu = document.querySelector('.close-mobile-menu');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
+      if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+          mobileMenu.classList.toggle('active');
+        });
+      }
+
+      if (closeMobileMenu) {
+        closeMobileMenu.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+        });
+      }
+
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+        });
+      });
+
+      // Smooth scroll for FAQ link
+      document.querySelectorAll('a[href="#question"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetElement = document.querySelector('#question');
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 70,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
       // Initialize Chargebee
       if (typeof Chargebee !== 'undefined') {
         Chargebee.init({
           site: "more4lessplans"
         });
-        const accountLoginLinks = document.querySelectorAll('.account-login-link');
+        const accountLoginLinks = document.querySelectorAll('[data-cb-type="portal"]');
         accountLoginLinks.forEach(link => {
           link.addEventListener('click', function(event) {
             event.preventDefault();
@@ -456,9 +627,9 @@
       } else {
         console.error("Chargebee script not loaded.");
       }
-    });
 
-  
+      // Initialize inline navbar
+      initializeNavbar();
 
       // Load navbar
       fetch('/navbar.html')
@@ -473,12 +644,13 @@
           navbarScript.src = '/navbar.js';
           navbarScript.onload = function() {
             console.log('navbar.js loaded');
-            initializeNavbar();
+            initializeNavbar(); // Reinitialize after fetch
           };
           document.body.appendChild(navbarScript);
         })
         .catch(error => {
           console.error('Error loading navbar:', error);
+          // Inline navbar serves as fallback
         });
 
       // Load footer
@@ -490,14 +662,18 @@
         .then(data => {
           console.log('Footer fetched successfully');
           document.getElementById('footer-container').innerHTML = data;
-          document.getElementById('currentYear').textContent = new Date().getFullYear();
+          const currentYear = document.getElementById('currentYear');
+          if (currentYear) {
+            currentYear.textContent = new Date().getFullYear();
+          }
         })
         .catch(error => {
           console.error('Error loading footer:', error);
         });
 
-
+      // Ensure Bootstrap collapse is initialized
+      $('.accordion-button').collapse();
+    });
   </script>
 </body>
-
 </html>
