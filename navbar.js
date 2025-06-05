@@ -14,31 +14,63 @@ function initializeNavbar() {
             if (isChargebeePortal) {
                 event.preventDefault();
                 const existingCustomersModal = $('#existingCustomersModal');
+                
+                // Ensure modal is hidden before proceeding
                 existingCustomersModal.modal('hide');
 
+                // Wait for modal to fully close
                 existingCustomersModal.on('hidden.bs.modal', function() {
-                    console.log('Modal hidden, opening Chargebee portal');
-                    if (typeof Chargebee !== 'undefined') {
-                        const cbInstance = Chargebee.init({
-                            site: 'more4lessplans',
-                            publishableKey: 'your-publishable-key' // Replace with actual key
-                        });
-                        cbInstance.openPortal({
-                            portalSession: () => Promise.resolve({
+                    console.log('Modal hidden, attempting to open Chargebee portal');
+                    
+                    if (typeof Chargebee !== 'undefined' && Chargebee.getInstance()) {
+                        try {
+                            const cbInstance = Chargebee.getInstance();
+                            cbInstance.setPortalSession(() => Promise.resolve({
                                 id: 'portal-session-id',
                                 access_url: 'https://more4lessplans.chargebeeportal.com/portal',
                                 token: 'portal-session-token'
-                            }),
-                            success: () => console.log('Chargebee portal opened'),
-                            close: () => console.log('Chargebee portal closed'),
-                            error: (err) => {
-                                console.error('Error opening Chargebee portal:', err);
+                            }));
+                            cbInstance.openPortal({
+                                success: () => console.log('Chargebee portal opened successfully'),
+                                close: () => console.log('Chargebee portal closed'),
+                                error: (err) => {
+                                    console.error('Error opening Chargebee portal:', err);
+                                    window.location.href = '/login';
+                                }
+                            });
+                        } catch (error) {
+                            console.error('Chargebee portal initialization failed:', error);
+                            window.location.href = '/login';
+                        }
+                    } else {
+                        // Initialize Chargebee if not already initialized
+                        if (typeof Chargebee !== 'undefined') {
+                            try {
+                                const cbInstance = Chargebee.init({
+                                    site: 'more4lessplans',
+                                    publishableKey: 'live_9xoL0GUAJyfaZddNn5cdFhI4hrLAGhyIh' // Replace with your actual Chargebee publishable key
+                                });
+                                cbInstance.setPortalSession(() => Promise.resolve({
+                                    id: 'portal-session-id',
+                                    access_url: 'https://more4lessplans.chargebeeportal.com/portal',
+                                    token: 'portal-session-token'
+                                }));
+                                cbInstance.openPortal({
+                                    success: () => console.log('Chargebee portal opened successfully'),
+                                    close: () => console.log('Chargebee portal closed'),
+                                    error: (err) => {
+                                        console.error('Error opening Chargebee portal:', err);
+                                        window.location.href = '/login';
+                                    }
+                                });
+                            } catch (error) {
+                                console.error('Chargebee initialization failed:', error);
                                 window.location.href = '/login';
                             }
-                        });
-                    } else {
-                        console.error('Chargebee library not loaded');
-                        window.location.href = '/login';
+                        } else {
+                            console.error('Chargebee library not loaded');
+                            window.location.href = '/login';
+                        }
                     }
                 });
             } else if (!isModalTrigger && href && href !== '#') {
