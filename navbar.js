@@ -1,62 +1,66 @@
 function initializeNavbar() {
     console.log('Initializing navbar');
 
-    const navLinks = document.querySelectorAll('.nav-link');
-    console.log('Found', navLinks.length, 'nav links');
+    // Handle existing customer links (including Chargebee portal)
+    document.querySelectorAll('.existing-customer-link').forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const href = link.getAttribute('href');
+            const cbType = link.getAttribute('data-cb-type');
+            console.log('Clicked existing-customer-link:', href, 'Chargebee portal:', cbType === 'portal');
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            const href = this.getAttribute('href');
-            const isModalTrigger = this.getAttribute('data-toggle') === 'modal';
-            const isChargebeePortal = this.getAttribute('data-cb-type') === 'portal';
-            console.log('Clicked link:', href, 'Modal trigger:', isModalTrigger, 'Chargebee portal:', isChargebeePortal);
-
-            if (isChargebeePortal) {
-                // Allow Chargebee's default behavior for portal links
-                event.preventDefault(); // Prevent default only to handle modal
-                const existingCustomersModal = $('#existingCustomersModal');
-                
-                // Close the modal before Chargebee handles the portal
-                if (existingCustomersModal.length) {
-                    existingCustomersModal.modal('hide');
-                    existingCustomersModal.on('hidden.bs.modal', function() {
-                        console.log('Modal hidden, letting Chargebee handle portal link');
-                        // Trigger Chargebee's default handler if needed
-                        if (typeof Chargebee !== 'undefined' && Chargebee.getInstance()) {
-                            try {
-                                const cbInstance = Chargebee.getInstance();
-                                cbInstance.openPortal({
-                                    success: () => console.log('Chargebee portal opened successfully'),
-                                    close: () => console.log('Chargebee portal closed'),
-                                    error: (err) => {
-                                        console.error('Error opening Chargebee portal:', err);
-                                        window.location.href = '/login';
-                                    }
-                                });
-                            } catch (error) {
-                                console.error('Chargebee portal error:', error);
-                                window.location.href = '/login';
-                            }
-                        } else {
-                            console.error('Chargebee library not loaded or initialized');
+            $('#existingCustomersModal').modal('hide');
+            $('#existingCustomersModal').one('hidden.bs.modal', () => {
+                if (cbType === 'portal') {
+                    if (typeof Chargebee !== 'undefined') {
+                        console.log('Chargebee library loaded, initializing portal');
+                        try {
+                            const cbInstance = Chargebee.init({
+                                site: 'more4lessplans',
+                                publishableKey: 'your-publishable-key' // Replace with actual key
+                            });
+                            cbInstance.openPortal({
+                                portalSession: () => Promise.resolve({
+                                    id: 'portal-session-id',
+                                    access_url: 'https://more4lessplans.chargebeeportal.com/portal',
+                                    token: 'portal-session-token'
+                                }),
+                                success: () => console.log('Chargebee portal opened'),
+                                close: () => console.log('Chargebee portal closed'),
+                                error: (err) => {
+                                    console.error('Error opening Chargebee portal:', err);
+                                    window.location.href = '/login';
+                                }
+                            });
+                        } catch (error) {
+                            console.error('Chargebee initialization failed:', error);
                             window.location.href = '/login';
                         }
-                    });
-                } else {
-                    // No modal, let Chargebee handle directly
-                    console.log('No modal, letting Chargebee handle portal link');
-                    if (typeof Chargebee === 'undefined') {
+                    } else {
                         console.error('Chargebee library not loaded');
                         window.location.href = '/login';
                     }
+                } else {
+                    console.log('Navigating to:', href);
+                    window.location.href = href;
                 }
-            } else if (!isModalTrigger && href && href !== '#') {
-                // Handle non-Chargebee navigation links
+            });
+        });
+    });
+
+    // Handle other nav links (e.g., Contact, Mobility, FAQ)
+    document.querySelectorAll('.nav-link:not(.existing-customer-link)').forEach(link => {
+        link.addEventListener('click', function(event) {
+            const href = this.getAttribute('href');
+            const isModalTrigger = this.getAttribute('data-toggle') === 'modal';
+            console.log('Clicked nav-link:', href, 'Modal trigger:', isModalTrigger);
+
+            if (!isModalTrigger && href && href !== '#') {
                 event.preventDefault();
-                const mobileMenuModal = document.getElementById('mobileMenuModal');
-                if (mobileMenuModal) {
+                const mobileMenuModal = $('#mobileMenuModal');
+                if (mobileMenuModal.length) {
                     console.log('Closing mobile menu modal');
-                    $('#mobileMenuModal').modal('hide');
+                    mobileMenuModal.modal('hide');
                 }
                 setTimeout(() => {
                     console.log('Navigating to:', href);
