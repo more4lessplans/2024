@@ -36,19 +36,45 @@
     <meta name="msapplication-TileImage" content="/img/favi/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
 
+    <!-- Inline Critical CSS for Hero Section -->
+    <style>
+      .hero-section { position: relative; overflow: hidden; margin-bottom: 1rem; }
+      .hero-background { background: url('assets/img/hero-bg.webp') no-repeat center center/cover; padding: 50px 0; } /* Replace with actual image path */
+      .fs-1 { font-size: 2.5rem; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 0.5rem; }
+      .fs-8 { font-size: 1rem; color: #fff; line-height: 1.6; margin-bottom: 1rem; }
+      .lh-base { line-height: 1.5; }
+      .lh-lg { line-height: 1.7; }
+      .container { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
+      .text-center { text-align: center; }
+      .text-lg-start { text-align: left; }
+      .form-control { display: block; width: 100%; padding: 0.375rem 0.75rem; font-size: 1rem; line-height: 1.5; color: #495057; background-color: #fff; border: 1px solid #ced4da; border-radius: 0.25rem; }
+      #check-coverage-btn { font-weight: 400; color: #ffffff; background-color: transparent; border: 2px solid #ffffff; border-radius: 8px; padding: 0.75rem 1.5rem; transition: all 0.3s ease; }
+      #check-coverage-btn:hover { color: #2E2F33; background-color: #ffffff; border-color: #ffffff; transform: scale(1.05); }
+      @media (min-width: 992px) { .fs-1 { font-size: 3rem; } .text-lg-start { text-align: left; } }
+    </style>
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="assets/img/hero-bg.webp" as="image" fetchpriority="high"> <!-- Replace with actual image path -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Figtree:wght@700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="preload" href="assets/css/theme.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/theme.min.css"></noscript>
+
     <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preload" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></noscript>
 
     <!-- Stylesheets -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#2E2F33">
-    <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
+    <link rel="preload" href="vendors/swiper/swiper-bundle.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-    <link href="assets/css/theme.min.css" rel="stylesheet" id="style-default">
-    <link href="assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
-    <link href="assets/css/user.min.css" rel="stylesheet" id="user-style-default">
+    <link rel="preload" href="assets/css/user-rtl.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/user-rtl.min.css"></noscript>
+    <link rel="preload" href="assets/css/user.min.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/user.min.css"></noscript>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
     <!-- Google tag (gtag.js) -->
@@ -95,11 +121,11 @@
       }
       .pricing-text {
         font-size: 0.95rem;
-        color: #9CA3AF; /* Lighter grey for subtlety */
+        color: #9CA3AF;
         margin-bottom: 1rem;
       }
       .pricing-card {
-        background-color: #f9f9f9; /* Off-white background */
+        background-color: #f9f9f9;
         border: 1px solid #e3e3e3;
         border-radius: 12px;
         padding: 2rem 1rem;
@@ -158,7 +184,7 @@
       }
       .pricing-card-features li {
         padding: 0.5rem 0;
-        border-top: 0.5px solid #E5E7EB; /* Subtle, thinner divider */
+        border-top: 0.5px solid #E5E7EB;
       }
       .checkout-button {
         display: inline-block;
@@ -190,7 +216,7 @@
         }
         .pricing-card {
           margin-bottom: 1.5rem;
-          max-width: 95%; /* 80% width on mobile */
+          max-width: 95%;
           margin-left: auto;
           margin-right: auto;
         }
@@ -801,19 +827,25 @@
       </footer>
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNt4XeQ5roadq0L-IpadA6s9e4CPm9FwI&libraries=places"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
-    <script src="vendors/is/is.min.js"></script>
-    <script src="vendors/countup/countUp.umd.js"></script>
-    <script src="vendors/swiper/swiper-bundle.min.js"></script>
-    <script src="vendors/lodash/lodash.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="assets/js/theme.js"></script>
+    <!-- Deferred Scripts -->
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script defer src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
+    <script defer src="vendors/is/is.min.js"></script>
+    <script defer src="vendors/countup/countUp.umd.js"></script>
+    <script defer src="vendors/swiper/swiper-bundle.min.js"></script>
+    <script defer src="vendors/lodash/lodash.min.js"></script>
+    <script defer src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script defer src="assets/js/theme.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
+        // Load Google Maps Autocomplete asynchronously
+        const script = document.createElement('script');
+        script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDNt4XeQ5roadq0L-IpadA6s9e4CPm9FwI&libraries=places';
+        script.async = true;
+        document.body.appendChild(script);
+
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
         const navbar = document.getElementById('navbar');
@@ -822,7 +854,11 @@
         const addressInput = document.getElementById('address');
         const checkCoverageBtn = document.getElementById('check-coverage-btn');
         const addressForm = document.getElementById('address-form');
-        const autocomplete = new google.maps.places.Autocomplete(addressInput);
+
+        let autocomplete;
+        script.onload = () => {
+          autocomplete = new google.maps.places.Autocomplete(addressInput);
+        };
 
         // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
@@ -877,7 +913,7 @@
                 if (typeof Chargebee !== 'undefined') {
                   const cbInstance = Chargebee.init({
                     site: 'more4lessplans',
-                    publishableKey: 'your-publishable-key' // Replace with actual key
+                    publishableKey: 'your-publishable-key'
                   });
                   cbInstance.openPortal({
                     portalSession: () => Promise.resolve({
