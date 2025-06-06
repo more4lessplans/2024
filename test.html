@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=0.85">
-    <!-- Content Security Policy to Block hCaptcha -->
+    <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://code.jquery.com https://maps.googleapis.com https://cdnjs.cloudflare.com https://maxcdn.bootstrapcdn.com https://js.chargebee.com https://www.googletagmanager.com; connect-src 'self' https://checkout.more4lessplans.ca https://more4lessplans.chargebeeportal.com https://maps.googleapis.com; style-src 'self' https://maxcdn.bootstrapcdn.com https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' https://more4lessplans.ca https://*.shopifycdn.com data:; frame-src 'self' https://checkout.more4lessplans.ca https://more4lessplans.chargebeeportal.com;">
     <!-- SEO Title -->
     <title>Wireless Internet | Affordable High-Speed LTE & 5G Internet Across Canada</title>
@@ -36,6 +36,8 @@
     <!-- Stylesheets -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#2E2F33">
+    <link rel="stylesheet" href="/navbar.css">
+    <link rel="stylesheet" href="/footer.css">
     <link rel="stylesheet" href="vendors/swiper/swiper-bundle.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,6 +56,8 @@
     </script>
     <!-- Consolidated CSS -->
     <style>
+      body { padding-top: 70px; }
+      @media (max-width: 576px) { body { padding-top: 60px; } }
       /* Reset Pricing Card Styles */
       .pricing-section {
         background-color: #ffffff;
@@ -194,7 +198,7 @@
         justify-content: center;
       }
       .pricing-card-link, .button-container, .mt-auto {
-        display: contents; /* Remove unwanted layout effects */
+        display: contents;
       }
       /* Footer Styles */
       footer {
@@ -259,85 +263,35 @@
         color: #D73C59;
       }
       /* Mobile Menu Styles */
-      .mobile-menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 1050;
-        display: none;
-        justify-content: center;
-        align-items: center;
-      }
-      .mobile-menu.open {
-        display: flex;
-      }
-      .mobile-menu-content {
+      .navbar-collapse {
         background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
         border-radius: 15px;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-        width: 90%;
-        max-width: 350px;
         padding: 1.5rem;
+        margin-top: 0.5rem;
       }
-      .mobile-menu-header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 0 1rem 0;
+      @media (max-width: 767px) {
+        .navbar-collapse {
+          position: fixed;
+          top: 60px;
+          left: 0;
+          width: 100%;
+          max-width: 350px;
+          margin: 0 auto;
+          z-index: 1050;
+        }
       }
-      .mobile-menu-title {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: #2E2F33;
-        padding: 0.5rem 1rem;
-        width: 100%;
-        text-align: center;
-        border-radius: 8px;
-        position: relative;
-      }
-      .mobile-menu-title::after {
-        content: "";
-        width: 50%;
-        height: 1px;
-        background-color: #e3e3e3;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-      .mobile-menu-body {
-        padding: 1rem 0;
-        text-align: center;
-      }
-      .mobile-menu-body ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-      .mobile-menu-body .nav-link {
-        color: #2E2F33;
+      .navbar-nav .nav-link {
+        color: #2E2F33 !important;
         font-size: 1.1rem;
         font-weight: 500;
-        letter-spacing: 0.5px;
         padding: 0.5rem 0;
         transition: all 0.3s ease;
-        display: block;
       }
-      .mobile-menu-body .nav-link:hover {
-        color: #D73C59;
+      .navbar-nav .nav-link:hover {
+        color: #D73C59 !important;
         background-color: rgba(215, 60, 89, 0.1);
-        transform: scale(1.02);
         border-radius: 5px;
-      }
-      .mobile-menu-body ul li {
-        margin-bottom: 0;
-        border-bottom: 1px solid #e3e3e3;
-      }
-      .mobile-menu-body ul li:last-child {
-        border-bottom: none;
       }
       .nav-link-existing-mobile::after {
         content: " →";
@@ -516,41 +470,7 @@
   <body>
     <main class="main" id="top">
       <div class="content">
-        <nav class="navbar navbar-expand-md fixed-top navbar-solid" id="navbar">
-          <div class="container-fluid px-0">
-            <a href="/" class="navbar-brand"><img src="assets/img/logos/logo.png" style="width: 80px; height: 36;" alt="logo" /></a>
-            <button class="navbar-toggler border-0 pe-0 d-md-none" type="button" id="mobileMenuToggle" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-md-end d-none d-md-flex" id="navbar-content" data-navbar-collapse="data-navbar-collapse">
-              <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0" data-navbar-nav="data-navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link lh-xl nav-link-existing" href="#" role="button" data-toggle="modal" data-target="#existingCustomersModal">Existing Customers</a>
-                </li>
-                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="#pricing" data-scroll-target="pricing">Pricing</a></li>
-                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="/contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="/mobility">Mobility</a></li>
-                <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="#question" data-scroll-target="question">FAQ</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <div class="mobile-menu" id="mobileMenu">
-          <div class="mobile-menu-content">
-            <div class="mobile-menu-header">
-              <h5 class="mobile-menu-title">Menu</h5>
-            </div>
-            <div class="mobile-menu-body">
-              <ul class="list-unstyled">
-                <li><a class="nav-link lh-xl fw-bold nav-link-existing-mobile" href="#" data-toggle="modal" data-target="#existingCustomersModal">Existing Customers</a></li>
-                <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="#pricing" data-scroll-target="pricing">Pricing</a></li>
-                <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="/contact">Contact</a></li>
-                <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="/mobility">Mobility</a></li>
-                <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="#question" data-scroll-target="question">FAQ</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <div id="navbar-container"></div>
         <div class="modal fade" id="existingCustomersModal" tabindex="-1" role="dialog" aria-labelledby="existingCustomersModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -585,8 +505,8 @@
                           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                         </svg>
                       </div>
-                      <div class="d-grid" id="button-container">
-                        <a href="https://checkout.more4lessplans.ca/cart/43787668357300:1?channel=buy_button" class="btn btn-primary lh-xl" id="check-coverage-btn">Check Availability</a>
+                     <div class="d-grid" id="button-container">
+                        <button class="btn btn-primary lh-xl" type="submit" id="check-coverage-btn">Check Availability</button>
                       </div>
                       <div class="result-container" id="result-container">
                         <div class="more-info" id="more-info" style="display: none;">
@@ -616,7 +536,7 @@
             <h1 class="pricing-title">Plug-and-Play 5G/LTE Internet</h1>
             <p class="pricing-subtitle">Wireless Internet Package</p>
             <hr class="pricing-divider">
-            <p class="pricing-subtitle">Unlimited High-Speed Internet for <span class="price-highlight">$110/mo.</span></p>
+            <p class="pricing-subtitle">Unlimited High-Speed Internet for <span class="price-highlight">$110/mo.</span></p><br>
             <p class="pricing-note">One-time equipment cost - shipped to your door!</p>
           </div>
           <div class="row justify-content-center g-4">
@@ -769,14 +689,7 @@
           <img class="img-fluid w-100" src="assets/img/illustrations/Wave_3.svg" alt="" />
         </div>
       </section>
-      <footer>
-        <p class="footer-links">
-          <a href="/privacy-policy">Privacy</a>
-          <a href="/terms">Terms</a>
-        </p>
-        <hr class="footer-divider">
-        <p class="footer-copyright">© <span id="currentYear"></span> Copyright, All Rights Reserved</p>
-      </footer>
+      <div id="footer-container"></div>
     </main>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNt4XeQ5roadq0L-IpadA6s9e4CPm9FwI&libraries=places"></script>
@@ -790,94 +703,160 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src="assets/js/theme.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        const navbar = document.getElementById('navbar');
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const addressInput = document.getElementById('address');
-        const checkCoverageBtn = document.getElementById('check-coverage-btn');
-        const addressForm = document.getElementById('address-form');
-        const autocomplete = new google.maps.places.Autocomplete(addressInput);
+      $(document).ready(function() {
+        // Load navbar
+        $.get('/navbar.html')
+          .done(function(data) {
+            $('#navbar-container').html(data);
+            $.getScript('/navbar.js')
+              .done(function() {
+                initializeNavbar();
+              })
+              .fail(function() {
+                console.error('Failed to load navbar.js');
+                // Fallback navbar initialization
+                fallbackInitializeNavbar();
+              });
+          })
+          .fail(function() {
+            console.error('Failed to load navbar.html');
+            // Fallback navbar HTML
+            $('#navbar-container').html(`
+              <nav class="navbar navbar-expand-md fixed-top navbar-solid" id="navbar">
+                <div class="container-fluid px-0">
+                  <a href="/" class="navbar-brand"><img src="assets/img/logos/logo.png" style="width: 80px; height: 36;" alt="logo" /></a>
+                  <button class="navbar-toggler border-0 pe-0" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse justify-content-md-end" id="navbar-content">
+                    <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0">
+                      <li class="nav-item">
+                        <a class="nav-link lh-xl nav-link-existing" href="#" role="button" data-toggle="modal" data-target="#existingCustomersModal">Existing Customers</a>
+                      </li>
+                      <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="#pricing" data-scroll-target="pricing">Pricing</a></li>
+                      <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="/contact">Contact</a></li>
+                      <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="/mobility">Mobility</a></li>
+                      <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="#question" data-scroll-target="question">FAQ</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            `);
+            fallbackInitializeNavbar();
+          });
+
+        // Load footer
+        $.get('/footer.html')
+          .done(function(data) {
+            $('#footer-container').html(data);
+            $('#currentYear').text(new Date().getFullYear());
+          })
+          .fail(function() {
+            console.error('Failed to load footer.html');
+            $('#footer-container').html(`
+              <footer>
+                <p class="footer-links">
+                  <a href="/privacy-policy">Privacy</a>
+                  <a href="/terms">Terms</a>
+                </p>
+                <hr class="footer-divider">
+                <p class="footer-copyright">© ${new Date().getFullYear()} Copyright, All Rights Reserved</p>
+              </footer>
+            `);
+          });
+
+        // Initialize address form
+        const $addressInput = $('#address');
+        const $checkCoverageBtn = $('#check-coverage-btn');
+        const $addressForm = $('#address-form');
+        const autocomplete = new google.maps.places.Autocomplete($addressInput[0]);
+
         // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-          navbar.classList.toggle('scrolled', window.scrollY > 50);
+        $(window).scroll(function() {
+          $('#navbar').toggleClass('scrolled', $(window).scrollTop() > 50);
         });
-        // Mobile Menu Toggle
-        mobileMenuToggle.addEventListener('click', () => {
-          mobileMenu.classList.toggle('open');
-        });
-        // Close Mobile Menu on Outside Click
-        mobileMenu.addEventListener('click', (event) => {
-          if (event.target === mobileMenu) {
-            mobileMenu.classList.remove('open');
+
+        // Handle Navigation Links
+        $(document).on('click', '.desktop-nav-link, .nav-link-existing-mobile', function(e) {
+          const scrollTarget = $(this).data('scroll-target');
+          if (scrollTarget) {
+            e.preventDefault();
+            const $targetElement = $('#' + scrollTarget);
+            if ($targetElement.length) {
+              $('html, body').animate({ scrollTop: $targetElement.offset().top }, 1000);
+              if ($(this).hasClass('nav-link-existing-mobile')) {
+                $('.navbar-collapse').collapse('hide');
+              }
+            }
           }
         });
-        // Handle Navigation Links
-        const navLinks = document.querySelectorAll('.desktop-nav-link, .mobile-nav-link');
-        navLinks.forEach(link => {
-          link.addEventListener('click', (event) => {
-            const scrollTarget = link.getAttribute('data-scroll-target');
-            if (scrollTarget) {
-              event.preventDefault();
-              const targetElement = document.getElementById(scrollTarget);
-              if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-                if (link.classList.contains('mobile-nav-link')) {
-                  mobileMenu.classList.remove('open');
-                }
+
+        // Handle Existing Customers Modal Links
+        $(document).on('click', '.existing-customer-link', function(e) {
+          e.preventDefault();
+          const href = $(this).attr('href');
+          const cbType = $(this).data('cb-type');
+          $('#existingCustomersModal').modal('hide');
+          $('#existingCustomersModal').on('hidden.bs.modal', function() {
+            if (cbType === 'portal') {
+              if (typeof Chargebee !== 'undefined') {
+                const cbInstance = Chargebee.init({
+                  site: 'more4lessplans',
+                  publishableKey: 'your-publishable-key' // Replace with actual key
+                });
+                cbInstance.openPortal({
+                  portalSession: () => Promise.resolve({
+                    id: 'portal-session-id',
+                    access_url: 'https://more4lessplans.chargebeeportal.com/portal',
+                    token: 'portal-session-token'
+                  }),
+                  success: () => console.log('Chargebee portal opened'),
+                  close: () => console.log('Chargebee portal closed'),
+                  error: (err) => {
+                    console.error('Error opening Chargebee portal:', err);
+                    window.location.href = '/login';
+                  }
+                });
+              } else {
+                console.error('Chargebee library not loaded');
+                window.location.href = '/login';
               }
+            } else {
+              window.location.href = href;
             }
           });
         });
-        // Close Mobile Menu on Existing Customers Click
-        document.querySelector('.nav-link-existing-mobile').addEventListener('click', () => {
-          mobileMenu.classList.remove('open');
-        });
-        // Handle Existing Customers Modal Links
-        document.querySelectorAll('.existing-customer-link').forEach(link => {
-          link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const href = link.getAttribute('href');
-            const cbType = link.getAttribute('data-cb-type');
-            $('#existingCustomersModal').modal('hide');
-            $('#existingCustomersModal').on('hidden.bs.modal', () => {
-              if (cbType === 'portal') {
-                if (typeof Chargebee !== 'undefined') {
-                  const cbInstance = Chargebee.init({
-                    site: 'more4lessplans',
-                    publishableKey: 'your-publishable-key' // Replace with actual key
-                  });
-                  cbInstance.openPortal({
-                    portalSession: () => Promise.resolve({
-                      id: 'portal-session-id',
-                      access_url: 'https://more4lessplans.chargebeeportal.com/portal',
-                      token: 'portal-session-token'
-                    }),
-                    success: () => console.log('Chargebee portal opened'),
-                    close: () => console.log('Chargebee portal closed'),
-                    error: (err) => {
-                      console.error('Error opening Chargebee portal:', err);
-                      window.location.href = '/login';
-                    }
-                  });
-                } else {
-                  console.error('Chargebee library not loaded');
-                  window.location.href = '/login';
-                }
-              } else {
-                window.location.href = href;
-              }
-            });
-          });
-        });
+
         // Handle Address Form Submission
-        addressForm.addEventListener('submit', (event) => {
-          event.preventDefault();
-          checkCoverageBtn.classList.add('btn-clicked');
-          window.location.href = checkCoverageBtn.getAttribute('href');
+        $addressForm.on('submit', function(e) {
+          e.preventDefault();
+          $checkCoverageBtn.addClass('btn-clicked');
+          window.location.href = $checkCoverageBtn.attr('href');
         });
       });
+
+      function fallbackInitializeNavbar() {
+        // Initialize Bootstrap collapse for navbar
+        $('.navbar-toggler').on('click', function() {
+          $('#navbar-content').collapse('toggle');
+          const isExpanded = $(this).attr('aria-expanded') === 'true';
+          $(this).attr('aria-expanded', !isExpanded);
+        });
+
+        // Close navbar on link click
+        $('.navbar-nav .nav-link').on('click', function() {
+          if ($(window).width() < 768) {
+            $('#navbar-content').collapse('hide');
+            $('.navbar-toggler').attr('aria-expanded', 'false');
+          }
+        });
+
+        // Scroll effect
+        $(window).scroll(function() {
+          $('#navbar').toggleClass('scrolled', $(window).scrollTop() > 50);
+        });
+      }
+
       function checkAddressCoverage(address) {
         const geocoder = new google.maps.Geocoder();
         geocoder.geocode({ address }, (results, status) => {
@@ -901,6 +880,7 @@
           }
         });
       }
+
       function showEligibleState(buttonContainer, moreInfo, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink, address) {
         buttonContainer.innerHTML = '';
         moreInfo.style.display = 'block';
@@ -912,6 +892,7 @@
         speedEstimateLink.setAttribute('onclick', `redirectToSpeedEstimate('${encodeURIComponent(address)}')`);
         resultContainer.classList.remove('success');
       }
+
       function showUnavailableState(buttonContainer, moreInfo, resultContainer, successCheckmark, availabilityText, proceedLink, divider, speedEstimateLink) {
         buttonContainer.innerHTML = `
           <div class="service-unavailable-text">Service Not Available</div>
@@ -925,6 +906,7 @@
         speedEstimateLink.style.display = 'none';
         resultContainer.classList.remove('success');
       }
+
       function resetForm() {
         const buttonContainer = document.getElementById('button-container');
         const resultContainer = document.getElementById('result-container');
@@ -943,8 +925,9 @@
         divider.style.display = 'none';
         speedEstimateLink.style.display = 'none';
       }
+
       function redirectToSpeedEstimate(address) {
-        window.location.href = `/speedestimate.html?address=${address}`;
+        window.location.href = `/speedestimate.html?address=${encodeURIComponent(address)}`;
       }
     </script>
   </body>
