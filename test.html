@@ -31,13 +31,12 @@
   <!-- Preconnect and Preload -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600&family=Rubik:wght@400;500&display=swap" as="style">
   <link rel="preload" href="assets/img/logos/logo.png" as="image">
 
-  <!-- Critical CSS (minified) -->
+<!-- Critical CSS (minified, adjusted) -->
   <style>
-    body{font-family:'Rubik',sans-serif;margin:0;padding:0;background:#fff}main{flex:1}.navbar-solid{position:fixed;top:0;width:100%;background:transparent;transition:background-color .5s ease;z-index:1000}.navbar-solid.scrolled{background:#2E2F33;box-shadow:0 2px 10px rgba(0,0,0,.1)}.navbar-brand img{width:80px;height:36px}.nav-link{color:#fff!important;font-weight:500}.nav-link:hover{color:#D73C59!important}.navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")}.hero-section{background:linear-gradient(to right,#2E2F33,#3b4666);color:#fff;padding:60px 0}.hero-section h1{font-family:'Figtree',sans-serif;font-size:2.5rem;font-weight:700}.hero-section p{font-size:1.1rem;color:#d1d5db}.form-control{padding:.75rem;border-radius:8px}.btn-primary{background:#2E2F33;border:2px solid #2E2F33;color:#fff;padding:.75rem 1.5rem;border-radius:8px}.btn-primary:hover{background:transparent;color:#2E2F33}.pricing-card{background:#f9f9f9;border-radius:8px;padding:1rem;box-shadow:0 2px 10px rgba(0,0,0,.05);transition:transform .3s}.pricing-card:hover{transform:translateY(-10px)}.pricing-card img{max-width:225px;height:auto;loading:lazy}.category{color:#D73C59;font-weight:700}.text-muted{color:#565656!important}#pricing{background:#fff;padding:40px 0}h1.pricing-title{font-size:2rem;color:#222831}.accordion-item{border:none}.accordion-button{background:#fff;font-weight:700}.accordion-body{padding:1rem;color:#565656}footer{background:#fff;padding:2rem 0;text-align:center}.footer-links a{color:#565656;text-decoration:none}.footer-links a:hover{color:#2E2F33}@media(max-width:767px){.pricing-card{width:100%;max-width:none}.hero-section h1{font-size:2rem}}
+    body{font-family:'Rubik',sans-serif;margin:0;padding:0;background:#fff}main{flex:1}.navbar-solid{position:fixed;top:0;width:100%;background:transparent;transition:background-color .3s ease-in-out;z-index:1000}.navbar-solid.scrolled{background:#2E2F33;box-shadow:0 2px 4px rgba(0,0,0,.1)}.navbar-brand img{width:80px;height:36px}.nav-link{color:#fff!important;font-weight:400;font-size:1rem}.nav-link:hover{color:#D73C59!important}.navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")}.hero-section{background:linear-gradient(to right,#2E2F33,#3b4666);color:#fff;padding:20px 0;margin:0}.hero-section h1{font-family:'Figtree',sans-serif;font-size:2.5rem;font-weight:700;margin-top:0}.hero-section p{font-size:1.1rem;color:#d1d5db}.form-control{padding:.75rem;border-radius:8px;border:1px solid #ced4da}.btn-primary{background:#2E2F33!important;border:2px solid #2E2F33!important;color:#fff!important;padding:.75rem 1.5rem;border-radius:8px;font-weight:400}.btn-primary:hover{background:transparent!important;color:#2E2F33!important;border-color:#2E2F33!important}.pricing-card{background:#f9f9f9;border-radius:8px;padding:1rem;box-shadow:0 2px 10px rgba(0,0,0,.05);transition:transform .3s;min-height:100%;display:flex;flex-direction:column;align-items:center}.pricing-card:hover{transform:translateY(-10px)}.pricing-card img{max-width:225px;height:auto;display:block;margin-left:auto;margin-right:auto}.category{color:#D73C59;font-weight:700}.text-muted{color:#565656!important}#pricing{background:#fff;padding:40px 0;margin:0;border-top:none}.pricing-col{display:flex;justify-content:center}h1.pricing-title{font-size:2rem;color:#222831}.accordion-item{border:none}.accordion-button{background:#fff;font-weight:400;font-size:1rem;color:#2E2F33}.accordion-button:not(.collapsed){background:#fff;color:#D73C59}.accordion-body{padding:1rem;color:#565656}.modal-content{background:linear-gradient(135deg,#f9f9f9 0%,#fff 100%);border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.15);border:none;padding:1.5rem}.modal-header{display:flex;justify-content:center;align-items:center;padding:0 0 1rem;border:none}.modal-title{font-size:1.5rem;font-weight:600;color:#2E2F33;padding:.5rem 1rem;width:100%;text-align:center;border-radius:8px;position:relative}.modal-title::after{content:"";width:50%;height:1px;background-color:#e3e3e3;position:absolute;bottom:0;left:50%;transform:translateX(-50%)}.modal-body .nav-link{color:#2E2F33;font-size:1.1rem;font-weight:400;padding:.5rem 0;display:block}.modal-body .nav-link:hover{color:#D73C59;background-color:rgba(215,60,89,.1);border-radius:5px}footer{background:#fff;padding:2rem 0;text-align:center}.footer-links a{color:#565656;text-decoration:none}.footer-links a:hover{color:#2E2F33}.result-container .success-text,.result-container .service-unavailable-text,.result-container .try-again,.result-container .speed-estimate-link{color:#fff!important}.divider{border-top:1px solid rgba(255,255,255,.3)}.mobile-menu{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:1050;display:none;justify-content:center;align-items:center}.mobile-menu.open{display:flex}.mobile-menu-content{background:linear-gradient(135deg,#f9f9f9 0%,#fff 100%);border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.15);width:90%;max-width:350px;padding:1.5rem}.mobile-menu-body .nav-link{color:#2E2F33;font-size:1.1rem;font-weight:400;padding:.5rem 0;display:block}.mobile-menu-body .nav-link:hover{color:#D73C59;background-color:rgba(215,60,89,.1);border-radius:5px}.buy-button{background:#2E2F33;border:2px solid #2E2F33;color:#fff;font-weight:600;border-radius:9px;padding:15px 45px;display:inline-block;text-decoration:none}.buy-button:hover{background:transparent;color:#2E2F33;border-color:#2E2F33}@media(max-width:767px){.pricing-card{width:100%;max-width:350px}.hero-section h1{font-size:2rem}.pricing-col{justify-content:center}}
   </style>
 
   <!-- Deferred CSS -->
@@ -52,99 +51,52 @@
 
 <body>
   <main class="main" id="top">
-    <nav class="navbar navbar-expand-md fixed-top navbar-solid" id="navbar">
-      <div class="container-fluid px-0">
-        <a href="/" class="navbar-brand"><img src="assets/img/logos/logo.png" alt="logo" loading="lazy" width="80" height="36"></a>
-        <button class="navbar-toggler border-0 pe-0 d-md-none" type="button" id="mobileMenuToggle" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-md-end d-none d-md-flex" id="navbar-content">
-          <ul class="navbar-nav gap-md-2 gap-lg-3 pt-x1 pb-1 pt-md-0 pb-md-0">
-            <li class="nav-item"><a class="nav-link lh-xl" href="#" data-toggle="modal" data-target="#existingCustomersModal">Existing Customers →</a></li>
-            <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="#pricing" data-scroll-target="pricing">Pricing</a></li>
-            <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="/contact">Contact</a></li>
-            <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="/mobility">Mobility</a></li>
-            <li class="nav-item"><a class="nav-link lh-xl desktop-nav-link" href="#question" data-scroll-target="question">FAQ</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <!-- Include External Navbar -->
+    <div id="navbar-placeholder"></div>
 
-    <div class="mobile-menu" id="mobileMenu">
-      <div class="mobile-menu-content">
-        <div class="mobile-menu-header"><h5 class="mobile-menu-title">Menu</h5></div>
-        <div class="mobile-menu-body">
-          <ul class="list-unstyled">
-            <li><a class="nav-link lh-xl fw-bold" href="#" data-toggle="modal" data-target="#existingCustomersModal">Existing Customers →</a></li>
-            <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="#pricing" data-scroll-target="pricing">Pricing</a></li>
-            <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="/contact">Contact</a></li>
-            <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="/mobility">Mobility</a></li>
-            <li><a class="nav-link lh-xl fw-bold mobile-nav-link" href="#question" data-scroll-target="question">FAQ</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    
 
-    <div class="modal fade" id="existingCustomersModal" tabindex="-1" role="dialog" aria-labelledby="existingCustomersModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="existingCustomersModalLabel">Existing Customers</h5>
-            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body text-center">
-            <ul class="list-unstyled">
-              <li><a class="nav-link lh-xl fw-bold existing-customer-link" href="javascript:void(0)" data-cb-type="portal">Account Login</a></li>
-              <li><a class="nav-link lh-xl fw-bold existing-customer-link" href="/tutorials.html">Tutorials</a></li>
-              <li><a class="nav-link lh-xl fw-bold existing-customer-link" href="/support.html">Technical Support</a></li>
-              <li><a class="nav-link lh-xl fw-bold" href="/terms#returns">Return Equipment</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <section class="hero-section overflow-hidden position-top z-0 mb-4 mb-lg-0" id="home">
-      <div class="hero-background">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-7 text-center text-lg-start align-self-start">
-              <h1 class="fs-1 fs-lg-1 text-white fw-bold mb-2 lh-base mt-3 mt-lg-0">High-Speed Wireless Internet Solutions</h1>
-              <p class="fs-8 text-white mb-3 mb-lg-4 lh-lg">Blazing fast, unlimited internet with no slowdowns for just $110/month and a one-time hardware fee.</p>
-              <form id="address-form" class="text-center text-lg-start">
-                <div class="position-relative mb-3">
-                  <input class="form-control" type="text" id="address" name="address" placeholder="Search for Your Address" required>
-                  <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#565656" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:12px;top:50%;transform:translateY(-50%)">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  </svg>
-                </div>
-                <div class="d-grid" id="button-container">
-                  <button class="btn btn-primary lh-xl" type="submit" id="check-coverage-btn">Check Availability</button>
-                </div>
-                <div class="result-container" id="result-container">
-                  <div class="more-info" id="more-info" style="display:none">
-                    <a href="#pricing" class="success-link">
-                      <div class="success-text">
-                        <span class="success-checkmark" style="display:none">✓</span>
-                        <p class="availability-text" style="display:none">High-Speed Internet is Available</p>
-                        <span class="proceed-to-order" style="display:none">Sign Up Now ↓</span>
-                      </div>
-                    </a>
-                    <hr class="divider" style="display:none">
-                    <a href="#" class="speed-estimate-link" style="display:none" onclick="redirectToSpeedEstimate()">Get a Speed Estimate →</a>
-                  </div>
-                </div>
-              </form>
+<section class="hero-section" id="home">
+  <div class="hero-background">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 text-center text-lg-start align-self-start">
+          <h1 class="fs-1 fs-lg-1 text-white fw-bold mb-2 lh-base">High-Speed Wireless Internet Solutions</h1>
+          <p class="fs-8 text-white mb-3 mb-lg-4 lh-lg">Blazing fast, unlimited internet with no slowdowns for just $110/month and a one-time hardware fee.</p>
+          <form id="address-form" class="text-center text-lg-start">
+            <div class="position-relative mb-3">
+              <input class="form-control" type="text" id="address" name="address" placeholder="Search for Your Address" required>
+              <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#565656" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position:absolute;right:12px;top:50%;transform:translateY(-50%)">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
             </div>
-          </div>
+            <div class="d-grid" id="button-container">
+              <button class="btn lh-xl" type="submit" id="check-coverage-btn">Check Availability</button>
+            </div>
+            <div class="result-container" id="result-container">
+              <div class="more-info" id="more-info" style="display:none">
+                <a href="#pricing" class="success-link">
+                  <div class="success-text">
+                    <span class="success-checkmark" style="display:none">✓</span>
+                    <p class="availability-text" style="display:none">High-Speed Internet is Available</p>
+                    <span class="proceed-to-order" style="display:none">Sign Up Now ↓</span>
+                  </div>
+                </a>
+                <hr class="divider" style="display:none">
+                <a href="#" class="speed-estimate-link" style="display:none" onclick="redirectToSpeedEstimate()">Get a Speed Estimate →</a>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <section id="pricing" style="background-color:#ffffff">
       <div class="container py-8 py-lg-10">
-        <div class="row justify-content-center text-center py-5" style="background:linear-gradient(to right,#FFFFFF,#FFFFFF);border-radius:10px">
+        <div class="row justify-content-center text-center py-5">
           <div class="col-md-8 col-lg-7">
             <h1 class="pricing-title fs-2 fs-lg-1 fw-bold mb-3 lh-sm">Plug-and-Play 5G/LTE Internet</h1>
             <p class="pricing-subtitle fw-medium mb-2 lh-sm text-secondary" style="max-width:600px;margin:0 auto;text-align:center;font-size:1.35rem">Wireless Internet Package</p>
@@ -156,137 +108,198 @@
         <div class="row justify-content-center g-4">
           <div class="col-12 col-md-6 col-lg-4 pricing-col">
             <a href="m1" class="pricing-card-link">
-              <div class="pricing-card text-center border shadow-sm rounded-2 p-3 d-flex flex-column align-items-center">
+              <div class="pricing-card text-center border shadow-sm rounded-2 p-3">
                 <div class="mb-3">
                   <p class="category text-danger fw-bold fs-6">On-the-Go</p>
                   <p class="description text-muted">Ultimate Mobile Connectivity</p>
                 </div>
-                <img src="assets/img/products/mr1100.webp" alt="MR1100" class="mb-3" width="225" height="225" loading="lazy" decoding="async">
+                <img src="assets/img/products/mr1100.png" alt="Nighthawk M1" class="mb-3" width="225" height="225" loading="lazy" decoding="async">
                 <p class="model text-danger text-uppercase fw-bold fs-10 mb-3">Nighthawk M1</p>
                 <h2 class="mb-3"><span class="fs-6 fw-bold">$</span><span class="fs-2 fw-bold">149</span></h2>
                 <ul class="list-unstyled fs-8 fw-light text-muted mb-3 tight-spacing">
                   <li class="py-1 px-1 border-top">Pocket-Sized LTE Hotspot</li>
                   <li class="py-1 px-1">Road-Ready with Simple Setup</li>
                 </ul>
-                <div id="product-component-1742510942591" class="mt-auto button-container"></div>
+                <a href="https://more4less-plans.myshopify.com/cart/43787668357300:1?channel=buy_button" class="buy-button mt-auto">Sign Up →</a>
               </div>
             </a>
           </div>
           <div class="col-12 col-md-6 col-lg-4 pricing-col">
             <a href="orbi" class="pricing-card-link">
-              <div class="pricing-card text-center border shadow-sm rounded-2 p-3 d-flex flex-column align-items-center">
+              <div class="pricing-card text-center border shadow-sm rounded-2 p-3">
                 <div class="mb-3">
                   <p class="category text-danger fw-bold fs-6">Home Use</p>
                   <p class="description text-muted">Reliable Connection for Your Home</p>
                 </div>
-                <img src="assets/img/products/LBR20.webp" alt="LBR20" class="mb-3" width="225" height="225" loading="lazy" decoding="async">
+                <img src="assets/img/products/LBR20.png" alt="Orbi LBR20" class="mb-3" width="225" height="225" loading="lazy" decoding="async">
                 <p class="model text-danger text-uppercase fw-bold fs-10 mb-3">ORBI</p>
                 <h2 class="mb-3"><span class="fs-6 fw-bold">$</span><span class="fs-2 fw-bold">249</span></h2>
                 <ul class="list-unstyled fs-8 fw-light text-muted mb-3 tight-spacing">
                   <li class="py-1 px-1 border-top">4G LTE Wi-Fi Router</li>
                   <li class="py-1 px-1">Easy Setup, Instant Connection</li>
                 </ul>
-                <div id="product-component-1726059423351" class="mt-auto button-container"></div>
+                <a href="https://more4less-plans.myshopify.com/cart/43787668357300:1?channel=buy_button" class="buy-button mt-auto">Sign Up →</a>
               </div>
             </a>
           </div>
           <div class="col-12 col-md-6 col-lg-4 pricing-col">
             <a href="m6" class="pricing-card-link">
-              <div class="pricing-card text-center border shadow-sm rounded-2 p-3 d-flex flex-column align-items-center">
+              <div class="pricing-card text-center border shadow-sm rounded-2 p-3">
                 <div class="mb-3">
                   <p class="category text-danger fw-bold fs-6">On-the-Go</p>
                   <p class="description text-muted">High-Performance Mobile Hotspot</p>
                 </div>
-                <img src="assets/img/products/mr6110.webp" alt="MR6500" class="mb-3" width="225" height="225" loading="lazy" decoding="async">
+                <img src="assets/img/products/mr6110.png" alt="Nighthawk M6" class="mb-3" width="225" height="225" loading="lazy" decoding="async">
                 <p class="model text-danger text-uppercase fw-bold fs-10 mb-3">Nighthawk M6</p>
                 <h2 class="mb-3"><span class="fs-6 fw-bold">$</span><span class="fs-2 fw-bold">349</span></h2>
                 <ul class="list-unstyled fs-8 fw-light text-muted mb-3 tight-spacing">
                   <li class="py-1 px-1 border-top">Pocket-Sized 5G Hotspot</li>
                   <li class="py-1 px-1">Travel-Friendly with Simple Setup</li>
                 </ul>
-                <div id="product-component-1736017271841" class="mt-auto button-container"></div>
+                <a href="https://more4less-plans.myshopify.com/cart/43787668357300:1?channel=buy_button" class="buy-button mt-auto">Sign Up →</a>
               </div>
             </a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section style="background-color:#2E2F34" id="question">
-        <div class="container">
-          <div class="row py-8 py-md-10 py-lg-11">
-            <div class="col-lg-6">
-              <div class="row justify-content-center justify-content-lg-start">
-                <div class="col-md-8 col-lg-12 col-xl-11">
-                  <h2 class="text-white fs-4 fs-lg-3 lh-sm mb-2 text-center text-lg-start fw-bold">Common Questions About Our Service:</h2>
-                  <p class="fs-8 text-white text-opacity-65 mb-4 mb-md-6 mb-lg-7 lh-lg text-center text-lg-start">Reach out to us with any of your questions!</p>
-                </div>
-                <div class="col-lg-10">
-                  <div class="d-flex gap-2 gap-lg-3 mb-4 mb-lg-5">
-                    <div>
-                      <h5 class="fs-8 fw-bold lh-lg mb-1 text-white"><span class="d-inline-flex align-items-center justify-content-center text-white rounded-circle me-2" style="width:24px;height:24px;background-color:#D73C59"><i class="uil uil-check"></i></span>Try Risk Free for 30 Days</h5>
-                      <p class="lh-xl text-white text-opacity-70 mb-0">Test our service worry-free with a 30-day money-back guarantee.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="accordion mt-lg-4 ps-3 pe-x1 bg-white" id="accordion">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading1"><button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">Can I Use My Own Equipment?</button></h2>
-                  <div class="accordion-collapse collapse show" id="collapse1" data-parent="#accordion"><div class="accordion-body lh-xl pt-0 pb-x1">You need to purchase equipment from us to use the service. However, you can connect your own dedicated router in bridge mode to our equipment.</div></div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading2"><button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">What Speeds Will I Get?</button></h2>
-                  <div class="accordion-collapse collapse" id="collapse2" data-parent="#accordion"><div class="accordion-body lh-xl pt-0 pb-x1">If your cell phone has a strong signal in your area, you can generally expect good wireless internet coverage as well. You can request a speed estimate from us <a href="speedestimate">here</a>.</div></div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading3"><button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">Can I Take My Router To The USA?</button></h2>
-                  <div class="accordion-collapse collapse" id="collapse3" data-parent="#accordion"><div class="accordion-body lh-xl pt-0 pb-x1">Yes, our service works in Canada, the USA, and Mexico!</div></div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading4"><button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">Is It Actually Unlimited Wi-Fi?</button></h2>
-                  <div class="accordion-collapse collapse" id="collapse4" data-parent="#accordion"><div class="accordion-body lh-xl pt-0 pb-x1">Yes, our internet is truly unlimited! There are no slowdowns or data caps. Enjoy fast, unrestricted browsing at all times.</div></div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading5"><button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">Is This Satellite Internet?</button></h2>
-                  <div class="accordion-collapse collapse" id="collapse5" data-parent="#accordion"><div class="accordion-body lh-xl pt-0 pb-x1">No, we utilize LTE and 5G which offers lower latency, better coverage, and more stable connections compared to satellite internet.</div></div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading6"><button class="accordion-button fs-8 lh-lg fw-bold pt-x1 pb-2 collapsed" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">Do I Need To Schedule An Installation?</button></h2>
-                  <div class="accordion-collapse collapse" id="collapse6" data-parent="#accordion"><div class="accordion-body lh-xl pt-0 pb-x1">No! Our Wireless Internet service is plug and play and fully portable.</div></div>
-                </div>
+   <section style="background-color:#2E2F34" id="question">
+  <div class="container">
+    <div class="row py-8 py-md-10 py-lg-11">
+      <div class="col-lg-6">
+        <div class="row justify-content-center justify-content-lg-start">
+          <div class="col-md-8 col-lg-12 col-xl-11">
+            <h2 class="text-white fs-4 fs-lg-3 lh-sm mb-2 text-center text-lg-start">
+             <strong>Common Questions About Our Service:</strong> 
+            </h2>
+            <p class="fs-8 text-white text-opacity-75 mb-4 mb-md-6 mb-lg-7 lh-lg text-center text-lg-start">
+              Reach out to us with any of your questions!
+            </p>
+          </div>
+          <div class="col-lg-10">
+            <div class="d-flex gap-2 gap-lg-3 mb-4 mb-lg-5">
+              <div>
+                <h5 class="fs-8 fw-bold lh-lg mb-1 text-white">
+                  <span class="d-inline-flex align-items-center justify-content-center text-white rounded-circle me-2" style="width:24px;height:24px;background-color:#D73C59">
+                    <i class="uil uil-check"></i>
+                  </span>
+                  Try Risk Free for 30 Days
+                </h5>
+                <p class="lh-xl text-white text-opacity-70 mb-0">
+                  Test our service worry-free with a 30-day money-back guarantee.
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section class="bg-300 position-relative z-0" id="contact">
-        <div class="container py-8 py-lg-9">
-          <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-8">
-              <div class="row justify-content-center">
-                <div class="col-12 col-lg-10">
-                  <p class="fs-8 text-center lh-lg fw-normal" style="margin-bottom:10px">Reliable internet, anywhere. Easy setup, fast speeds, and real support when you need it. Stay connected—at home, on the road, or off-grid.</p>
-                </div>
+      <div class="col-lg-6">
+        <div class="accordion mt-lg-4 bg-white" id="accordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading1">
+              <button class="accordion-button px-3 px-lg-4 fw-bold" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                Can I Use My Own Equipment?
+              </button>
+            </h2>
+            <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-parent="#accordion">
+              <div class="accordion-body lh-xl pt-0 pb-1 px-3 px-lg-4 text-body">
+                You need to purchase equipment from us to use the service. However, you can connect your own dedicated router in bridge mode to our equipment.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading2">
+              <button class="accordion-button collapsed px-3 px-lg-4 fw-bold" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                What Speeds Will I Get?
+              </button>
+            </h2>
+            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-parent="#accordion">
+              <div class="accordion-body lh-xl pt-0 pb-1 px-3 px-lg-4 text-body">
+                If your cell phone has a strong signal in your area, you can generally expect good wireless internet coverage as well. You can request a speed estimate from us
+                <a href="speedestimate">here</a>.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading3">
+              <button class="accordion-button collapsed px-3 px-lg-4 fw-bold" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                Can I Take My Router To The USA?
+              </button>
+            </h2>
+            <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-parent="#accordion">
+              <div class="accordion-body lh-xl pt-0 pb-1 px-3 px-lg-4 text-body">
+                Yes, our service works in Canada, the USA, and Mexico!
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading4">
+              <button class="accordion-button collapsed px-3 px-lg-4 fw-bold" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                Is It Actually Unlimited Wi-Fi?
+              </button>
+            </h2>
+            <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-parent="#accordion">
+              <div class="accordion-body lh-xl pt-0 pb-1 px-3 px-lg-4 text-body">
+                Yes, our internet is truly unlimited! There are no slowdowns or data caps. Enjoy fast, unrestricted browsing at all times.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading5">
+              <button class="accordion-button collapsed px-3 px-lg-4 fw-bold" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                Is This Satellite Internet?
+              </button>
+            </h2>
+            <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-parent="#accordion">
+              <div class="accordion-body lh-xl pt-0 pb-1 px-3 px-lg-4 text-body">
+                No, we utilize LTE and 5G which offers lower latency, better coverage, and more stable connections compared to satellite internet.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading6">
+              <button class="accordion-button collapsed px-3 px-lg-4 fw-bold" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                Do I Need To Schedule An Installation?
+              </button>
+            </h2>
+            <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-parent="#accordion">
+              <div class="accordion-body lh-xl pt-0 pb-1 px-3 px-lg-4 text-body">
+                No! Our Wireless Internet Service is plug-and-play and fully portable!
               </div>
             </div>
           </div>
         </div>
-        <div class="position-relative bottom-0 start-0 z-1">
-          <img class="img-fluid w-100" src="assets/img/illustrations/Wave_3.svg" alt="" loading="lazy" decoding="async">
-        </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <footer>
-        <p class="footer-links">
-          <a href="/privacy-policy">Privacy</a>
-          <a href="/terms">Terms</a>
-        </p>
-        <hr class="footer-divider">
-        <p class="footer-copyright">© <span id="currentYear"></span> Copyright, All Rights Reserved</p>
-      </footer>
+    <section class="bg-300 position-relative z-0" id="contact">
+      <div class="container py-8 py-lg-9">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-8">
+            <div class="row justify-content-center">
+              <div class="col-12 col-lg-10">
+                <p class="fs-8 text-center lh-lg fw-normal" style="margin-bottom:10px">Reliable internet, anywhere. Easy setup, fast speeds, and real support when you need it. Stay connected—at home, on the road, or off-grid.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="position-relative bottom-0 start-0 z-1">
+        <img class="img-fluid w-100" src="assets/img/illustrations/Wave_3.svg" alt="" loading="Wave" lazy="lazy" decoding="async">
+      </div>
+    </section>
+
+    <!-- Include External Footer -->
+    <div id="footer-placeholder"></div>
   </main>
 
   <!-- Deferred Scripts -->
@@ -296,20 +309,36 @@
   <script defer src="vendors/is/is.min.js"></script>
   <script defer src="vendors/countup/countUp.umd.js"></script>
   <script defer src="vendors/swiper/swiper-bundle.min.js"></script>
-  <script defer src="vendors/lodash/lodash.min.js"></script>
+  <script defer src="vendors/js/lodash.min.js"></script>
   <script defer src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
   <script defer src="assets/js/theme.js"></script>
 
   <!-- Lazy-Loaded Third-Party Scripts -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    $(document).ready(function() {
+      // Load Navbar
+      $("#navbar-placeholder").load("/navbar.html", function(response, status) {
+        if (status === "error") {
+          console.error("Failed to load navbar.html");
+        }
+      });
+
+      // Load Footer
+      $("#footer-placeholder").load("/footer.html", function(response, status) {
+        if (status === "error") {
+          console.error("Failed to load footer.html");
+        }
+        // Update year after footer loads
+        $('.current-year').text(new Date().getFullYear());
+      });
+
       // Load Google Tag Manager
       const gtagScript = document.createElement('script');
       gtagScript.async = true;
       gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-10988139493';
       document.head.appendChild(gtagScript);
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() { dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', 'AW-10988139493');
 
@@ -318,7 +347,7 @@
       addressInput.addEventListener('focus', function loadGoogleMaps() {
         if (!window.google) {
           const mapsScript = document.createElement('script');
-          mapsScript.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDNt4XeQ5roadq0L-IpadA6s9e4CPm9FwI&libraries=places';
+          mapsScript.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDNt4XeQAA5troadq0L-IpadaQ6s9e4CPm9FwI&libraries=places';
           mapsScript.async = true;
           document.head.appendChild(mapsScript);
           mapsScript.onload = initializeAutocomplete;
@@ -330,10 +359,10 @@
         new google.maps.places.Autocomplete(addressInput);
       }
 
-      // Load Chargebee and Shopify only when needed
+      // Load Chargebee for Existing Customers
       const existingCustomerLinks = document.querySelectorAll('.existing-customer-link[data-cb-type="portal"]');
       existingCustomerLinks.forEach(link => {
-        link.addEventListener('click', function loadChargebeeAndShopify() {
+        link.addEventListener('click', function loadChargebee() {
           if (!window.Chargebee) {
             const chargebeeScript = document.createElement('script');
             chargebeeScript.src = 'https://js.chargebee.com/v2/chargebee.js';
@@ -342,21 +371,14 @@
             document.head.appendChild(chargebeeScript);
             chargebeeScript.onload = initializeChargebee;
           }
-          if (!window.ShopifyBuy) {
-            const shopifyScript = document.createElement('script');
-            shopifyScript.src = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
-            shopifyScript.async = true;
-            document.head.appendChild(shopifyScript);
-            shopifyScript.onload = initShopifyBuy;
-          }
-          link.removeEventListener('click', loadChargebeeAndShopify);
+          link.removeEventListener('click', loadChargebee);
         });
       });
 
       function initializeChargebee() {
         const cbInstance = Chargebee.init({
           site: 'more4lessplans',
-          publishableKey: 'live_9xoL0GUAJyfaZddNn5cdFhI4hrLAGhyIh' // Replace with actual key
+          publishableKey: 'live_9xoL0GUAJyfaZddNn5cdFhI4hrLAGhyIh'
         });
         existingCustomerLinks.forEach(link => {
           link.addEventListener('click', () => {
@@ -375,145 +397,116 @@
         });
       }
 
-      function initShopifyBuy() {
-        const client = ShopifyBuy.buildClient({
-          domain: 'checkout.more4lessplans.ca',
-          storefrontAccessToken: '8919363113a077a0d17cd850b89265f4'
-        });
-        ShopifyBuy.UI.onReady(client).then(function(ui) {
-          const products = [
-            { id: '7304977416372', node: 'product-component-1742510942591' },
-            { id: '7337501720756', node: 'product-component-1726059423351' },
-            { id: '7906799452340', node: 'product-component-1736017271841' }
-          ];
-          products.forEach(product => {
-            ui.createComponent('product', {
-              id: product.id,
-              node: document.getElementById(product.node),
-              moneyFormat: '%24%7B%7Bamount%7D%7D',
-              options: {
-                product: {
-                  contents: { img: false, title: false, price: false },
-                  buttonDestination: 'checkout',
-                  text: { button: 'Sign Up →' },
-                  styles: {
-                    button: {
-                      border: '2px solid #2E2F33',
-                      'background-color': '#2E2F33',
-                      color: '#fff',
-                      'font-weight': '600',
-                      'border-radius': '9px',
-                      padding: '15px 45px',
-                      transition: 'all 0.3s ease'
-                    }
-                  }
-                }
-              }
-            });
-          });
-        });
-      }
-
       // Core Event Listeners
-      document.getElementById('currentYear').textContent = new Date().getFullYear();
-      const navbar = document.getElementById('navbar');
-      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const addressForm = document.getElementById('address-form');
-      const checkCoverageBtn = document.getElementById('check-coverage-btn');
+const navbar = document.querySelector('.navbar-solid');
+const mobileMenuToggle = document.querySelector('#mobileMenuToggle');
+const mobileMenu = document.querySelector('#mobileMenu');
+const addressForm = document.querySelector('#address-form');
+const checkCoverageBtn = document.querySelector('#check-coverage-btn');
 
-      window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 50);
-      });
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+}
 
-      mobileMenuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('open');
-      });
+if (mobileMenuToggle) {
+  mobileMenuToggle.addEventListener('click', () => {
+    if (mobileMenu) {
+      mobileMenu.classList.toggle('open');
+    }
+  });
+}
 
-      mobileMenu.addEventListener('click', (event) => {
-        if (event.target === mobileMenu) {
-          mobileMenu.classList.remove('open');
-        }
-      });
+if (mobileMenu) {
+  mobileMenu.addEventListener('click', (event) => {
+    if (event.target === mobileMenu) {
+      mobileMenu.classList.remove('open');
+    }
+  });
+}
 
-      const navLinks = document.querySelectorAll('.desktop-nav-link, .mobile-nav-link');
-      navLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-          const scrollTarget = link.getAttribute('data-scroll-target');
-          if (scrollTarget) {
-            event.preventDefault();
-            document.getElementById(scrollTarget).scrollIntoView({ behavior: 'smooth' });
-            if (link.classList.contains('mobile-nav-link')) {
-              mobileMenu.classList.remove('open');
-            }
-          }
-        });
-      });
-
-      addressForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        if (window.google) {
-          checkAddressCoverage(document.getElementById('address').value);
-        }
-      });
-
-      checkCoverageBtn.addEventListener('click', () => {
-        checkCoverageBtn.classList.add('btn-clicked');
-      });
-
-      document.querySelectorAll('.button-container').forEach(button => {
-        button.addEventListener('click', (event) => {
-          event.stopPropagation();
-        });
-      });
-
-      function checkAddressCoverage(address) {
-        const geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ address }, (results, status) => {
-          const moreInfo = document.getElementById('more-info');
-          const buttonContainer = document.getElementById('button-container');
-          const resultContainer = document.getElementById('result-container');
-          const successCheckmark = moreInfo.querySelector('.success-checkmark');
-          const availabilityText = moreInfo.querySelector('.availability-text');
-          const proceedLink = moreInfo.querySelector('.proceed-to-order');
-          const divider = moreInfo.querySelector('.divider');
-          const speedEstimateLink = moreInfo.querySelector('.speed-estimate-link');
-
-          if (status === 'OK' && results.length > 0 && results[0].address_components.find(c => c.types.includes('country')).short_name === 'CA') {
-            buttonContainer.innerHTML = '';
-            moreInfo.style.display = 'block';
-            successCheckmark.style.display = 'block';
-            availabilityText.style.display = 'block';
-            proceedLink.style.display = 'block';
-            divider.style.display = 'block';
-            speedEstimateLink.style.display = 'block';
-            speedEstimateLink.setAttribute('onclick', `redirectToSpeedEstimate('${encodeURIComponent(address)}')`);
-          } else {
-            buttonContainer.innerHTML = '<div class="service-unavailable-text">Service Not Available</div><div class="try-again" onclick="resetForm()">↻ Try Another Address</div>';
-            moreInfo.style.display = 'none';
-            successCheckmark.style.display = 'none';
-            availabilityText.style.display = 'none';
-            proceedLink.style.display = 'none';
-            divider.style.display = 'none';
-            speedEstimateLink.style.display = 'none';
-          }
-          resultContainer.classList.remove('success');
-        });
+const navLinks = document.querySelectorAll('.desktop-nav-link, .mobile-nav-link');
+navLinks.forEach(link => {
+  link.addEventListener('click', (event) => {
+    const scrollTarget = link.getAttribute('data-scroll-target');
+    if (scrollTarget) {
+      event.preventDefault();
+      document.getElementById(scrollTarget).scrollIntoView({ behavior: 'smooth' });
+      if (link.classList.contains('mobile-nav-link') && mobileMenu) {
+        mobileMenu.classList.remove('open');
       }
+    }
+  });
+});
 
-      function resetForm() {
-        const buttonContainer = document.getElementById('button-container');
-        const resultContainer = document.getElementById('result-container');
-        const moreInfo = document.getElementById('more-info');
-        buttonContainer.innerHTML = '<button class="btn btn-primary lh-xl" type="submit" id="check-coverage-btn">Check Availability</button>';
-        resultContainer.classList.remove('success');
-        moreInfo.style.display = 'none';
-      }
+if (addressForm) {
+  addressForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (window.google) {
+      checkAddressCoverage(document.getElementById('address').value);
+    }
+  });
+}
 
-      function redirectToSpeedEstimate(address) {
-        window.location.href = `/speedestimate.html?address=${address}`;
-      }
-    });
+if (checkCoverageBtn) {
+  checkCoverageBtn.addEventListener('click', () => {
+    checkCoverageBtn.classList.add('btn-clicked');
+  });
+}
+
+document.querySelectorAll('.button-container').forEach(button => {
+  button.addEventListener('click', (event) => {
+    event.stopPropagation();
+  });
+});
+
+function checkAddressCoverage(address) {
+  const geocoder = new google.maps.Geocoder();
+  geocoder.geocode({ address }, (results, status) => {
+    const moreInfo = document.getElementById('more-info');
+    const buttonContainer = document.querySelector('.button-container');
+    const resultContainer = document.getElementById('result-container');
+    const successCheckmark = moreInfo.querySelector('.success-checkmark');
+    const availabilityText = moreInfo.querySelector('.availability-text');
+    const proceedLink = moreInfo.querySelector('.proceed-to-order');
+    const dividerDiv = moreInfo.querySelector('.divider');
+    const speedEstimateLink = moreInfo.querySelector('.speed-estimate-link');
+
+    if (
+      status === 'OK' &&
+      results.length > 0 &&
+      results[0].address_components.find(c => c.types.includes('country')).short_name === 'CA'
+    ) {
+      buttonContainer.innerHTML = '';
+      moreInfo.style.display = 'block';
+      successCheckmark.style.display = 'block';
+      availabilityText.style.display = 'block';
+      proceedLink.style.display = 'block';
+      dividerDiv.style.display = 'block';
+      speedEstimateLink.style.display = 'block';
+      speedEstimateLink.setAttribute('onclick', `redirectToSpeedEstimate('${encodeURIComponent(address)}')`);
+    } else {
+      buttonContainer.innerHTML = '<div class="service-unavailable-text">Service Not Available</div><div class="try-again" onclick="resetForm()">↻ Try Another Address</div>';
+      moreInfo.style.display = 'none';
+      successCheckmark.style.display = 'none';
+      availabilityText.style.display = 'none';
+      proceedLink.style.display = 'none';
+      dividerDiv.style.display = 'none';
+      speedEstimateLink.style.display = 'none';
+    }
+    resultContainer.classList.remove('success');
+  });
+}
+
+function resetForm() {
+  const buttonContainer = document.querySelector('.button-container');
+  const resultContainer = document.getElementById('result-container');
+  const moreInfo = document.getElementById('more-info');
+  buttonContainer.innerHTML = '<button class="btn btn-primary lh-xl" type="submit" id="check-coverage-btn">Check Availability</button>';
+  resultContainer.classList.remove('success');
+  moreInfo.style.display = 'none';
+}
   </script>
 </body>
 </html>
