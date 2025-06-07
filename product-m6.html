@@ -41,7 +41,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- External Stylesheets -->
-  <link rel="stylesheet" href="/navbar.css">
+ <link rel="stylesheet" href="/navbar.css">
   <link rel="stylesheet" href="/footer.css">
 
   <!-- Custom CSS -->
@@ -427,7 +427,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Load navbar
+        // Load navbar
       fetch('/navbar.html')
         .then(response => {
           if (!response.ok) throw new Error('Failed to load navbar.html: ' + response.status);
@@ -437,16 +437,8 @@
           document.getElementById('navbar-container').innerHTML = data;
           const navbarScript = document.createElement('script');
           navbarScript.src = '/navbar.js';
-          navbarScript.async = true;
           navbarScript.onload = function() {
-            if (typeof initializeNavbar === 'function') {
-              initializeNavbar();
-            } else {
-              console.error('initializeNavbar function not found in navbar.js');
-            }
-          };
-          navbarScript.onerror = function() {
-            console.error('Failed to load navbar.js');
+            initializeNavbar(); // Assumes this function exists in navbar.js
           };
           document.body.appendChild(navbarScript);
         })
@@ -460,10 +452,7 @@
         })
         .then(data => {
           document.getElementById('footer-container').innerHTML = data;
-          const yearElement = document.getElementById('currentYear');
-          if (yearElement) {
-            yearElement.textContent = new Date().getFullYear();
-          }
+          document.getElementById('currentYear').textContent = new Date().getFullYear();
         })
         .catch(error => console.error('Error loading footer:', error));
     });
