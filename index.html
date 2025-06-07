@@ -833,33 +833,7 @@
 
 <script>
 
-  // Checkout Modal Handling
-const checkoutModal = document.getElementById('checkoutModal');
-const checkoutIframe = document.getElementById('checkoutIframe');
-const closeModal = document.querySelector('.checkout-modal-close');
-
-document.querySelectorAll('.checkout-button').forEach(button => {
-  button.addEventListener('click', (event) => {
-    event.stopPropagation();
-    const checkoutUrl = button.getAttribute('data-checkout-url');
-    checkoutIframe.src = checkoutUrl;
-    checkoutModal.style.display = 'flex';
-  });
-});
-
-closeModal.addEventListener('click', () => {
-  checkoutModal.style.display = 'none';
-  checkoutIframe.src = ''; // Clear iframe to prevent memory leaks
-});
-
-// Close modal on outside click
-checkoutModal.addEventListener('click', (event) => {
-  if (event.target === checkoutModal) {
-    checkoutModal.style.display = 'none';
-    checkoutIframe.src = '';
-  }
-});
-
+  
   document.addEventListener('DOMContentLoaded', function () {
     const yearEl = document.getElementById('currentYear');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
