@@ -816,13 +816,6 @@
         <p class="footer-copyright">© <span id="currentYear"></span> Copyright, All Rights Reserved</p>
       </footer>
 
-      <div id="checkoutModal" class="checkout-modal" style="display: none;">
-  <div class="checkout-modal-content">
-    <span class="checkout-modal-close">&times;</span>
-    <iframe id="checkoutIframe" src="" frameborder="0" style="width: 100%; height: 100%;"></iframe>
-  </div>
-</div>
-
     </main>
 <!-- External Libraries (loaded with defer where safe) -->
 
@@ -839,6 +832,34 @@
 <script src="assets/js/theme.js" defer></script>
 
 <script>
+
+  // Checkout Modal Handling
+const checkoutModal = document.getElementById('checkoutModal');
+const checkoutIframe = document.getElementById('checkoutIframe');
+const closeModal = document.querySelector('.checkout-modal-close');
+
+document.querySelectorAll('.checkout-button').forEach(button => {
+  button.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const checkoutUrl = button.getAttribute('data-checkout-url');
+    checkoutIframe.src = checkoutUrl;
+    checkoutModal.style.display = 'flex';
+  });
+});
+
+closeModal.addEventListener('click', () => {
+  checkoutModal.style.display = 'none';
+  checkoutIframe.src = ''; // Clear iframe to prevent memory leaks
+});
+
+// Close modal on outside click
+checkoutModal.addEventListener('click', (event) => {
+  if (event.target === checkoutModal) {
+    checkoutModal.style.display = 'none';
+    checkoutIframe.src = '';
+  }
+});
+
   document.addEventListener('DOMContentLoaded', function () {
     const yearEl = document.getElementById('currentYear');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
