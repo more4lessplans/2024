@@ -59,33 +59,36 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-    .section-title {
+    .pricing-header {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
-    .section-title h1 {
+    .pricing-title {
       font-size: 2.5rem;
-      color: #2E2F33;
-      position: relative;
-      display: inline-block;
-      padding-bottom: 10px;
+      font-weight: 700;
+      color: #222831;
       margin-bottom: 1rem;
     }
-    .section-title h1::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background: #2E2F33;
+    .pricing-subtitle {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #6b7280;
+      max-width: 600px;
+      margin: 0 auto 1rem;
     }
-    .section-title p {
-      font-size: 1.1rem;
-      color: #565656;
-      max-width: 800px;
-      margin: 0 auto;
+    .price-highlight {
+      color: #D73C59;
+      font-weight: 700;
+    }
+    .pricing-divider {
+      width: 100px;
+      border: 2px solid #e3e3e3;
+      margin: 1rem auto;
+    }
+    .pricing-text {
+      font-size: 0.95rem;
+      color: #9CA3AF;
+      margin-bottom: 1rem;
     }
     .shopify-section {
       text-align: center;
@@ -93,8 +96,8 @@
     }
     @media (max-width: 767px) {
       #product-section { padding: 30px 0; }
-      .section-title h1 { font-size: 2rem; }
-      .section-title p { font-size: 1rem; }
+      .pricing-title { font-size: 2rem; }
+      .pricing-subtitle { font-size: 1.1rem; }
       .shopify-buy__btn,
       .shopify-buy__product__description {
         text-align: center !important;
@@ -115,9 +118,12 @@
     <section id="product-section">
       <div class="container">
         <!-- Title and Subtitle -->
-        <div class="section-title">
-          <h1>Nighthawk M1 Package</h1>
-          <p>Explore the Nighthawk M1 4G LTE Mobile Package for high-speed internet anywhere in Canada.</p>
+        <div class="pricing-header">
+          <h1 class="pricing-title">Plug-and-Play 5G/LTE Internet</h1>
+          <p class="pricing-subtitle">Wireless Internet Package</p>
+          <hr class="pricing-divider">
+          <p class="pricing-subtitle">Unlimited High-Speed Internet for <span class="price-highlight">$110/mo.</span></p>
+          <p class="pricing-text">One-time equipment cost - shipped to your door!</p>
         </div>
 
         <!-- Shopify Button -->
