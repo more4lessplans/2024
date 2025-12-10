@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html data-bs-theme="light" lang="en-US" dir="ltr">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans" ></script>
 
   <!-- SEO and Meta Tags -->
-  <title>Activate Your Service | More4Less Wireless Internet & SIM Plans</title>
-  <meta name="keywords" content="activate router, activate SIM, More4Less activation, wireless internet activation, SIM card activation, high-speed internet setup, Canada internet activation, LTE 5G activation, mobile data plans, router setup">
-  <meta name="description" content="Activate your More4Less router or SIM card quickly and easily. Get high-speed wireless internet or mobile data plans with straightforward setup. Start enjoying reliable connectivity today!">
-  <meta property="og:title" content="Activate Your Service | More4Less Wireless Internet & SIM Plans">
-  <meta property="og:description" content="Activate your More4Less router or SIM card quickly and easily. Get high-speed wireless internet or mobile data plans with straightforward setup. Start enjoying reliable connectivity today!">
-  <meta property="og:image" content="https://more4lessplans.ca/main.jpg">
+  <title>Activate Your Plan | More4Less Wireless Internet & Prepaid Service</title>
+  <meta name="keywords" content="activate internet service, wireless internet Canada, LTE plan, 5G plan, More4Less plan, rural internet activation, RV internet service, mobile internet activation, unlimited data plans">
+  <meta name="description" content="Activate your More4Less Wireless Internet plan with 21GB data, unlimited Canada talk & text, and more. Perfect for rural homes, RVs, and travelers across Canada.">
+  <meta property="og:title" content="Activate Your Plan | More4Less Wireless Internet & Plans">
+  <meta property="og:description" content="Activate your More4Less plan with 21GB data, unlimited talk & text, and 5G mobile hotspot for rural homes, RVs, and travelers in Canada.">
+  <meta property="og:image" content="https://more4lessplans.ca/assets/img/products/plan.png">
   <meta property="og:url" content="https://more4lessplans.ca/activate">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Activate Your Service | More4Less Wireless Internet & SIM Plans">
-  <meta name="twitter:description" content="Activate your More4Less router or SIM card quickly and easily. Get high-speed wireless internet or mobile data plans with straightforward setup. Start enjoying reliable connectivity today!">
-  <meta name="twitter:image" content="https://more4lessplans.ca/main.jpg">
+  <meta name="twitter:title" content="Activate Your Plan | More4Less Wireless Internet & Plans">
+  <meta name="twitter:description" content="Activate your More4Less plan with 21GB data, unlimited talk & text, and more.">
+  <meta name="twitter:image" content="https://more4lessplans.ca/assets/img/products/plan.png">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
@@ -75,29 +77,14 @@
       padding: 30px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
       transition: box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
     .activation-card:hover { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); }
-    .activation-tabs {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 2rem;
-      border-bottom: 1px solid #E5E7EB;
-    }
-    .activation-tab {
-      padding: 10px 20px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #565656;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border-bottom: 3px solid transparent;
-    }
-    .activation-tab.active { color: #2E2F33; border-bottom: 3px solid #2E2F33; }
-    .activation-tab:hover { color: #2E2F33; }
-    .tab-content { display: none; text-align: center; }
-    .tab-content.active { display: block; }
-    .tab-content img { max-width: 200px; height: auto; margin: 1rem auto; }
-    .tab-content p { font-size: 1rem; line-height: 1.6; color: #565656; margin-bottom: 2rem; }
+    .activation-card img { max-width: 200px; height: auto; margin: 1rem auto; display: block; }
+    .activation-card p { font-size: 1rem; line-height: 1.6; color: #565656; margin-bottom: 2rem; }
     .section-title h3 {
       position: relative;
       display: inline-block;
@@ -135,41 +122,93 @@
     .reactivate-text a:hover {
       color: #D73C59;
     }
+    .plan-details, .included-features {
+      text-align: left;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .plan-details strong, .included-features strong {
+      font-size: 1.2rem;
+      color: #2E2F33;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .plan-details ul, .included-features ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-bottom: 0;
+    }
+    .plan-details li, .included-features li {
+      font-size: 1rem;
+      color: #565656;
+      line-height: 1.6;
+    }
+    /* Button Styling for Chargebee */
+    .cb-button {
+      border: 2px solid #2E2F33 !important;
+      background-color: #2E2F33 !important;
+      color: #fff !important;
+      font-weight: 600 !important;
+      border-radius: 9px !important;
+      padding: 15px 45px !important;
+      font-family: 'Rubik', sans-serif !important;
+      text-transform: none !important;
+      transition: all 0.3s ease !important;
+      display: inline-block !important;
+      margin: 0 auto !important;
+      text-decoration: none !important;
+    }
+    .cb-button:hover, .cb-button:focus {
+      background-color: transparent !important;
+      color: #000 !important;
+      border: 2px solid #000 !important;
+    }
   </style>
 </head>
 
 <body>
+  <!-- Navbar Container -->
   <div id="navbar-container"></div>
 
+  <!-- Main Content -->
   <main class="main" id="top">
     <div class="content">
       <section class="bg-white py-8 py-lg-10" id="activation-section">
         <div class="container">
           <div class="row justify-content-center text-center mb-5 section-title">
             <div class="col-md-8 col-lg-7">
-              <h3 class="fs-4 fs-lg-3 fw-bold mb-2 lh-sm">Activate Your Service</h3>
-              <p class="fs-8 lh-lg text-muted">Select your service type to begin the activation process.</p>
+              <h3 class="fs-4 fs-lg-3 fw-bold mb-2 lh-sm">Activate Your Plan</h3>
+              <p class="fs-8 lh-lg text-muted">Subscribe to our 21GB plan with unlimited talk & text</p>
             </div>
           </div>
           <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
               <div class="activation-card">
-                <div class="activation-tabs">
-                  <div class="activation-tab active" data-tab="router">Wireless Internet</div>
-                  <div class="activation-tab" data-tab="sim">Talk, Text & Data</div>
+                <img src="assets/img/products/SIM.png" alt="Plan Activation" class="mb-3">
+                <div class="plan-details">
+                  <strong>Plan Details</strong>
+                  <ul>
+                    <li>21GB Data</li>
+                    <li>Unlimited Canada Talk & Text</li>
+                    <li>Unlimited Global Text</li>
+                    <li>1000 Intl Minutes (India, UK, China, HK, Mexico, Bangladesh)</li>
+                    <li>Mobile Hotspot on 5G</li>
+                  </ul>
                 </div>
-                <div class="tab-content active" id="router-content">
-                  <img src="assets/img/Hero/active.png" alt="Router Activation" class="mb-3">
-                  <p>Activate your Wireless Internet service for high-speed connectivity at home or on the go. Have your credit card and router details ready.</p>
-                    <button class="btn btn-primary" onclick="window.location.href='javascript:void(0)'" data-cb-type="checkout" data-cb-plan-id="home-internet">Activate</button>
+                <div class="included-features">
+                  <strong>Included Features</strong>
+                  <ul>
+                    <li>Visual Voicemail</li>
+                    <li>Voicemail</li>
+                    <li>Caller ID</li>
+                    <li>Call Waiting</li>
+                    <li>Conference Calling</li>
+                    <li>Call Forwarding</li>
+                  </ul>
                 </div>
-                <div class="tab-content" id="sim-content">
-                  <img src="assets/img/Hero/sim.png" alt="SIM Activation" class="mb-3">
-                  <p>Activate your Talk, Text & Data Mobility Plan for your phone. Ensure you have your credit card and phone ready for a quick setup.</p>
-                  <button class="btn btn-primary" onclick="window.location.href='/activate-sim'">Activate</button>
-                </div>
+                <a href="javascript:void(0)" data-cb-type="checkout" data-cb-plan-id="21CANADA" class="cb-button">Subscribe</a>
               </div>
-              <p class="reactivate-text">Returning Customer? <a href="/reactivate-service">Re-Activate Your Service →</a></p>
+              <p class="reactivate-text">Need help? <a href="/contact">Contact Support →</a></p>
             </div>
           </div>
         </div>
@@ -177,12 +216,13 @@
     </div>
   </main>
 
+  <!-- Footer Container -->
   <div id="footer-container"></div>
 
+  <!-- JavaScripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://js.chargebee.com/v2/chargebee.js" data-cb-site="more4lessplans"></script>
   <script src="vendors/is/is.min.js"></script>
   <script src="vendors/countup/countUp.umd.js"></script>
   <script src="vendors/swiper/swiper-bundle.min.js"></script>
@@ -202,7 +242,9 @@
           const navbarScript = document.createElement('script');
           navbarScript.src = '/navbar.js';
           navbarScript.onload = function() {
-            initializeNavbar(); // Assumes this function exists in navbar.js
+            if (typeof initializeNavbar === 'function') {
+              initializeNavbar();
+            }
           };
           document.body.appendChild(navbarScript);
         })
@@ -216,57 +258,12 @@
         })
         .then(data => {
           document.getElementById('footer-container').innerHTML = data;
-          document.getElementById('currentYear').textContent = new Date().getFullYear();
+          const yearElement = document.getElementById('currentYear');
+          if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+          }
         })
         .catch(error => console.error('Error loading footer:', error));
-
-      // Tab switching
-      const tabs = document.querySelectorAll('.activation-tab');
-      const contents = document.querySelectorAll('.tab-content');
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          tabs.forEach(t => t.classList.remove('active'));
-          contents.forEach(c => c.classList.remove('active'));
-          tab.classList.add('active');
-          document.getElementById(`${tab.getAttribute('data-tab')}-content`).classList.add('active');
-        });
-      });
-
-      // Chargebee activation button
-      const activateBtn = document.querySelector('.activate-btn');
-      activateBtn.addEventListener('click', () => {
-        if (typeof Chargebee === 'undefined') {
-          console.error('Chargebee library not loaded');
-          window.location.href = '/error.html'; // Fallback URL
-          return;
-        }
-
-        const cbInstance = Chargebee.init({
-          site: 'more4lessplans',
-          publishableKey: 'live_9xoL0GUAJyfaZddNn5cdFhI4hrLAGhyIh' // Replace with actual Chargebee publishable key
-        });
-
-        // Simulate fetching a hosted checkout session (replace with actual server-side call)
-        const hostedPage = {
-          id: 'hosted-page-id',
-          url: 'https://more4lessplans.chargebee.com/hosted_pages/plans/home-internet' // Replace with actual hosted page URL
-        };
-
-        cbInstance.openCheckout({
-          hostedPage: () => Promise.resolve(hostedPage),
-          success: (hostedPageId) => {
-            console.log('Checkout successful:', hostedPageId);
-            window.location.href = '/activation-success.html'; // Redirect after successful checkout
-          },
-          close: () => {
-            console.log('Checkout closed');
-          },
-          error: (err) => {
-            console.error('Checkout error:', err);
-            window.location.href = '/error.html'; // Fallback URL
-          }
-        });
-      });
     });
   </script>
 </body>
