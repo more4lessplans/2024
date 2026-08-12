@@ -1,30 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-   <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="noindex, nofollow">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Returns | More4Less</title>
+    <title>Privacy Policy | More4Less</title>
 
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Learn about the return policy for More4Less Plans for leased or purchased equipment used with our third-party internet services in Canada and initiate a return.">
-    <meta name="keywords" content="More4Less returns, return policy, equipment return, wireless internet Canada, leased equipment return, purchased equipment return, customer support">
-    <meta property="og:title" content="Returns - More4Less Plans">
-    <meta property="og:description" content="Learn about the return policy for More4Less Plans for leased or purchased equipment used with our third-party internet services in Canada and initiate a return.">
-    <meta property="og:image" content="https://more4lessplans.ca/main.jpg">
-    <meta property="og:url" content="https://more4lessplans.ca/returns">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Returns - More4Less Plans">
-    <meta name="twitter:description" content="Learn about the return policy for More4Less Plans for leased or purchased equipment used with our third-party internet services in Canada and initiate a return.">
-    <meta name="twitter:image" content="https://more4lessplans.ca/main.jpg">
-
-    <!-- Favicons -->
+    <!-- 5. Favicons & Theme -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
     <link rel="shortcut icon" href="assets/img/favicons/favicon.ico">
-    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <link rel="manifest" href="assets/img/favicons/site.webmanifest">
     <meta name="theme-color" content="#2E2F33">
 
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -215,13 +202,14 @@
 
         .mobile-nav-links a:hover::after { width: 100%; }
 
-        /* ─── RETURNS CONTENT ────────────────────────────────────── */
-        .returns-wrap {
+        /* ─── PRIVACY CONTENT ────────────────────────────────────── */
+        .privacy-wrap {
             padding-top: var(--nav-h);
             min-height: 100vh;
         }
 
-        .returns-hero {
+        /* Hero header */
+        .privacy-hero {
             padding: 80px 24px 60px;
             text-align: center;
             background: linear-gradient(to bottom, #ffffff 0%, var(--bg-page) 100%);
@@ -229,7 +217,7 @@
             position: relative;
         }
 
-        .returns-hero::before {
+        .privacy-hero::before {
             content: '';
             position: absolute;
             inset: 0;
@@ -253,7 +241,7 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        .returns-eyebrow {
+        .privacy-eyebrow {
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -265,15 +253,15 @@
             margin-bottom: 16px;
         }
 
-        .returns-eyebrow::before,
-        .returns-eyebrow::after {
+        .privacy-eyebrow::before,
+        .privacy-eyebrow::after {
             content: '';
             width: 24px;
             height: 1px;
             background: var(--border);
         }
 
-        .returns-hero h1 {
+        .privacy-hero h1 {
             font-size: clamp(2.4rem, 5vw, 3.2rem);
             font-weight: 800;
             letter-spacing: -0.04em;
@@ -282,7 +270,14 @@
             color: var(--text-dark);
         }
 
-        .returns-content {
+        .last-updated {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Content section */
+        .privacy-content {
             max-width: 780px;
             margin: 0 auto;
             padding: 70px 24px 100px;
@@ -290,14 +285,14 @@
             animation: fadeUp 0.8s ease 0.25s forwards;
         }
 
-        .returns-content p {
+        .privacy-content p {
             font-size: 1rem;
             line-height: 1.8;
             color: var(--text-dark);
             margin-bottom: 20px;
         }
 
-        .returns-content h2 {
+        .privacy-content h2 {
             font-size: 1.5rem;
             font-weight: 800;
             letter-spacing: -0.02em;
@@ -309,7 +304,7 @@
             position: relative;
         }
 
-        .returns-content h2::after {
+        .privacy-content h2::after {
             content: '';
             position: absolute;
             bottom: -2px;
@@ -319,13 +314,13 @@
             background: var(--brand-red);
         }
 
-        .returns-content ul {
+        .privacy-content ul {
             margin: 16px 0 20px 0;
             padding-left: 0;
             list-style: none;
         }
 
-        .returns-content ul li {
+        .privacy-content ul li {
             position: relative;
             padding-left: 28px;
             margin-bottom: 12px;
@@ -334,7 +329,7 @@
             color: var(--text-dark);
         }
 
-        .returns-content ul li::before {
+        .privacy-content ul li::before {
             content: '';
             position: absolute;
             left: 0;
@@ -345,46 +340,56 @@
             background: var(--brand-red);
         }
 
-        .returns-content strong {
+        /* Nested lists */
+        .privacy-content ul ul {
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
+        .privacy-content ul ul li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            padding-left: 24px;
+        }
+
+        .privacy-content ul ul li::before {
+            width: 4px;
+            height: 4px;
+            background: var(--text-muted);
+            opacity: 0.5;
+        }
+
+        .privacy-content strong {
             font-weight: 700;
             color: var(--text-dark);
         }
 
-        .returns-content a {
+        .privacy-content a {
             color: var(--brand-red);
             text-decoration: none;
             border-bottom: 1px solid rgba(215, 60, 89, 0.3);
             transition: border-color 0.2s ease;
         }
 
-        .returns-content a:hover {
+        .privacy-content a:hover {
             border-color: var(--brand-red);
         }
 
-        /* CTA button */
-        .btn-return {
-            display: inline-block;
-            margin-top: 24px;
-            margin-bottom: 16px;
-            background: var(--brand-red);
-            color: #ffffff !important;
-            font-weight: 700;
-            font-size: 0.95rem;
-            padding: 16px 42px;
-            border-radius: 50px;
-            text-decoration: none !important;
-            transition: all 0.25s ease;
-            box-shadow: 0 8px 24px rgba(215, 60, 89, 0.28);
-            border: none;
+        /* Contact box */
+        .contact-box {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            margin-top: 48px;
         }
 
-        .btn-return:hover {
-            background: var(--text-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-            color: #ffffff !important;
-            text-decoration: none !important;
-            border: none;
+        .contact-box p {
+            margin-bottom: 12px;
+        }
+
+        .contact-box p:last-child {
+            margin-bottom: 0;
         }
 
         /* ─── RESPONSIVE ─────────────────────────────────────────── */
@@ -392,17 +397,21 @@
             .nav-links-desktop { display: none; }
             .menu-trigger { display: block; }
 
-            .returns-hero {
+            .privacy-hero {
                 padding: 60px 20px 50px;
             }
 
-            .returns-content {
+            .privacy-content {
                 padding: 50px 20px 80px;
             }
 
-            .returns-content h2 {
+            .privacy-content h2 {
                 font-size: 1.3rem;
                 margin-top: 42px;
+            }
+
+            .contact-box {
+                padding: 24px;
             }
         }
     </style>
@@ -438,41 +447,173 @@
     </ul>
 </div>
 
-<!-- ── RETURNS CONTENT ────────────────────────────────────────── -->
-<div class="returns-wrap">
+<!-- ── PRIVACY CONTENT ────────────────────────────────────────── -->
+<div class="privacy-wrap">
 
     <!-- Hero -->
-    <section class="returns-hero">
+    <section class="privacy-hero">
         <div class="hero-content">
-            <div class="returns-eyebrow">Customer Support</div>
-            <h1>Return Policy</h1>
+            <div class="privacy-eyebrow">Legal</div>
+            <h1>Privacy Policy</h1>
+            <p class="last-updated"><strong>Last Updated:</strong> March 23, 2025</p>
         </div>
     </section>
 
     <!-- Content -->
-    <div class="returns-content">
+    <div class="privacy-content">
 
-        <h2>Return Policy</h2>
-        <p>The following terms apply to the return of equipment, such as routers or modems, whether leased or purchased from More4Less Plans:</p>
+        <p>At The More4Less Plans Group, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard your information when you visit this website or use our wireless internet services. We operate in compliance with the <strong>Personal Information Protection and Electronic Documents Act (PIPEDA)</strong> and other applicable Canadian laws.</p>
+
+        <p>By using this website or our services, you consent to the practices described in this policy.</p>
+
+        <h2>1. Information We Collect</h2>
+        <p>We may collect the following types of information:</p>
         <ul>
-            <li><strong>30-Day Money-Back Guarantee</strong>: New customers can try our service risk-free. If you are not satisfied, you may return the equipment within 30 days of receipt for a full refund of both the service fees and equipment cost, provided the equipment is in new or gently used condition with all original components, cables, and packaging.</li>
-            <li><strong>Leased Equipment Returns</strong>: If you cancel your subscription, you are required to return leased equipment within 30 days of cancellation. You are responsible for all return shipping fees. Failure to return the equipment within this period will result in a $250 charge to cover the equipment's replacement cost.</li>
-            <li><strong>Equipment Condition</strong>: All returned equipment, whether leased or purchased, must be in new or gently used condition, including all original components, cables, and packaging. Normal wear and tear (e.g., minor scratches) is acceptable. Equipment with significant damage (e.g., water damage, cracked components) may incur additional fees.</li>
-            <li><strong>Non-Returnable Items</strong>: Equipment that is damaged beyond repair, missing components, or not in its original packaging may not be accepted, and you may be charged a fee equivalent to the equipment's replacement cost.</li>
-            <li><strong>Return Shipping</strong>: You are responsible for all return shipping fees unless otherwise specified. We recommend using a trackable shipping method, as we are not liable for items lost or damaged during transit.</li>
-            <li><strong>Return Process</strong>: To initiate a return, visit our returns portal below. You will receive a confirmation email with a return authorization number and shipping instructions within 2 business days.</li>
+            <li><strong>Personal Information</strong>: Information that identifies you as an individual, including:
+                <ul>
+                    <li>Name</li>
+                    <li>Email address</li>
+                    <li>Billing and payment information (e.g., credit card details, billing address) when you purchase our services</li>
+                    <li>Phone number (if provided)</li>
+                </ul>
+            </li>
+            <li><strong>Non-Personal Information</strong>: Information that does not directly identify you, such as:
+                <ul>
+                    <li>Browser type, IP address, and device information (collected automatically when you visit this website)</li>
+                    <li>Usage data (e.g., pages visited, time spent on the site)</li>
+                </ul>
+            </li>
+            <li><strong>Cookies and Tracking Technologies</strong>: This website may use cookies to improve your experience. Cookies are small files stored on your device that help us understand how you use our site. You can disable cookies in your browser settings, but this may affect site functionality.</li>
         </ul>
 
-        <h2 id="initiate">Initiate a Return</h2>
-<p>To start the return process for your leased or purchased equipment, please visit our returns portal:</p>
-<a href="http://orders.more4lessplans.ca/" class="btn-return">Initiate a Return</a>
-        <p>For further assistance, please contact our support team <a href="/contact">here</a>.</p>
+        <h2>2. How We Collect Information</h2>
+        <p>We collect information in the following ways:</p>
+        <ul>
+            <li><strong>Directly from You</strong>:
+                <ul>
+                    <li>When you sign up for our wireless internet services.</li>
+                    <li>When you complete a purchase through our checkout process.</li>
+                    <li>When you contact us via email or other communication channels.</li>
+                </ul>
+            </li>
+            <li><strong>Automatically</strong>:
+                <ul>
+                    <li>Through cookies and tracking technologies when you visit this website.</li>
+                    <li>Through our checkout process when you make a purchase.</li>
+                </ul>
+            </li>
+            <li><strong>From Third Parties</strong>:
+                <ul>
+                    <li>We use third-party services to process payments, manage subscriptions, and send emails. These services may collect information on our behalf.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>3. How We Use Your Information</h2>
+        <p>We use your information for the following purposes:</p>
+        <ul>
+            <li><strong>To Provide Our Services</strong>:
+                <ul>
+                    <li>To process your orders and payments.</li>
+                    <li>To set up and manage your wireless internet service.</li>
+                </ul>
+            </li>
+            <li><strong>To Communicate with You</strong>:
+                <ul>
+                    <li>To respond to your inquiries or provide customer support.</li>
+                    <li>To send you updates about your service, including billing notifications or special offers (you can opt out of marketing emails at any time).</li>
+                </ul>
+            </li>
+            <li><strong>To Improve Our Services</strong>:
+                <ul>
+                    <li>To analyze website usage and improve our website's functionality.</li>
+                    <li>To understand customer preferences and enhance our offerings.</li>
+                </ul>
+            </li>
+            <li><strong>To Comply with Legal Obligations</strong>:
+                <ul>
+                    <li>To meet requirements under PIPEDA or other applicable laws.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>4. How We Share Your Information</h2>
+        <p>We do not sell or rent your personal information to third parties. We may share your information in the following circumstances:</p>
+        <ul>
+            <li><strong>With Service Providers</strong>:
+                <ul>
+                    <li>We share your information with third-party service providers to process payments, manage subscriptions, send emails, and host this website. These providers are contractually obligated to protect your information and use it only for the purposes we specify.</li>
+                </ul>
+            </li>
+            <li><strong>For Legal Reasons</strong>:
+                <ul>
+                    <li>If required by law, such as to comply with a court order or legal process.</li>
+                    <li>To protect the rights, property, or safety of More4Less Plans, our customers, or the public.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>5. How We Protect Your Information</h2>
+        <p>We take reasonable measures to protect your personal information, including:</p>
+        <ul>
+            <li>Using secure payment processing that complies with PCI-DSS standards.</li>
+            <li>Storing your information securely and limiting access to authorized personnel only.</li>
+            <li>Using encryption for email communication.</li>
+        </ul>
+        <p>However, no method of transmission over the internet is 100% secure. While we strive to protect your information, we cannot guarantee absolute security.</p>
+
+        <h2>6. Your Rights Under PIPEDA</h2>
+        <p>As a resident of Canada, you have the following rights under PIPEDA:</p>
+        <ul>
+            <li><strong>Access</strong>: You can request access to the personal information we hold about you.</li>
+            <li><strong>Correction</strong>: You can request corrections to inaccurate or incomplete information.</li>
+            <li><strong>Withdrawal of Consent</strong>: You can withdraw your consent for the collection, use, or disclosure of your information at any time, subject to legal or contractual restrictions (e.g., we may need to retain certain information for billing purposes).</li>
+            <li><strong>Complaints</strong>: If you have concerns about our privacy practices, you can file a complaint with the Office of the Privacy Commissioner of Canada (<a href="https://www.priv.gc.ca" target="_blank">https://www.priv.gc.ca</a>).</li>
+        </ul>
+        <p>To exercise these rights, contact us using the details below.</p>
+
+        <h2>7. Retention of Your Information</h2>
+        <p>We retain your personal information only as long as necessary to fulfill the purposes outlined in this policy or as required by law. For example:</p>
+        <ul>
+            <li>Billing information is retained for 7 years to comply with Canadian tax laws.</li>
+            <li>Contact information is retained until you request deletion or unsubscribe from communications.</li>
+        </ul>
+        <p>Once no longer needed, your information is securely deleted or anonymized.</p>
+
+        <h2>8. International Data Transfers</h2>
+        <p>Your information may be processed by third-party service providers located outside of Canada, such as in the United States. These providers are subject to their respective privacy laws, which may differ from Canadian laws. We ensure that our service providers comply with PIPEDA-equivalent standards for data protection, but your information may be subject to access by foreign governments or agencies under applicable laws.</p>
+
+        <h2>9. Children's Privacy</h2>
+        <p>Our services are not directed to individuals under the age of 19 in Ontario. We do not knowingly collect personal information from children. If we learn that we have collected such information, we will delete it promptly.</p>
+
+        <h2>10. Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. The updated policy will be posted on this page with a revised "Last Updated" date. We encourage you to review this policy periodically.</p>
+
+        <h2>11. Contact Us</h2>
+       <p>If you have questions about this Privacy Policy or our privacy practices, please <a href="contact.html">contact us</a>.</p>
+
+        <div class="contact-box">
+    <p><strong>The More4Less Team</strong></p>
+    <p>Email: <a href="#" id="emailLink"></a></p>
+</div>
 
     </div>
 
 </div>
 
 <script>
+
+  
+document.addEventListener("DOMContentLoaded", function() {
+    const user = "privacy";
+    const domain = "more4lessplans.com";
+    const email = user + "@" + domain;
+
+    const link = document.getElementById("emailLink");
+    link.href = "mailto:" + email;
+    link.textContent = email;
+});
+
     function toggleMenu() {
         const trigger = document.getElementById('menuTrigger');
         const overlay = document.getElementById('mobileOverlay');
